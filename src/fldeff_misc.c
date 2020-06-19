@@ -496,7 +496,7 @@ static void SetCurrentSecretBase(void)
 
 static void AdjustSecretPowerSpritePixelOffsets(void)
 {
-    if (gPlayerAvatar.flags & 0x6)
+    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
     {
         switch (gFieldEffectArguments[1])
         {
@@ -589,7 +589,7 @@ static void FieldCallback_SecretBaseCave(void)
 
 bool8 FldEff_UseSecretPowerCave(void)
 {
-    u8 taskId = oei_task_add();
+    u8 taskId = CreateFieldMoveTask();
 
     gTasks[taskId].data[8] = (u32)StartSecretBaseCaveFieldEffect >> 16;
     gTasks[taskId].data[9] = (u32)StartSecretBaseCaveFieldEffect;
@@ -649,7 +649,7 @@ static void FieldCallback_SecretBaseTree(void)
 
 bool8 FldEff_UseSecretPowerTree(void)
 {
-    u8 taskId = oei_task_add();
+    u8 taskId = CreateFieldMoveTask();
 
     gTasks[taskId].data[8] = (u32)StartSecretBaseTreeFieldEffect >> 16;
     gTasks[taskId].data[9] = (u32)StartSecretBaseTreeFieldEffect;
@@ -723,7 +723,7 @@ static void FieldCallback_SecretBaseShrub(void)
 
 bool8 FldEff_UseSecretPowerShrub(void)
 {
-    u8 taskId = oei_task_add();
+    u8 taskId = CreateFieldMoveTask();
 
     gTasks[taskId].data[8] = (u32)StartSecretBaseShrubFieldEffect >> 16;
     gTasks[taskId].data[9] = (u32)StartSecretBaseShrubFieldEffect;
@@ -1009,7 +1009,7 @@ void DoSecretBaseGlitterMatSparkle(void)
 
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 4);
 
-    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[22], x, y, 0);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SPARKLE], x, y, 0);
     if (spriteId != MAX_SPRITES)
     {
         gSprites[spriteId].coordOffsetEnabled = TRUE;
@@ -1235,7 +1235,7 @@ static void Task_WateringBerryTreeAnim_1(u8 taskId)
     if (!ObjectEventIsMovementOverridden(playerObjEvent)
         || ObjectEventClearHeldMovementIfFinished(playerObjEvent))
     {
-        sub_808C228(GetPlayerFacingDirection());
+        SetPlayerAvatarWatering(GetPlayerFacingDirection());
         ObjectEventSetHeldMovement(playerObjEvent, GetWalkInPlaceNormalMovementAction(GetPlayerFacingDirection()));
         gTasks[taskId].func = Task_WateringBerryTreeAnim_2;
     }

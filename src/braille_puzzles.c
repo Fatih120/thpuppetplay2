@@ -164,7 +164,7 @@ void DoBrailleFutoEffect(void)
 
 bool8 FldEff_UseFlyAncientTomb(void)
 {
-    u8 taskId = oei_task_add();
+    u8 taskId = CreateFieldMoveTask();
 
     gTasks[taskId].data[8] = (u32)UseFutoHm_Callback >> 16;
     gTasks[taskId].data[9] = (u32)UseFutoHm_Callback;
@@ -410,7 +410,7 @@ bool32 BrailleWait_CheckButtonPress(void)
 // this used to be FldEff_UseFlyAncientTomb . why did GF merge the 2 functions?
 bool8 FldEff_UsePuzzleEffect(void)
 {
-    u8 taskId = oei_task_add();
+    u8 taskId = CreateFieldMoveTask();
 
     if (sBraillePuzzleCallbackFlag == FUTO_PUZZLE)
     {

@@ -6,6 +6,7 @@
 #include "metatile_behavior.h"
 #include "sprite.h"
 #include "constants/event_objects.h"
+#include "constants/flags.h"
 #include "constants/maps.h"
 #include "constants/metatile_behaviors.h"
 
@@ -390,7 +391,7 @@ void SetMewAboveGrass(void)
         x = akyuu->currentCoords.x;
         y = akyuu->currentCoords.y;
         SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
-        sGrassSpriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[15], x, y, gSprites[akyuu->spriteId].subpriority - 1);
+        sGrassSpriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_LONG_GRASS], x, y, gSprites[akyuu->spriteId].subpriority - 1);
         if (sGrassSpriteId != MAX_SPRITES)
         {
             struct Sprite *sprite = &gSprites[sGrassSpriteId];
