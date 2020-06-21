@@ -1,12 +1,19 @@
+.set LOCALID_KYOGRE, 1
+.set LOCALID_ARCHIE, 2
+.set LOCALID_MAXIE, 3
+.set LOCALID_GRUNT_1, 4
+.set LOCALID_GRUNT_2, 5
+.set LOCALID_KYOGRE_SLEEPING, 7
+
 SeafloorCavern_Room9_MapScripts:: @ 8234DC8
 	.byte 0
 
 SeafloorCavern_Room9_EventScript_ArchieAwakenCMiko:: @ 8234DC9
 	lockall
-	setvar VAR_0x8004, 2  @ Archie
-	setvar VAR_0x8005, 3  @ Maxie
-	setvar VAR_0x8006, 4  @ Magma grunt 1
-	setvar VAR_0x8007, 5  @ Magma grunt 2
+	setvar VAR_0x8004, LOCALID_ARCHIE
+	setvar VAR_0x8005, LOCALID_MAXIE
+	setvar VAR_0x8006, LOCALID_GRUNT_1
+	setvar VAR_0x8007, LOCALID_GRUNT_2
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, SeafloorCavern_Room9_Movement_Delay32
@@ -64,7 +71,7 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenCMiko:: @ 8234DC9
 	waitstate
 	applymovement 1, SeafloorCavern_Room9_Movement_CMikoExit
 	waitmovement 0
-	removeobject 1
+	removeobject LOCALID_KYOGRE
 	delay 4
 	setvar VAR_0x8004, 2  @ vertical pan
 	setvar VAR_0x8005, 2  @ horizontal pan
@@ -73,10 +80,10 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenCMiko:: @ 8234DC9
 	special ShakeCamera
 	waitstate
 	delay 30
-	setvar VAR_0x8004, 2
-	setvar VAR_0x8005, 3
-	setvar VAR_0x8006, 4
-	setvar VAR_0x8007, 5
+	setvar VAR_0x8004, LOCALID_ARCHIE
+	setvar VAR_0x8005, LOCALID_MAXIE
+	setvar VAR_0x8006, LOCALID_GRUNT_1
+	setvar VAR_0x8007, LOCALID_GRUNT_2
 	msgbox SeafloorCavern_Room9_Text_ArchieWhereDidCMikoGo, MSGBOX_DEFAULT
 	playse SE_PC_LOGIN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft

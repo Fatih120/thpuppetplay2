@@ -1,3 +1,5 @@
+.set LOCALID_HO_OH, 1
+
 NavelRock_Top_MapScripts:: @ 8269113
 	map_script MAP_SCRIPT_ON_TRANSITION, NavelRock_Top_OnTransition
 	map_script MAP_SCRIPT_ON_RESUME, NavelRock_Top_OnResume
@@ -28,7 +30,7 @@ NavelRock_Top_EventScript_TryRemoveAKomachi:: @ 826915B
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_CAUGHT
 	goto_if_ne Common_EventScript_NopReturn
-	removeobject 1
+	removeobject LOCALID_HO_OH
 	return
 
 NavelRock_Top_EventScript_AKomachi:: @ 826916F
@@ -64,7 +66,7 @@ NavelRock_Top_EventScript_AKomachi:: @ 826916F
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, 1
+	setvar VAR_LAST_TALKED, LOCALID_HO_OH
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq NavelRock_Top_EventScript_DefeatedAKomachi

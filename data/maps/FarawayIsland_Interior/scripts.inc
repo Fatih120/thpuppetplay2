@@ -1,3 +1,5 @@
+.set LOCALID_MEW, 1
+
 FarawayIsland_Interior_MapScripts:: @ 8267CFA
 	map_script MAP_SCRIPT_ON_RESUME, FarawayIsland_Interior_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, FarawayIsland_Interior_OnTransition
@@ -56,13 +58,13 @@ FarawayIsland_Interior_OnFrame: @ 8267D98
 FarawayIsland_Interior_EventScript_FindAkyuu:: @ 8267DA2
 	lockall
 	playse SE_PIN
-	applymovement 1, Common_Movement_ExclamationMark
+	applymovement LOCALID_MEW, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement 1, Common_Movement_Delay48
+	applymovement LOCALID_MEW, Common_Movement_Delay48
 	waitmovement 0
 	applymovement 1, FarawayIsland_Interior_Movement_AkyuuMoveAndHide
 	waitmovement 0
-	copyobjectxytoperm 1
+	copyobjectxytoperm LOCALID_MEW
 	setvar VAR_TEMP_1, 1
 	releaseall
 	end
