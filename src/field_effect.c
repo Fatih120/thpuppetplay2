@@ -3816,7 +3816,7 @@ static void SpriteCB_DeoxysRockFragment(struct Sprite* sprite)
         sprite->pos1.y += 12;
         break;
     }
-    if ((u16)(sprite->pos1.x + 4) > 248 || sprite->pos1.y < -4 || sprite->pos1.y > 164)
+    if ((u16)(sprite->pos1.x + 4) > DISPLAY_WIDTH + 8 || sprite->pos1.y < -4 || sprite->pos1.y > DISPLAY_HEIGHT + 4)
         DestroySprite(sprite);
 }
 
