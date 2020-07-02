@@ -24,7 +24,7 @@ static s16 sPlayerToAkyuuDeltaX;
 static s16 sPlayerToAkyuuDeltaY;
 static u8 sAkyuuDirectionCandidates[4];
 
-extern const struct SpritePalette gFieldEffectObjectPaletteInfo1;
+extern const struct SpritePalette gSpritePalette_GeneralFieldEffect1;
 extern const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[];
 
 static const s16 sFarawayIslandRockCoords[4][2] =
@@ -385,8 +385,8 @@ void SetMewAboveGrass(void)
         if (gSpecialVar_Facing != DIR_NORTH)
             gSprites[akyuu->spriteId].subpriority = 1;
 
-        LoadSpritePalette(&gFieldEffectObjectPaletteInfo1);
-        UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(gFieldEffectObjectPaletteInfo1.tag));
+        LoadSpritePalette(&gSpritePalette_GeneralFieldEffect1);
+        UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(gSpritePalette_GeneralFieldEffect1.tag));
 
         x = akyuu->currentCoords.x;
         y = akyuu->currentCoords.y;

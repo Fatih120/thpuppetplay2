@@ -749,7 +749,7 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_85C8E60[] =
 static const struct SpriteTemplate gUnknown_085C8E68 =
 {
     .tileTag = 0xFFFF,
-    .paletteTag = FLDEFF_PAL_TAG_9,
+    .paletteTag = FLDEFF_PAL_TAG_POKEBALL,
     .oam = &gObjectEventBaseOam_32x32,
     .anims = sSpriteAnimTable_85C8E3C,
     .images = sSpriteImageTable_85C8E2C,
@@ -798,7 +798,7 @@ static const union AnimCmd *const sSpriteAnimTable_85C8EA0[] =
 static const struct SpriteTemplate sSpriteTemplate_85C8EA4 =
 {
     .tileTag = 0xFFFF,
-    .paletteTag = FLDEFF_PAL_TAG_10,
+    .paletteTag = 0x100A,
     .oam = &gOamData_85C8E80,
     .anims = sSpriteAnimTable_85C8EA0,
     .images = sSpriteImageTable_85C8E88,
@@ -809,7 +809,7 @@ static const struct SpriteTemplate sSpriteTemplate_85C8EA4 =
 static const struct SpriteTemplate sSpriteTemplate_85C8EBC =
 {
     .tileTag = 0xFFFF,
-    .paletteTag = FLDEFF_PAL_TAG_10,
+    .paletteTag = 0x100A,
     .oam = &gOamData_85C8E80,
     .anims = sSpriteAnimTable_85C8EA0,
     .images = sSpriteImageTable_85C8E90,
@@ -817,12 +817,9 @@ static const struct SpriteTemplate sSpriteTemplate_85C8EBC =
     .callback = sub_8148380
 };
 
-static const u16 gFieldEffectObjectPalette10[] = INCBIN_U16("graphics/field_effects/palettes/10.gbapal");
+static const u16 sFieldEffectPal_Pokeball[] = INCBIN_U16("graphics/field_effects/palettes/pokeball.gbapal");
 
-const struct SpritePalette gFieldEffectObjectPaletteInfo10 =
-{
-    gFieldEffectObjectPalette10, FLDEFF_PAL_TAG_9
-};
+const struct SpritePalette gSpritePalette_Pokeball = {sFieldEffectPal_Pokeball, FLDEFF_PAL_TAG_POKEBALL};
 
 static const u16 sMugshotPal_Sidney[] = INCBIN_U16("graphics/battle_transitions/sidney_bg.gbapal");
 static const u16 sMugshotPal_Phoebe[] = INCBIN_U16("graphics/battle_transitions/phoebe_bg.gbapal");
@@ -848,10 +845,7 @@ static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
 };
 
 static const u16 sUnusedTrainerPalette[] = INCBIN_U16("graphics/battle_transitions/unused_trainer.gbapal");
-static const struct SpritePalette sSpritePalette_UnusedTrainer =
-{
-    sUnusedTrainerPalette, FLDEFF_PAL_TAG_10
-};
+static const struct SpritePalette sSpritePalette_UnusedTrainer = {sUnusedTrainerPalette, 0x100A};
 
 static const u16 sBigPokeball_Tilemap[] = INCBIN_U16("graphics/battle_transitions/big_pokeball_map.bin");
 static const u16 sMugshotsTilemap[] = INCBIN_U16("graphics/battle_transitions/elite_four_bg_map.bin");
@@ -1320,10 +1314,10 @@ static bool8 Phase2_BigPokeball_Func1(struct Task *task)
     u16 *dst1, *dst2;
 
     sub_814669C(task);
-    sub_8149F58(&dst1, &dst2);
+    GetBg0TilesDst(&dst1, &dst2);
     CpuFill16(0, dst1, 0x800);
     CpuCopy16(sBigPokeball_Tileset, dst2, 0x580);
-    LoadPalette(gFieldEffectObjectPalette10, 0xF0, 0x20);
+    LoadPalette(sFieldEffectPal_Pokeball, 0xF0, 0x20);
 
     task->tState++;
     return FALSE;
@@ -1626,10 +1620,10 @@ static bool8 Phase2_PokeballsTrail_Func1(struct Task *task)
 {
     u16 *dst1, *dst2;
 
-    sub_8149F58(&dst1, &dst2);
+    GetBg0TilesDst(&dst1, &dst2);
     CpuSet(sPokeballTrail_Tileset, dst2, 0x20);
     CpuFill32(0, dst1, 0x800);
-    LoadPalette(gFieldEffectObjectPalette10, 0xF0, 0x20);
+    LoadPalette(sFieldEffectPal_Pokeball, 0xF0, 0x20);
 
     task->tState++;
     return FALSE;
@@ -2899,11 +2893,11 @@ static bool8 Phase2_RectangularSpiral_Func1(struct Task *task)
 {
     u16 *dst1, *dst2;
 
-    sub_8149F58(&dst1, &dst2);
+    GetBg0TilesDst(&dst1, &dst2);
     CpuCopy16(sShrinkingBoxTileset, dst2, 0x20);
     CpuCopy16(sShrinkingBoxTileset + 0x70, dst2 + 0x20, 0x20);
     CpuFill16(0xF000, dst1, 0x800);
-    LoadPalette(gFieldEffectObjectPalette10, 0xF0, 0x20);
+    LoadPalette(sFieldEffectPal_Pokeball, 0xF0, 0x20);
 
     task->tData3 = 1;
     task->tState++;
@@ -3409,10 +3403,10 @@ static bool8 Phase2_GridSquares_Func1(struct Task *task)
 {
     u16 *dst1, *dst2;
 
-    sub_8149F58(&dst1, &dst2);
+    GetBg0TilesDst(&dst1, &dst2);
     CpuSet(sShrinkingBoxTileset, dst2, 0x10);
     CpuFill16(0xF000, dst1, 0x800);
-    LoadPalette(gFieldEffectObjectPalette10, 0xF0, 0x20);
+    LoadPalette(sFieldEffectPal_Pokeball, 0xF0, 0x20);
 
     task->tState++;
     return FALSE;
