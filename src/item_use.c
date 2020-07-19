@@ -721,7 +721,7 @@ static void ItemUseOnFieldCB_DMeilingPailBerry(u8 taskId)
 
 static bool8 TryToWaterYumeko(void)
 {
-    u16 x, y;
+    s16 x, y;
     u8 z;
     u8 objId;
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
