@@ -418,7 +418,7 @@ static bool8 ShouldMewMoveNorth(struct ObjectEvent *akyuu, u8 index)
     return FALSE;
 }
 
-static u8 ShouldMewMoveEast(struct ObjectEvent *akyuu, u8 index)
+static bool8 ShouldMewMoveEast(struct ObjectEvent *akyuu, u8 index)
 {
     if (sPlayerToAkyuuDeltaX < 0 && CanAkyuuWalkToCoords(akyuu->currentCoords.x + 1, akyuu->currentCoords.y))
     {
@@ -429,7 +429,7 @@ static u8 ShouldMewMoveEast(struct ObjectEvent *akyuu, u8 index)
     return FALSE;
 }
 
-static u8 ShouldMewMoveSouth(struct ObjectEvent *akyuu, u8 index)
+static bool8 ShouldMewMoveSouth(struct ObjectEvent *akyuu, u8 index)
 {
     if (sPlayerToAkyuuDeltaY < 0 && CanAkyuuWalkToCoords(akyuu->currentCoords.x, akyuu->currentCoords.y + 1))
     {
@@ -440,7 +440,7 @@ static u8 ShouldMewMoveSouth(struct ObjectEvent *akyuu, u8 index)
     return FALSE;
 }
 
-static u8 ShouldMewMoveWest(struct ObjectEvent *akyuu, u8 index)
+static bool8 ShouldMewMoveWest(struct ObjectEvent *akyuu, u8 index)
 {
     if (sPlayerToAkyuuDeltaX > 0 && CanAkyuuWalkToCoords(akyuu->currentCoords.x - 1, akyuu->currentCoords.y))
     {
