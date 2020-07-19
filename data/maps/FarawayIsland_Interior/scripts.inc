@@ -8,24 +8,24 @@ FarawayIsland_Interior_MapScripts:: @ 8267CFA
 	.byte 0
 
 FarawayIsland_Interior_OnReturnToField: @ 8267D0F
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, FarawayIsland_Interior_EventScript_267D19
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, FarawayIsland_Interior_EventScript_TrySetMewAboveGrass
 	end
 
-FarawayIsland_Interior_EventScript_267D19:: @ 8267D19
+FarawayIsland_Interior_EventScript_TrySetMewAboveGrass:: @ 8267D19
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_WON
-	goto_if_eq FarawayIsland_Interior_EventScript_267D4B
+	goto_if_eq FarawayIsland_Interior_EventScript_SetMewAboveGrass
 	compare VAR_RESULT, B_OUTCOME_RAN
-	goto_if_eq FarawayIsland_Interior_EventScript_267D4B
+	goto_if_eq FarawayIsland_Interior_EventScript_SetMewAboveGrass
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
-	goto_if_eq FarawayIsland_Interior_EventScript_267D4B
+	goto_if_eq FarawayIsland_Interior_EventScript_SetMewAboveGrass
 	compare VAR_RESULT, B_OUTCOME_MON_TELEPORTED
-	goto_if_eq FarawayIsland_Interior_EventScript_267D4B
+	goto_if_eq FarawayIsland_Interior_EventScript_SetMewAboveGrass
 	return
 
-FarawayIsland_Interior_EventScript_267D4B:: @ 8267D4B
+FarawayIsland_Interior_EventScript_SetMewAboveGrass:: @ 8267D4B
 	setvar VAR_0x8004, 1
-	special sub_81D4A90
+	special SetMewAboveGrass
 	return
 
 FarawayIsland_Interior_OnResume: @ 8267D54
@@ -123,7 +123,7 @@ FarawayIsland_Interior_EventScript_Akyuu:: @ 8267DF2
 	applymovement 1, FarawayIsland_Interior_Movement_AkyuuAppear
 	waitmovement 0
 	setvar VAR_0x8004, 0
-	special sub_81D4A90
+	special SetMewAboveGrass
 	message FarawayIsland_Interior_Text_Akyuu
 	waitse
 	playmoncry SPECIES_AKYUU, 2
@@ -135,7 +135,7 @@ FarawayIsland_Interior_EventScript_Akyuu:: @ 8267DF2
 	call_if_eq FarawayIsland_Interior_EventScript_AkyuuHideRight
 	compare VAR_FACING, DIR_EAST
 	call_if_eq FarawayIsland_Interior_EventScript_AkyuuHideLeft
-	special sub_81D4BEC
+	special DestroyMewEmergingGrassSprite
 	delay 40
 	waitmoncry
 	setvar VAR_0x8004, SPECIES_AKYUU
