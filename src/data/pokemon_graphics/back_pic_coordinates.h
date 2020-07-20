@@ -2,7 +2,7 @@ const struct MonCoords gMonBackPicCoords[] =
 {
     [SPECIES_NONE] =
     {
-        .size = 136,
+        .size = 0x88,
         .y_offset = 0,
     },
     [SPECIES_CSANAE] =
@@ -477,7 +477,7 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_MEILING] =
     {
-        .size = 120,
+        .size = 0x78,
         .y_offset = 0,
     },
     [SPECIES_CSAKUYA] =
@@ -652,7 +652,7 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_CTEWI] =
     {
-        .size = 120,
+        .size = 0x78,
         .y_offset = 0,
     },
     [SPECIES_TEWI] =
@@ -742,7 +742,7 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_TOYOHIME] =
     {
-        .size = 120,
+        .size = 0x78,
         .y_offset = 0,
     },
     [SPECIES_GOLIATH] =
@@ -772,7 +772,7 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_NAMAZU] =
     {
-        .size = 120,
+        .size = 0x78,
         .y_offset = 0,
     },
     [SPECIES_CELLY] =
@@ -1042,7 +1042,7 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_TNITORI] =
     {
-        .size = 136,
+        .size = 0x88,
         .y_offset = 0,
     },
     [SPECIES_AMOKOU] =
@@ -1242,7 +1242,7 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_MIMA] =
     {
-        .size = 136,
+        .size = 0x88,
         .y_offset = 0,
     },
     [SPECIES_SKOMACHI] =
@@ -1407,12 +1407,12 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_TALICE] =
     {
-        .size = 136,
+        .size = 0x88,
         .y_offset = 0,
     },
     [SPECIES_AREIMU] =
     {
-        .size = 136,
+        .size = 0x88,
         .y_offset = 0,
     },
     [SPECIES_DREIMU] =
@@ -1462,7 +1462,7 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_HRAN] =
     {
-        .size = 136,
+        .size = 0x88,
         .y_offset = 0,
     },
     [SPECIES_AMEDICINE] =
@@ -1562,7 +1562,7 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_DWRIGGLE] =
     {
-        .size = 136,
+        .size = 0x88,
         .y_offset = 0,
     },
     [SPECIES_DMEILING] =
@@ -2032,7 +2032,7 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_CMAMIZOU] =
     {
-        .size = 120,
+        .size = 0x78,
         .y_offset = 0,
     },
     [SPECIES_MAMIZOU] =
