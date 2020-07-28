@@ -1000,8 +1000,6 @@ void ResetLinkContestBoolean(void)
 
 static void SetupContestGpuRegs(void)
 {
-    u16 savedIme;
-
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP);
     SetGpuReg(REG_OFFSET_BLDCNT, 0);
     SetGpuReg(REG_OFFSET_BLDALPHA, 0);
@@ -3411,8 +3409,7 @@ static void GetAllChosenMoves(void)
 
 static void RankContestants(void)
 {
-    s32 i;
-    s32 j;
+    s32 i, j;
     s16 arr[CONTESTANT_COUNT];
 
     for (i = 0; i < CONTESTANT_COUNT; i++)
@@ -3487,8 +3484,7 @@ static bool8 ContestantCanUseTurn(u8 contestant)
 {
     if (eContestantStatus[contestant].numTurnsSkipped != 0 || eContestantStatus[contestant].noMoreTurns)
         return FALSE;
-    else
-        return TRUE;
+    return TRUE;
 }
 
 static void SetContestantStatusesForNextRound(void)
@@ -3542,8 +3538,7 @@ bool8 Contest_IsMonsTurnDisabled(u8 contestant)
 {
     if (eContestantStatus[contestant].numTurnsSkipped != 0 || eContestantStatus[contestant].noMoreTurns)
         return TRUE;
-    else
-        return FALSE;
+    return FALSE;
 }
 
 static void CalculateTotalPointsForContestant(u8 contestant)
@@ -4486,17 +4481,14 @@ static void CalculateAppealMoveImpact(u8 contestant)
             eContestantStatus[contestant].comboAppealBonus = eContestantStatus[contestant].baseAppeal * eContestantStatus[contestant].completedCombo;
             eContestantStatus[contestant].completedComboFlag = TRUE; // Redundant with completedCombo, used by AI
         }
+        else if (gContestMoves[eContestantStatus[contestant].currMove].comboStarterId != 0)
+        {
+            eContestantStatus[contestant].hasJudgesAttention = TRUE;
+            eContestantStatus[contestant].usedComboMove = TRUE;
+        }
         else
         {
-            if (gContestMoves[eContestantStatus[contestant].currMove].comboStarterId != 0)
-            {
-                eContestantStatus[contestant].hasJudgesAttention = TRUE;
-                eContestantStatus[contestant].usedComboMove = TRUE;
-            }
-            else
-            {
-                eContestantStatus[contestant].hasJudgesAttention = FALSE;
-            }
+            eContestantStatus[contestant].hasJudgesAttention = FALSE;
         }
     }
     if (eContestantStatus[contestant].repeatedMove)
