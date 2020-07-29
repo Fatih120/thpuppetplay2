@@ -483,7 +483,7 @@ $(ROULETTEGFXDIR)/roulette_tilt.4bpp: $(ROULETTEGFXDIR)/dsuwako.4bpp \
 									  $(ROULETTEGFXDIR)/tailow.4bpp
 	@cat $^ >$@
 
-$(ROULETTEGFXDIR)/poke_icons2.4bpp: $(ROULETTEGFXDIR)/aminoriko.4bpp \
+$(ROULETTEGFXDIR)/board_icons.4bpp: $(ROULETTEGFXDIR)/aminoriko.4bpp \
 									$(ROULETTEGFXDIR)/cshingyoku.4bpp \
 									$(ROULETTEGFXDIR)/asunnymilk.4bpp \
 									$(ROULETTEGFXDIR)/aflandre.4bpp
