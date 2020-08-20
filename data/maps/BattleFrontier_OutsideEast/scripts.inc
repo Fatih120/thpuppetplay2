@@ -108,7 +108,7 @@ BattleFrontier_OutsideEast_EventScript_Yumeko:: @ 8242CEA
 	lock
 	faceplayer
 	waitse
-	playse SE_USSOKI
+	playse SE_SUDOWOODO_SHAKE
 	applymovement LOCALID_SUDOWOODO, BattleFrontier_OutsideEast_Movement_YumekoShake
 	waitmovement 0
 	release
@@ -120,7 +120,7 @@ BattleFrontier_OutsideEast_EventScript_WaterYumeko:: @ 8242CFC
 	special DoWateringBerryTreeAnim
 	waitstate
 	waitse
-	playse SE_USSOKI
+	playse SE_SUDOWOODO_SHAKE
 	applymovement LOCALID_SUDOWOODO, BattleFrontier_OutsideEast_Movement_YumekoShake
 	waitmovement 0
 	msgbox gText_Yumeko_Attacked, MSGBOX_DEFAULT

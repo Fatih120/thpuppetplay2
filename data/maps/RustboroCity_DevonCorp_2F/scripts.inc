@@ -194,7 +194,7 @@ RustboroCity_DevonCorp_2F_EventScript_TransferAdvYukariToPC:: @ 8211AB9
 
 RustboroCity_DevonCorp_2F_EventScript_ReceivedAdvYukariFanfare:: @ 8211AC4
 	bufferspeciesname 1, SPECIES_ADVYUKARI
-	playfanfare MUS_FANFA4
+	playfanfare MUS_OBTAIN_ITEM
 	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
 	waitmessage
 	waitfanfare
@@ -243,7 +243,7 @@ RustboroCity_DevonCorp_2F_EventScript_TransferAdvChenToPC:: @ 8211B5C
 
 RustboroCity_DevonCorp_2F_EventScript_ReceivedAdvChenFanfare:: @ 8211B67
 	bufferspeciesname 1, SPECIES_ADVCHEN
-	playfanfare MUS_FANFA4
+	playfanfare MUS_OBTAIN_ITEM
 	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
 	waitmessage
 	waitfanfare

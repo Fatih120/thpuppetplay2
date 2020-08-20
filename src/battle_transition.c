@@ -2227,7 +2227,7 @@ static bool8 Phase2_Mugshot_Func4(struct Task *task)
     sub_8148484(task->tPlayerSpriteId, 1);
     sub_814849C(task->tOpponentSpriteId);
 
-    PlaySE(SE_BT_START);
+    PlaySE(SE_MUGSHOT);
 
     sTransitionStructPtr->VBlank_DMA++;
     return FALSE;
