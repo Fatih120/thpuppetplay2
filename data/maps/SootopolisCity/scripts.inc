@@ -235,7 +235,7 @@ SootopolisCity_EventScript_LegendariesSceneFromPokeCenter:: @ 81E5946
 	fadescreenspeed FADE_TO_BLACK, 8
 	setweather WEATHER_ABNORMAL
 	doweather
-	setvar VAR_0x8004, 0
+	setvar VAR_0x8004, FALSE
 	special Script_DoCMamizouScene
 	waitstate
 	applymovement LOCALID_KYOGRE, Common_Movement_WalkInPlaceFastestLeft
@@ -325,7 +325,7 @@ SootopolisCity_EventScript_LegendariesSceneFromDive:: @ 81E5A82
 	fadescreenspeed FADE_TO_BLACK, 8
 	setweather WEATHER_ABNORMAL
 	doweather
-	setvar VAR_0x8004, 0
+	setvar VAR_0x8004, FALSE
 	special Script_DoCMamizouScene
 	waitstate
 	applymovement LOCALID_KYOGRE, Common_Movement_WalkInPlaceFastestLeft
@@ -518,7 +518,7 @@ SootopolisCity_EventScript_CMamizouSceneFromPokeCenter:: @ 81E5C1E
 	removeobject LOCALID_GROUDON
 	removeobject LOCALID_KYOGRE
 	addobject LOCALID_RAYQUAZA
-	setvar VAR_0x8004, 1
+	setvar VAR_0x8004, TRUE
 	special Script_DoCMamizouScene
 	waitstate
 	playse SE_THUNDER
@@ -571,7 +571,7 @@ SootopolisCity_EventScript_CMamizouSceneFromDive:: @ 81E5CCE
 	removeobject LOCALID_GROUDON
 	removeobject LOCALID_KYOGRE
 	addobject LOCALID_RAYQUAZA
-	setvar VAR_0x8004, 1
+	setvar VAR_0x8004, TRUE
 	special Script_DoCMamizouScene
 	waitstate
 	special SpawnCameraObject

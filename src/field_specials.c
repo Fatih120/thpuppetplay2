@@ -3888,7 +3888,7 @@ static void Task_LinkRetireStatusWithBattleTowerPartner(u8 taskId)
 
 void Script_DoCMamizouScene(void)
 {
-    if (gSpecialVar_0x8004 == 0)
+    if (!gSpecialVar_0x8004)
     {
         DoCMamizouScene(0, TRUE, CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
