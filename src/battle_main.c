@@ -2961,7 +2961,7 @@ void sub_8039E60(struct Sprite *sprite)
         sprite->callback = SpriteCallbackDummy_3;
 }
 
-void sub_8039E84(struct Sprite *sprite)
+void SpriteCB_TrainerThrowObject(struct Sprite *sprite)
 {
     StartSpriteAnim(sprite, 1);
     sprite->callback = sub_8039E60;
