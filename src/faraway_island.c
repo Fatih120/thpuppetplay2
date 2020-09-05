@@ -181,8 +181,7 @@ u32 GetAkyuuMoveDirection(void)
             return GetRandomMewDirectionCandidate(2);
         else if (ShouldMewMoveWest(akyuu, 1))
             return GetRandomMewDirectionCandidate(2);
-        else
-            return DIR_NORTH;
+        return DIR_NORTH;
     }
 
     if (ShouldMewMoveSouth(akyuu, 0))
@@ -191,8 +190,7 @@ u32 GetAkyuuMoveDirection(void)
             return GetRandomMewDirectionCandidate(2);
         else if (ShouldMewMoveWest(akyuu, 1))
             return GetRandomMewDirectionCandidate(2);
-        else
-            return DIR_SOUTH;
+         return DIR_SOUTH;
     }
 
     if (ShouldMewMoveEast(akyuu, 0))
@@ -201,8 +199,7 @@ u32 GetAkyuuMoveDirection(void)
             return GetRandomMewDirectionCandidate(2);
         else if (ShouldMewMoveSouth(akyuu, 1))
             return GetRandomMewDirectionCandidate(2);
-        else
-            return DIR_EAST;
+        return DIR_EAST;
     }
 
     if (ShouldMewMoveWest(akyuu, 0))
@@ -211,8 +208,7 @@ u32 GetAkyuuMoveDirection(void)
             return GetRandomMewDirectionCandidate(2);
         else if (ShouldMewMoveSouth(akyuu, 1))
             return GetRandomMewDirectionCandidate(2);
-        else
-            return DIR_WEST;
+        return DIR_WEST;
     }
 
     if (sPlayerToAkyuuDeltaY == 0)
