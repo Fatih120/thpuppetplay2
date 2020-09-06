@@ -3539,7 +3539,7 @@ static void BattleIntroPrintWildMonAttacked(void)
 
 static void BattleIntroPrintOpponentSendsOut(void)
 {
-    u32 position;
+    u8 position;
 
     if (gBattleControllerExecFlags)
         return;
@@ -3562,7 +3562,7 @@ static void BattleIntroPrintOpponentSendsOut(void)
 
 static void BattleIntroOpponent2SendsOutMonAnimation(void)
 {
-    u32 position;
+    u8 position;
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
         position = B_POSITION_OPPONENT_RIGHT;
@@ -3591,7 +3591,7 @@ static void BattleIntroOpponent2SendsOutMonAnimation(void)
 #ifdef NONMATCHING
 static void BattleIntroOpponent1SendsOutMonAnimation(void)
 {
-    u32 position;
+    u8 position;
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
         position = B_POSITION_OPPONENT_LEFT;
@@ -3764,7 +3764,7 @@ static void BattleIntroPrintPlayerSendsOut(void)
 
 static void BattleIntroPlayer2SendsOutMonAnimation(void)
 {
-    u32 position;
+    u8 position;
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
         position = B_POSITION_PLAYER_RIGHT;
@@ -3796,7 +3796,7 @@ static void BattleIntroPlayer2SendsOutMonAnimation(void)
 
 static void BattleIntroPlayer1SendsOutMonAnimation(void)
 {
-    u32 position;
+    u8 position;
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
         position = B_POSITION_PLAYER_LEFT;
