@@ -3736,7 +3736,7 @@ static void BattleIntroRecordMonsToDex(void)
     }
 }
 
-void sub_803B3AC(void) // unused
+static void sub_803B3AC(void) // unused
 {
     if (gBattleControllerExecFlags == 0)
         gBattleMainFunc = BattleIntroPrintPlayerSendsOut;
@@ -3839,7 +3839,7 @@ static void BattleIntroPlayer1SendsOutMonAnimation(void)
     gBattleMainFunc = TryDoEventsBeforeFirstTurn;
 }
 
-void sub_803B598(void) // unused
+static void sub_803B598(void) // unused
 {
     if (gBattleControllerExecFlags == 0)
     {
@@ -3862,8 +3862,7 @@ void sub_803B598(void) // unused
 
 static void TryDoEventsBeforeFirstTurn(void)
 {
-    s32 i;
-    s32 j;
+    s32 i, j;
     u8 effect = 0;
 
     if (gBattleControllerExecFlags)
