@@ -687,7 +687,8 @@ static u16 GetMetatileForFloor(u8 floorId, u32 x, u32 y, u32 stride) // stride i
 void GenerateTrainerHillFloorLayout(u16 *mapArg)
 {
     s32 i, j;
-    u16 *src, *dst;
+    const u16 *src;
+    u16 *dst;
     u8 mapId = GetCurrentTrainerHillMapId();
 
     if (mapId == TRAINER_HILL_ENTRANCE)

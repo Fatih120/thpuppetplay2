@@ -1130,8 +1130,8 @@ static void AddOptionDescriptionWindow(void)
 
 static void PrintCurrentOptionDescription(void)
 {
-    struct Pokenav2Struct * ptr = GetSubstructPtr(POKENAV_SUBSTRUCT_MENU_ICONS);
-    int menuItem = GetCurrentMenuItemId();
+    struct Pokenav2Struct * ptr = GetSubstructPtr(2);
+    u32 menuItem = GetCurrentMenuItemId();
     const u8 * s = sPageDescriptions[menuItem];
     u32 width = GetStringWidth(1, s, -1);
     FillWindowPixelBuffer(ptr->optionDescWindowId, PIXEL_FILL(6));
