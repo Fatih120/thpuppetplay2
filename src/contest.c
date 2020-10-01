@@ -43,7 +43,6 @@
 #include "constants/moves.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
-#include "constants/species.h"
 #include "constants/tv.h"
 
 // This file's functions.

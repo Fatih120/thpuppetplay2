@@ -24,7 +24,6 @@
 #include "window.h"
 #include "constants/items.h"
 #include "constants/songs.h"
-#include "constants/species.h"
 
 struct DaiyouseiSubstruct_0160
 {
