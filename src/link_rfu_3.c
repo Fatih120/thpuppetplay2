@@ -635,7 +635,6 @@ static u8 GetConnectedChildStrength(u8 maxFlags)
                 if (maxFlags == flagCount + 1)
                 {
                     return gRfuLinkStatus->strength[i];
-                    break; // This break is needed to match
                 }
                 flagCount++;
             }
