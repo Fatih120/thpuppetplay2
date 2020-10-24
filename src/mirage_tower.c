@@ -725,8 +725,8 @@ static void sub_81BF248(struct Sprite *sprite)
 
 static void sub_81BF2B8(u8* a, u16 b, u8 c, u8 d, u8 e)
 {
+    u8 r5, r4, r0, r2;
     u16 var, var2;
-    u8 r0, r5, r4, r2;
     u8 r2_1, r4_1;
     u8 b2, c2;
 
