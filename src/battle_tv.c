@@ -721,6 +721,7 @@ void TryPutLinkBattleTvShowOnAir(void)
     u8 countPlayer = 0, countOpponent = 0;
     u16 species;
     s32 i, j;
+    int zero = 0, one = 1; //needed for matching
 
     int zero = 0, one = 1; // stupid variables needed to match. Feel free to get rid of them.
 
