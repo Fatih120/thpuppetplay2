@@ -1169,7 +1169,6 @@ static s32 DrawResultsTextWindow(const u8 *text, u8 spriteId)
         strWidth = 30;
 
     AddTextPrinterParameterized3(windowId, 1, (strWidth * 8 - origWidth) / 2, 1, sContestLinkTextColors, -1, text);
-
     {
         s32 i;
         struct Sprite *sprite;
@@ -1203,10 +1202,10 @@ static s32 DrawResultsTextWindow(const u8 *text, u8 spriteId)
         }
 
         dst = &spriteTilePtrs[(i + 1) / 8][((i + 1) % 8) * 32];
-        CpuCopy32(src + 32, dst, 0x20);
+        CpuCopy32(src + 32,  dst, 0x20);
         CpuCopy32(src + 160, dst + 0x100, 0x20);
         CpuCopy32(src + 160, dst + 0x200, 0x20);
-        CpuCopy32(src + 96, dst + 0x300, 0x20);
+        CpuCopy32(src + 96,  dst + 0x300, 0x20);
     }
     RemoveWindow(windowId);
 
