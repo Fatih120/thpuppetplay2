@@ -3518,7 +3518,7 @@ static void Cmd_unknown_24(void)
 
     if (HP_count == 0)
         gBattleOutcome |= B_OUTCOME_LOST;
-
+    
     HP_count = 0;
 
     for (i = 0; i < PARTY_SIZE; i++)
@@ -3541,8 +3541,9 @@ static void Cmd_unknown_24(void)
             if ((gHitMarker & HITMARKER_FAINTED2(i)) && (!gSpecialStatuses[i].flag40))
                 foundPlayer++;
         }
-
+        
         foundOpponent = 0;
+
         for (i = 1; i < gBattlersCount; i += 2)
         {
             if ((gHitMarker & HITMARKER_FAINTED2(i)) && (!gSpecialStatuses[i].flag40))
