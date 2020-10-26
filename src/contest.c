@@ -6093,4 +6093,3 @@ void StripPlayerAndMonNamesForLinkContest(struct ContestPokemon *mon, s32 langua
     }
 }
 
-
