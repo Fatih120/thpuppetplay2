@@ -127,7 +127,6 @@ static void HandleEndTurn_RanFromBattle(void);
 static void HandleEndTurn_MonFled(void);
 static void HandleEndTurn_FinishBattle(void);
 
-
 // EWRAM vars
 EWRAM_DATA u16 gBattle_BG0_X = 0;
 EWRAM_DATA u16 gBattle_BG0_Y = 0;
