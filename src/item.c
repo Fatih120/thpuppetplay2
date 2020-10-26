@@ -212,7 +212,7 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
                 return FALSE;
             count -= (slotCapacity - ownedCount);
             if (count == 0)
-                break; //Should just be "return TRUE", since setting count to 0 means all the remaining checks until return will be false anyway, but that doesn't match
+                break; //should be return TRUE, but that doesn't match
         }
     }
 
@@ -231,7 +231,7 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
                 }
                 else
                 {
-                    count = 0; //Should just be "return TRUE", since setting count to 0 means all the remaining checks until return will be false anyway, but that doesn't match
+                    count = 0; //should be return TRUE, but that doesn't match
                     break;
                 }
             }
