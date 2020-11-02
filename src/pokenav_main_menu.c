@@ -438,7 +438,6 @@ static u32 LoopedTask_SlideMenuHeaderDown(s32 a0)
         ChangeBgY(0, 0, 0);
         return LT_FINISH;
     }
-
     return LT_PAUSE;
 }
 

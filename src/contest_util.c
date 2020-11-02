@@ -1177,11 +1177,11 @@ static s32 DrawResultsTextWindow(const u8 *text, u8 spriteId)
         src = sUnknown_0858D6D0;
 
         sprite = &gSprites[spriteId];
-        spriteTilePtrs[0] = (u8 *)((OBJ_VRAM0) + sprite->oam.tileNum * 32);
+        spriteTilePtrs[0] = (u8 *)(sprite->oam.tileNum * 32 + OBJ_VRAM0);
 
         for (i = 1; i < 4; i++)
-            spriteTilePtrs[i] = (u8 *)((OBJ_VRAM0) + gSprites[sprite->data[i - 1]].oam.tileNum * 32);
-
+            spriteTilePtrs[i] = (u8 *)(gSprites[sprite->data[i - 1]].oam.tileNum * 32 + OBJ_VRAM0);
+    
         for (i = 0; i < 4; i++)
             CpuFill32(0, spriteTilePtrs[i], 0x400);
 
