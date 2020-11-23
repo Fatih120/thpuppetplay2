@@ -1,6 +1,6 @@
-.set LOCALID_INVISIBLE_BRIDGE_KECLEON, 30
+.set LOCALID_BRIDGE_KECLEON, 30
 .set LOCALID_STEVEN, 31
-.set LOCALID_VISIBLE_BRIDGE_KECLEON, 36
+.set LOCALID_BRIDGE_KECLEON_SHADOW, 36  @ They use a second object which is identical to Kecleon but has a reflection palette tag for the bridge shadow
 
 Route120_MapScripts:: @ 81F53EC
 	map_script MAP_SCRIPT_ON_RESUME, Route120_OnResume
@@ -205,7 +205,7 @@ Route120_EventScript_StevenBattleSWriggle:: @ 81F568B
 	delay 20
 	msgbox Route120_Text_StevenUsedDevonScope, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_INVISIBLE_BRIDGE_KECLEON, Common_Movement_WalkInPlaceFastestRight
+	applymovement LOCALID_BRIDGE_KECLEON, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	applymovement 30, Movement_SWriggleAppears
 	waitmovement 0
