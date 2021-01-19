@@ -361,7 +361,6 @@ void SetMewAboveGrass(void)
 {
     s16 x;
     s16 y;
-    u8 spriteId;
     struct ObjectEvent *akyuu = &gObjectEvents[GetAkyuuObjectEventId()];
 
     akyuu->invisible = FALSE;
