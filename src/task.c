@@ -177,11 +177,11 @@ bool8 FuncIsActiveTask(TaskFunc func)
 
 u8 FindTaskIdByFunc(TaskFunc func)
 {
-    s32 i;
+    u8 i;
 
     for (i = 0; i < NUM_TASKS; i++)
         if (gTasks[i].isActive == TRUE && gTasks[i].func == func)
-            return (u8)i;
+            return i;
 
     return 0xFF;
 }
