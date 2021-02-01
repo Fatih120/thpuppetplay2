@@ -2698,7 +2698,8 @@ const u8 gMonIcon_Gomaseki[] = INCBIN_U8("graphics/pokemon/gomaseki/icon.4bpp");
 const u8 gMonIcon_GomasekiSpeed[] = INCBIN_U8("graphics/pokemon/gomaseki/icon_speed.4bpp");
 const u8 gMonIcon_GomasekiSpeedWide[] = INCBIN_U8("graphics/unused/gomaseki_speed_icon_wide.4bpp");
 
-asm(".space 0x6800");
+// Probably the leftover space from the other Deoxys forms
+static const u8 sEmpty[0x6800] = {0};
 
 const u16 gUnknown_D437F8[] = INCBIN_U16("graphics/unknown/unknown_D437F8.bin");
 

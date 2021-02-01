@@ -118,8 +118,8 @@ static u8 GetLetterTableId(u8 letter)
 static bool32 TryCalculateWallpaper(u16* backgroundClr, u16 *foregroundClr, u8 *iconId, u8 *patternId, u16 trainerId, u8 *phrase)
 {
     s32 i;
-    ALIGNED(2) u8 array[12];
-    u8 charsByTableId[16];
+    u8 array[9];
+    u8 charsByTableId[15];
     u16 *ptr;
 
     if (StringLength(phrase) != 15)
@@ -169,18 +169,16 @@ static void sub_81D9C90(u8 *array, s32 arg1, s32 arg2)
     s32 i, j;
     u8 var1, var2;
 
-    for (i = arg2 - 1; i != -1; i--)
+    for (i = arg2 - 1; i != -1; i--) //should be a greater than or equal to 0 comparison, but that doesn't match
     {
         var1 = (array[0] & 0x80) >> 7;
 
-        var1++; var1--; // needed to match
-
         for (j = arg1 - 1; j >= 0; j--)
         {
-            var2 = array[j] & 0x80;
+            var2 = (array[j] & 0x80) >> 7;
             array[j] <<= 1;
             array[j] |= var1;
-            var1 = var2 >> 7;
+            var1 = var2;
         }
     }
 }

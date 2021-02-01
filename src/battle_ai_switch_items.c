@@ -9,7 +9,6 @@
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
-#include "constants/species.h"
 
 // this file's functions
 static bool8 HasSuperEffectiveMoveAgainstOpponents(bool8 noRng);
@@ -63,7 +62,7 @@ static bool8 ShouldSwitchIfWonderGuard(void)
     }
 
     // Get party information.
-    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_x800000))
+    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
     {
         if ((gActiveBattler & BIT_FLANK) == B_FLANK_LEFT)
             firstId = 0, lastId = 3;
@@ -159,7 +158,7 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
     if (gBattleMons[gActiveBattler].ability == absorbingTypeAbility)
         return FALSE;
 
-    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_x800000))
+    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
     {
         if ((gActiveBattler & BIT_FLANK) == B_FLANK_LEFT)
             firstId = 0, lastId = 3;
@@ -314,8 +313,8 @@ static bool8 AreStatsRaised(void)
 
     for (i = 0; i < NUM_BATTLE_STATS; i++)
     {
-        if (gBattleMons[gActiveBattler].statStages[i] > 6)
-            buffedStatsValue += gBattleMons[gActiveBattler].statStages[i] - 6;
+        if (gBattleMons[gActiveBattler].statStages[i] > DEFAULT_STAT_STAGE)
+            buffedStatsValue += gBattleMons[gActiveBattler].statStages[i] - DEFAULT_STAT_STAGE;
     }
 
     return (buffedStatsValue > 3);
@@ -354,7 +353,7 @@ static bool8 FindMonWithFlagsAndSuperEffective(u8 flags, u8 moduloPercent)
         battlerIn2 = gActiveBattler;
     }
 
-    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_x800000))
+    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
     {
         if ((gActiveBattler & BIT_FLANK) == 0)
             firstId = 0, lastId = 3;
@@ -465,7 +464,7 @@ static bool8 ShouldSwitch(void)
         battlerIn2 = *activeBattlerPtr;
     }
 
-    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_x800000))
+    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
     {
         if ((gActiveBattler & BIT_FLANK) == B_FLANK_LEFT)
             firstId = 0, lastId = 3;
@@ -556,7 +555,7 @@ void AI_TrySwitchOrUseItem(void)
                         battlerIn2 = GetBattlerAtPosition(battlerIdentity ^ BIT_FLANK);
                     }
 
-                    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_x800000))
+                    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
                     {
                         if ((gActiveBattler & BIT_FLANK) == B_FLANK_LEFT)
                             firstId = 0, lastId = 3;
@@ -662,7 +661,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
         battlerIn2 = gActiveBattler;
     }
 
-    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_x800000))
+    if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
     {
         if ((gActiveBattler & BIT_FLANK) == B_FLANK_LEFT)
             firstId = 0, lastId = 3;

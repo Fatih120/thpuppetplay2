@@ -22,7 +22,6 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/region_map_sections.h"
-#include "constants/species.h"
 
 // this file's functions
 static void ClearDaycareMonMail(struct DayCareMail *mail);
@@ -548,8 +547,19 @@ static void InheritIVs(struct Pokemon *egg, struct DayCare *daycare)
     for (i = 0; i < INHERITED_IV_COUNT; i++)
     {
         // Randomly pick an IV from the available list and stop from being chosen again.
+        // BUG: Instead of removing the IV that was just picked, this
+        // removes position 0 (HP) then position 1 (DEF), then position 2. This is why HP and DEF
+        // have a lower chance to be inherited in Emerald and why the IV picked for inheritance can
+        // be repeated. Amusingly, FRLG and RS also got this wrong. They remove selectedIvs[i], which
+        // is not an index! This means that it can sometimes remove the wrong stat.
+        #ifndef BUGFIX
         selectedIvs[i] = availableIVs[Random() % (NUM_STATS - i)];
         RemoveIVIndexFromList(availableIVs, i);
+        #else
+        u8 index = Random() % (NUM_STATS - i);
+        selectedIvs[i] = availableIVs[index];
+        RemoveIVIndexFromList(availableIVs, index);
+        #endif
     }
 
     // Determine which parent each of the selected IVs should inherit from.
@@ -831,7 +841,7 @@ void CreateEgg(struct Pokemon *mon, u16 species, bool8 setHotSpringsLocation)
     u8 metLocation;
     u8 isEgg;
 
-    CreateMon(mon, species, EGG_HATCH_LEVEL, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, EGG_HATCH_LEVEL, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     metLevel = 0;
     ball = ITEM_POKE_BALL;
     language = LANGUAGE_JAPANESE;
@@ -858,7 +868,7 @@ static void SetInitialEggData(struct Pokemon *mon, u16 species, struct DayCare *
     u8 language;
 
     personality = daycare->offspringPersonality;
-    CreateMon(mon, species, EGG_HATCH_LEVEL, 32, TRUE, personality, OT_ID_PLAYER_ID, 0);
+    CreateMon(mon, species, EGG_HATCH_LEVEL, USE_RANDOM_IVS, TRUE, personality, OT_ID_PLAYER_ID, 0);
     metLevel = 0;
     ball = ITEM_POKE_BALL;
     language = LANGUAGE_JAPANESE;
@@ -1186,7 +1196,7 @@ static void DaycareAddTextPrinter(u8 windowId, const u8 *text, u32 x, u32 y)
     printer.y = y;
     printer.currentX = x;
     printer.currentY = y;
-    printer.unk = 0;
+    printer.style = 0;
     gTextFlags.useAlternateDownArrow = 0;
     printer.letterSpacing = 0;
     printer.lineSpacing = 1;
@@ -1237,7 +1247,7 @@ static void Task_HandleDaycareLevelMenuInput(u8 taskId)
 {
     u32 input = ListMenu_ProcessInput(gTasks[taskId].tMenuListTaskId);
 
-    if (gMain.newKeys & A_BUTTON)
+    if (JOY_NEW(A_BUTTON))
     {
         switch (input)
         {
@@ -1255,7 +1265,7 @@ static void Task_HandleDaycareLevelMenuInput(u8 taskId)
         DestroyTask(taskId);
         EnableBothScriptContexts();
     }
-    else if (gMain.newKeys & B_BUTTON)
+    else if (JOY_NEW(B_BUTTON))
     {
         gSpecialVar_Result = DAYCARE_EXITED_LEVEL_MENU;
         DestroyListMenuTask(gTasks[taskId].tMenuListTaskId, NULL, NULL);
@@ -1280,7 +1290,7 @@ void ShowDaycareLevelMenu(void)
     menuTemplate.windowId = windowId;
     listMenuTaskId = ListMenuInit(&menuTemplate, 0, 0);
 
-    CopyWindowToVram(windowId, 3);
+    CopyWindowToVram(windowId, WINDOW_COPY_ALL);
 
     daycareMenuTaskId = CreateTask(Task_HandleDaycareLevelMenuInput, 3);
     gTasks[daycareMenuTaskId].tMenuListTaskId = listMenuTaskId;

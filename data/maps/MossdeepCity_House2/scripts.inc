@@ -1,3 +1,5 @@
+.set LOCALID_WINGULL, 3
+
 MossdeepCity_House2_MapScripts:: @ 82220DE
 	.byte 0
 

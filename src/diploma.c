@@ -107,7 +107,7 @@ static void Task_DiplomaFadeIn(u8 taskId)
 
 static void Task_DiplomaWaitForKeyPress(u8 taskId)
 {
-    if (gMain.newKeys & (A_BUTTON | B_BUTTON))
+    if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
         BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_DiplomaFadeOut;
@@ -168,7 +168,7 @@ static const struct BgTemplate sDiplomaBgTemplates[2] =
 static void InitDiplomaBg(void)
 {
     ResetBgsAndClearDma3BusyFlags(0);
-    InitBgsFromTemplates(0, sDiplomaBgTemplates, 2);
+    InitBgsFromTemplates(0, sDiplomaBgTemplates, ARRAY_COUNT(sDiplomaBgTemplates));
     SetBgTilemapBuffer(1, sDiplomaTilemapPtr);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
     ShowBg(0);

@@ -1,3 +1,6 @@
+.set LOCALID_BIRCH, 2
+.set LOCALID_ZIGZAGOON, 4
+
 Route101_MapScripts:: @ 81EBCBA
 	map_script MAP_SCRIPT_ON_TRANSITION, Route101_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route101_OnFrame
@@ -18,11 +21,11 @@ Route101_EventScript_HideMapNamePopup:: @ 81EBCD5
 
 Route101_EventScript_StartBirchRescue:: @ 81EBCDE
 	lockall
-	playbgm MUS_EVENT0, 1
+	playbgm MUS_HELP, 1
 	msgbox Route101_Text_HelpMe, MSGBOX_DEFAULT
 	closemessage
-	setobjectxy 2, 0, 15
-	setobjectxy 4, 0, 16
+	setobjectxy LOCALID_BIRCH, 0, 15
+	setobjectxy LOCALID_ZIGZAGOON, 0, 16
 	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_EnterScene
 	applymovement 2, Route101_Movement_BirchRunAway1
 	applymovement 4, Route101_Movement_DYuyukoChase1
@@ -30,7 +33,7 @@ Route101_EventScript_StartBirchRescue:: @ 81EBCDE
 	applymovement 4, Route101_Movement_DYuyukoChaseInCircles
 	applymovement 2, Route101_Movement_BirchRunInCircles
 	waitmovement 0
-	applymovement 2, Common_Movement_WalkInPlaceFastestRight
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	applymovement 4, Route101_Movement_DYuyukoFaceBirch
 	applymovement 2, Route101_Movement_BirchFaceDYuyuko
@@ -221,13 +224,13 @@ Route101_EventScript_BirchsBag:: @ 81EBE16
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_RESCUED_BIRCH
 	fadescreen FADE_TO_BLACK
-	removeobject 4
+	removeobject LOCALID_ZIGZAGOON
 	setobjectxy OBJ_EVENT_ID_PLAYER, 6, 13
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	special ChooseStarter
 	waitstate
-	applymovement 2, Route101_Movement_BirchApproachPlayer
+	applymovement LOCALID_BIRCH, Route101_Movement_BirchApproachPlayer
 	waitmovement 0
 	msgbox Route101_Text_YouSavedMe, MSGBOX_DEFAULT
 	special HealPlayerParty

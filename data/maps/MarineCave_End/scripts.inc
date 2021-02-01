@@ -1,3 +1,5 @@
+.set LOCALID_KYOGRE, 1
+
 MarineCave_End_MapScripts:: @ 823AFDF
 	map_script MAP_SCRIPT_ON_RESUME, MarineCave_End_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, MarineCave_End_OnTransition
@@ -11,7 +13,7 @@ MarineCave_End_EventScript_TryRemoveCMiko:: @ 823AFF4
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_CAUGHT
 	goto_if_ne Common_EventScript_NopReturn
-	removeobject 1
+	removeobject LOCALID_KYOGRE
 	return
 
 MarineCave_End_OnTransition: @ 823B008

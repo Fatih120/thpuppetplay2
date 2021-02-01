@@ -1,3 +1,7 @@
+.set LOCALID_BRIDGE_KECLEON, 30
+.set LOCALID_STEVEN, 31
+.set LOCALID_BRIDGE_KECLEON_SHADOW, 36  @ They use a second object which is identical to Kecleon but has a reflection palette tag for the bridge shadow
+
 Route120_MapScripts:: @ 81F53EC
 	map_script MAP_SCRIPT_ON_RESUME, Route120_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, Route120_OnTransition
@@ -146,7 +150,7 @@ Route120_EventScript_GiveIapapaBerry:: @ 81F55F6
 
 Route120_EventScript_GiveBerry:: @ 81F5601
 	giveitem VAR_0x8004
-	compare VAR_RESULT, 0
+	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_DAILY_ROUTE_120_RECEIVED_BERRY
 	msgbox Route120_Text_BerryIsRareRaiseItWithCare, MSGBOX_DEFAULT
@@ -201,7 +205,7 @@ Route120_EventScript_StevenBattleSWriggle:: @ 81F568B
 	delay 20
 	msgbox Route120_Text_StevenUsedDevonScope, MSGBOX_DEFAULT
 	closemessage
-	applymovement 30, Common_Movement_WalkInPlaceFastestRight
+	applymovement LOCALID_BRIDGE_KECLEON, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	applymovement 30, Movement_SWriggleAppears
 	waitmovement 0
@@ -233,7 +237,7 @@ Route120_EventScript_RemoveBridgeSWrigglePostBattle:: @ 81F571C
 	end
 
 Route120_EventScript_StevenGiveDeconScope:: @ 81F572C
-	applymovement 31, Common_Movement_WalkInPlaceFastestDown
+	applymovement LOCALID_STEVEN, Common_Movement_WalkInPlaceFastestDown
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	msgbox Route120_Text_StevenGiveDevonScope, MSGBOX_DEFAULT
@@ -241,13 +245,13 @@ Route120_EventScript_StevenGiveDeconScope:: @ 81F572C
 	setflag FLAG_RECEIVED_DEVON_SCOPE
 	msgbox Route120_Text_StevenGoodbye, MSGBOX_DEFAULT
 	closemessage
-	applymovement 31, Common_Movement_WalkInPlaceFastestDown
+	applymovement LOCALID_STEVEN, Common_Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	delay 50
 	setfieldeffectargument 0, 1
 	dofieldeffect FLDEFF_NPCFLY_OUT
 	delay 15
-	removeobject 31
+	removeobject LOCALID_STEVEN
 	waitfieldeffect FLDEFF_NPCFLY_OUT
 	setmetatile 13, 15, METATILE_Fortree_WoodBridge1_Top, 0
 	setmetatile 12, 16, METATILE_Fortree_WoodBridge1_Bottom, 0

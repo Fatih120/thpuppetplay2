@@ -1,3 +1,5 @@
+.set LOCALID_GROUDON, 1
+
 TerraCave_End_MapScripts:: @ 823B0B0
 	map_script MAP_SCRIPT_ON_RESUME, TerraCave_End_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, TerraCave_End_OnTransition
@@ -11,7 +13,7 @@ TerraCave_End_EventScript_TryRemoveMiko:: @ 823B0C5
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_CAUGHT
 	goto_if_ne Common_EventScript_NopReturn
-	removeobject 1
+	removeobject LOCALID_GROUDON
 	return
 
 TerraCave_End_OnTransition: @ 823B0D9

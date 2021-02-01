@@ -20,10 +20,8 @@
 #include "trig.h"
 #include "graphics.h"
 #include "pokedex.h"
-#include "constants/vars.h"
 #include "event_data.h"
 #include "random.h"
-#include "constants/species.h"
 
 enum
 {
@@ -1144,7 +1142,7 @@ static void CB2_RunCreditsSequence(void)
     RunTasks();
     AnimateSprites();
 
-    if ((gMain.heldKeys & B_BUTTON)
+    if ((JOY_HELD(B_BUTTON))
      && gHasHallOfFameRecords != 0
      && gTasks[gUnknown_0203BCE2].func == Task_ProgressCreditTasks)
     {
@@ -1160,8 +1158,8 @@ static void CB2_RunCreditsSequence(void)
 static void sub_8175548(void)
 {
     ResetBgsAndClearDma3BusyFlags(0);
-    InitBgsFromTemplates(0, sBackgroundTemplates, 1);
-    SetBgTilemapBuffer(0, AllocZeroed(0x800));
+    InitBgsFromTemplates(0, sBackgroundTemplates, ARRAY_COUNT(sBackgroundTemplates));
+    SetBgTilemapBuffer(0, AllocZeroed(BG_SCREEN_SIZE));
     LoadPalette(gUnknown_085E56F0, 0x80, 0x40);
     InitWindows(sWindowTemplates);
     DeactivateAllTextPrinters();
@@ -1240,7 +1238,7 @@ void CB2_StartCreditsSequence(void)
     BeginNormalPaletteFade(0xFFFFFFFF, 0, 16, 0, RGB_BLACK);
     EnableInterrupts(INTR_FLAG_VBLANK);
     SetVBlankCallback(CreditsVBlankCallback);
-    m4aSongNumStart(MUS_THANKFOR);
+    m4aSongNumStart(MUS_CREDITS);
     SetMainCallback2(CB2_RunCreditsSequence);
     gUnknown_0203BCE5 = 0;
     sCreditsData = AllocZeroed(sizeof(struct CreditsData));
@@ -1307,8 +1305,6 @@ static void sub_8175808(u8 taskIdA)
 
 static void c2_080C9BFC(u8 taskIdA)
 {
-    u16 backup;
-
     SetVBlankCallback(NULL);
 
     if (sub_8176AB0(gTasks[taskIdA].data[TDA_7], taskIdA))

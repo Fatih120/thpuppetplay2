@@ -69,6 +69,7 @@
 #define NATURE_SASSY    22
 #define NATURE_CAREFUL  23
 #define NATURE_QUIRKY   24
+#define NUM_NATURES     25
 
 // Pokemon Stats
 #define STAT_HP      0
@@ -80,8 +81,12 @@
 #define STAT_ACC     6 // Only in battles.
 #define STAT_EVASION 7 // Only in battles.
 
-#define NUM_EV_STATS     NUM_STATS - 1 // excludes HP
+#define NUM_NATURE_STATS NUM_STATS - 1 // excludes HP
 #define NUM_BATTLE_STATS NUM_STATS + 2 // includes Accuracy and Evasion
+
+#define MIN_STAT_STAGE     0
+#define DEFAULT_STAT_STAGE 6
+#define MAX_STAT_STAGE    12
 
 // Shiny odds
 #define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
@@ -199,6 +204,8 @@
 #define LEVEL_UP_MOVE_LV   0xFE00
 #define LEVEL_UP_END       0xFFFF
 
+#define MAX_LEVEL_UP_MOVES       20
+
 #define MON_MALE       0x00
 #define MON_FEMALE     0xFE
 #define MON_GENDERLESS 0xFF
@@ -225,18 +232,22 @@
 #define STATUS_PRIMARY_POKERUS   6
 #define STATUS_PRIMARY_FAINTED   7
 
+#define MAX_PER_STAT_IVS 31
+#define MAX_IV_MASK 31
+#define USE_RANDOM_IVS (MAX_PER_STAT_IVS + 1)
+#define MAX_PER_STAT_EVS 255
 #define MAX_TOTAL_EVS 510
 #define EV_ITEM_RAISE_LIMIT 100
 
 #define UNOWN_FORM_COUNT 28
 
 // Battle move flags
-#define FLAG_MAKES_CONTACT          0x1
-#define FLAG_PROTECT_AFFECTED       0x2
-#define FLAG_MAGICCOAT_AFFECTED     0x4
-#define FLAG_SNATCH_AFFECTED        0x8
-#define FLAG_MIRROR_MOVE_AFFECTED   0x10
-#define FLAG_KINGSROCK_AFFECTED     0x20
+#define FLAG_MAKES_CONTACT          (1 << 0)
+#define FLAG_PROTECT_AFFECTED       (1 << 1)
+#define FLAG_MAGIC_COAT_AFFECTED    (1 << 2)
+#define FLAG_SNATCH_AFFECTED        (1 << 3)
+#define FLAG_MIRROR_MOVE_AFFECTED   (1 << 4)
+#define FLAG_KINGS_ROCK_AFFECTED    (1 << 5)
 
 // Growth rates
 #define GROWTH_MEDIUM_FAST  0

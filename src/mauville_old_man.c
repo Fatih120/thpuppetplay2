@@ -3,7 +3,6 @@
 #include "constants/songs.h"
 #include "constants/easy_chat.h"
 #include "constants/event_objects.h"
-#include "constants/vars.h"
 #include "mauville_old_man.h"
 #include "event_data.h"
 #include "string_util.h"
@@ -221,7 +220,7 @@ static void PrepareSongText(void)
         if (lineNum == 0)
         {
             *(wordEnd++) = EXT_CTRL_CODE_BEGIN;
-            *(wordEnd++) = 15;
+            *(wordEnd++) = EXT_CTRL_CODE_FILL_WINDOW;
         }
     }
 }
@@ -1325,7 +1324,6 @@ static void PrintStoryList(void)
 {
     s32 i;
     s32 width = GetStringWidth(1, gText_Exit, 0);
-    u8 tileWidth;
     for (i = 0; i < NUM_STORYTELLER_TALES; i++)
     {
         s32 curWidth;

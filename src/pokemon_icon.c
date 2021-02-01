@@ -4,7 +4,6 @@
 #include "palette.h"
 #include "pokemon_icon.h"
 #include "sprite.h"
-#include "constants/species.h"
 
 #define POKE_ICON_BASE_PAL_TAG 56000
 
@@ -1100,7 +1099,7 @@ u16 GetUnownLetterByPersonality(u32 personality)
     if (!personality)
         return 0;
     else
-        return (((personality & 0x3000000) >> 18) | ((personality & 0x30000) >> 12) | ((personality & 0x300) >> 6) | (personality & 0x3)) % 0x1C;
+        return GET_UNOWN_LETTER(personality);
 }
 
 u16 sub_80D2E84(u16 species)

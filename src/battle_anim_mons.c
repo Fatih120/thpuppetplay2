@@ -15,14 +15,6 @@
 #include "trig.h"
 #include "util.h"
 #include "constants/battle_anim.h"
-#include "constants/species.h"
-
-#define GET_UNOWN_LETTER(personality) ((        \
-      (((personality & 0x03000000) >> 24) << 6) \
-    | (((personality & 0x00030000) >> 16) << 4) \
-    | (((personality & 0x00000300) >> 8) << 2)  \
-    | (((personality & 0x00000003) >> 0) << 0)  \
-) % 28)
 
 #define IS_DOUBLE_BATTLE() ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
 
@@ -141,10 +133,10 @@ u8 GetBattlerSpriteCoord(u8 battlerId, u8 coordType)
     default:
         if (IsContest())
         {
-            if (gContestResources->field_18->unk4_0)
-                species = gContestResources->field_18->unk2;
+            if (gContestResources->moveAnim->hasTargetAnim)
+                species = gContestResources->moveAnim->targetSpecies;
             else
-                species = gContestResources->field_18->species;
+                species = gContestResources->moveAnim->species;
         }
         else
         {
@@ -189,10 +181,10 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
         {
             if (IsContest())
             {
-                if (gContestResources->field_18->unk4_0)
-                    personality = gContestResources->field_18->unk10;
+                if (gContestResources->moveAnim->hasTargetAnim)
+                    personality = gContestResources->moveAnim->targetPersonality;
                 else
-                    personality = gContestResources->field_18->unk8;
+                    personality = gContestResources->moveAnim->personality;
             }
             else
             {
@@ -306,10 +298,10 @@ u8 GetBattlerSpriteCoord2(u8 battlerId, u8 coordType)
     {
         if (IsContest())
         {
-            if (gContestResources->field_18->unk4_0)
-                species = gContestResources->field_18->unk2;
+            if (gContestResources->moveAnim->hasTargetAnim)
+                species = gContestResources->moveAnim->targetSpecies;
             else
-                species = gContestResources->field_18->species;
+                species = gContestResources->moveAnim->species;
         }
         else
         {
@@ -1851,7 +1843,7 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
         {
             if (IsContest())
             {
-                species = gContestResources->field_18->species;
+                species = gContestResources->moveAnim->species;
                 return gMonBackPicCoords[species].y_offset;
             }
             else
@@ -2103,15 +2095,15 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
 
     if (IsContest())
     {
-        if (gContestResources->field_18->unk4_0)
+        if (gContestResources->moveAnim->hasTargetAnim)
         {
-            species = gContestResources->field_18->unk2;
-            personality = gContestResources->field_18->unk10;
+            species = gContestResources->moveAnim->targetSpecies;
+            personality = gContestResources->moveAnim->targetPersonality;
         }
         else
         {
-            species = gContestResources->field_18->species;
-            personality = gContestResources->field_18->unk8;
+            species = gContestResources->moveAnim->species;
+            personality = gContestResources->moveAnim->personality;
         }
         if (species == SPECIES_UNOWN)
         {

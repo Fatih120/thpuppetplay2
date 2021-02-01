@@ -1,3 +1,5 @@
+.set LOCALID_RAYQUAZA_SLEEPING, 1
+
 SkyPillar_Top_MapScripts:: @ 82396B8
 	map_script MAP_SCRIPT_ON_RESUME, SkyPillar_Top_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_Top_OnTransition
@@ -24,7 +26,7 @@ SkyPillar_Top_OnTransition: @ 82396E6
 
 SkyPillar_Top_EventScript_SetCleanLayout:: @ 82396FD
 	setmaplayoutindex LAYOUT_SKY_PILLAR_TOP_CLEAN
-	setobjectmovementtype 1, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype LOCALID_RAYQUAZA_SLEEPING, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 SkyPillar_Top_EventScript_TryShowCMamizou:: @ 8239705
