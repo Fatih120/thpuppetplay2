@@ -3999,20 +3999,8 @@ BattleScript_ShedSkinActivates::
 BattleScript_WeatherFormChanges::
 	setbyte sBATTLER, 0
 BattleScript_WeatherFormChangesLoop::
-	trytsanaedatachange
 	addbyte sBATTLER, 1
 	jumpifbytenotequal sBATTLER, gBattlersCount, BattleScript_WeatherFormChangesLoop
-	return
-
-BattleScript_TSanaeChange::
-	call BattleScript_DoTSanaeChange
-	end3
-
-BattleScript_DoTSanaeChange::
-	dotsanaechangeanimation
-	waitstate
-	printstring STRINGID_PKMNTRANSFORMED
-	waitmessage B_WAIT_TIME_LONG
 	return
 
 BattleScript_IntimidateActivatesEnd3::

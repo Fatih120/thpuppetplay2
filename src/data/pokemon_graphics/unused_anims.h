@@ -849,24 +849,6 @@ static const union AnimCmd sUnusedAnim_TSanae_1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sUnusedAnim_TSanae_2[] =
-{
-    ANIMCMD_FRAME(1, 1),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd sUnusedAnim_TSanae_3[] =
-{
-    ANIMCMD_FRAME(2, 1),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd sUnusedAnim_TSanae_4[] =
-{
-    ANIMCMD_FRAME(3, 1),
-    ANIMCMD_END,
-};
-
 static const union AnimCmd sUnusedAnim_Yuki_1[] =
 {
     ANIMCMD_FRAME(0, 63),
@@ -1324,7 +1306,7 @@ static const union AnimCmd *const sUnusedAnims_AdLetty[] = {sAnim_GeneralFrame0}
 static const union AnimCmd *const sUnusedAnims_AdTewi[] = {sAnim_GeneralFrame0, sUnusedAnim_AdTewi_1};
 static const union AnimCmd *const sUnusedAnims_AdMarisa[] = {sAnim_GeneralFrame0, sUnusedAnim_AdMarisa_1};
 static const union AnimCmd *const sUnusedAnims_AdAlice[] = {sAnim_GeneralFrame0, sUnusedAnim_AdAlice_1};
-static const union AnimCmd *const sUnusedAnims_TSanae[] = {sAnim_GeneralFrame0, sUnusedAnim_TSanae_1, sUnusedAnim_TSanae_2, sUnusedAnim_TSanae_3, sUnusedAnim_TSanae_4};
+static const union AnimCmd *const sUnusedAnims_TSanae[] = {sAnim_GeneralFrame0, sUnusedAnim_TSanae_1};
 static const union AnimCmd *const sUnusedAnims_Yuki[] = {sAnim_GeneralFrame0, sUnusedAnim_Yuki_1};
 static const union AnimCmd *const sUnusedAnims_AdMokou[] = {sAnim_GeneralFrame0, sUnusedAnim_AdMokou_1};
 static const union AnimCmd *const sUnusedAnims_AdYukari[] = {sAnim_GeneralFrame0};

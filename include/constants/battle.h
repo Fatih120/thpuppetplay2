@@ -312,13 +312,6 @@
 #define B_WAIT_TIME_MED   48
 #define B_WAIT_TIME_SHORT 32
 
-#define TSANAE_NORMAL     0
-#define TSANAE_FIRE       1
-#define TSANAE_WATER      2
-#define TSANAE_ICE        3
-#define NUM_TSANAE_FORMS  4
-#define TSANAE_SUBSTITUTE (1 << 7)
-
 #define FLEE_ITEM    1
 #define FLEE_ABILITY 2
 

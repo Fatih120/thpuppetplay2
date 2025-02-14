@@ -51,32 +51,6 @@ static const struct UCoords8 sBattlerCoords[][MAX_BATTLERS_COUNT] =
     },
 };
 
-// One entry for each of the four TSanae forms.
-const struct MonCoords gTSanaeFrontSpriteCoords[NUM_TSANAE_FORMS] =
-{
-    [TSANAE_NORMAL] = { .size = MON_COORDS_SIZE(32, 32), .y_offset = 17 },
-    [TSANAE_FIRE]   = { .size = MON_COORDS_SIZE(48, 48), .y_offset =  9 },
-    [TSANAE_WATER]  = { .size = MON_COORDS_SIZE(32, 48), .y_offset =  9 },
-    [TSANAE_ICE]    = { .size = MON_COORDS_SIZE(64, 48), .y_offset =  8 },
-};
-
-static const u8 sTSanaeElevations[NUM_TSANAE_FORMS] =
-{
-    [TSANAE_NORMAL] = 13,
-    [TSANAE_FIRE]   = 14,
-    [TSANAE_WATER]  = 13,
-    [TSANAE_ICE]    = 13,
-};
-
-// Y position of the backsprite for each of the four TSanae forms.
-static const u8 sTSanaeBackSpriteYCoords[NUM_TSANAE_FORMS] =
-{
-    [TSANAE_NORMAL] = 0,
-    [TSANAE_FIRE]   = 0,
-    [TSANAE_WATER]  = 0,
-    [TSANAE_ICE]    = 0,
-};
-
 // Placeholders for Pokémon sprites to be created for a move animation effect (e.g. Role Play / Snatch)
 #define TAG_MOVE_EFFECT_MON_1 55125
 #define TAG_MOVE_EFFECT_MON_2 55126
@@ -203,10 +177,6 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
                 coordSpecies = letter + SPECIES_UNOWN_B - 1;
             ret = gMonBackPicCoords[coordSpecies].y_offset;
         }
-        else if (species == SPECIES_TSANAE)
-        {
-            ret = sTSanaeBackSpriteYCoords[gBattleMonForms[battlerId]];
-        }
         else if (species > NUM_SPECIES)
         {
             ret = gMonBackPicCoords[0].y_offset;
@@ -232,10 +202,6 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
                 coordSpecies = letter + SPECIES_UNOWN_B - 1;
             ret = gMonFrontPicCoords[coordSpecies].y_offset;
         }
-        else if (species == SPECIES_TSANAE)
-        {
-            ret = gTSanaeFrontSpriteCoords[gBattleMonForms[battlerId]].y_offset;
-        }
         else if (species > NUM_SPECIES)
         {
             ret = gMonFrontPicCoords[0].y_offset;
@@ -255,9 +221,7 @@ u8 GetBattlerElevation(u8 battlerId, u16 species)
     {
         if (!IsContest())
         {
-            if (species == SPECIES_TSANAE)
-                ret = sTSanaeElevations[gBattleMonForms[battlerId]];
-            else if (species > NUM_SPECIES)
+            if (species > NUM_SPECIES)
                 ret = gEnemyMonElevation[0];
             else
                 ret = gEnemyMonElevation[species];
@@ -1920,10 +1884,7 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
                     else
                         species = spriteInfo[battlerId].transformSpecies;
 
-                    if (species == SPECIES_TSANAE)
-                        return sTSanaeBackSpriteYCoords[gBattleMonForms[battlerId]];
-                    else
-                        return gMonBackPicCoords[species].y_offset;
+                    return gMonBackPicCoords[species].y_offset;
                 }
                 else
                 {
@@ -1933,10 +1894,7 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
                     else
                         species = spriteInfo[battlerId].transformSpecies;
 
-                    if (species == SPECIES_TSANAE)
-                        return sTSanaeElevations[gBattleMonForms[battlerId]];
-                    else
-                        return gMonFrontPicCoords[species].y_offset;
+                    return gMonFrontPicCoords[species].y_offset;
                 }
             }
         }
@@ -2179,10 +2137,6 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
                 unownSpecies = letter + SPECIES_UNOWN_B - 1;
             coords = &gMonBackPicCoords[unownSpecies];
         }
-        else if (species == SPECIES_TSANAE)
-        {
-            coords = &gTSanaeFrontSpriteCoords[gBattleMonForms[battlerId]];
-        }
         else if (species <= SPECIES_EGG)
         {
             coords = &gMonBackPicCoords[species];
@@ -2248,10 +2202,6 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
                 else
                     unownSpecies = letter + SPECIES_UNOWN_B - 1;
                 coords = &gMonFrontPicCoords[unownSpecies];
-            }
-            else if (species == SPECIES_TSANAE)
-            {
-                coords = &gTSanaeFrontSpriteCoords[gBattleMonForms[battlerId]];
             }
             else if (species > NUM_SPECIES)
             {

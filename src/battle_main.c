@@ -2739,7 +2739,6 @@ static void SpriteCB_Flicker(struct Sprite *sprite)
 #undef sDelay
 
 extern const struct MonCoords gMonFrontPicCoords[];
-extern const struct MonCoords gTSanaeFrontSpriteCoords[];
 
 void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
 {
@@ -2766,10 +2765,6 @@ void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
             unownSpecies = NUM_SPECIES + unownForm;  // Use one of the other Unown letters.
 
         yOffset = gMonFrontPicCoords[unownSpecies].y_offset;
-    }
-    else if (species == SPECIES_TSANAE)
-    {
-        yOffset = gTSanaeFrontSpriteCoords[gBattleMonForms[battler]].y_offset;
     }
     else if (species > NUM_SPECIES)
     {

@@ -4198,27 +4198,9 @@ static const union AnimCmd sAnim_AdAlice_1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_TSanae_0[] =
-{
-    ANIMCMD_FRAME(0, 1),
-    ANIMCMD_END,
-};
-
 static const union AnimCmd sAnim_TSanae_1[] =
 {
     ANIMCMD_FRAME(1, 1),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd sAnim_TSanae_2[] =
-{
-    ANIMCMD_FRAME(2, 1),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd sAnim_TSanae_3[] =
-{
-    ANIMCMD_FRAME(3, 1),
     ANIMCMD_END,
 };
 
@@ -5191,12 +5173,7 @@ SINGLE_ANIMATION(AdLetty);
 SINGLE_ANIMATION(AdTewi);
 SINGLE_ANIMATION(AdMarisa);
 SINGLE_ANIMATION(AdAlice);
-static const union AnimCmd *const sAnims_TSanae[] ={
-    sAnim_TSanae_0,
-    sAnim_TSanae_1,
-    sAnim_TSanae_2,
-    sAnim_TSanae_3,
-};
+SINGLE_ANIMATION(TSanae);
 SINGLE_ANIMATION(Yuki);
 SINGLE_ANIMATION(AdMokou);
 SINGLE_ANIMATION(AdYukari);

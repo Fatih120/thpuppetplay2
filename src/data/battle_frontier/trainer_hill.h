@@ -2857,7 +2857,7 @@ static const struct TrainerHillFloor sFloors_Unique[] = {
                                             .spDefenseIV = 15,
                                             .abilityNum = 0,
                                             .personality = 0xF,
-                                            .nickname = _("YUUGENMAGAN"),
+                                            .nickname = _("YUGENMAGAN"),
                                             .friendship = MAX_FRIENDSHIP,
                                         },
                                 },

@@ -1352,14 +1352,6 @@ static const u16 sHoennToNationalOrder[NUM_SPECIES - 1] =
     HOENN_TO_NATIONAL(OLD_UNOWN_Z),
 };
 
-const struct SKogasaSpot gSKogasaSpotGraphics[] =
-{
-    {.x = 16, .y =  7, .image = INCBIN_U16("graphics/pokemon/skogasa/spots/spot_0.1bpp")},
-    {.x = 40, .y =  8, .image = INCBIN_U16("graphics/pokemon/skogasa/spots/spot_1.1bpp")},
-    {.x = 22, .y = 25, .image = INCBIN_U16("graphics/pokemon/skogasa/spots/spot_2.1bpp")},
-    {.x = 34, .y = 26, .image = INCBIN_U16("graphics/pokemon/skogasa/spots/spot_3.1bpp")}
-};
-
 #include "data/pokemon/item_effects.h"
 
 const s8 gNatureStatTable[NUM_NATURES][NUM_NATURE_STATS] =
@@ -5682,108 +5674,6 @@ u16 SpeciesToCryId(u16 species)
     return gSpeciesIdToCryId[species - (SPECIES_HEIRIN - 1)];
 }
 
-// Spots can be drawn on SKogasa's color indexes 1, 2, or 3
-#define FIRST_SPOT_COLOR 1
-#define LAST_SPOT_COLOR  3
-
-// To draw a spot pixel, add 4 to the color index
-#define SPOT_COLOR_ADJUSTMENT 4
-/*
-    The macros below handle drawing the randomly-placed spots on SKogasa's front sprite.
-    SKogasa has 4 spots, each with an entry in gSKogasaSpotGraphics. Each entry contains
-    a base x and y coordinate for the spot and a 16x16 binary image. Each bit in the image
-    determines whether that pixel should be considered part of the spot.
-
-    The position of each spot is randomized using the SKogasa's personality. The entire 32 bit
-    personality value is used, 4 bits for each coordinate of the 4 spots. If the personality
-    value is 0x87654321, then 0x1 will be used for the 1st spot's x coord, 0x2 will be used for
-    the 1st spot's y coord, 0x3 will be used for the 2nd spot's x coord, and so on. Each
-    coordinate is calculated as (baseCoord + (given 4 bits of personality) - 8). In effect this
-    means each spot can start at any position -8 to +7 off of its base coordinates (256 possibilities).
-
-    DRAW_SKOGASA_SPOTS loops over the 16x16 spot image. For each bit in the spot's binary image, if
-    the bit is set then it's part of the spot; try to draw it. A pixel is drawn on SKogasa if the
-    pixel is between FIRST_SPOT_COLOR and LAST_SPOT_COLOR (so only colors 1, 2, or 3 on SKogasa will
-    allow a spot to be drawn). These color indexes are SKogasa's light brown body colors. To create
-    the spot it adds 4 to the color index, so SKogasa's spots will be colors 5, 6, and 7.
-
-    The above is done in TRY_DRAW_SPOT_PIXEL two different ways: one with << 4, and one without.
-    This is because SKogasa's sprite is a 4 bits per pixel image, but the pointer to SKogasa's pixels
-    (destPixels) is an 8 bit pointer, so it addresses two pixels. Shifting by 4 accesses the 2nd
-    of these pixels, so this is done every other time.
-*/
-
-// Draw spot pixel if this is SKogasa's body color
-#define TRY_DRAW_SPOT_PIXEL(pixels, shift) \
-    if (((*(pixels) & (0xF << (shift))) >= (FIRST_SPOT_COLOR << (shift))) \
-     && ((*(pixels) & (0xF << (shift))) <= (LAST_SPOT_COLOR << (shift)))) \
-    { \
-        *(pixels) += (SPOT_COLOR_ADJUSTMENT << (shift)); \
-    }
-
-#define DRAW_SKOGASA_SPOTS(personality, dest)                                    \
-{                                                                               \
-    s32 i;                                                                      \
-    for (i = 0; i < (s32)ARRAY_COUNT(gSKogasaSpotGraphics); i++)                 \
-    {                                                                           \
-        s32 row;                                                                \
-        u8 x = gSKogasaSpotGraphics[i].x + ((personality & 0x0F) - 8);           \
-        u8 y = gSKogasaSpotGraphics[i].y + (((personality & 0xF0) >> 4) - 8);    \
-                                                                                \
-        for (row = 0; row < SKOGASA_SPOT_HEIGHT; row++)                          \
-        {                                                                       \
-            s32 column;                                                         \
-            s32 spotPixelRow = gSKogasaSpotGraphics[i].image[row];               \
-                                                                                \
-            for (column = x; column < x + SKOGASA_SPOT_WIDTH; column++)          \
-            {                                                                   \
-                /* Get target pixels on SKogasa's sprite */                      \
-                u8 *destPixels = dest + ((column / 8) * TILE_SIZE_4BPP) +       \
-                                        ((column % 8) / 2) +                    \
-                                             ((y / 8) * TILE_SIZE_4BPP * 8) +   \
-                                             ((y % 8) * 4);                     \
-                                                                                \
-                /* Is this pixel in the 16x16 spot image part of the spot? */   \
-                if (spotPixelRow & 1)                                           \
-                {                                                               \
-                    /* destPixels addressess two pixels, alternate which */     \
-                    /* of the two pixels is being considered for drawing */     \
-                    if (column & 1)                                             \
-                    {                                                           \
-                        TRY_DRAW_SPOT_PIXEL(destPixels, 4);                     \
-                    }                                                           \
-                    else                                                        \
-                    {                                                           \
-                        TRY_DRAW_SPOT_PIXEL(destPixels, 0);                     \
-                    }                                                           \
-                }                                                               \
-                                                                                \
-                spotPixelRow >>= 1;                                             \
-            }                                                                   \
-                                                                                \
-            y++;                                                                \
-        }                                                                       \
-                                                                                \
-        personality >>= 8;                                                      \
-    }                                                                           \
-}
-
-// Same as DrawSKogasaSpots but attempts to discern for itself whether or
-// not it's the front pic.
-static void UNUSED DrawSKogasaSpotsUnused(u16 species, u32 personality, u8 *dest)
-{
-    if (species == SPECIES_SKOGASA
-        && dest != gMonSpritesGfxPtr->sprites.ptr[B_POSITION_PLAYER_LEFT]
-        && dest != gMonSpritesGfxPtr->sprites.ptr[B_POSITION_PLAYER_RIGHT])
-        DRAW_SKOGASA_SPOTS(personality, dest);
-}
-
-void DrawSKogasaSpots(u16 species, u32 personality, u8 *dest, bool8 isFrontPic)
-{
-    if (species == SPECIES_SKOGASA && isFrontPic)
-        DRAW_SKOGASA_SPOTS(personality, dest);
-}
-
 void EvolutionRenameMon(struct Pokemon *mon, u16 oldSpecies, u16 newSpecies)
 {
     u8 language;
@@ -6939,8 +6829,6 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
         GetSetPokedexFlag(nationalNum, caseId);
         if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_UNOWN)
             gSaveBlock2Ptr->pokedex.unownPersonality = personality;
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_SKOGASA)
-            gSaveBlock2Ptr->pokedex.skogasaPersonality = personality;
     }
 }
 
@@ -6962,7 +6850,6 @@ bool8 HasTwoFramesAnimation(u16 species)
 {
     return (species != SPECIES_TSANAE
          && species != SPECIES_GOMASEKI
-         && species != SPECIES_SKOGASA
          && species != SPECIES_UNOWN);
 }
 

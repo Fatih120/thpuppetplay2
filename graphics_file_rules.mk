@@ -1,4 +1,3 @@
-TSANAEGFXDIR := graphics/pokemon/tsanae
 TILESETGFXDIR := data/tilesets
 FONTGFXDIR := graphics/fonts
 INTERFACEGFXDIR := graphics/interface
@@ -26,42 +25,6 @@ TITLESCREENGFXDIR := graphics/title_screen
 
 types := normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark
 contest_types := cool beauty cute smart tough
-
-
-
-### TSanae ###
-
-$(TSANAEGFXDIR)/front.4bpp: $(TSANAEGFXDIR)/normal/front.4bpp \
-                              $(TSANAEGFXDIR)/sunny/front.4bpp \
-                              $(TSANAEGFXDIR)/rainy/front.4bpp \
-                              $(TSANAEGFXDIR)/snowy/front.4bpp
-	@cat $^ >$@
-
-$(TSANAEGFXDIR)/back.4bpp: $(TSANAEGFXDIR)/normal/back.4bpp \
-                             $(TSANAEGFXDIR)/sunny/back.4bpp \
-                             $(TSANAEGFXDIR)/rainy/back.4bpp \
-                             $(TSANAEGFXDIR)/snowy/back.4bpp
-	@cat $^ >$@
-
-$(TSANAEGFXDIR)/anim_front.4bpp: $(TSANAEGFXDIR)/normal/anim_front.4bpp \
-                                   $(TSANAEGFXDIR)/sunny/anim_front.4bpp \
-                                   $(TSANAEGFXDIR)/rainy/anim_front.4bpp \
-                                   $(TSANAEGFXDIR)/snowy/anim_front.4bpp
-	@cat $^ >$@
-
-$(TSANAEGFXDIR)/normal.gbapal: $(TSANAEGFXDIR)/normal/normal.gbapal \
-                                 $(TSANAEGFXDIR)/sunny/normal.gbapal \
-                                 $(TSANAEGFXDIR)/rainy/normal.gbapal \
-                                 $(TSANAEGFXDIR)/snowy/normal.gbapal
-	@cat $^ >$@
-
-$(TSANAEGFXDIR)/shiny.gbapal: $(TSANAEGFXDIR)/normal/shiny.gbapal \
-                                $(TSANAEGFXDIR)/sunny/shiny.gbapal \
-                                $(TSANAEGFXDIR)/rainy/shiny.gbapal \
-                                $(TSANAEGFXDIR)/snowy/shiny.gbapal
-	@cat $^ >$@
-
-
 
 ### Tilesets ###
 
@@ -686,15 +649,3 @@ $(NAMINGGFXDIR)/cursor_squished.4bpp: %.4bpp: %.png
 
 $(NAMINGGFXDIR)/cursor_filled.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 5 -Wnum_tiles
-
-$(SKOGASAGFXDIR)/spot_0.1bpp: %.1bpp: %.png
-	$(GFX) $< $@ -plain -data_width 2
-
-$(SKOGASAGFXDIR)/spot_1.1bpp: %.1bpp: %.png
-	$(GFX) $< $@ -plain -data_width 2
-
-$(SKOGASAGFXDIR)/spot_2.1bpp: %.1bpp: %.png
-	$(GFX) $< $@ -plain -data_width 2
-
-$(SKOGASAGFXDIR)/spot_3.1bpp: %.1bpp: %.png
-	$(GFX) $< $@ -plain -data_width 2

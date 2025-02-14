@@ -229,8 +229,6 @@ static void CreateBattlerSprite(u8 battler)
             gSprites[gBattlerSpriteIds[battler]].data[2] = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
 
             StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], gBattleMonForms[battler]);
-            if (gBattleSpritesDataPtr->battlerData[battler].transformSpecies == SPECIES_TSANAE)
-                gSprites[gBattlerSpriteIds[battler]].anims = gMonFrontAnimsPtrTable[SPECIES_TSANAE];
         }
         else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI && battler == B_POSITION_PLAYER_LEFT)
         {
@@ -265,8 +263,6 @@ static void CreateBattlerSprite(u8 battler)
             gSprites[gBattlerSpriteIds[battler]].data[2] = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
 
             StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], gBattleMonForms[battler]);
-            if (gBattleSpritesDataPtr->battlerData[battler].transformSpecies == SPECIES_TSANAE)
-                gSprites[gBattlerSpriteIds[battler]].anims = gMonFrontAnimsPtrTable[SPECIES_TSANAE];
         }
 
         gSprites[gBattlerSpriteIds[battler]].invisible = gBattleSpritesDataPtr->battlerData[battler].invisible;

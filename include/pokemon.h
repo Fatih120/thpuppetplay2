@@ -337,15 +337,6 @@ struct BattleMove
     u8 flags;
 };
 
-#define SKOGASA_SPOT_WIDTH 16
-#define SKOGASA_SPOT_HEIGHT 16
-
-struct SKogasaSpot
-{
-    u8 x, y;
-    u16 image[SKOGASA_SPOT_HEIGHT];
-};
-
 struct __attribute__((packed)) LevelUpMove
 {
     u16 move:9;
@@ -483,7 +474,6 @@ u16 SpeciesToNationalPokedexNum(u16 species);
 u16 SpeciesToHoennPokedexNum(u16 species);
 u16 HoennToNationalOrder(u16 hoennNum);
 u16 SpeciesToCryId(u16 species);
-void DrawSKogasaSpots(u16 species, u32 personality, u8 *dest, bool8 isFrontPic);
 void EvolutionRenameMon(struct Pokemon *mon, u16 oldSpecies, u16 newSpecies);
 u8 GetPlayerFlankId(void);
 u16 GetLinkTrainerFlankId(u8 id);
