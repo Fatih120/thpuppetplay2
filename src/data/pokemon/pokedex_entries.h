@@ -2412,18 +2412,6 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 0,
     },
 
-    [NATIONAL_DEX_UNOWN] =
-    {
-        .categoryName = _("SYMBOL"),
-        .height = 5,
-        .weight = 50,
-        .description = gUnownPokedexText,
-        .pokemonScale = 411,
-        .pokemonOffset = 2,
-        .trainerScale = 256,
-        .trainerOffset = 0,
-    },
-
     [NATIONAL_DEX_CMAI] =
     {
         .categoryName = _("PATIENT"),

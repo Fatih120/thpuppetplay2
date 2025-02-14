@@ -882,13 +882,6 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_QUIRKY
     },
-    [FRONTIER_MON_UNOWN] = {
-        .species = SPECIES_UNOWN,
-        .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        .itemTableId = BATTLE_FRONTIER_ITEM_LAX_INCENSE,
-        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
-        .nature = NATURE_HARDY
-    },
     [FRONTIER_MON_RIN] = {
         .species = SPECIES_RIN,
         .moves = {MOVE_SLUDGE, MOVE_SMOKESCREEN, MOVE_TORMENT, MOVE_HAZE},

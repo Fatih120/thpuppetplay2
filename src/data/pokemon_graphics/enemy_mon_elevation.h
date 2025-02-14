@@ -32,7 +32,6 @@ const u8 gEnemyMonElevation[NUM_SPECIES] =
     [SPECIES_RUUKOTO] = 9,
     [SPECIES_MUGETSU] = 8,
     [SPECIES_CYUKI] = 8,
-    [SPECIES_UNOWN] = 8,
     [SPECIES_ANITORI] = 6,
     [SPECIES_SKOMACHI] = 6,
     [SPECIES_AKOMACHI] = 6,

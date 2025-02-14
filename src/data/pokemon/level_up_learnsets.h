@@ -2767,11 +2767,6 @@ static const u16 sCYukiLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const u16 sUnownLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_HIDDEN_POWER),
-    LEVEL_UP_END
-};
-
 static const u16 sCMaiLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_COUNTER),
     LEVEL_UP_MOVE( 1, MOVE_MIRROR_COAT),

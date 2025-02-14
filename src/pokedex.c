@@ -1511,7 +1511,7 @@ void ResetPokedex(void)
     gSaveBlock2Ptr->pokedex.order = 0;
     gSaveBlock2Ptr->pokedex.nationalMagic = 0;
     gSaveBlock2Ptr->pokedex.unknown2 = 0;
-    gSaveBlock2Ptr->pokedex.unownPersonality = 0;
+    gSaveBlock2Ptr->pokedex.unownPersonality = 0; //@@@
     gSaveBlock2Ptr->pokedex.unknown3 = 0;
     DisableNationalPokedex();
     for (i = 0; i < NUM_DEX_FLAG_BYTES; i++)
@@ -4649,17 +4649,10 @@ static u16 GetNextPosition(u8 direction, u16 position, u16 min, u16 max)
 }
 
 // Unown and SKogasa use the personality of the first seen individual of that species
-// All others use personality 0
+// All others use personality 0 @@@
 static u32 GetPokedexMonPersonality(u16 species)
 {
-    if (species == SPECIES_UNOWN)
-    {
-        return gSaveBlock2Ptr->pokedex.unownPersonality;
-    }
-    else
-    {
-        return 0;
-    }
+    return 0;
 }
 
 u16 CreateMonSpriteFromNationalDexNumber(u16 nationalNum, s16 x, s16 y, u16 paletteSlot)

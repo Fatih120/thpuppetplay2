@@ -350,15 +350,6 @@ struct Evolution
     u16 targetSpecies;
 };
 
-#define NUM_UNOWN_FORMS 28
-
-#define GET_UNOWN_LETTER(personality) ((   \
-      (((personality) & 0x03000000) >> 18) \
-    | (((personality) & 0x00030000) >> 12) \
-    | (((personality) & 0x00000300) >> 6)  \
-    | (((personality) & 0x00000003) >> 0)  \
-) % NUM_UNOWN_FORMS)
-
 #define GET_SHINY_VALUE(otId, personality) (HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality))
 
 extern u8 gPlayerPartyCount;
@@ -389,7 +380,7 @@ void ZeroEnemyPartyMons(void);
 void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId);
 void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId);
 void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature);
-void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter);
+void CreateMonWithGenderNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature);
 void CreateMaleMon(struct Pokemon *mon, u16 species, u8 level);
 void CreateMonWithIVsPersonality(struct Pokemon *mon, u16 species, u8 level, u32 ivs, u32 personality);
 void CreateMonWithIVsOTID(struct Pokemon *mon, u16 species, u8 level, u8 *ivs, u32 otId);

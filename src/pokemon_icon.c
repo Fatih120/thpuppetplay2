@@ -6,7 +6,7 @@
 #include "sprite.h"
 #include "constants/pokemon_icon.h"
 
-#define INVALID_ICON_SPECIES SPECIES_OLD_UNOWN_J // Oddly specific, used when an icon should be a ?. Any of the 'old unown' would work
+#define INVALID_ICON_SPECIES SPECIES_NONE // @@@
 
 struct MonIconSpriteTemplate
 {
@@ -224,7 +224,6 @@ const u8 *const gMonIconTable[] =
     [SPECIES_CRIKAKO] = gMonIcon_CRikako,
     [SPECIES_RIKAKO] = gMonIcon_Rikako,
     [SPECIES_CYUKI] = gMonIcon_CYuki,
-    [SPECIES_UNOWN] = gMonIcon_UnownA,
     [SPECIES_CMAI] = gMonIcon_CMai,
     [SPECIES_MAI] = gMonIcon_Mai,
     [SPECIES_DSUNNYMILK] = gMonIcon_DSunnyMilk,
@@ -275,31 +274,6 @@ const u8 *const gMonIconTable[] =
     [SPECIES_SKOMACHI] = gMonIcon_SKomachi,
     [SPECIES_AKOMACHI] = gMonIcon_AKomachi,
     [SPECIES_AEIRIN] = gMonIcon_AEirin,
-    [SPECIES_OLD_UNOWN_B] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_C] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_D] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_E] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_F] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_G] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_H] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_I] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_J] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_K] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_L] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_M] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_N] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_O] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_P] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_Q] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_R] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_S] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_T] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_U] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_V] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_W] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_X] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_Y] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_Z] = gMonIcon_QuestionMark,
     [SPECIES_HEIRIN] = gMonIcon_HEirin,
     [SPECIES_DYUKARI] = gMonIcon_DYukari,
     [SPECIES_TYUKARI] = gMonIcon_TYukari,
@@ -436,33 +410,6 @@ const u8 *const gMonIconTable[] =
     [SPECIES_GOMASEKI] = gMonIcon_Gomaseki,
     [SPECIES_CWAKASAGI] = gMonIcon_CWakasagi,
     [SPECIES_EGG] = gMonIcon_Egg,
-    [SPECIES_UNOWN_B] = gMonIcon_UnownB,
-    [SPECIES_UNOWN_C] = gMonIcon_UnownC,
-    [SPECIES_UNOWN_D] = gMonIcon_UnownD,
-    [SPECIES_UNOWN_E] = gMonIcon_UnownE,
-    [SPECIES_UNOWN_F] = gMonIcon_UnownF,
-    [SPECIES_UNOWN_G] = gMonIcon_UnownG,
-    [SPECIES_UNOWN_H] = gMonIcon_UnownH,
-    [SPECIES_UNOWN_I] = gMonIcon_UnownI,
-    [SPECIES_UNOWN_J] = gMonIcon_UnownJ,
-    [SPECIES_UNOWN_K] = gMonIcon_UnownK,
-    [SPECIES_UNOWN_L] = gMonIcon_UnownL,
-    [SPECIES_UNOWN_M] = gMonIcon_UnownM,
-    [SPECIES_UNOWN_N] = gMonIcon_UnownN,
-    [SPECIES_UNOWN_O] = gMonIcon_UnownO,
-    [SPECIES_UNOWN_P] = gMonIcon_UnownP,
-    [SPECIES_UNOWN_Q] = gMonIcon_UnownQ,
-    [SPECIES_UNOWN_R] = gMonIcon_UnownR,
-    [SPECIES_UNOWN_S] = gMonIcon_UnownS,
-    [SPECIES_UNOWN_T] = gMonIcon_UnownT,
-    [SPECIES_UNOWN_U] = gMonIcon_UnownU,
-    [SPECIES_UNOWN_V] = gMonIcon_UnownV,
-    [SPECIES_UNOWN_W] = gMonIcon_UnownW,
-    [SPECIES_UNOWN_X] = gMonIcon_UnownX,
-    [SPECIES_UNOWN_Y] = gMonIcon_UnownY,
-    [SPECIES_UNOWN_Z] = gMonIcon_UnownZ,
-    [SPECIES_UNOWN_EMARK] = gMonIcon_UnownExclamationMark,
-    [SPECIES_UNOWN_QMARK] = gMonIcon_UnownQuestionMark,
 };
 
 const u8 gMonIconPaletteIndices[] =
@@ -668,7 +615,6 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_CRIKAKO] = 2,
     [SPECIES_RIKAKO] = 0,
     [SPECIES_CYUKI] = 0,
-    [SPECIES_UNOWN] = 0,
     [SPECIES_CMAI] = 0,
     [SPECIES_MAI] = 1,
     [SPECIES_DSUNNYMILK] = 0,
@@ -719,31 +665,6 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SKOMACHI] = 0,
     [SPECIES_AKOMACHI] = 1,
     [SPECIES_AEIRIN] = 1,
-    [SPECIES_OLD_UNOWN_B] = 0,
-    [SPECIES_OLD_UNOWN_C] = 0,
-    [SPECIES_OLD_UNOWN_D] = 0,
-    [SPECIES_OLD_UNOWN_E] = 0,
-    [SPECIES_OLD_UNOWN_F] = 0,
-    [SPECIES_OLD_UNOWN_G] = 0,
-    [SPECIES_OLD_UNOWN_H] = 0,
-    [SPECIES_OLD_UNOWN_I] = 0,
-    [SPECIES_OLD_UNOWN_J] = 0,
-    [SPECIES_OLD_UNOWN_K] = 0,
-    [SPECIES_OLD_UNOWN_L] = 0,
-    [SPECIES_OLD_UNOWN_M] = 0,
-    [SPECIES_OLD_UNOWN_N] = 0,
-    [SPECIES_OLD_UNOWN_O] = 0,
-    [SPECIES_OLD_UNOWN_P] = 0,
-    [SPECIES_OLD_UNOWN_Q] = 0,
-    [SPECIES_OLD_UNOWN_R] = 0,
-    [SPECIES_OLD_UNOWN_S] = 0,
-    [SPECIES_OLD_UNOWN_T] = 0,
-    [SPECIES_OLD_UNOWN_U] = 0,
-    [SPECIES_OLD_UNOWN_V] = 0,
-    [SPECIES_OLD_UNOWN_W] = 0,
-    [SPECIES_OLD_UNOWN_X] = 0,
-    [SPECIES_OLD_UNOWN_Y] = 0,
-    [SPECIES_OLD_UNOWN_Z] = 0,
     [SPECIES_HEIRIN] = 1,
     [SPECIES_DYUKARI] = 0,
     [SPECIES_TYUKARI] = 1,
@@ -880,33 +801,6 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_GOMASEKI] = 0,
     [SPECIES_CWAKASAGI] = 0,
     [SPECIES_EGG] = 1,
-    [SPECIES_UNOWN_B] = 0,
-    [SPECIES_UNOWN_C] = 0,
-    [SPECIES_UNOWN_D] = 0,
-    [SPECIES_UNOWN_E] = 0,
-    [SPECIES_UNOWN_F] = 0,
-    [SPECIES_UNOWN_G] = 0,
-    [SPECIES_UNOWN_H] = 0,
-    [SPECIES_UNOWN_I] = 0,
-    [SPECIES_UNOWN_J] = 0,
-    [SPECIES_UNOWN_K] = 0,
-    [SPECIES_UNOWN_L] = 0,
-    [SPECIES_UNOWN_M] = 0,
-    [SPECIES_UNOWN_N] = 0,
-    [SPECIES_UNOWN_O] = 0,
-    [SPECIES_UNOWN_P] = 0,
-    [SPECIES_UNOWN_Q] = 0,
-    [SPECIES_UNOWN_R] = 0,
-    [SPECIES_UNOWN_S] = 0,
-    [SPECIES_UNOWN_T] = 0,
-    [SPECIES_UNOWN_U] = 0,
-    [SPECIES_UNOWN_V] = 0,
-    [SPECIES_UNOWN_W] = 0,
-    [SPECIES_UNOWN_X] = 0,
-    [SPECIES_UNOWN_Y] = 0,
-    [SPECIES_UNOWN_Z] = 0,
-    [SPECIES_UNOWN_EMARK] = 0,
-    [SPECIES_UNOWN_QMARK] = 0,
 };
 
 const struct SpritePalette gMonIconPaletteTable[] =
@@ -1072,53 +966,19 @@ u8 CreateMonIconNoPersonality(u16 species, void (*callback)(struct Sprite *), s1
 u16 GetIconSpecies(u16 species, u32 personality)
 {
     u16 result;
-
-    if (species == SPECIES_UNOWN)
-    {
-        u16 letter = GetUnownLetterByPersonality(personality);
-        if (letter == 0)
-            letter = SPECIES_UNOWN;
-        else
-            letter += (SPECIES_UNOWN_B - 1);
-        result = letter;
-    }
+    if (species > NUM_SPECIES)
+        result = INVALID_ICON_SPECIES;
     else
-    {
-        if (species > NUM_SPECIES)
-            result = INVALID_ICON_SPECIES;
-        else
-            result = species;
-    }
-
+        result = species;
     return result;
-}
-
-u16 GetUnownLetterByPersonality(u32 personality)
-{
-    if (!personality)
-        return 0;
-    else
-        return GET_UNOWN_LETTER(personality);
 }
 
 u16 GetIconSpeciesNoPersonality(u16 species)
 {
     u16 value;
-
-    if (MailSpeciesToSpecies(species, &value) == SPECIES_UNOWN)
-    {
-        if (value == 0)
-            value += SPECIES_UNOWN;
-        else
-            value += (SPECIES_UNOWN_B - 1);
-        return value;
-    }
-    else
-    {
-        if (species > NUM_SPECIES)
-            species = INVALID_ICON_SPECIES;
-        return GetIconSpecies(species, 0);
-    }
+    if (species > NUM_SPECIES)
+        species = INVALID_ICON_SPECIES;
+    return GetIconSpecies(species, 0);
 }
 
 const u8 *GetMonIconPtr(u16 species, u32 personality, bool32 handleGomaseki)

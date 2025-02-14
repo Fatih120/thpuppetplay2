@@ -407,7 +407,7 @@ static void CreateWildMon(u16 species, u8 level)
         else
             gender = MON_FEMALE;
 
-        CreateMonWithGenderNatureLetter(&gEnemyParty[0], species, level, USE_RANDOM_IVS, gender, PickWildMonNature(), 0);
+        CreateMonWithGenderNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, gender, PickWildMonNature());
         return;
     }
 

@@ -2337,7 +2337,7 @@ static const struct TrainerHillFloor sFloors_Variety[] = {
                                 {
                                     [0] =
                                         {
-                                            .species = SPECIES_UNOWN,
+                                            .species = SPECIES_CSANAE,
                                             .heldItem = ITEM_MIRACLE_SEED,
                                             .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
                                             .hpEV = 255,
@@ -2356,7 +2356,7 @@ static const struct TrainerHillFloor sFloors_Variety[] = {
                                         },
                                     [1] =
                                         {
-                                            .species = SPECIES_UNOWN,
+                                            .species = SPECIES_CSANAE,
                                             .heldItem = ITEM_MYSTIC_WATER,
                                             .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
                                             .hpEV = 255,
@@ -2375,7 +2375,7 @@ static const struct TrainerHillFloor sFloors_Variety[] = {
                                         },
                                     [2] =
                                         {
-                                            .species = SPECIES_UNOWN,
+                                            .species = SPECIES_CSANAE,
                                             .heldItem = ITEM_BLACK_BELT,
                                             .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
                                             .hpEV = 255,
@@ -2522,7 +2522,7 @@ static const struct TrainerHillFloor sFloors_Variety[] = {
                                         },
                                     [3] =
                                         {
-                                            .species = SPECIES_UNOWN,
+                                            .species = SPECIES_CSANAE,
                                             .heldItem = ITEM_CHARCOAL,
                                             .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
                                             .hpEV = 255,
@@ -2541,7 +2541,7 @@ static const struct TrainerHillFloor sFloors_Variety[] = {
                                         },
                                     [4] =
                                         {
-                                            .species = SPECIES_UNOWN,
+                                            .species = SPECIES_CSANAE,
                                             .heldItem = ITEM_SOFT_SAND,
                                             .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
                                             .hpEV = 255,
@@ -2560,7 +2560,7 @@ static const struct TrainerHillFloor sFloors_Variety[] = {
                                         },
                                     [5] =
                                         {
-                                            .species = SPECIES_UNOWN,
+                                            .species = SPECIES_CSANAE,
                                             .heldItem = ITEM_TWISTED_SPOON,
                                             .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
                                             .hpEV = 255,

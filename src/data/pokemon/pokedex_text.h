@@ -1204,12 +1204,6 @@ const u8 gCYukiPokedexText[] = _(
     "its red spheres to absorb the fear of foes\n"
     "as its nutrition.");
 
-const u8 gUnownPokedexText[] = _(
-    "This POKéMON is shaped like ancient text\n"
-    "characters. Although research is ongoing,\n"
-    "it is a mystery as to which came first,\n"
-    "the ancient writings or the various UNOWN.");
-
 const u8 gCMaiPokedexText[] = _(
     "Usually docile, a CMAI strikes back\n"
     "ferociously if its black tail is attacked.\n"

@@ -5222,9 +5222,6 @@ const union {
         .FLASH = TRUE,
     } },
 
-    [SPECIES_UNOWN] = { .learnset = {
-    } },
-
     [SPECIES_CMAI] = { .learnset = {
     } },
 
@@ -6558,81 +6555,6 @@ const union {
         .SKILL_SWAP = TRUE,
         .CUT = TRUE,
         .FLASH = TRUE,
-    } },
-
-    [SPECIES_OLD_UNOWN_B] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_C] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_D] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_E] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_F] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_G] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_H] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_I] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_J] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_K] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_L] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_M] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_N] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_O] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_P] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_Q] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_R] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_S] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_T] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_U] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_V] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_W] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_X] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_Y] = { .learnset = {
-    } },
-
-    [SPECIES_OLD_UNOWN_Z] = { .learnset = {
     } },
 
     [SPECIES_HEIRIN] = { .learnset = {

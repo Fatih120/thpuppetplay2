@@ -1187,10 +1187,6 @@ Cry_CYuki::
 	.incbin "sound/direct_sound_samples/cries/cyuki.bin"
 
 	.align 2
-Cry_Unown::
-	.incbin "sound/direct_sound_samples/cries/unown.bin"
-
-	.align 2
 Cry_CMai::
 	.incbin "sound/direct_sound_samples/cries/cmai.bin"
 

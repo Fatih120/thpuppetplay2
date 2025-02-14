@@ -30,7 +30,6 @@ static void AnimTask_BlendPalInAndOutSetup(struct Task *task);
 static void AnimTask_AlphaFadeIn_Step(u8 taskId);
 static void AnimTask_AttackerPunchWithTrace_Step(u8 taskId);
 static void AnimTask_BlendMonInAndOut_Step(u8 taskId);
-static bool8 ShouldRotScaleSpeciesBeFlipped(void);
 static void CreateBattlerTrace(struct Task *task, u8 taskId);
 
 EWRAM_DATA static union AffineAnimCmd *sAnimTaskAffineAnim = NULL;
@@ -153,31 +152,7 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
 
     if (GetBattlerSide(battlerId) == B_SIDE_PLAYER || IsContest())
     {
-        if (species == SPECIES_UNOWN)
-        {
-            if (IsContest())
-            {
-                if (gContestResources->moveAnim->hasTargetAnim)
-                    personality = gContestResources->moveAnim->targetPersonality;
-                else
-                    personality = gContestResources->moveAnim->personality;
-            }
-            else
-            {
-                spriteInfo = gBattleSpritesDataPtr->battlerData;
-                if (!spriteInfo[battlerId].transformSpecies)
-                    personality = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_PERSONALITY);
-                else
-                    personality = gTransformedPersonalities[battlerId];
-            }
-            letter = GET_UNOWN_LETTER(personality);
-            if (!letter)
-                coordSpecies = species;
-            else
-                coordSpecies = letter + SPECIES_UNOWN_B - 1;
-            ret = gMonBackPicCoords[coordSpecies].y_offset;
-        }
-        else if (species > NUM_SPECIES)
+        if (species > NUM_SPECIES)
         {
             ret = gMonBackPicCoords[0].y_offset;
         }
@@ -188,21 +163,7 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
     }
     else
     {
-        if (species == SPECIES_UNOWN)
-        {
-            spriteInfo = gBattleSpritesDataPtr->battlerData;
-            if (!spriteInfo[battlerId].transformSpecies)
-                personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_PERSONALITY);
-            else
-                personality = gTransformedPersonalities[battlerId];
-            letter = GET_UNOWN_LETTER(personality);
-            if (!letter)
-                coordSpecies = species;
-            else
-                coordSpecies = letter + SPECIES_UNOWN_B - 1;
-            ret = gMonFrontPicCoords[coordSpecies].y_offset;
-        }
-        else if (species > NUM_SPECIES)
+		if (species > NUM_SPECIES)
         {
             ret = gMonFrontPicCoords[0].y_offset;
         }
@@ -1227,33 +1188,15 @@ void SetSpriteRotScale(u8 spriteId, s16 xScale, s16 yScale, u16 rotation)
     struct ObjAffineSrcData src;
     struct OamMatrix matrix;
 
-    src.xScale = xScale;
+    src.xScale = -src.xScale;
     src.yScale = yScale;
     src.rotation = rotation;
-    if (ShouldRotScaleSpeciesBeFlipped())
-        src.xScale = -src.xScale;
     i = gSprites[spriteId].oam.matrixNum;
     ObjAffineSet(&src, &matrix, 1, 2);
     gOamMatrices[i].a = matrix.a;
     gOamMatrices[i].b = matrix.b;
     gOamMatrices[i].c = matrix.c;
     gOamMatrices[i].d = matrix.d;
-}
-
-// Pokémon in Contests (except Unown) should be flipped.
-static bool8 ShouldRotScaleSpeciesBeFlipped(void)
-{
-    if (IsContest())
-    {
-        if (gSprites[GetAnimBattlerSpriteId(ANIM_ATTACKER)].data[2] == SPECIES_UNOWN)
-            return FALSE;
-        else
-            return TRUE;
-    }
-    else
-    {
-        return FALSE;
-    }
 }
 
 void PrepareBattlerSpriteForRotScale(u8 spriteId, u8 objMode)
@@ -1303,11 +1246,9 @@ void TrySetSpriteRotScale(struct Sprite *sprite, bool8 recalcCenterVector, s16 x
         sprite->affineAnimPaused = TRUE;
         if (recalcCenterVector)
             CalcCenterToCornerVec(sprite, sprite->oam.shape, sprite->oam.size, sprite->oam.affineMode);
-        src.xScale = xScale;
+        src.xScale = -src.xScale;
         src.yScale = yScale;
         src.rotation = rotation;
-        if (ShouldRotScaleSpeciesBeFlipped())
-            src.xScale = -src.xScale;
         i = sprite->oam.matrixNum;
         ObjAffineSet(&src, &matrix, 1, 2);
         gOamMatrices[i].a = matrix.a;
@@ -2062,7 +2003,7 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
                                                 personality,
                                                 TRUE);
         else
-            LoadSpecialPokePic_2(&gMonFrontPicTable[species],
+            LoadSpecialPokePic(&gMonFrontPicTable[species],
                                  gMonSpritesGfxPtr->buffer,
                                  species,
                                  personality,
@@ -2078,7 +2019,7 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
                                                 personality,
                                                 FALSE);
         else
-            LoadSpecialPokePic_2(&gMonBackPicTable[species],
+            LoadSpecialPokePic(&gMonBackPicTable[species],
                                  gMonSpritesGfxPtr->buffer,
                                  species,
                                  personality,
@@ -2111,7 +2052,6 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
     u16 species;
     u32 personality;
     u16 letter;
-    u16 unownSpecies;
     int ret;
     const struct MonCoords *coords;
     struct BattleSpriteInfo *spriteInfo;
@@ -2128,16 +2068,7 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
             species = gContestResources->moveAnim->species;
             personality = gContestResources->moveAnim->personality;
         }
-        if (species == SPECIES_UNOWN)
-        {
-            letter = GET_UNOWN_LETTER(personality);
-            if (!letter)
-                unownSpecies = SPECIES_UNOWN;
-            else
-                unownSpecies = letter + SPECIES_UNOWN_B - 1;
-            coords = &gMonBackPicCoords[unownSpecies];
-        }
-        else if (species <= SPECIES_EGG)
+        if (species <= SPECIES_EGG)
         {
             coords = &gMonBackPicCoords[species];
         }
@@ -2162,16 +2093,7 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
                 personality = gTransformedPersonalities[battlerId];
             }
 
-            if (species == SPECIES_UNOWN)
-            {
-                letter = GET_UNOWN_LETTER(personality);
-                if (!letter)
-                    unownSpecies = SPECIES_UNOWN;
-                else
-                    unownSpecies = letter + SPECIES_UNOWN_B - 1;
-                coords = &gMonBackPicCoords[unownSpecies];
-            }
-            else if (species > NUM_SPECIES)
+            if (species > NUM_SPECIES)
             {
                 coords = &gMonBackPicCoords[0];
             }
@@ -2194,16 +2116,7 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
                 personality = gTransformedPersonalities[battlerId];
             }
 
-            if (species == SPECIES_UNOWN)
-            {
-                letter = GET_UNOWN_LETTER(personality);
-                if (!letter)
-                    unownSpecies = SPECIES_UNOWN;
-                else
-                    unownSpecies = letter + SPECIES_UNOWN_B - 1;
-                coords = &gMonFrontPicCoords[unownSpecies];
-            }
-            else if (species > NUM_SPECIES)
+            if (species > NUM_SPECIES)
             {
                 coords = &gMonFrontPicCoords[0];
             }

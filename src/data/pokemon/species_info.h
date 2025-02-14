@@ -2,36 +2,6 @@
 // 255 (MON_GENDERLESS) is reserved for genderless Pokémon.
 #define PERCENT_FEMALE(percent) min(254, ((percent * 255) / 100))
 
-#define OLD_UNOWN_SPECIES_INFO                                                          \
-    {                                                                                   \
-        .baseHP = 50,                                                                   \
-        .baseAttack = 150,                                                              \
-        .baseDefense = 50,                                                              \
-        .baseSpeed = 150,                                                               \
-        .baseSpAttack = 150,                                                            \
-        .baseSpDefense = 50,                                                            \
-        .types = { TYPE_NORMAL, TYPE_NORMAL},                                           \
-        .catchRate = 3,                                                                 \
-        .expYield = 1,                                                                  \
-        .evYield_HP = 2,                                                                \
-        .evYield_Attack = 2,                                                            \
-        .evYield_Defense = 2,                                                           \
-        .evYield_Speed = 2,                                                             \
-        .evYield_SpAttack = 2,                                                          \
-        .evYield_SpDefense = 2,                                                         \
-        .itemCommon = ITEM_NONE,                                                        \
-        .itemRare   = ITEM_NONE,                                                        \
-        .genderRatio = MON_GENDERLESS,                                                  \
-        .eggCycles = 120,                                                               \
-        .friendship = 0,                                                                \
-        .growthRate = GROWTH_MEDIUM_FAST,                                               \
-        .eggGroups = { EGG_GROUP_NO_EGGS_DISCOVERED, EGG_GROUP_NO_EGGS_DISCOVERED, },   \
-        .abilities = {ABILITY_NONE, ABILITY_NONE},                                      \
-        .safariZoneFleeRate = 0,                                                        \
-        .bodyColor = BODY_COLOR_BLACK,                                                  \
-        .noFlip = FALSE,                                                                \
-    }
-
 const struct SpeciesInfo gSpeciesInfo[] =
 {
     [SPECIES_NONE] = {0},
@@ -6036,36 +6006,6 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .noFlip = FALSE,
     },
 
-    [SPECIES_UNOWN] =
-    {
-        .baseHP        = 48,
-        .baseAttack    = 72,
-        .baseDefense   = 48,
-        .baseSpeed     = 48,
-        .baseSpAttack  = 72,
-        .baseSpDefense = 48,
-        .types = { TYPE_PSYCHIC, TYPE_PSYCHIC },
-        .catchRate = 225,
-        .expYield = 61,
-        .evYield_HP        = 0,
-        .evYield_Attack    = 1,
-        .evYield_Defense   = 0,
-        .evYield_Speed     = 0,
-        .evYield_SpAttack  = 1,
-        .evYield_SpDefense = 0,
-        .itemCommon = ITEM_NONE,
-        .itemRare   = ITEM_NONE,
-        .genderRatio = MON_GENDERLESS,
-        .eggCycles = 40,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_FAST,
-        .eggGroups = { EGG_GROUP_NO_EGGS_DISCOVERED, EGG_GROUP_NO_EGGS_DISCOVERED },
-        .abilities = {ABILITY_LEVITATE, ABILITY_NONE},
-        .safariZoneFleeRate = 0,
-        .bodyColor = BODY_COLOR_BLACK,
-        .noFlip = TRUE,
-    },
-
     [SPECIES_CMAI] =
     {
         .baseHP        = 190,
@@ -7565,56 +7505,6 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
     },
-
-    [SPECIES_OLD_UNOWN_B] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_C] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_D] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_E] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_F] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_G] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_H] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_I] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_J] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_K] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_L] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_M] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_N] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_O] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_P] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_Q] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_R] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_S] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_T] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_U] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_V] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_W] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_X] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_Y] = OLD_UNOWN_SPECIES_INFO,
-
-    [SPECIES_OLD_UNOWN_Z] = OLD_UNOWN_SPECIES_INFO,
 
     [SPECIES_HEIRIN] =
     {

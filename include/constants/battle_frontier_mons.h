@@ -127,7 +127,7 @@
 #define FRONTIER_MON_AKISISTERS        123
 #define FRONTIER_MON_CMURASA      124
 #define FRONTIER_MON_ANUE         125
-#define FRONTIER_MON_UNOWN          126
+// #define FRONTIER_MON_UNOWN          126
 #define FRONTIER_MON_RIN        127
 #define FRONTIER_MON_CYUUKA         128
 #define FRONTIER_MON_MIMICHAN       129

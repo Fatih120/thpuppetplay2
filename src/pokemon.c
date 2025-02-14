@@ -307,7 +307,6 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(CRIKAKO),
     SPECIES_TO_HOENN(RIKAKO),
     SPECIES_TO_HOENN(CYUKI),
-    SPECIES_TO_HOENN(UNOWN),
     SPECIES_TO_HOENN(CMAI),
     SPECIES_TO_HOENN(MAI),
     SPECIES_TO_HOENN(DSUNNYMILK),
@@ -358,31 +357,6 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(SKOMACHI),
     SPECIES_TO_HOENN(AKOMACHI),
     SPECIES_TO_HOENN(AEIRIN),
-    SPECIES_TO_HOENN(OLD_UNOWN_B),
-    SPECIES_TO_HOENN(OLD_UNOWN_C),
-    SPECIES_TO_HOENN(OLD_UNOWN_D),
-    SPECIES_TO_HOENN(OLD_UNOWN_E),
-    SPECIES_TO_HOENN(OLD_UNOWN_F),
-    SPECIES_TO_HOENN(OLD_UNOWN_G),
-    SPECIES_TO_HOENN(OLD_UNOWN_H),
-    SPECIES_TO_HOENN(OLD_UNOWN_I),
-    SPECIES_TO_HOENN(OLD_UNOWN_J),
-    SPECIES_TO_HOENN(OLD_UNOWN_K),
-    SPECIES_TO_HOENN(OLD_UNOWN_L),
-    SPECIES_TO_HOENN(OLD_UNOWN_M),
-    SPECIES_TO_HOENN(OLD_UNOWN_N),
-    SPECIES_TO_HOENN(OLD_UNOWN_O),
-    SPECIES_TO_HOENN(OLD_UNOWN_P),
-    SPECIES_TO_HOENN(OLD_UNOWN_Q),
-    SPECIES_TO_HOENN(OLD_UNOWN_R),
-    SPECIES_TO_HOENN(OLD_UNOWN_S),
-    SPECIES_TO_HOENN(OLD_UNOWN_T),
-    SPECIES_TO_HOENN(OLD_UNOWN_U),
-    SPECIES_TO_HOENN(OLD_UNOWN_V),
-    SPECIES_TO_HOENN(OLD_UNOWN_W),
-    SPECIES_TO_HOENN(OLD_UNOWN_X),
-    SPECIES_TO_HOENN(OLD_UNOWN_Y),
-    SPECIES_TO_HOENN(OLD_UNOWN_Z),
     SPECIES_TO_HOENN(HEIRIN),
     SPECIES_TO_HOENN(DYUKARI),
     SPECIES_TO_HOENN(TYUKARI),
@@ -723,7 +697,6 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(CRIKAKO),
     SPECIES_TO_NATIONAL(RIKAKO),
     SPECIES_TO_NATIONAL(CYUKI),
-    SPECIES_TO_NATIONAL(UNOWN),
     SPECIES_TO_NATIONAL(CMAI),
     SPECIES_TO_NATIONAL(MAI),
     SPECIES_TO_NATIONAL(DSUNNYMILK),
@@ -774,31 +747,6 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(SKOMACHI),
     SPECIES_TO_NATIONAL(AKOMACHI),
     SPECIES_TO_NATIONAL(AEIRIN),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_B),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_C),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_D),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_E),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_F),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_G),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_H),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_I),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_J),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_K),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_L),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_M),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_N),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_O),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_P),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_Q),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_R),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_S),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_T),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_U),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_V),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_W),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_X),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_Y),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_Z),
     SPECIES_TO_NATIONAL(HEIRIN),
     SPECIES_TO_NATIONAL(DYUKARI),
     SPECIES_TO_NATIONAL(TYUKARI),
@@ -1284,7 +1232,6 @@ static const u16 sHoennToNationalOrder[NUM_SPECIES - 1] =
     HOENN_TO_NATIONAL(CRIKAKO),
     HOENN_TO_NATIONAL(RIKAKO),
     HOENN_TO_NATIONAL(CYUKI),
-    HOENN_TO_NATIONAL(UNOWN),
     HOENN_TO_NATIONAL(DSUNNYMILK),
     HOENN_TO_NATIONAL(TLUNACHILD),
     HOENN_TO_NATIONAL(HSTARSAPPHIRE),
@@ -1325,31 +1272,6 @@ static const u16 sHoennToNationalOrder[NUM_SPECIES - 1] =
     HOENN_TO_NATIONAL(SKOMACHI),
     HOENN_TO_NATIONAL(AKOMACHI),
     HOENN_TO_NATIONAL(AEIRIN),
-    HOENN_TO_NATIONAL(OLD_UNOWN_B),
-    HOENN_TO_NATIONAL(OLD_UNOWN_C),
-    HOENN_TO_NATIONAL(OLD_UNOWN_D),
-    HOENN_TO_NATIONAL(OLD_UNOWN_E),
-    HOENN_TO_NATIONAL(OLD_UNOWN_F),
-    HOENN_TO_NATIONAL(OLD_UNOWN_G),
-    HOENN_TO_NATIONAL(OLD_UNOWN_H),
-    HOENN_TO_NATIONAL(OLD_UNOWN_I),
-    HOENN_TO_NATIONAL(OLD_UNOWN_J),
-    HOENN_TO_NATIONAL(OLD_UNOWN_K),
-    HOENN_TO_NATIONAL(OLD_UNOWN_L),
-    HOENN_TO_NATIONAL(OLD_UNOWN_M),
-    HOENN_TO_NATIONAL(OLD_UNOWN_N),
-    HOENN_TO_NATIONAL(OLD_UNOWN_O),
-    HOENN_TO_NATIONAL(OLD_UNOWN_P),
-    HOENN_TO_NATIONAL(OLD_UNOWN_Q),
-    HOENN_TO_NATIONAL(OLD_UNOWN_R),
-    HOENN_TO_NATIONAL(OLD_UNOWN_S),
-    HOENN_TO_NATIONAL(OLD_UNOWN_T),
-    HOENN_TO_NATIONAL(OLD_UNOWN_U),
-    HOENN_TO_NATIONAL(OLD_UNOWN_V),
-    HOENN_TO_NATIONAL(OLD_UNOWN_W),
-    HOENN_TO_NATIONAL(OLD_UNOWN_X),
-    HOENN_TO_NATIONAL(OLD_UNOWN_Y),
-    HOENN_TO_NATIONAL(OLD_UNOWN_Z),
 };
 
 #include "data/pokemon/item_effects.h"
@@ -1596,7 +1518,6 @@ static const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_CRIKAKO - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_RIKAKO - 1]    = ANIM_SHRINK_GROW,
     [SPECIES_CYUKI - 1]  = ANIM_V_SLIDE_WOBBLE,
-    [SPECIES_UNOWN - 1]       = ANIM_ZIGZAG_FAST,
     [SPECIES_CMAI - 1]   = ANIM_DEEP_V_SQUISH_AND_BOUNCE,
     [SPECIES_MAI - 1]   = ANIM_V_JUMPS_BIG,
     [SPECIES_DSUNNYMILK - 1]      = ANIM_SWING_CONCAVE,
@@ -2307,33 +2228,16 @@ void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV,
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
 
-void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter)
+void CreateMonWithGenderNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature)
 {
     u32 personality;
 
-    if ((u8)(unownLetter - 1) < NUM_UNOWN_FORMS)
+    do
     {
-        u16 actualLetter;
-
-        do
-        {
-            personality = Random32();
-            actualLetter = GET_UNOWN_LETTER(personality);
-        }
-        while (nature != GetNatureFromPersonality(personality)
-            || gender != GetGenderFromSpeciesAndPersonality(species, personality)
-            || actualLetter != unownLetter - 1);
+        personality = Random32();
     }
-    else
-    {
-        do
-        {
-            personality = Random32();
-        }
-        while (nature != GetNatureFromPersonality(personality)
-            || gender != GetGenderFromSpeciesAndPersonality(species, personality));
-    }
-
+    while (nature != GetNatureFromPersonality(personality)
+        || gender != GetGenderFromSpeciesAndPersonality(species, personality));
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
 
@@ -5665,12 +5569,6 @@ u16 HoennToNationalOrder(u16 hoennNum)
 
 u16 SpeciesToCryId(u16 species)
 {
-    if (species <= SPECIES_AEIRIN - 1)
-        return species;
-
-    if (species < SPECIES_HEIRIN - 1)
-        return SPECIES_UNOWN - 1;
-
     return gSpeciesIdToCryId[species - (SPECIES_HEIRIN - 1)];
 }
 
@@ -6827,8 +6725,6 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
     if (!GetSetPokedexFlag(nationalNum, getFlagCaseId)) // don't set if it's already set
     {
         GetSetPokedexFlag(nationalNum, caseId);
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_UNOWN)
-            gSaveBlock2Ptr->pokedex.unownPersonality = personality;
     }
 }
 
@@ -6849,8 +6745,7 @@ const u8 *GetTrainerNameFromId(u16 trainerId)
 bool8 HasTwoFramesAnimation(u16 species)
 {
     return (species != SPECIES_TSANAE
-         && species != SPECIES_GOMASEKI
-         && species != SPECIES_UNOWN);
+         && species != SPECIES_GOMASEKI );
 }
 
 static bool8 ShouldSkipFriendshipChange(void)

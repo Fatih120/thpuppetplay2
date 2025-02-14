@@ -200,7 +200,6 @@ gCryTable::
 	cry Cry_CRikako
 	cry Cry_Rikako
 	cry Cry_CYuki
-	cry Cry_Unown
 	cry Cry_CMai
 	cry Cry_Mai
 	cry Cry_DSunnyMilk
@@ -591,7 +590,6 @@ gCryTable_Reverse::
 	cry_reverse Cry_CRikako
 	cry_reverse Cry_Rikako
 	cry_reverse Cry_CYuki
-	cry_reverse Cry_Unown
 	cry_reverse Cry_CMai
 	cry_reverse Cry_Mai
 	cry_reverse Cry_DSunnyMilk

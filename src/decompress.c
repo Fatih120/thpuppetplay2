@@ -79,27 +79,12 @@ void HandleLoadSpecialPokePic(const struct CompressedSpriteSheet *src, void *des
     else
         isFrontPic = FALSE; // backPic
 
-    LoadSpecialPokePic_2(src, dest, species, personality, isFrontPic);
+    LoadSpecialPokePic(src, dest, species, personality, isFrontPic);
 }
 
 void LoadSpecialPokePic(const struct CompressedSpriteSheet *src, void *dest, s32 species, u32 personality, bool8 isFrontPic)
 {
-    if (species == SPECIES_UNOWN)
-    {
-        u16 i = GET_UNOWN_LETTER(personality);
-
-        // The other Unowns are separate from Unown A.
-        if (i == 0)
-            i = SPECIES_UNOWN;
-        else
-            i += SPECIES_UNOWN_B - 1;
-
-        if (!isFrontPic)
-            LZ77UnCompWram(gMonBackPicTable[i].data, dest);
-        else
-            LZ77UnCompWram(gMonFrontPicTable[i].data, dest);
-    }
-    else if (species > NUM_SPECIES) // is species unknown? draw the ? icon
+    if (species > NUM_SPECIES) // is species unknown? draw the ? icon
     {
         LZ77UnCompWram(gMonFrontPicTable[0].data, dest);
     }
@@ -303,56 +288,6 @@ bool8 LoadCompressedSpritePaletteUsingHeap(const struct CompressedSpritePalette 
     return FALSE;
 }
 
-void DecompressPicFromTable_2(const struct CompressedSpriteSheet *src, void *buffer, s32 species) // a copy of DecompressPicFromTable
-{
-    if (species > NUM_SPECIES)
-        LZ77UnCompWram(gMonFrontPicTable[0].data, buffer);
-    else
-        LZ77UnCompWram(src->data, buffer);
-    DuplicateGomasekiTiles(buffer, species);
-}
-
-void LoadSpecialPokePic_2(const struct CompressedSpriteSheet *src, void *dest, s32 species, u32 personality, bool8 isFrontPic) // a copy of LoadSpecialPokePic
-{
-    if (species == SPECIES_UNOWN)
-    {
-        u16 i = GET_UNOWN_LETTER(personality);
-
-        // The other Unowns are separate from Unown A.
-        if (i == 0)
-            i = SPECIES_UNOWN;
-        else
-            i += SPECIES_UNOWN_B - 1;
-
-        if (!isFrontPic)
-            LZ77UnCompWram(gMonBackPicTable[i].data, dest);
-        else
-            LZ77UnCompWram(gMonFrontPicTable[i].data, dest);
-    }
-    else if (species > NUM_SPECIES) // is species unknown? draw the ? icon
-    {
-        LZ77UnCompWram(gMonFrontPicTable[0].data, dest);
-    }
-    else
-    {
-        LZ77UnCompWram(src->data, dest);
-    }
-
-    DuplicateGomasekiTiles(dest, species);
-}
-
-void HandleLoadSpecialPokePic_2(const struct CompressedSpriteSheet *src, void *dest, s32 species, u32 personality) // a copy of HandleLoadSpecialPokePic
-{
-    bool8 isFrontPic;
-
-    if (src == &gMonFrontPicTable[species])
-        isFrontPic = TRUE; // frontPic
-    else
-        isFrontPic = FALSE; // backPic
-
-    LoadSpecialPokePic_2(src, dest, species, personality, isFrontPic);
-}
-
 void DecompressPicFromTable_DontHandleGomaseki(const struct CompressedSpriteSheet *src, void *buffer, s32 species)
 {
     if (species > NUM_SPECIES)
@@ -375,22 +310,7 @@ void HandleLoadSpecialPokePic_DontHandleGomaseki(const struct CompressedSpriteSh
 
 void LoadSpecialPokePic_DontHandleGomaseki(const struct CompressedSpriteSheet *src, void *dest, s32 species, u32 personality, bool8 isFrontPic)
 {
-    if (species == SPECIES_UNOWN)
-    {
-        u16 i = GET_UNOWN_LETTER(personality);
-
-        // The other Unowns are separate from Unown A.
-        if (i == 0)
-            i = SPECIES_UNOWN;
-        else
-            i += SPECIES_UNOWN_B - 1;
-
-        if (!isFrontPic)
-            LZ77UnCompWram(gMonBackPicTable[i].data, dest);
-        else
-            LZ77UnCompWram(gMonFrontPicTable[i].data, dest);
-    }
-    else if (species > NUM_SPECIES) // is species unknown? draw the ? icon
+    if (species > NUM_SPECIES) // is species unknown? draw the ? icon
     {
         LZ77UnCompWram(gMonFrontPicTable[0].data, dest);
     }
