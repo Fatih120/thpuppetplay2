@@ -327,7 +327,7 @@ static s8 GetNewSlotDoubleLayout(s8, s8);
 static void PrintMessage(const u8 *);
 static void Task_PrintAndWaitForText(u8);
 static bool16 IsMonAllowedInPokemonJump(struct Pokemon *);
-static bool16 IsMonAllowedInDodrioBerryPicking(struct Pokemon *);
+static bool16 IsMonAllowedInDaiyouseiBerryPicking(struct Pokemon *);
 static void Task_CancelParticipationYesNo(u8);
 static void Task_HandleCancelParticipationYesNoInput(u8);
 static bool8 CanLearnTutorMove(u16, u8);
@@ -1953,7 +1953,7 @@ static void SetPartyMonsAllowedInMinigame(void)
         else
         {
             for (i = 0; i < gPlayerPartyCount; i++)
-                *ptr += IsMonAllowedInDodrioBerryPicking(&gPlayerParty[i]) << i;
+                *ptr += IsMonAllowedInDaiyouseiBerryPicking(&gPlayerParty[i]) << i;
         }
     }
 }
@@ -1966,9 +1966,9 @@ static bool16 IsMonAllowedInPokemonJump(struct Pokemon *mon)
 }
 
 
-static bool16 IsMonAllowedInDodrioBerryPicking(struct Pokemon *mon)
+static bool16 IsMonAllowedInDaiyouseiBerryPicking(struct Pokemon *mon)
 {
-    if (GetMonData(mon, MON_DATA_IS_EGG) != TRUE && GetMonData(mon, MON_DATA_SPECIES) == SPECIES_DODRIO)
+    if (GetMonData(mon, MON_DATA_IS_EGG) != TRUE && GetMonData(mon, MON_DATA_SPECIES) == SPECIES_DAIYOUSEI)
         return TRUE;
     return FALSE;
 }
@@ -2336,7 +2336,7 @@ static void DisplayPartyPokemonGender(u8 gender, u16 species, u8 *nickname, stru
 
     if (species == SPECIES_NONE)
         return;
-    if ((species == SPECIES_NIDORAN_M || species == SPECIES_NIDORAN_F) && StringCompare(nickname, gSpeciesNames[species]) == 0)
+    if ((species == SPECIES_HOURAI || species == SPECIES_SHANGHAI) && StringCompare(nickname, gSpeciesNames[species]) == 0)
         return;
     switch (gender)
     {
@@ -3927,23 +3927,23 @@ static bool8 SetUpFieldMove_Dive(void)
 
 static void CreatePartyMonIconSprite(struct Pokemon *mon, struct PartyMenuBox *menuBox, u32 slot)
 {
-    bool32 handleDeoxys = TRUE;
+    bool32 handleGomaseki = TRUE;
     u16 species2;
 
-    // If in a multi battle, show partners Deoxys icon as Normal forme
+    // If in a multi battle, show partners Gomaseki icon as Normal forme
     if (IsMultiBattle() == TRUE && gMain.inBattle)
-        handleDeoxys = (sMultiBattlePartnersPartyMask[slot] ^ handleDeoxys) ? TRUE : FALSE;
+        handleGomaseki = (sMultiBattlePartnersPartyMask[slot] ^ handleGomaseki) ? TRUE : FALSE;
 
     species2 = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
-    CreatePartyMonIconSpriteParameterized(species2, GetMonData(mon, MON_DATA_PERSONALITY), menuBox, 1, handleDeoxys);
+    CreatePartyMonIconSpriteParameterized(species2, GetMonData(mon, MON_DATA_PERSONALITY), menuBox, 1, handleGomaseki);
     UpdatePartyMonHPBar(menuBox->monSpriteId, mon);
 }
 
-static void CreatePartyMonIconSpriteParameterized(u16 species, u32 pid, struct PartyMenuBox *menuBox, u8 priority, bool32 handleDeoxys)
+static void CreatePartyMonIconSpriteParameterized(u16 species, u32 pid, struct PartyMenuBox *menuBox, u8 priority, bool32 handleGomaseki)
 {
     if (species != SPECIES_NONE)
     {
-        menuBox->monSpriteId = CreateMonIcon(species, SpriteCB_MonIcon, menuBox->spriteCoords[0], menuBox->spriteCoords[1], 4, pid, handleDeoxys);
+        menuBox->monSpriteId = CreateMonIcon(species, SpriteCB_MonIcon, menuBox->spriteCoords[0], menuBox->spriteCoords[1], 4, pid, handleGomaseki);
         gSprites[menuBox->monSpriteId].oam.priority = priority;
     }
 }
@@ -4371,9 +4371,9 @@ static void GetMedicineItemEffectMessage(u16 item)
     }
 }
 
-static bool8 NotUsingHPEVItemOnShedinja(struct Pokemon *mon, u16 item)
+static bool8 NotUsingHPEVItemOnAShou(struct Pokemon *mon, u16 item)
 {
-    if (GetItemEffectType(item) == ITEM_EFFECT_HP_EV && GetMonData(mon, MON_DATA_SPECIES) == SPECIES_SHEDINJA)
+    if (GetItemEffectType(item) == ITEM_EFFECT_HP_EV && GetMonData(mon, MON_DATA_SPECIES) == SPECIES_ASHOU)
         return FALSE;
     return TRUE;
 }
@@ -4400,7 +4400,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
     u16 item = gSpecialVar_ItemId;
     bool8 canHeal, cannotUse;
 
-    if (NotUsingHPEVItemOnShedinja(mon, item) == FALSE)
+    if (NotUsingHPEVItemOnAShou(mon, item) == FALSE)
     {
         cannotUse = TRUE;
     }
@@ -4527,7 +4527,7 @@ static u16 ItemEffectToMonEv(struct Pokemon *mon, u8 effectType)
     switch (effectType)
     {
     case ITEM_EFFECT_HP_EV:
-        if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_SHEDINJA)
+        if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_ASHOU)
             return GetMonData(mon, MON_DATA_HP_EV);
         break;
     case ITEM_EFFECT_ATK_EV:

@@ -1,4 +1,4 @@
-CASTFORMGFXDIR := graphics/pokemon/castform
+TSANAEGFXDIR := graphics/pokemon/tsanae
 TILESETGFXDIR := data/tilesets
 FONTGFXDIR := graphics/fonts
 INTERFACEGFXDIR := graphics/interface
@@ -9,7 +9,7 @@ BATINTGFXDIR := graphics/battle_interface
 MASKSGFXDIR := graphics/battle_anims/masks
 BATTRANSGFXDIR := graphics/battle_transitions
 TYPESGFXDIR := graphics/types
-RAYQUAZAGFXDIR := graphics/rayquaza_scene
+CMAMIZOUGFXDIR := graphics/cmamizou_scene
 ROULETTEGFXDIR := graphics/roulette
 SLOTMACHINEGFXDIR := graphics/slot_machine
 PKNAVGFXDIR := graphics/pokenav
@@ -21,7 +21,7 @@ JPCONTESTGFXDIR := graphics/contest/japanese
 POKEDEXGFXDIR := graphics/pokedex
 STARTERGFXDIR := graphics/starter_choose
 NAMINGGFXDIR := graphics/naming_screen
-SPINDAGFXDIR := graphics/pokemon/spinda/spots
+SKOGASAGFXDIR := graphics/pokemon/skogasa/spots
 TITLESCREENGFXDIR := graphics/title_screen
 
 types := normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark
@@ -29,36 +29,36 @@ contest_types := cool beauty cute smart tough
 
 
 
-### Castform ###
+### TSanae ###
 
-$(CASTFORMGFXDIR)/front.4bpp: $(CASTFORMGFXDIR)/normal/front.4bpp \
-                              $(CASTFORMGFXDIR)/sunny/front.4bpp \
-                              $(CASTFORMGFXDIR)/rainy/front.4bpp \
-                              $(CASTFORMGFXDIR)/snowy/front.4bpp
+$(TSANAEGFXDIR)/front.4bpp: $(TSANAEGFXDIR)/normal/front.4bpp \
+                              $(TSANAEGFXDIR)/sunny/front.4bpp \
+                              $(TSANAEGFXDIR)/rainy/front.4bpp \
+                              $(TSANAEGFXDIR)/snowy/front.4bpp
 	@cat $^ >$@
 
-$(CASTFORMGFXDIR)/back.4bpp: $(CASTFORMGFXDIR)/normal/back.4bpp \
-                             $(CASTFORMGFXDIR)/sunny/back.4bpp \
-                             $(CASTFORMGFXDIR)/rainy/back.4bpp \
-                             $(CASTFORMGFXDIR)/snowy/back.4bpp
+$(TSANAEGFXDIR)/back.4bpp: $(TSANAEGFXDIR)/normal/back.4bpp \
+                             $(TSANAEGFXDIR)/sunny/back.4bpp \
+                             $(TSANAEGFXDIR)/rainy/back.4bpp \
+                             $(TSANAEGFXDIR)/snowy/back.4bpp
 	@cat $^ >$@
 
-$(CASTFORMGFXDIR)/anim_front.4bpp: $(CASTFORMGFXDIR)/normal/anim_front.4bpp \
-                                   $(CASTFORMGFXDIR)/sunny/anim_front.4bpp \
-                                   $(CASTFORMGFXDIR)/rainy/anim_front.4bpp \
-                                   $(CASTFORMGFXDIR)/snowy/anim_front.4bpp
+$(TSANAEGFXDIR)/anim_front.4bpp: $(TSANAEGFXDIR)/normal/anim_front.4bpp \
+                                   $(TSANAEGFXDIR)/sunny/anim_front.4bpp \
+                                   $(TSANAEGFXDIR)/rainy/anim_front.4bpp \
+                                   $(TSANAEGFXDIR)/snowy/anim_front.4bpp
 	@cat $^ >$@
 
-$(CASTFORMGFXDIR)/normal.gbapal: $(CASTFORMGFXDIR)/normal/normal.gbapal \
-                                 $(CASTFORMGFXDIR)/sunny/normal.gbapal \
-                                 $(CASTFORMGFXDIR)/rainy/normal.gbapal \
-                                 $(CASTFORMGFXDIR)/snowy/normal.gbapal
+$(TSANAEGFXDIR)/normal.gbapal: $(TSANAEGFXDIR)/normal/normal.gbapal \
+                                 $(TSANAEGFXDIR)/sunny/normal.gbapal \
+                                 $(TSANAEGFXDIR)/rainy/normal.gbapal \
+                                 $(TSANAEGFXDIR)/snowy/normal.gbapal
 	@cat $^ >$@
 
-$(CASTFORMGFXDIR)/shiny.gbapal: $(CASTFORMGFXDIR)/normal/shiny.gbapal \
-                                $(CASTFORMGFXDIR)/sunny/shiny.gbapal \
-                                $(CASTFORMGFXDIR)/rainy/shiny.gbapal \
-                                $(CASTFORMGFXDIR)/snowy/shiny.gbapal
+$(TSANAEGFXDIR)/shiny.gbapal: $(TSANAEGFXDIR)/normal/shiny.gbapal \
+                                $(TSANAEGFXDIR)/sunny/shiny.gbapal \
+                                $(TSANAEGFXDIR)/rainy/shiny.gbapal \
+                                $(TSANAEGFXDIR)/snowy/shiny.gbapal
 	@cat $^ >$@
 
 
@@ -335,11 +335,11 @@ $(UNUSEDGFXDIR)/obi_palpak3.gbapal: $(UNUSEDGFXDIR)/old_pal5.gbapal \
                                     $(UNUSEDGFXDIR)/old_pal7.gbapal
 	@cat $^ >$@
 
-$(UNUSEDGFXDIR)/obi1.4bpp: $(UNUSEDGFXDIR)/old_bulbasaur.4bpp \
-                           $(UNUSEDGFXDIR)/old_charizard.4bpp
+$(UNUSEDGFXDIR)/obi1.4bpp: $(UNUSEDGFXDIR)/old_csanae.4bpp \
+                           $(UNUSEDGFXDIR)/old_reisen.4bpp
 	@cat $^ >$@
 
-$(UNUSEDGFXDIR)/obi2.4bpp: $(UNUSEDGFXDIR)/old_bulbasaur2.4bpp \
+$(UNUSEDGFXDIR)/obi2.4bpp: $(UNUSEDGFXDIR)/old_csanae2.4bpp \
                            $(UNUSEDGFXDIR)/old_battle_interface_1.4bpp \
                            $(UNUSEDGFXDIR)/old_battle_interface_2.4bpp \
                            $(UNUSEDGFXDIR)/old_battle_interface_3.4bpp
@@ -417,42 +417,42 @@ $(TYPESGFXDIR)/move_types.gbapal: $(TYPESGFXDIR)/move_types_1.gbapal \
 graphics/bag/menu.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 53 -Wnum_tiles
 
-$(RAYQUAZAGFXDIR)/scene_2/rayquaza.8bpp: %.8bpp: %.png
+$(CMAMIZOUGFXDIR)/scene_2/cmamizou.8bpp: %.8bpp: %.png
 	$(GFX) $< $@ -num_tiles 227 -Wnum_tiles
 
-$(RAYQUAZAGFXDIR)/scene_2/bg.4bpp: %.4bpp: %.png
+$(CMAMIZOUGFXDIR)/scene_2/bg.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 313 -Wnum_tiles
 
-$(RAYQUAZAGFXDIR)/scene_3/rayquaza.4bpp: %.4bpp: %.png
+$(CMAMIZOUGFXDIR)/scene_3/cmamizou.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 124 -Wnum_tiles
 
-$(RAYQUAZAGFXDIR)/scene_3/rayquaza_tail_fix.4bpp: $(RAYQUAZAGFXDIR)/scene_3/rayquaza_tail.4bpp
+$(CMAMIZOUGFXDIR)/scene_3/cmamizou_tail_fix.4bpp: $(CMAMIZOUGFXDIR)/scene_3/cmamizou_tail.4bpp
 	cp $< $@
 	head -c 12 /dev/zero >> $@
 
-$(RAYQUAZAGFXDIR)/scene_4/streaks.4bpp: %.4bpp: %.png
+$(CMAMIZOUGFXDIR)/scene_4/streaks.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 19 -Wnum_tiles
 
-$(RAYQUAZAGFXDIR)/scene_4/rayquaza.4bpp: %.4bpp: %.png
+$(CMAMIZOUGFXDIR)/scene_4/cmamizou.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 155 -Wnum_tiles
 
 graphics/picture_frame/lobby.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 86 -Wnum_tiles
 
-$(ROULETTEGFXDIR)/roulette_tilt.4bpp: $(ROULETTEGFXDIR)/shroomish.4bpp \
+$(ROULETTEGFXDIR)/roulette_tilt.4bpp: $(ROULETTEGFXDIR)/dsuwako.4bpp \
                                       $(ROULETTEGFXDIR)/tailow.4bpp
 	@cat $^ >$@
 
-$(ROULETTEGFXDIR)/wheel_icons.4bpp: $(ROULETTEGFXDIR)/wynaut.4bpp \
-                                    $(ROULETTEGFXDIR)/azurill.4bpp \
-                                    $(ROULETTEGFXDIR)/skitty.4bpp \
-                                    $(ROULETTEGFXDIR)/makuhita.4bpp
+$(ROULETTEGFXDIR)/wheel_icons.4bpp: $(ROULETTEGFXDIR)/aminoriko.4bpp \
+                                    $(ROULETTEGFXDIR)/cshingyoku.4bpp \
+                                    $(ROULETTEGFXDIR)/asunnymilk.4bpp \
+                                    $(ROULETTEGFXDIR)/aflandre.4bpp
 	@cat $^ >$@
 
 $(BATTRANSGFXDIR)/regis.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 53 -Wnum_tiles
 
-$(BATTRANSGFXDIR)/rayquaza.4bpp: %.4bpp: %.png
+$(BATTRANSGFXDIR)/cmamizou.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 938 -Wnum_tiles
 
 $(BATTRANSGFXDIR)/frontier_square_1.4bpp: $(BATTRANSGFXDIR)/frontier_squares_blanktiles.4bpp \
@@ -471,7 +471,7 @@ $(BATTRANSGFXDIR)/frontier_square_4.4bpp: $(BATTRANSGFXDIR)/frontier_squares_bla
                                           $(BATTRANSGFXDIR)/frontier_squares_4.4bpp
 	@cat $^ >$@
 
-$(SLOTMACHINEGFXDIR)/reel_time_gfx.4bpp: $(SLOTMACHINEGFXDIR)/reel_time_pikachu.4bpp \
+$(SLOTMACHINEGFXDIR)/reel_time_gfx.4bpp: $(SLOTMACHINEGFXDIR)/reel_time_ccirno.4bpp \
                                          $(SLOTMACHINEGFXDIR)/reel_time_machine.4bpp
 	@cat $^ >$@
 
@@ -590,7 +590,7 @@ $(WALLPAPERGFXDIR)/friends_frame1.4bpp: %.4bpp: %.png
 $(WALLPAPERGFXDIR)/friends_frame2.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 57 -Wnum_tiles
 
-$(WALLPAPERGFXDIR)/zigzagoon/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame1.4bpp $(WALLPAPERGFXDIR)/zigzagoon/bg.4bpp
+$(WALLPAPERGFXDIR)/hlunasa/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame1.4bpp $(WALLPAPERGFXDIR)/hlunasa/bg.4bpp
 	@cat $^ >$@
 
 $(WALLPAPERGFXDIR)/screen/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame1.4bpp $(WALLPAPERGFXDIR)/screen/bg.4bpp
@@ -620,22 +620,22 @@ $(WALLPAPERGFXDIR)/blank/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame1.4bpp $(WA
 $(WALLPAPERGFXDIR)/circles/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame1.4bpp $(WALLPAPERGFXDIR)/circles/bg.4bpp
 	@cat $^ >$@
 
-$(WALLPAPERGFXDIR)/azumarill/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/azumarill/bg.4bpp
+$(WALLPAPERGFXDIR)/cyumeko/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/cyumeko/bg.4bpp
 	@cat $^ >$@
 
-$(WALLPAPERGFXDIR)/pikachu/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/pikachu/bg.4bpp
+$(WALLPAPERGFXDIR)/ccirno/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/ccirno/bg.4bpp
 	@cat $^ >$@
 
 $(WALLPAPERGFXDIR)/legendary/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/legendary/bg.4bpp
 	@cat $^ >$@
 
-$(WALLPAPERGFXDIR)/dusclops/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/dusclops/bg.4bpp
+$(WALLPAPERGFXDIR)/adcirno/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/adcirno/bg.4bpp
 	@cat $^ >$@
 
-$(WALLPAPERGFXDIR)/ludicolo/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/ludicolo/bg.4bpp
+$(WALLPAPERGFXDIR)/sshizuha/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/sshizuha/bg.4bpp
 	@cat $^ >$@
 
-$(WALLPAPERGFXDIR)/whiscash/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/whiscash/bg.4bpp
+$(WALLPAPERGFXDIR)/dhatate/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $(WALLPAPERGFXDIR)/dhatate/bg.4bpp
 	@cat $^ >$@
 
 $(INTERFACEGFXDIR)/outline_cursor.4bpp: %.4bpp: %.png
@@ -687,14 +687,14 @@ $(NAMINGGFXDIR)/cursor_squished.4bpp: %.4bpp: %.png
 $(NAMINGGFXDIR)/cursor_filled.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 5 -Wnum_tiles
 
-$(SPINDAGFXDIR)/spot_0.1bpp: %.1bpp: %.png
+$(SKOGASAGFXDIR)/spot_0.1bpp: %.1bpp: %.png
 	$(GFX) $< $@ -plain -data_width 2
 
-$(SPINDAGFXDIR)/spot_1.1bpp: %.1bpp: %.png
+$(SKOGASAGFXDIR)/spot_1.1bpp: %.1bpp: %.png
 	$(GFX) $< $@ -plain -data_width 2
 
-$(SPINDAGFXDIR)/spot_2.1bpp: %.1bpp: %.png
+$(SKOGASAGFXDIR)/spot_2.1bpp: %.1bpp: %.png
 	$(GFX) $< $@ -plain -data_width 2
 
-$(SPINDAGFXDIR)/spot_3.1bpp: %.1bpp: %.png
+$(SKOGASAGFXDIR)/spot_3.1bpp: %.1bpp: %.png
 	$(GFX) $< $@ -plain -data_width 2

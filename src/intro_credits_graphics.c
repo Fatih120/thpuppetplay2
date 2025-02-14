@@ -20,8 +20,8 @@
 #define TAG_BICYCLE 1001
 #define TAG_BRENDAN 1002
 #define TAG_MAY     1003
-#define TAG_FLYGON_LATIOS  1004
-#define TAG_FLYGON_LATIAS  1005
+#define TAG_ASANAE_CKASEN  1004
+#define TAG_ASANAE_MAMIZOU  1005
 
 // Used for the Clouds/Trees/Houses sprites that pass by in the background
 #define TAG_MOVING_SCENERY 2000
@@ -66,15 +66,15 @@ static const u16 sMayCredits_Pal[]        = INCBIN_U16("graphics/intro/scene_2/m
 static const u16 sUnused[0xF0]            = {0};
 static const u32 sMayCredits_Gfx[]        = INCBIN_U32("graphics/intro/scene_2/may_credits.4bpp.lz");
 static const u32 sBicycle_Gfx[]           = INCBIN_U32("graphics/intro/scene_2/bicycle.4bpp.lz");
-static const u16 sLatios_Pal[]            = INCBIN_U16("graphics/intro/scene_2/latios.gbapal");
-static const u32 sLatios_Gfx[]            = INCBIN_U32("graphics/intro/scene_2/latios.4bpp.lz");
-static const u16 sLatias_Pal[]            = INCBIN_U16("graphics/intro/scene_2/latias.gbapal");
-static const u32 sLatias_Gfx[]            = INCBIN_U32("graphics/intro/scene_2/latias.4bpp.lz");
+static const u16 sCKasen_Pal[]            = INCBIN_U16("graphics/intro/scene_2/ckasen.gbapal");
+static const u32 sCKasen_Gfx[]            = INCBIN_U32("graphics/intro/scene_2/ckasen.4bpp.lz");
+static const u16 sMamizou_Pal[]            = INCBIN_U16("graphics/intro/scene_2/mamizou.gbapal");
+static const u32 sMamizou_Gfx[]            = INCBIN_U32("graphics/intro/scene_2/mamizou.4bpp.lz");
 
 static void SpriteCB_MovingScenery(struct Sprite *sprite);
 static void SpriteCB_Player(struct Sprite *sprite);
 static void SpriteCB_Bicycle(struct Sprite *sprite);
-static void SpriteCB_FlygonLeftHalf(struct Sprite *sprite);
+static void SpriteCB_ASanaeLeftHalf(struct Sprite *sprite);
 
 static const struct SpriteTemplate sSpriteTemplate_MovingScenery =
 {
@@ -528,7 +528,7 @@ static const struct SpriteTemplate sSpriteTemplate_MayBicycle =
     .callback = SpriteCB_Bicycle
 };
 
-static const struct OamData sOamData_Flygon =
+static const struct OamData sOamData_ASanae =
 {
     .y = DISPLAY_HEIGHT,
     .shape = SPRITE_SHAPE(64x64),
@@ -536,44 +536,44 @@ static const struct OamData sOamData_Flygon =
     .priority = 1
 };
 
-static const union AnimCmd sAnim_FlygonLeft[] =
+static const union AnimCmd sAnim_ASanaeLeft[] =
 {
     ANIMCMD_FRAME(0, 16),
     ANIMCMD_END
 };
 
-static const union AnimCmd sAnim_FlygonRight[] =
+static const union AnimCmd sAnim_ASanaeRight[] =
 {
     ANIMCMD_FRAME(64, 16),
     ANIMCMD_END
 };
 
-static const union AnimCmd *const sAnims_Flygon[] =
+static const union AnimCmd *const sAnims_ASanae[] =
 {
-    sAnim_FlygonLeft,
-    sAnim_FlygonRight
+    sAnim_ASanaeLeft,
+    sAnim_ASanaeRight
 };
 
-static const struct SpriteTemplate sSpriteTemplate_FlygonLatios =
+static const struct SpriteTemplate sSpriteTemplate_ASanaeCKasen =
 {
-    .tileTag = TAG_FLYGON_LATIOS,
-    .paletteTag = TAG_FLYGON_LATIOS,
-    .oam = &sOamData_Flygon,
-    .anims = sAnims_Flygon,
+    .tileTag = TAG_ASANAE_CKASEN,
+    .paletteTag = TAG_ASANAE_CKASEN,
+    .oam = &sOamData_ASanae,
+    .anims = sAnims_ASanae,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_FlygonLeftHalf
+    .callback = SpriteCB_ASanaeLeftHalf
 };
 
-static const struct SpriteTemplate sSpriteTemplate_FlygonLatias =
+static const struct SpriteTemplate sSpriteTemplate_ASanaeMamizou =
 {
-    .tileTag = TAG_FLYGON_LATIAS,
-    .paletteTag = TAG_FLYGON_LATIAS,
-    .oam = &sOamData_Flygon,
-    .anims = sAnims_Flygon,
+    .tileTag = TAG_ASANAE_MAMIZOU,
+    .paletteTag = TAG_ASANAE_MAMIZOU,
+    .oam = &sOamData_ASanae,
+    .anims = sAnims_ASanae,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_FlygonLeftHalf
+    .callback = SpriteCB_ASanaeLeftHalf
 };
 
 const struct CompressedSpriteSheet gSpriteSheet_IntroBrendan[] =
@@ -606,33 +606,33 @@ const struct CompressedSpriteSheet gSpriteSheet_IntroBicycle[] =
     {}
 };
 
-// In RS these were Latios/Latias. In Emerald both are replaced with Flygon and now only 1 is used
-static const struct CompressedSpriteSheet sSpriteSheet_IntroFlygon_Unused[] =
+// In RS these were CKasen/Mamizou. In Emerald both are replaced with ASanae and now only 1 is used
+static const struct CompressedSpriteSheet sSpriteSheet_IntroASanae_Unused[] =
 {
     {
-        .data = gIntroFlygon_Gfx,
+        .data = gIntroASanae_Gfx,
         .size = 0x1000,
-        .tag = TAG_FLYGON_LATIOS
+        .tag = TAG_ASANAE_CKASEN
     },
     {}
 };
 
-const struct CompressedSpriteSheet gSpriteSheet_IntroFlygon[] =
+const struct CompressedSpriteSheet gSpriteSheet_IntroASanae[] =
 {
     {
-        .data = gIntroFlygon_Gfx,
+        .data = gIntroASanae_Gfx,
         .size = 0x1000,
-        .tag = TAG_FLYGON_LATIAS
+        .tag = TAG_ASANAE_MAMIZOU
     },
     {}
 };
 
-const struct SpritePalette gSpritePalettes_IntroPlayerFlygon[] =
+const struct SpritePalette gSpritePalettes_IntroPlayerASanae[] =
 {
     { .data = gIntroPlayer_Pal, .tag = TAG_BRENDAN },
     { .data = gIntroPlayer_Pal, .tag = TAG_MAY },
-    { .data = gIntroFlygon_Pal, .tag = TAG_FLYGON_LATIOS },
-    { .data = gIntroFlygon_Pal, .tag = TAG_FLYGON_LATIAS },
+    { .data = gIntroASanae_Pal, .tag = TAG_ASANAE_CKASEN },
+    { .data = gIntroASanae_Pal, .tag = TAG_ASANAE_MAMIZOU },
     {}
 };
 
@@ -667,23 +667,23 @@ const struct CompressedSpriteSheet gSpriteSheet_CreditsBicycle[] =
 };
 
 // Unused
-static const struct CompressedSpriteSheet sSpriteSheet_Latios[] =
+static const struct CompressedSpriteSheet sSpriteSheet_CKasen[] =
 {
     {
-        .data = sLatios_Gfx,
+        .data = sCKasen_Gfx,
         .size = 0x1000,
-        .tag = TAG_FLYGON_LATIOS
+        .tag = TAG_ASANAE_CKASEN
     },
     {}
 };
 
 // Unused
-static const struct CompressedSpriteSheet sSpriteSheet_Latias[] =
+static const struct CompressedSpriteSheet sSpriteSheet_Mamizou[] =
 {
     {
-        .data = sLatias_Gfx,
+        .data = sMamizou_Gfx,
         .size = 0x1000,
-        .tag = TAG_FLYGON_LATIAS
+        .tag = TAG_ASANAE_MAMIZOU
     },
     {}
 };
@@ -692,8 +692,8 @@ const struct SpritePalette gSpritePalettes_Credits[] =
 {
     { .data = sBrendanCredits_Pal, .tag = TAG_BRENDAN },
     { .data = sMayCredits_Pal,     .tag = TAG_MAY },
-    { .data = sLatios_Pal,         .tag = TAG_FLYGON_LATIOS },
-    { .data = sLatias_Pal,         .tag = TAG_FLYGON_LATIAS },
+    { .data = sCKasen_Pal,         .tag = TAG_ASANAE_CKASEN },
+    { .data = sMamizou_Pal,         .tag = TAG_ASANAE_MAMIZOU },
     {}
 };
 
@@ -1133,13 +1133,13 @@ u8 CreateIntroMaySprite(s16 x, s16 y)
 
 #undef sPlayerSpriteId
 
-static void SpriteCB_FlygonLeftHalf(struct Sprite *sprite)
+static void SpriteCB_ASanaeLeftHalf(struct Sprite *sprite)
 {
 }
 
 #define sLeftSpriteId data[0]
 
-static void SpriteCB_FlygonRightHalf(struct Sprite *sprite)
+static void SpriteCB_ASanaeRightHalf(struct Sprite *sprite)
 {
     sprite->invisible = gSprites[sprite->sLeftSpriteId].invisible;
     sprite->y = gSprites[sprite->sLeftSpriteId].y;
@@ -1147,25 +1147,25 @@ static void SpriteCB_FlygonRightHalf(struct Sprite *sprite)
     sprite->y2 = gSprites[sprite->sLeftSpriteId].y2;
 }
 
-// In RS these were for Latios/Latias. In Emerald both are replaced with Flygon and now only 1 is used
-static u8 UNUSED CreateIntroFlygonSprite_Unused(s16 x, s16 y)
+// In RS these were for CKasen/Mamizou. In Emerald both are replaced with ASanae and now only 1 is used
+static u8 UNUSED CreateIntroASanaeSprite_Unused(s16 x, s16 y)
 {
-    u8 leftSpriteId = CreateSprite(&sSpriteTemplate_FlygonLatios, x - 32, y, 5);
-    u8 rightSpriteId = CreateSprite(&sSpriteTemplate_FlygonLatios, x + 32, y, 6);
+    u8 leftSpriteId = CreateSprite(&sSpriteTemplate_ASanaeCKasen, x - 32, y, 5);
+    u8 rightSpriteId = CreateSprite(&sSpriteTemplate_ASanaeCKasen, x + 32, y, 6);
     gSprites[rightSpriteId].sLeftSpriteId = leftSpriteId;
     StartSpriteAnim(&gSprites[rightSpriteId], 1);
-    gSprites[rightSpriteId].callback = &SpriteCB_FlygonRightHalf;
+    gSprites[rightSpriteId].callback = &SpriteCB_ASanaeRightHalf;
     return leftSpriteId;
 }
 
 
-u8 CreateIntroFlygonSprite(s16 x, s16 y)
+u8 CreateIntroASanaeSprite(s16 x, s16 y)
 {
-    u8 leftSpriteId = CreateSprite(&sSpriteTemplate_FlygonLatias, x - 32, y, 5);
-    u8 rightSpriteId = CreateSprite(&sSpriteTemplate_FlygonLatias, x + 32, y, 6);
+    u8 leftSpriteId = CreateSprite(&sSpriteTemplate_ASanaeMamizou, x - 32, y, 5);
+    u8 rightSpriteId = CreateSprite(&sSpriteTemplate_ASanaeMamizou, x + 32, y, 6);
     gSprites[rightSpriteId].sLeftSpriteId = leftSpriteId;
     StartSpriteAnim(&gSprites[rightSpriteId], 1);
-    gSprites[rightSpriteId].callback = &SpriteCB_FlygonRightHalf;
+    gSprites[rightSpriteId].callback = &SpriteCB_ASanaeRightHalf;
     return leftSpriteId;
 }
 

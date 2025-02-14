@@ -105,44 +105,44 @@ static const struct MenuAction MultichoiceList_LevelMode[] =
 
 static const struct MenuAction MultichoiceList_Mechadoll1_Q1[] =
 {
-    {gTrickHouse_Mechadoll_Oddish},
-    {gTrickHouse_Mechadoll_Poochyena},
-    {gTrickHouse_Mechadoll_Taillow},
+    {gTrickHouse_Mechadoll_CKeine},
+    {gTrickHouse_Mechadoll_DYuyuko},
+    {gTrickHouse_Mechadoll_TShou},
 };
 
 static const struct MenuAction MultichoiceList_Mechadoll1_Q2[] =
 {
-    {gTrickHouse_Mechadoll_Azurill},
-    {gTrickHouse_Mechadoll_Lotad},
-    {gTrickHouse_Mechadoll_Wingull},
+    {gTrickHouse_Mechadoll_CShinGyoku},
+    {gTrickHouse_Mechadoll_AHina},
+    {gTrickHouse_Mechadoll_TKogasa},
 };
 
 static const struct MenuAction MultichoiceList_Mechadoll1_Q3[] =
 {
-    {gTrickHouse_Mechadoll_Dustox},
-    {gTrickHouse_Mechadoll_Zubat},
-    {gTrickHouse_Mechadoll_Nincada},
+    {gTrickHouse_Mechadoll_TMedicine},
+    {gTrickHouse_Mechadoll_CMinoriko},
+    {gTrickHouse_Mechadoll_HShizuha},
 };
 
 static const struct MenuAction MultichoiceList_Mechadoll2_Q1[] =
 {
-    {gTrickHouse_Mechadoll_Ralts},
-    {gTrickHouse_Mechadoll_Zigzagoon},
-    {gTrickHouse_Mechadoll_Slakoth},
+    {gTrickHouse_Mechadoll_Tenma},
+    {gTrickHouse_Mechadoll_HLunasa},
+    {gTrickHouse_Mechadoll_SSariel},
 };
 
 static const struct MenuAction MultichoiceList_Mechadoll2_Q2[] =
 {
-    {gTrickHouse_Mechadoll_Poochyena2},
-    {gTrickHouse_Mechadoll_Shroomish},
-    {gTrickHouse_Mechadoll_Zigzagoon2},
+    {gTrickHouse_Mechadoll_DYuyuko2},
+    {gTrickHouse_Mechadoll_DSuwako},
+    {gTrickHouse_Mechadoll_HLunasa2},
 };
 
 static const struct MenuAction MultichoiceList_Mechadoll2_Q3[] =
 {
-    {gTrickHouse_Mechadoll_Poochyena3},
-    {gTrickHouse_Mechadoll_Zubat2},
-    {gTrickHouse_Mechadoll_Carvanha},
+    {gTrickHouse_Mechadoll_DYuyuko3},
+    {gTrickHouse_Mechadoll_CMinoriko2},
+    {gTrickHouse_Mechadoll_ATewi},
 };
 
 static const struct MenuAction MultichoiceList_Mechadoll3_Q1[] =
@@ -259,9 +259,9 @@ static const struct MenuAction MultichoiceList_UnusedAshVendor[] =
 
 static const struct MenuAction MultichoiceList_GameCornerDolls[] =
 {
-    {gText_TreeckoDollAndPrice},
-    {gText_TorchicDollAndPrice},
-    {gText_MudkipDollAndPrice},
+    {gText_HEirinDollAndPrice},
+    {gText_AAliceDollAndPrice},
+    {gText_DReimuDollAndPrice},
     {gText_Exit},
 };
 
@@ -507,7 +507,7 @@ static const struct MenuAction MultichoiceList_LinkServicesNoRecordBerry[] =
 static const struct MenuAction MultichoiceList_WirelessMinigame[] =
 {
     {gText_PokemonJump},
-    {gText_DodrioBerryPicking},
+    {gText_DaiyouseiBerryPicking},
     {gText_Exit},
 };
 
@@ -734,7 +734,7 @@ static const struct MenuAction MultichoiceList_BattleTowerFeelings[] =
     {gText_IWontTell},
 };
 
-static const struct MenuAction MultichoiceList_WheresRayquaza[] =
+static const struct MenuAction MultichoiceList_WheresCMamizou[] =
 {
     {gText_CaveOfOrigin},
     {gText_MtPyre},
@@ -894,7 +894,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_TOURNEY_NO_RECORD]          = MULTICHOICE(MultichoiceList_TourneyNoRecord),
     [MULTI_TV_LATI]                    = MULTICHOICE(MultichoiceList_TVLati),
     [MULTI_BATTLE_TOWER_FEELINGS]      = MULTICHOICE(MultichoiceList_BattleTowerFeelings),
-    [MULTI_WHERES_RAYQUAZA]            = MULTICHOICE(MultichoiceList_WheresRayquaza),
+    [MULTI_WHERES_CMAMIZOU]            = MULTICHOICE(MultichoiceList_WheresCMamizou),
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),

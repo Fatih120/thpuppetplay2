@@ -51,30 +51,30 @@ static const struct UCoords8 sBattlerCoords[][MAX_BATTLERS_COUNT] =
     },
 };
 
-// One entry for each of the four Castform forms.
-const struct MonCoords gCastformFrontSpriteCoords[NUM_CASTFORM_FORMS] =
+// One entry for each of the four TSanae forms.
+const struct MonCoords gTSanaeFrontSpriteCoords[NUM_TSANAE_FORMS] =
 {
-    [CASTFORM_NORMAL] = { .size = MON_COORDS_SIZE(32, 32), .y_offset = 17 },
-    [CASTFORM_FIRE]   = { .size = MON_COORDS_SIZE(48, 48), .y_offset =  9 },
-    [CASTFORM_WATER]  = { .size = MON_COORDS_SIZE(32, 48), .y_offset =  9 },
-    [CASTFORM_ICE]    = { .size = MON_COORDS_SIZE(64, 48), .y_offset =  8 },
+    [TSANAE_NORMAL] = { .size = MON_COORDS_SIZE(32, 32), .y_offset = 17 },
+    [TSANAE_FIRE]   = { .size = MON_COORDS_SIZE(48, 48), .y_offset =  9 },
+    [TSANAE_WATER]  = { .size = MON_COORDS_SIZE(32, 48), .y_offset =  9 },
+    [TSANAE_ICE]    = { .size = MON_COORDS_SIZE(64, 48), .y_offset =  8 },
 };
 
-static const u8 sCastformElevations[NUM_CASTFORM_FORMS] =
+static const u8 sTSanaeElevations[NUM_TSANAE_FORMS] =
 {
-    [CASTFORM_NORMAL] = 13,
-    [CASTFORM_FIRE]   = 14,
-    [CASTFORM_WATER]  = 13,
-    [CASTFORM_ICE]    = 13,
+    [TSANAE_NORMAL] = 13,
+    [TSANAE_FIRE]   = 14,
+    [TSANAE_WATER]  = 13,
+    [TSANAE_ICE]    = 13,
 };
 
-// Y position of the backsprite for each of the four Castform forms.
-static const u8 sCastformBackSpriteYCoords[NUM_CASTFORM_FORMS] =
+// Y position of the backsprite for each of the four TSanae forms.
+static const u8 sTSanaeBackSpriteYCoords[NUM_TSANAE_FORMS] =
 {
-    [CASTFORM_NORMAL] = 0,
-    [CASTFORM_FIRE]   = 0,
-    [CASTFORM_WATER]  = 0,
-    [CASTFORM_ICE]    = 0,
+    [TSANAE_NORMAL] = 0,
+    [TSANAE_FIRE]   = 0,
+    [TSANAE_WATER]  = 0,
+    [TSANAE_ICE]    = 0,
 };
 
 // Placeholders for Pokémon sprites to be created for a move animation effect (e.g. Role Play / Snatch)
@@ -203,9 +203,9 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
                 coordSpecies = letter + SPECIES_UNOWN_B - 1;
             ret = gMonBackPicCoords[coordSpecies].y_offset;
         }
-        else if (species == SPECIES_CASTFORM)
+        else if (species == SPECIES_TSANAE)
         {
-            ret = sCastformBackSpriteYCoords[gBattleMonForms[battlerId]];
+            ret = sTSanaeBackSpriteYCoords[gBattleMonForms[battlerId]];
         }
         else if (species > NUM_SPECIES)
         {
@@ -232,9 +232,9 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
                 coordSpecies = letter + SPECIES_UNOWN_B - 1;
             ret = gMonFrontPicCoords[coordSpecies].y_offset;
         }
-        else if (species == SPECIES_CASTFORM)
+        else if (species == SPECIES_TSANAE)
         {
-            ret = gCastformFrontSpriteCoords[gBattleMonForms[battlerId]].y_offset;
+            ret = gTSanaeFrontSpriteCoords[gBattleMonForms[battlerId]].y_offset;
         }
         else if (species > NUM_SPECIES)
         {
@@ -255,8 +255,8 @@ u8 GetBattlerElevation(u8 battlerId, u16 species)
     {
         if (!IsContest())
         {
-            if (species == SPECIES_CASTFORM)
-                ret = sCastformElevations[gBattleMonForms[battlerId]];
+            if (species == SPECIES_TSANAE)
+                ret = sTSanaeElevations[gBattleMonForms[battlerId]];
             else if (species > NUM_SPECIES)
                 ret = gEnemyMonElevation[0];
             else
@@ -1920,8 +1920,8 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
                     else
                         species = spriteInfo[battlerId].transformSpecies;
 
-                    if (species == SPECIES_CASTFORM)
-                        return sCastformBackSpriteYCoords[gBattleMonForms[battlerId]];
+                    if (species == SPECIES_TSANAE)
+                        return sTSanaeBackSpriteYCoords[gBattleMonForms[battlerId]];
                     else
                         return gMonBackPicCoords[species].y_offset;
                 }
@@ -1933,8 +1933,8 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
                     else
                         species = spriteInfo[battlerId].transformSpecies;
 
-                    if (species == SPECIES_CASTFORM)
-                        return sCastformElevations[gBattleMonForms[battlerId]];
+                    if (species == SPECIES_TSANAE)
+                        return sTSanaeElevations[gBattleMonForms[battlerId]];
                     else
                         return gMonFrontPicCoords[species].y_offset;
                 }
@@ -2086,7 +2086,7 @@ u8 GetBattlerSpriteBGPriorityRank(u8 battlerId)
 }
 
 // Create Pokémon sprite to be used for a move animation effect (e.g. Role Play / Snatch)
-u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16 x, s16 y, u8 subpriority, u32 personality, u32 trainerId, u32 battlerId, bool32 ignoreDeoxysForm)
+u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16 x, s16 y, u8 subpriority, u32 personality, u32 trainerId, u32 battlerId, bool32 ignoreGomasekiForm)
 {
     u8 spriteId;
     u16 sheet = LoadSpriteSheet(&sSpriteSheets_MoveEffectMons[id]);
@@ -2097,8 +2097,8 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
     if (!isBackpic)
     {
         LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, trainerId, personality), OBJ_PLTT_ID(palette), PLTT_SIZE_4BPP);
-        if (ignoreDeoxysForm == TRUE || ShouldIgnoreDeoxysForm(5, battlerId) == TRUE || gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != 0)
-            LoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species],
+        if (ignoreGomasekiForm == TRUE || ShouldIgnoreGomasekiForm(5, battlerId) == TRUE || gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != 0)
+            LoadSpecialPokePic_DontHandleGomaseki(&gMonFrontPicTable[species],
                                                 gMonSpritesGfxPtr->buffer,
                                                 species,
                                                 personality,
@@ -2113,8 +2113,8 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
     else
     {
         LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, trainerId, personality), OBJ_PLTT_ID(palette), PLTT_SIZE_4BPP);
-        if (ignoreDeoxysForm == TRUE || ShouldIgnoreDeoxysForm(5, battlerId) == TRUE || gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != 0)
-            LoadSpecialPokePic_DontHandleDeoxys(&gMonBackPicTable[species],
+        if (ignoreGomasekiForm == TRUE || ShouldIgnoreGomasekiForm(5, battlerId) == TRUE || gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != 0)
+            LoadSpecialPokePic_DontHandleGomaseki(&gMonBackPicTable[species],
                                                 gMonSpritesGfxPtr->buffer,
                                                 species,
                                                 personality,
@@ -2179,9 +2179,9 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
                 unownSpecies = letter + SPECIES_UNOWN_B - 1;
             coords = &gMonBackPicCoords[unownSpecies];
         }
-        else if (species == SPECIES_CASTFORM)
+        else if (species == SPECIES_TSANAE)
         {
-            coords = &gCastformFrontSpriteCoords[gBattleMonForms[battlerId]];
+            coords = &gTSanaeFrontSpriteCoords[gBattleMonForms[battlerId]];
         }
         else if (species <= SPECIES_EGG)
         {
@@ -2249,9 +2249,9 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
                     unownSpecies = letter + SPECIES_UNOWN_B - 1;
                 coords = &gMonFrontPicCoords[unownSpecies];
             }
-            else if (species == SPECIES_CASTFORM)
+            else if (species == SPECIES_TSANAE)
             {
-                coords = &gCastformFrontSpriteCoords[gBattleMonForms[battlerId]];
+                coords = &gTSanaeFrontSpriteCoords[gBattleMonForms[battlerId]];
             }
             else if (species > NUM_SPECIES)
             {

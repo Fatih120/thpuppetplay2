@@ -28,7 +28,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
+      "graphics_id": "OBJ_EVENT_GFX_TKOGASA",
       "x": 1,
       "y": 6,
       "elevation": 3,
@@ -37,11 +37,11 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route119_House_EventScript_Wingull",
+      "script": "Route119_House_EventScript_TKogasa",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
+      "graphics_id": "OBJ_EVENT_GFX_TKOGASA",
       "x": 0,
       "y": 4,
       "elevation": 3,
@@ -50,11 +50,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route119_House_EventScript_Wingull",
+      "script": "Route119_House_EventScript_TKogasa",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
+      "graphics_id": "OBJ_EVENT_GFX_TKOGASA",
       "x": 2,
       "y": 2,
       "elevation": 3,
@@ -63,11 +63,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route119_House_EventScript_Wingull",
+      "script": "Route119_House_EventScript_TKogasa",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
+      "graphics_id": "OBJ_EVENT_GFX_TKOGASA",
       "x": 8,
       "y": 5,
       "elevation": 3,
@@ -76,11 +76,11 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route119_House_EventScript_Wingull",
+      "script": "Route119_House_EventScript_TKogasa",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
+      "graphics_id": "OBJ_EVENT_GFX_TKOGASA",
       "x": 6,
       "y": 6,
       "elevation": 3,
@@ -89,11 +89,11 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route119_House_EventScript_Wingull",
+      "script": "Route119_House_EventScript_TKogasa",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WINGULL",
+      "graphics_id": "OBJ_EVENT_GFX_TKOGASA",
       "x": 5,
       "y": 3,
       "elevation": 3,
@@ -102,7 +102,7 @@
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route119_House_EventScript_Wingull",
+      "script": "Route119_House_EventScript_TKogasa",
       "flag": "0"
     }
   ],

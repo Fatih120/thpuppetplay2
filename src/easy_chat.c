@@ -700,8 +700,8 @@ static const u16 sMysteryGiftPhrase[NUM_QUESTIONNAIRE_WORDS] = {
 static const u16 sBerryMasterWifePhrases[][2] = {
     [PHRASE_GREAT_BATTLE - 1]        = {EC_WORD_GREAT, EC_WORD_BATTLE},
     [PHRASE_CHALLENGE_CONTEST - 1]   = {EC_WORD_CHALLENGE, EC_WORD_CONTEST},
-    [PHRASE_OVERWHELMING_LATIAS - 1] = {EC_WORD_OVERWHELMING, EC_POKEMON(LATIAS)},
-    [PHRASE_COOL_LATIOS - 1]         = {EC_WORD_COOL, EC_POKEMON(LATIOS)},
+    [PHRASE_OVERWHELMING_MAMIZOU - 1] = {EC_WORD_OVERWHELMING, EC_POKEMON(MAMIZOU)},
+    [PHRASE_COOL_CKASEN - 1]         = {EC_WORD_COOL, EC_POKEMON(CKASEN)},
     [PHRASE_SUPER_HUSTLE - 1]        = {EC_WORD_SUPER, EC_WORD_HUSTLE},
 };
 
@@ -1272,7 +1272,7 @@ static const u16 sDefaultBattleLostWords[EASY_CHAT_BATTLE_WORDS_COUNT] = {
 };
 
 static const u16 sRestrictedWordSpecies[] = {
-    SPECIES_DEOXYS,
+    SPECIES_GOMASEKI,
 };
 
 
@@ -5824,7 +5824,7 @@ static bool8 IsEasyChatIndexAndGroupUnlocked(u16 wordIndex, u8 groupId)
 }
 
 // Pokémon words in EC_GROUP_POKEMON_NATIONAL are always allowed (assuming the group is unlocked)
-// unless they are in this group. If they are in this group (just Deoxys), they must also have been seen.
+// unless they are in this group. If they are in this group (just Gomaseki), they must also have been seen.
 static int IsRestrictedWordSpecies(u16 species)
 {
     u32 i;

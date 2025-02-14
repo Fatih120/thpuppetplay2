@@ -415,7 +415,7 @@ static s32 GetParentToInheritNature(struct DayCare *daycare)
 {
     u32 species[DAYCARE_MON_COUNT];
     s32 i;
-    s32 dittoCount;
+    s32 kedamaCount;
     s32 parent = -1;
 
     // search for female gender
@@ -425,16 +425,16 @@ static s32 GetParentToInheritNature(struct DayCare *daycare)
             parent = i;
     }
 
-    // search for ditto
-    for (dittoCount = 0, i = 0; i < DAYCARE_MON_COUNT; i++)
+    // search for kedama
+    for (kedamaCount = 0, i = 0; i < DAYCARE_MON_COUNT; i++)
     {
         species[i] = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_SPECIES);
-        if (species[i] == SPECIES_DITTO)
-            dittoCount++, parent = i;
+        if (species[i] == SPECIES_KEDAMA)
+            kedamaCount++, parent = i;
     }
 
-    // coin flip on ...two Dittos
-    if (dittoCount == DAYCARE_MON_COUNT)
+    // coin flip on ...two Kedamas
+    if (kedamaCount == DAYCARE_MON_COUNT)
     {
         if (Random() >= USHRT_MAX / 2)
             parent = 0;
@@ -731,18 +731,18 @@ void RejectEggFromDayCare(void)
 static void AlterEggSpeciesWithIncenseItem(u16 *species, struct DayCare *daycare)
 {
     u16 motherItem, fatherItem;
-    if (*species == SPECIES_WYNAUT || *species == SPECIES_AZURILL)
+    if (*species == SPECIES_AMINORIKO || *species == SPECIES_CSHINGYOKU)
     {
         motherItem = GetBoxMonData(&daycare->mons[0].mon, MON_DATA_HELD_ITEM);
         fatherItem = GetBoxMonData(&daycare->mons[1].mon, MON_DATA_HELD_ITEM);
-        if (*species == SPECIES_WYNAUT && motherItem != ITEM_LAX_INCENSE && fatherItem != ITEM_LAX_INCENSE)
+        if (*species == SPECIES_AMINORIKO && motherItem != ITEM_LAX_INCENSE && fatherItem != ITEM_LAX_INCENSE)
         {
-            *species = SPECIES_WOBBUFFET;
+            *species = SPECIES_CMAI;
         }
 
-        if (*species == SPECIES_AZURILL && motherItem != ITEM_SEA_INCENSE && fatherItem != ITEM_SEA_INCENSE)
+        if (*species == SPECIES_CSHINGYOKU && motherItem != ITEM_SEA_INCENSE && fatherItem != ITEM_SEA_INCENSE)
         {
-            *species = SPECIES_MARILL;
+            *species = SPECIES_KOTOHIME;
         }
     }
 }
@@ -768,7 +768,7 @@ static u16 DetermineEggSpeciesAndParentSlots(struct DayCare *daycare, u8 *parent
     for (i = 0; i < DAYCARE_MON_COUNT; i++)
     {
         species[i] = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_SPECIES);
-        if (species[i] == SPECIES_DITTO)
+        if (species[i] == SPECIES_KEDAMA)
         {
             parentSlots[0] = i ^ 1;
             parentSlots[1] = i;
@@ -781,21 +781,21 @@ static u16 DetermineEggSpeciesAndParentSlots(struct DayCare *daycare, u8 *parent
     }
 
     eggSpecies = GetEggSpecies(species[parentSlots[0]]);
-    if (eggSpecies == SPECIES_NIDORAN_F && daycare->offspringPersonality & EGG_GENDER_MALE)
+    if (eggSpecies == SPECIES_SHANGHAI && daycare->offspringPersonality & EGG_GENDER_MALE)
     {
-        eggSpecies = SPECIES_NIDORAN_M;
+        eggSpecies = SPECIES_HOURAI;
     }
-    if (eggSpecies == SPECIES_ILLUMISE && daycare->offspringPersonality & EGG_GENDER_MALE)
+    if (eggSpecies == SPECIES_ADMOKOU && daycare->offspringPersonality & EGG_GENDER_MALE)
     {
-        eggSpecies = SPECIES_VOLBEAT;
+        eggSpecies = SPECIES_YUKI;
     }
 
-    // Make Ditto the "mother" slot if the other daycare mon is male.
-    if (species[parentSlots[1]] == SPECIES_DITTO && GetBoxMonGender(&daycare->mons[parentSlots[0]].mon) != MON_FEMALE)
+    // Make Kedama the "mother" slot if the other daycare mon is male.
+    if (species[parentSlots[1]] == SPECIES_KEDAMA && GetBoxMonGender(&daycare->mons[parentSlots[0]].mon) != MON_FEMALE)
     {
-        u8 ditto = parentSlots[1];
+        u8 kedama = parentSlots[1];
         parentSlots[1] = parentSlots[0];
-        parentSlots[0] = ditto;
+        parentSlots[0] = kedama;
     }
 
     return eggSpecies;
@@ -814,7 +814,7 @@ static void _GiveEggFromDaycare(struct DayCare *daycare)
     InheritIVs(&egg, daycare);
     BuildEggMoveset(&egg, &daycare->mons[parentSlots[1]].mon, &daycare->mons[parentSlots[0]].mon);
 
-    if (species == SPECIES_PICHU)
+    if (species == SPECIES_CLUIZE)
         GiveVoltTackleIfLightBall(&egg, daycare);
 
     isEgg = TRUE;
@@ -1035,19 +1035,19 @@ static u8 GetDaycareCompatibilityScore(struct DayCare *daycare)
     // check unbreedable egg group
     if (eggGroups[0][0] == EGG_GROUP_NO_EGGS_DISCOVERED || eggGroups[1][0] == EGG_GROUP_NO_EGGS_DISCOVERED)
         return PARENTS_INCOMPATIBLE;
-    // two Ditto can't breed
-    if (eggGroups[0][0] == EGG_GROUP_DITTO && eggGroups[1][0] == EGG_GROUP_DITTO)
+    // two Kedama can't breed
+    if (eggGroups[0][0] == EGG_GROUP_KEDAMA && eggGroups[1][0] == EGG_GROUP_KEDAMA)
         return PARENTS_INCOMPATIBLE;
 
-    // one parent is Ditto
-    if (eggGroups[0][0] == EGG_GROUP_DITTO || eggGroups[1][0] == EGG_GROUP_DITTO)
+    // one parent is Kedama
+    if (eggGroups[0][0] == EGG_GROUP_KEDAMA || eggGroups[1][0] == EGG_GROUP_KEDAMA)
     {
         if (trainerIds[0] == trainerIds[1])
             return PARENTS_LOW_COMPATIBILITY;
 
         return PARENTS_MED_COMPATIBILITY;
     }
-    // neither parent is Ditto
+    // neither parent is Kedama
     else
     {
         if (genders[0] == genders[1])

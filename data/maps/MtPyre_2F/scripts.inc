@@ -10,7 +10,7 @@ MtPyre_2F_SetHoleWarp:
 	end
 
 MtPyre_2F_EventScript_Woman::
-	msgbox MtPyre_2F_Text_MemoriesOfSkitty, MSGBOX_NPC
+	msgbox MtPyre_2F_Text_MemoriesOfASunnyMilk, MSGBOX_NPC
 	end
 
 MtPyre_2F_EventScript_PokefanM::
@@ -42,8 +42,8 @@ MtPyre_2F_EventScript_Zander::
 	msgbox MtPyre_2F_Text_ZanderPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-MtPyre_2F_Text_MemoriesOfSkitty:
-	.string "Memories of my darling SKITTY…\n"
+MtPyre_2F_Text_MemoriesOfASunnyMilk:
+	.string "Memories of my darling ASUNNYMILK…\n"
 	.string "My eyes overflow thinking about it.$"
 
 MtPyre_2F_Text_TumbledFromFloorAbove:

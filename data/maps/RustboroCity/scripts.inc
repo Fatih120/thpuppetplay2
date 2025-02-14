@@ -866,9 +866,9 @@ RustboroCity_EventScript_MayAskToBattle::
 RustboroCity_EventScript_BattleMay::
 	msgbox RustboroCity_Text_MayImNotGoingToLose, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, RustboroCity_EventScript_BattleMayTreecko
-	case 1, RustboroCity_EventScript_BattleMayTorchic
-	case 2, RustboroCity_EventScript_BattleMayMudkip
+	case 0, RustboroCity_EventScript_BattleMayHEirin
+	case 1, RustboroCity_EventScript_BattleMayAAlice
+	case 2, RustboroCity_EventScript_BattleMayDReimu
 	end
 
 RustboroCity_EventScript_MayBrineyHint::
@@ -882,20 +882,20 @@ RustboroCity_EventScript_RestoreBgm::
 	fadedefaultbgm
 	return
 
-RustboroCity_EventScript_BattleMayTreecko::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TREECKO, RustboroCity_Text_MayDefeat
+RustboroCity_EventScript_BattleMayHEirin::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_HEIRIN, RustboroCity_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	goto RustboroCity_EventScript_MayBrineyHint
 	end
 
-RustboroCity_EventScript_BattleMayTorchic::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TORCHIC, RustboroCity_Text_MayDefeat
+RustboroCity_EventScript_BattleMayAAlice::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_AALICE, RustboroCity_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	goto RustboroCity_EventScript_MayBrineyHint
 	end
 
-RustboroCity_EventScript_BattleMayMudkip::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_MUDKIP, RustboroCity_Text_MayDefeat
+RustboroCity_EventScript_BattleMayDReimu::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_DREIMU, RustboroCity_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	goto RustboroCity_EventScript_MayBrineyHint
 	end
@@ -932,9 +932,9 @@ RustboroCity_EventScript_BrendanAskToBattle::
 RustboroCity_EventScript_BattleBrendan::
 	msgbox RustboroCity_Text_BrendanIWontGoEasy, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, RustboroCity_EventScript_BattleBrendanTreecko
-	case 1, RustboroCity_EventScript_BattleBrendanTorchic
-	case 2, RustboroCity_EventScript_BattleBrendanMudkip
+	case 0, RustboroCity_EventScript_BattleBrendanHEirin
+	case 1, RustboroCity_EventScript_BattleBrendanAAlice
+	case 2, RustboroCity_EventScript_BattleBrendanDReimu
 	end
 
 RustboroCity_EventScript_BrendanBrineyHint::
@@ -943,20 +943,20 @@ RustboroCity_EventScript_BrendanBrineyHint::
 	releaseall
 	end
 
-RustboroCity_EventScript_BattleBrendanTreecko::
-	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_TREECKO, RustboroCity_Text_BrendanDefeat
+RustboroCity_EventScript_BattleBrendanHEirin::
+	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_HEIRIN, RustboroCity_Text_BrendanDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	goto RustboroCity_EventScript_BrendanBrineyHint
 	end
 
-RustboroCity_EventScript_BattleBrendanTorchic::
-	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_TORCHIC, RustboroCity_Text_BrendanDefeat
+RustboroCity_EventScript_BattleBrendanAAlice::
+	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_AALICE, RustboroCity_Text_BrendanDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	goto RustboroCity_EventScript_BrendanBrineyHint
 	end
 
-RustboroCity_EventScript_BattleBrendanMudkip::
-	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_MUDKIP, RustboroCity_Text_BrendanDefeat
+RustboroCity_EventScript_BattleBrendanDReimu::
+	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_DREIMU, RustboroCity_Text_BrendanDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	goto RustboroCity_EventScript_BrendanBrineyHint
 	end

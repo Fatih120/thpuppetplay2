@@ -86,7 +86,7 @@ VerdanturfTown_WandasHouse_Text_StrongerSpeech:
 	.string "WALLY: I lost to you, {PLAYER}, but I'm\n"
 	.string "not feeling down anymore.\p"
 	.string "Because I have a new purpose in life.\n"
-	.string "Together with my RALTS, I'm going\l"
+	.string "Together with my TENMA, I'm going\l"
 	.string "to challenge POKéMON GYMS and become\l"
 	.string "a great TRAINER.\p"
 	.string "Please watch me, {PLAYER}.\n"

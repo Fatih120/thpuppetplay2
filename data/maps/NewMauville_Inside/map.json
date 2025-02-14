@@ -89,8 +89,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NewMauville_Inside_EventScript_Voltorb1",
-      "flag": "FLAG_HIDE_NEW_MAUVILLE_VOLTORB_1"
+      "script": "NewMauville_Inside_EventScript_CMerlin1",
+      "flag": "FLAG_HIDE_NEW_MAUVILLE_CMERLIN_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -102,8 +102,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NewMauville_Inside_EventScript_Voltorb2",
-      "flag": "FLAG_HIDE_NEW_MAUVILLE_VOLTORB_2"
+      "script": "NewMauville_Inside_EventScript_CMerlin2",
+      "flag": "FLAG_HIDE_NEW_MAUVILLE_CMERLIN_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -115,8 +115,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NewMauville_Inside_EventScript_Voltorb3",
-      "flag": "FLAG_HIDE_NEW_MAUVILLE_VOLTORB_3"
+      "script": "NewMauville_Inside_EventScript_CMerlin3",
+      "flag": "FLAG_HIDE_NEW_MAUVILLE_CMERLIN_3"
     }
   ],
   "warp_events": [

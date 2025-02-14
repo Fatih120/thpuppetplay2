@@ -2,24 +2,24 @@ static const u16 sFrontierExchangeCorner_Decor1[] =
 {
     DECOR_KISS_POSTER,
     DECOR_KISS_CUSHION,
-    DECOR_SMOOCHUM_DOLL,
-    DECOR_TOGEPI_DOLL,
-    DECOR_MEOWTH_DOLL,
-    DECOR_CLEFAIRY_DOLL,
-    DECOR_DITTO_DOLL,
-    DECOR_CYNDAQUIL_DOLL,
-    DECOR_CHIKORITA_DOLL,
-    DECOR_TOTODILE_DOLL,
+    DECOR_DKANAKO_DOLL,
+    DECOR_MARGATROID_DOLL,
+    DECOR_CCHEN_DOLL,
+    DECOR_CYUKARI_DOLL,
+    DECOR_KEDAMA_DOLL,
+    DECOR_CELLY_DOLL,
+    DECOR_GENJII_DOLL,
+    DECOR_ORANGE_DOLL,
     ITEM_LIST_END
 };
 
 static const u16 sFrontierExchangeCorner_Decor2[] =
 {
-    DECOR_LAPRAS_DOLL,
-    DECOR_SNORLAX_DOLL,
-    DECOR_VENUSAUR_DOLL,
-    DECOR_CHARIZARD_DOLL,
-    DECOR_BLASTOISE_DOLL,
+    DECOR_TEWI_DOLL,
+    DECOR_BYAKUREN_DOLL,
+    DECOR_CALICE_DOLL,
+    DECOR_REISEN_DOLL,
+    DECOR_CLILYBLACK_DOLL,
     ITEM_LIST_END
 };
 
@@ -52,14 +52,14 @@ static const u8 *const sFrontierExchangeCorner_Decor1Descriptions[] =
 {
     BattleFrontier_ExchangeServiceCorner_Text_KissPosterDesc,
     BattleFrontier_ExchangeServiceCorner_Text_KissCushionDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_SmoochumDollDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_TogepiDollDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_MeowthDollDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_ClefairyDollDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_DittoDollDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_CyndaquilDollDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_ChikoritaDollDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_TotodileDollDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_DKanakoDollDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_MargatroidDollDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_CChenDollDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_CYukariDollDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_KedamaDollDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_CEllyDollDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_GenjiiDollDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_OrangeDollDesc,
     gText_Exit,
 };
 

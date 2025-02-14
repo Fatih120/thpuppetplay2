@@ -163,7 +163,7 @@ PetalburgCity_Gym_EventScript_BeginWallyTutorial::
 	call_if_eq VAR_0x8008, 1, PetalburgCity_Gym_EventScript_NormanAddressWallyNorth
 	call_if_eq VAR_0x8008, 2, PetalburgCity_Gym_EventScript_NormanAddressWallyWest
 	call_if_eq VAR_0x8008, 3, PetalburgCity_Gym_EventScript_NormanAddressWallyEast
-	msgbox PetalburgCity_Gym_Text_IllLoanYouMyZigzagoon, MSGBOX_DEFAULT
+	msgbox PetalburgCity_Gym_Text_IllLoanYouMyHLunasa, MSGBOX_DEFAULT
 	msgbox PetalburgCity_Gym_Text_WallyThankYouAndDadGivesPokeBall, MSGBOX_DEFAULT
 	msgbox PetalburgCity_Gym_Text_WallyOhWowThankYou, MSGBOX_DEFAULT
 	call_if_eq VAR_0x8008, 0, PetalburgCity_Gym_EventScript_NormanFaceDoorSouth
@@ -1179,9 +1179,9 @@ PetalburgCity_Gym_Text_DadPlayerGoWithWally:
 	.string "Go with WALLY and make sure that he\n"
 	.string "safely catches a POKéMON.$"
 
-PetalburgCity_Gym_Text_IllLoanYouMyZigzagoon:
+PetalburgCity_Gym_Text_IllLoanYouMyHLunasa:
 	.string "WALLY, here, I'll loan you my POKéMON.\p"
-	.string "WALLY received a ZIGZAGOON!$"
+	.string "WALLY received a HLUNASA!$"
 
 PetalburgCity_Gym_Text_WallyThankYouAndDadGivesPokeBall:
 	.string "WALLY: Oh, wow!\n"

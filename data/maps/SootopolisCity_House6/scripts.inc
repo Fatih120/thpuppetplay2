@@ -4,28 +4,28 @@ SootopolisCity_House6_MapScripts::
 SootopolisCity_House6_EventScript_Woman::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_WAILMER_DOLL, SootopolisCity_House6_EventScript_ReceivedWailmerDoll
+	goto_if_set FLAG_RECEIVED_DMEILING_DOLL, SootopolisCity_House6_EventScript_ReceivedDMeilingDoll
 	msgbox SootopolisCity_House6_Text_FirstGuestInWhileTakeDoll, MSGBOX_YESNO
-	call_if_eq VAR_RESULT, NO, SootopolisCity_House6_EventScript_DeclineWailmerDoll
+	call_if_eq VAR_RESULT, NO, SootopolisCity_House6_EventScript_DeclineDMeilingDoll
 	msgbox SootopolisCity_House6_Text_TakeGoodCareOfIt, MSGBOX_DEFAULT
-	givedecoration DECOR_WAILMER_DOLL
-	goto_if_eq VAR_RESULT, FALSE, SootopolisCity_House6_EventScript_NoRoomForWailmerDoll
-	setflag FLAG_RECEIVED_WAILMER_DOLL
+	givedecoration DECOR_DMEILING_DOLL
+	goto_if_eq VAR_RESULT, FALSE, SootopolisCity_House6_EventScript_NoRoomForDMeilingDoll
+	setflag FLAG_RECEIVED_DMEILING_DOLL
 	release
 	end
 
-SootopolisCity_House6_EventScript_DeclineWailmerDoll::
+SootopolisCity_House6_EventScript_DeclineDMeilingDoll::
 	msgbox SootopolisCity_House6_Text_DontWantThisDoll, MSGBOX_DEFAULT
 	release
 	end
 
-SootopolisCity_House6_EventScript_ReceivedWailmerDoll::
+SootopolisCity_House6_EventScript_ReceivedDMeilingDoll::
 	msgbox SootopolisCity_House6_Text_LovePlushDolls, MSGBOX_DEFAULT
 	release
 	end
 
-SootopolisCity_House6_EventScript_NoRoomForWailmerDoll::
-	bufferdecorationname STR_VAR_2, DECOR_WAILMER_DOLL
+SootopolisCity_House6_EventScript_NoRoomForDMeilingDoll::
+	bufferdecorationname STR_VAR_2, DECOR_DMEILING_DOLL
 	msgbox gText_NoRoomLeftForAnother, MSGBOX_DEFAULT
 	msgbox SootopolisCity_House6_Text_IllHoldItForYou, MSGBOX_DEFAULT
 	release
@@ -35,7 +35,7 @@ SootopolisCity_House6_Text_FirstGuestInWhileTakeDoll:
 	.string "Hello! You're our first guest in\n"
 	.string "a good while.\p"
 	.string "You've brightened up my day, so I'll\n"
-	.string "give you a big WAILMER DOLL.$"
+	.string "give you a big DMEILING DOLL.$"
 
 SootopolisCity_House6_Text_TakeGoodCareOfIt:
 	.string "Take good care of it!$"

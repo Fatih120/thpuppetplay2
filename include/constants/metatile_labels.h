@@ -277,12 +277,12 @@
 #define METATILE_Lilycove_Door_DeptStore   0x30C
 #define METATILE_Lilycove_Door_SafariZone  0x32D
 #define METATILE_Lilycove_Door_Wooden      0x28E
-#define METATILE_Lilycove_Wailmer0         0x290
-#define METATILE_Lilycove_Wailmer0_Alt     0x298
-#define METATILE_Lilycove_Wailmer1         0x291
-#define METATILE_Lilycove_Wailmer1_Alt     0x299
-#define METATILE_Lilycove_Wailmer2         0x2A0
-#define METATILE_Lilycove_Wailmer3         0x2A1
+#define METATILE_Lilycove_DMeiling0         0x290
+#define METATILE_Lilycove_DMeiling0_Alt     0x298
+#define METATILE_Lilycove_DMeiling1         0x291
+#define METATILE_Lilycove_DMeiling1_Alt     0x299
+#define METATILE_Lilycove_DMeiling2         0x2A0
+#define METATILE_Lilycove_DMeiling3         0x2A1
 
 // gTileset_LilycoveMuseum
 #define METATILE_LilycoveMuseum_Painting0_Left   0x25A

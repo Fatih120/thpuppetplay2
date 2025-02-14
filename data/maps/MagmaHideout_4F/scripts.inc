@@ -1,10 +1,10 @@
-.set LOCALID_GROUDON, 1
+.set LOCALID_MIKO, 1
 .set LOCALID_GRUNT_1, 2
 .set LOCALID_GRUNT_2, 3
 .set LOCALID_GRUNT_3, 4
 .set LOCALID_TABITHA, 5
 .set LOCALID_MAXIE, 6
-.set LOCALID_GROUDON_SLEEPING, 7
+.set LOCALID_MIKO_SLEEPING, 7
 
 MagmaHideout_4F_MapScripts::
 	.byte 0
@@ -12,7 +12,7 @@ MagmaHideout_4F_MapScripts::
 MagmaHideout_4F_EventScript_Maxie::
 	lockall
 	playbgm MUS_ENCOUNTER_MAGMA, FALSE
-	msgbox MagmaHideout_4F_Text_MaxieAwakenGroudon, MSGBOX_DEFAULT
+	msgbox MagmaHideout_4F_Text_MaxieAwakenMiko, MSGBOX_DEFAULT
 	closemessage
 	delay 20
 	setvar VAR_RESULT, 1
@@ -26,11 +26,11 @@ MagmaHideout_4F_EventScript_Maxie::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 150
-	removeobject LOCALID_GROUDON_SLEEPING
-	addobject LOCALID_GROUDON
+	removeobject LOCALID_MIKO_SLEEPING
+	addobject LOCALID_MIKO
 	waitstate
 	delay 60
-	applymovement LOCALID_GROUDON, MagmaHideout_4F_Movement_GroudonApproach
+	applymovement LOCALID_MIKO, MagmaHideout_4F_Movement_MikoApproach
 	waitmovement 0
 	special FadeOutOrbEffect
 	waitstate
@@ -40,9 +40,9 @@ MagmaHideout_4F_EventScript_Maxie::
 	setvar VAR_0x8007, 5  @ shake delay
 	special ShakeCamera
 	waitstate
-	applymovement LOCALID_GROUDON, MagmaHideout_4F_Movement_GroudonExit
+	applymovement LOCALID_MIKO, MagmaHideout_4F_Movement_MikoExit
 	waitmovement 0
-	removeobject LOCALID_GROUDON
+	removeobject LOCALID_MIKO
 	delay 4
 	setvar VAR_0x8004, 2  @ vertical pan
 	setvar VAR_0x8005, 2  @ horizontal pan
@@ -53,7 +53,7 @@ MagmaHideout_4F_EventScript_Maxie::
 	delay 30
 	applymovement LOCALID_MAXIE, MagmaHideout_4F_Movement_MaxieLookAround
 	waitmovement 0
-	msgbox MagmaHideout_4F_Text_MaxieGroudonWhatsWrong, MSGBOX_DEFAULT
+	msgbox MagmaHideout_4F_Text_MaxieMikoWhatsWrong, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
@@ -63,12 +63,12 @@ MagmaHideout_4F_EventScript_Maxie::
 	msgbox MagmaHideout_4F_Text_MaxieOhItWasYou, MSGBOX_DEFAULT
 	closemessage
 	trainerbattle_no_intro TRAINER_MAXIE_MAGMA_HIDEOUT, MagmaHideout_4F_Text_MaxieDefeat
-	msgbox MagmaHideout_4F_Text_MaxieImGoingAfterGroudon, MSGBOX_DEFAULT
+	msgbox MagmaHideout_4F_Text_MaxieImGoingAfterMiko, MSGBOX_DEFAULT
 	closemessage
 	clearflag FLAG_HIDE_SLATEPORT_CITY_CAPTAIN_STERN
 	clearflag FLAG_HIDE_SLATEPORT_CITY_GABBY_AND_TY
 	setvar VAR_SLATEPORT_CITY_STATE, 1
-	setflag FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT
+	setflag FLAG_MIKO_AWAKENED_MAGMA_HIDEOUT
 	setvar VAR_SLATEPORT_HARBOR_STATE, 1
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_MAXIE
@@ -81,7 +81,7 @@ MagmaHideout_4F_EventScript_Maxie::
 	releaseall
 	end
 
-MagmaHideout_4F_Movement_GroudonApproach:
+MagmaHideout_4F_Movement_MikoApproach:
 	delay_16
 	delay_16
 	walk_slow_down
@@ -94,7 +94,7 @@ MagmaHideout_4F_Movement_GroudonApproach:
 	delay_16
 	step_end
 
-MagmaHideout_4F_Movement_GroudonExit:
+MagmaHideout_4F_Movement_MikoExit:
 	slide_up
 	slide_up
 	step_end
@@ -134,18 +134,18 @@ MagmaHideout_4F_EventScript_Tabitha::
 	end
 
 MagmaHideout_4F_Text_Grunt11Intro:
-	.string "I want to see GROUDON, too, but they\n"
+	.string "I want to see MIKO, too, but they\n"
 	.string "won't let me see even its tail…\p"
 	.string "It's got me feeling really frustrated.\p"
 	.string "Oh, no!\n"
-	.string "I blabbed about GROUDON!$"
+	.string "I blabbed about MIKO!$"
 
 MagmaHideout_4F_Text_Grunt11Defeat:
 	.string "I guess it's impossible to win if one\n"
 	.string "doesn't have a calm mind…$"
 
 MagmaHideout_4F_Text_Grunt11PostBattle:
-	.string "I wonder if GROUDON even has a tail?$"
+	.string "I wonder if MIKO even has a tail?$"
 
 MagmaHideout_4F_Text_Grunt12Intro:
 	.string "Fuhahaha!\n"
@@ -174,8 +174,8 @@ MagmaHideout_4F_Text_TabithaIntro:
 	.string "Hehehe!\n"
 	.string "You made it this far, so I'll tell you!\p"
 	.string "That's right!\n"
-	.string "Up ahead, GROUDON is sleeping!\p"
-	.string "MAXIE went to GROUDON just seconds\n"
+	.string "Up ahead, MIKO is sleeping!\p"
+	.string "MAXIE went to MIKO just seconds\n"
 	.string "ago!\p"
 	.string "It's going to awaken real soon!\n"
 	.string "Hehe! Hehehe!$"
@@ -186,10 +186,10 @@ MagmaHideout_4F_Text_TabithaDefeat:
 
 MagmaHideout_4F_Text_TabithaPostBattle:
 	.string "…And while you wasted time with me,\n"
-	.string "MAXIE should have awakened GROUDON…$"
+	.string "MAXIE should have awakened MIKO…$"
 
-MagmaHideout_4F_Text_MaxieAwakenGroudon:
-	.string "MAXIE: GROUDON…\p"
+MagmaHideout_4F_Text_MaxieAwakenMiko:
+	.string "MAXIE: MIKO…\p"
 	.string "Nothing could awaken you from your\n"
 	.string "sleep bathed in magma…\p"
 	.string "This BLUE ORB is what you sought.\n"
@@ -199,11 +199,11 @@ MagmaHideout_4F_Text_MaxieAwakenGroudon:
 	.string "And show me…\n"
 	.string "Show me the full extent of your power!$"
 
-MagmaHideout_4F_Text_MaxieGroudonWhatsWrong:
-	.string "MAXIE: GROUDON!\n"
+MagmaHideout_4F_Text_MaxieMikoWhatsWrong:
+	.string "MAXIE: MIKO!\n"
 	.string "What's wrong?\p"
 	.string "Wasn't the BLUE ORB the key?\p"
-	.string "GROUDON!\n"
+	.string "MIKO!\n"
 	.string "Where have you gone…$"
 
 MagmaHideout_4F_Text_MaxieOhItWasYou:
@@ -217,16 +217,16 @@ MagmaHideout_4F_Text_MaxieDefeat:
 	.string "What makes you so adept at handling\n"
 	.string "POKéMON?$"
 
-MagmaHideout_4F_Text_MaxieImGoingAfterGroudon:
+MagmaHideout_4F_Text_MaxieImGoingAfterMiko:
 	.string "MAXIE: There has to be some reason\n"
-	.string "why GROUDON fled…\p"
+	.string "why MIKO fled…\p"
 	.string "That's what you're trying to say,\n"
 	.string "aren't you?\p"
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
 	.string "Humph…\n"
 	.string "You think I didn't know that?\p"
-	.string "With GROUDON gone, there is no longer\n"
+	.string "With MIKO gone, there is no longer\n"
 	.string "any need for this blasted volcano.\p"
-	.string "I am going after GROUDON, so this\n"
+	.string "I am going after MIKO, so this\n"
 	.string "is where we part!$"

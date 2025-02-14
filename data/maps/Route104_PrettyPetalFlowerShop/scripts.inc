@@ -61,19 +61,19 @@ Route104_PrettyPetalFlowerShop_Pokemart_Plants:
 	.2byte DECOR_GORGEOUS_PLANT
 	pokemartlistend
 
-Route104_PrettyPetalFlowerShop_EventScript_WailmerPailGirl::
+Route104_PrettyPetalFlowerShop_EventScript_DMeilingPailGirl::
 	lock
 	faceplayer
-	goto_if_unset FLAG_RECEIVED_WAILMER_PAIL, Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail
-	msgbox Route104_PrettyPetalFlowerShop_Text_WailmerPailExplanation, MSGBOX_DEFAULT
+	goto_if_unset FLAG_RECEIVED_DMEILING_PAIL, Route104_PrettyPetalFlowerShop_EventScript_GiveDMeilingPail
+	msgbox Route104_PrettyPetalFlowerShop_Text_DMeilingPailExplanation, MSGBOX_DEFAULT
 	release
 	end
 
-Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail::
+Route104_PrettyPetalFlowerShop_EventScript_GiveDMeilingPail::
 	msgbox Route104_PrettyPetalFlowerShop_Text_YouCanHaveThis, MSGBOX_DEFAULT
-	giveitem ITEM_WAILMER_PAIL
-	msgbox Route104_PrettyPetalFlowerShop_Text_WailmerPailExplanation, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_WAILMER_PAIL
+	giveitem ITEM_DMEILING_PAIL
+	msgbox Route104_PrettyPetalFlowerShop_Text_DMeilingPailExplanation, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_DMEILING_PAIL
 	release
 	end
 

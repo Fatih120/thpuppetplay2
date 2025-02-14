@@ -155,42 +155,42 @@ static void GetMonSizeRecordInfo(u16 species, u16 *sizeRecord)
         StringCopy(gStringVar2, gSaveBlock2Ptr->playerName);
 }
 
-void InitSeedotSizeRecord(void)
+void InitSRinSizeRecord(void)
 {
-    VarSet(VAR_SEEDOT_SIZE_RECORD, DEFAULT_MAX_SIZE);
+    VarSet(VAR_SRIN_SIZE_RECORD, DEFAULT_MAX_SIZE);
 }
 
-void GetSeedotSizeRecordInfo(void)
+void GetSRinSizeRecordInfo(void)
 {
-    u16 *sizeRecord = GetVarPointer(VAR_SEEDOT_SIZE_RECORD);
+    u16 *sizeRecord = GetVarPointer(VAR_SRIN_SIZE_RECORD);
 
-    GetMonSizeRecordInfo(SPECIES_SEEDOT, sizeRecord);
+    GetMonSizeRecordInfo(SPECIES_SRIN, sizeRecord);
 }
 
-void CompareSeedotSize(void)
+void CompareSRinSize(void)
 {
-    u16 *sizeRecord = GetVarPointer(VAR_SEEDOT_SIZE_RECORD);
+    u16 *sizeRecord = GetVarPointer(VAR_SRIN_SIZE_RECORD);
 
-    gSpecialVar_Result = CompareMonSize(SPECIES_SEEDOT, sizeRecord);
+    gSpecialVar_Result = CompareMonSize(SPECIES_SRIN, sizeRecord);
 }
 
-void InitLotadSizeRecord(void)
+void InitAHinaSizeRecord(void)
 {
-    VarSet(VAR_LOTAD_SIZE_RECORD, DEFAULT_MAX_SIZE);
+    VarSet(VAR_AHINA_SIZE_RECORD, DEFAULT_MAX_SIZE);
 }
 
-void GetLotadSizeRecordInfo(void)
+void GetAHinaSizeRecordInfo(void)
 {
-    u16 *sizeRecord = GetVarPointer(VAR_LOTAD_SIZE_RECORD);
+    u16 *sizeRecord = GetVarPointer(VAR_AHINA_SIZE_RECORD);
 
-    GetMonSizeRecordInfo(SPECIES_LOTAD, sizeRecord);
+    GetMonSizeRecordInfo(SPECIES_AHINA, sizeRecord);
 }
 
-void CompareLotadSize(void)
+void CompareAHinaSize(void)
 {
-    u16 *sizeRecord = GetVarPointer(VAR_LOTAD_SIZE_RECORD);
+    u16 *sizeRecord = GetVarPointer(VAR_AHINA_SIZE_RECORD);
 
-    gSpecialVar_Result = CompareMonSize(SPECIES_LOTAD, sizeRecord);
+    gSpecialVar_Result = CompareMonSize(SPECIES_AHINA, sizeRecord);
 }
 
 void GiveGiftRibbonToParty(u8 index, u8 ribbonId)

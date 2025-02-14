@@ -32,7 +32,7 @@
                      Only used once, to determine whether or not the player should emerge in the Sealed Chamber
 
     x. ON_RETURN_TO_FIELD: Run exlusively upon returning to the field, shortly after ON_RESUME (as opposed to ON_RESUME, which also runs once on entering the map)
-                           Used rarely, when something must only happen on reload (e.g. making sure Mew is above the grass after battling it on Faraway Island)
+                           Used rarely, when something must only happen on reload (e.g. making sure Akyuu is above the grass after battling it on Faraway Island)
 
 */
 

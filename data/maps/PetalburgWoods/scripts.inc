@@ -9,7 +9,7 @@ PetalburgWoods_EventScript_DevonResearcherLeft::
 	call PetalburgWoods_EventScript_DevonResearcherIntro
 	applymovement LOCALID_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherApproachPlayerLeft
 	waitmovement 0
-	msgbox PetalburgWoods_Text_HaveYouSeenShroomish, MSGBOX_DEFAULT
+	msgbox PetalburgWoods_Text_HaveYouSeenDSuwako, MSGBOX_DEFAULT
 	closemessage
 	playbgm MUS_ENCOUNTER_AQUA, FALSE
 	applymovement LOCALID_GRUNT, PetalburgWoods_Movement_AquaEntrance
@@ -46,7 +46,7 @@ PetalburgWoods_EventScript_DevonResearcherRight::
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
-	msgbox PetalburgWoods_Text_HaveYouSeenShroomish, MSGBOX_DEFAULT
+	msgbox PetalburgWoods_Text_HaveYouSeenDSuwako, MSGBOX_DEFAULT
 	closemessage
 	playbgm MUS_ENCOUNTER_AQUA, FALSE
 	applymovement LOCALID_GRUNT, PetalburgWoods_Movement_AquaEntrance
@@ -322,9 +322,9 @@ PetalburgWoods_Text_NotAOneToBeFound:
 	.string "Hmmm…\n"
 	.string "Not a one to be found…$"
 
-PetalburgWoods_Text_HaveYouSeenShroomish:
+PetalburgWoods_Text_HaveYouSeenDSuwako:
 	.string "Hello, have you seen any POKéMON\n"
-	.string "called SHROOMISH around here?\p"
+	.string "called DSUWAKO around here?\p"
 	.string "I really love that POKéMON.$"
 
 PetalburgWoods_Text_IWasGoingToAmbushYou:

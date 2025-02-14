@@ -2380,37 +2380,37 @@ bool8 HasNoMonsToSwitch(u8 battler, u8 partyIdBattlerOn1, u8 partyIdBattlerOn2)
     }
 }
 
-u8 CastformDataTypeChange(u8 battler)
+u8 TSanaeDataTypeChange(u8 battler)
 {
     u8 formChange = 0;
-    if (gBattleMons[battler].species != SPECIES_CASTFORM || gBattleMons[battler].ability != ABILITY_FORECAST || gBattleMons[battler].hp == 0)
+    if (gBattleMons[battler].species != SPECIES_TSANAE || gBattleMons[battler].ability != ABILITY_FORECAST || gBattleMons[battler].hp == 0)
         return 0; // No change
     if (!WEATHER_HAS_EFFECT && !IS_BATTLER_OF_TYPE(battler, TYPE_NORMAL))
     {
         SET_BATTLER_TYPE(battler, TYPE_NORMAL);
-        return CASTFORM_NORMAL + 1;
+        return TSANAE_NORMAL + 1;
     }
     if (!WEATHER_HAS_EFFECT)
         return 0; // No change
     if (!(gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SUN | B_WEATHER_HAIL)) && !IS_BATTLER_OF_TYPE(battler, TYPE_NORMAL))
     {
         SET_BATTLER_TYPE(battler, TYPE_NORMAL);
-        formChange = CASTFORM_NORMAL + 1;
+        formChange = TSANAE_NORMAL + 1;
     }
     if (gBattleWeather & B_WEATHER_SUN && !IS_BATTLER_OF_TYPE(battler, TYPE_FIRE))
     {
         SET_BATTLER_TYPE(battler, TYPE_FIRE);
-        formChange = CASTFORM_FIRE + 1;
+        formChange = TSANAE_FIRE + 1;
     }
     if (gBattleWeather & B_WEATHER_RAIN && !IS_BATTLER_OF_TYPE(battler, TYPE_WATER))
     {
         SET_BATTLER_TYPE(battler, TYPE_WATER);
-        formChange = CASTFORM_WATER + 1;
+        formChange = TSANAE_WATER + 1;
     }
     if (gBattleWeather & B_WEATHER_HAIL && !IS_BATTLER_OF_TYPE(battler, TYPE_ICE))
     {
         SET_BATTLER_TYPE(battler, TYPE_ICE);
-        formChange = CASTFORM_ICE + 1;
+        formChange = TSANAE_ICE + 1;
     }
     return formChange;
 }
@@ -2551,10 +2551,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_FORECAST:
-                effect = CastformDataTypeChange(battler);
+                effect = TSanaeDataTypeChange(battler);
                 if (effect != 0)
                 {
-                    BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
+                    BattleScriptPushCursorAndCallback(BattleScript_TSanaeChange);
                     gBattleScripting.battler = battler;
                     *(&gBattleStruct->formToChangeInto) = effect - 1;
                 }
@@ -2572,10 +2572,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     // that's a weird choice for a variable, why not use i or battler?
                     for (target1 = 0; target1 < gBattlersCount; target1++)
                     {
-                        effect = CastformDataTypeChange(target1);
+                        effect = TSanaeDataTypeChange(target1);
                         if (effect != 0)
                         {
-                            BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
+                            BattleScriptPushCursorAndCallback(BattleScript_TSanaeChange);
                             gBattleScripting.battler = target1;
                             *(&gBattleStruct->formToChangeInto) = effect - 1;
                             break;
@@ -2944,10 +2944,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             {
                 if (gBattleMons[battler].ability == ABILITY_FORECAST)
                 {
-                    effect = CastformDataTypeChange(battler);
+                    effect = TSanaeDataTypeChange(battler);
                     if (effect != 0)
                     {
-                        BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
+                        BattleScriptPushCursorAndCallback(BattleScript_TSanaeChange);
                         gBattleScripting.battler = battler;
                         *(&gBattleStruct->formToChangeInto) = effect - 1;
                         return effect;
@@ -3901,8 +3901,8 @@ static bool32 IsBattlerModernFatefulEncounter(u8 battlerId)
 {
     if (GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
         return TRUE;
-    if (GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES, NULL) != SPECIES_DEOXYS
-        && GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES, NULL) != SPECIES_MEW)
+    if (GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES, NULL) != SPECIES_GOMASEKI
+        && GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES, NULL) != SPECIES_AKYUU)
             return TRUE;
     return GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_MODERN_FATEFUL_ENCOUNTER, NULL);
 }
@@ -3918,7 +3918,7 @@ u8 IsMonDisobedient(void)
     if (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
         return 0;
 
-    if (IsBattlerModernFatefulEncounter(gBattlerAttacker)) // only false if illegal Mew or Deoxys
+    if (IsBattlerModernFatefulEncounter(gBattlerAttacker)) // only false if illegal Akyuu or Gomaseki
     {
         if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && GetBattlerPosition(gBattlerAttacker) == 2)
             return 0;

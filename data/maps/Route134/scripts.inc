@@ -21,9 +21,9 @@ Route134_EventScript_Alex::
 	msgbox Route134_Text_AlexPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route134_EventScript_Aaron::
-	trainerbattle_single TRAINER_AARON, Route134_Text_AaronIntro, Route134_Text_AaronDefeat
-	msgbox Route134_Text_AaronPostBattle, MSGBOX_AUTOCLOSE
+Route134_EventScript_Aadtewi::
+	trainerbattle_single TRAINER_AADTEWI, Route134_Text_AadtewiIntro, Route134_Text_AadtewiDefeat
+	msgbox Route134_Text_AadtewiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route134_EventScript_Hitoshi::

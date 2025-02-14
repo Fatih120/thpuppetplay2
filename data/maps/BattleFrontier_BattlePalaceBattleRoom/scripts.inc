@@ -1,8 +1,8 @@
 .set LOCALID_PLAYER, 1
 .set LOCALID_OPPONENT, 2
 .set LOCALID_ATTENDANT, 3
-.set LOCALID_DUSCLOPS, 4
-.set LOCALID_AZURILL, 5
+.set LOCALID_ADCIRNO, 4
+.set LOCALID_CSHINGYOKU, 5
 
 BattleFrontier_BattlePalaceBattleRoom_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, BattleFrontier_BattlePalaceBattleRoom_OnTransition
@@ -203,8 +203,8 @@ BattleFrontier_BattlePalaceBattleRoom_EventScript_BattleSpenser::
 	hideobjectat LOCALID_OPPONENT, MAP_BATTLE_FRONTIER_BATTLE_PALACE_BATTLE_ROOM
 	setobjectxy LOCALID_OPPONENT, 13, 1
 	setobjectxyperm LOCALID_OPPONENT, 13, 1
-	applymovement LOCALID_DUSCLOPS, BattleFrontier_BattlePalaceBattleRoom_Movement_DusclopsEnter
-	applymovement LOCALID_AZURILL, BattleFrontier_BattlePalaceBattleRoom_Movement_AzurillEnter
+	applymovement LOCALID_ADCIRNO, BattleFrontier_BattlePalaceBattleRoom_Movement_AdCirnoEnter
+	applymovement LOCALID_CSHINGYOKU, BattleFrontier_BattlePalaceBattleRoom_Movement_CShinGyokuEnter
 	applymovement LOCALID_OPPONENT, BattleFrontier_BattlePalaceBattleRoom_Movement_SpenserEnter
 	waitmovement 0
 	switch VAR_TEMP_F
@@ -298,8 +298,8 @@ BattleFrontier_BattlePalaceBattleRoom_EventScript_SetUpRoomObjects::
 	setvar VAR_TEMP_1, 1
 	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_BattlePalaceBattleRoom_Movement_SetInvisible
 	removeobject LOCALID_OPPONENT
-	applymovement LOCALID_DUSCLOPS, BattleFrontier_BattlePalaceBattleRoom_Movement_SetInvisible
-	applymovement LOCALID_AZURILL, BattleFrontier_BattlePalaceBattleRoom_Movement_SetInvisible
+	applymovement LOCALID_ADCIRNO, BattleFrontier_BattlePalaceBattleRoom_Movement_SetInvisible
+	applymovement LOCALID_CSHINGYOKU, BattleFrontier_BattlePalaceBattleRoom_Movement_SetInvisible
 	end
 
 BattleFrontier_BattlePalaceBattleRoom_EventScript_ReadyFor2ndOpponent::
@@ -408,7 +408,7 @@ BattleFrontier_BattlePalaceBattleRoom_EventScript_WarpToLobbyDoubles::
 	waitstate
 	end
 
-BattleFrontier_BattlePalaceBattleRoom_Movement_DusclopsEnter:
+BattleFrontier_BattlePalaceBattleRoom_Movement_AdCirnoEnter:
 	delay_16
 	delay_16
 	set_visible
@@ -418,7 +418,7 @@ BattleFrontier_BattlePalaceBattleRoom_Movement_DusclopsEnter:
 	walk_in_place_faster_left
 	step_end
 
-BattleFrontier_BattlePalaceBattleRoom_Movement_AzurillEnter:
+BattleFrontier_BattlePalaceBattleRoom_Movement_CShinGyokuEnter:
 	set_visible
 	walk_fast_down
 	walk_fast_right

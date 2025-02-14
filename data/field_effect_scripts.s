@@ -69,9 +69,9 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_SecretBaseBootPC          @ FLDEFF_PCTURN_ON
 	.4byte gFieldEffectScript_HallOfFameRecord          @ FLDEFF_HALL_OF_FAME_RECORD
 	.4byte gFieldEffectScript_UseTeleport               @ FLDEFF_USE_TELEPORT
-	.4byte gFieldEffectScript_RayquazaSpotlight         @ FLDEFF_RAYQUAZA_SPOTLIGHT
-	.4byte gFieldEffectScript_DestroyDeoxysRock         @ FLDEFF_DESTROY_DEOXYS_ROCK
-	.4byte gFieldEffectScript_MoveDeoxysRock            @ FLDEFF_MOVE_DEOXYS_ROCK
+	.4byte gFieldEffectScript_CMamizouSpotlight         @ FLDEFF_CMAMIZOU_SPOTLIGHT
+	.4byte gFieldEffectScript_DestroyGomasekiRock         @ FLDEFF_DESTROY_GOMASEKI_ROCK
+	.4byte gFieldEffectScript_MoveGomasekiRock            @ FLDEFF_MOVE_GOMASEKI_ROCK
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -332,14 +332,14 @@ gFieldEffectScript_UseTeleport::
 	field_eff_callnative FldEff_UseTeleport
 	field_eff_end
 
-gFieldEffectScript_RayquazaSpotlight::
-	field_eff_callnative FldEff_RayquazaSpotlight
+gFieldEffectScript_CMamizouSpotlight::
+	field_eff_callnative FldEff_CMamizouSpotlight
 	field_eff_end
 
-gFieldEffectScript_DestroyDeoxysRock::
-	field_eff_callnative FldEff_DestroyDeoxysRock
+gFieldEffectScript_DestroyGomasekiRock::
+	field_eff_callnative FldEff_DestroyGomasekiRock
 	field_eff_end
 
-gFieldEffectScript_MoveDeoxysRock::
-	field_eff_callnative FldEff_MoveDeoxysRock
+gFieldEffectScript_MoveGomasekiRock::
+	field_eff_callnative FldEff_MoveGomasekiRock
 	field_eff_end

@@ -733,7 +733,7 @@ static const union AnimCmd sAnim_HookedPokemonEast[] =
     ANIMCMD_JUMP(0),
 };
 
-static const union AffineAnimCmd sAffineAnim_KyogreGroudon_GoSouthStart[] =
+static const union AffineAnimCmd sAffineAnim_CMikoMiko_GoSouthStart[] =
 {
     AFFINEANIMCMD_FRAME(0x0, 0x0, 1, 1),
     AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 1),
@@ -743,7 +743,7 @@ static const union AffineAnimCmd sAffineAnim_KyogreGroudon_GoSouthStart[] =
     AFFINEANIMCMD_JUMP(0),
 };
 
-static const union AffineAnimCmd sAffineAnim_KyogreGroudon_GoSouth[] =
+static const union AffineAnimCmd sAffineAnim_CMikoMiko_GoSouth[] =
 {
     AFFINEANIMCMD_FRAME(0x0, 0x0, -1, 1),
     AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 1),
@@ -754,33 +754,33 @@ static const union AffineAnimCmd sAffineAnim_KyogreGroudon_GoSouth[] =
     AFFINEANIMCMD_JUMP(0),
 };
 
-static const union AffineAnimCmd sAffineAnim_KyogreGroudon_AttackEast[] =
+static const union AffineAnimCmd sAffineAnim_CMikoMiko_AttackEast[] =
 {
     AFFINEANIMCMD_FRAME(0x100, 0x100, 10, 0),
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd sAffineAnim_KyogreGroudon_AttackWest[] =
+static const union AffineAnimCmd sAffineAnim_CMikoMiko_AttackWest[] =
 {
     AFFINEANIMCMD_FRAME(0x100, 0x100, 10, 0),
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd sAffineAnim_KyogreGroudon_DipEast[] =
+static const union AffineAnimCmd sAffineAnim_CMikoMiko_DipEast[] =
 {
     AFFINEANIMCMD_FRAME(0x0, 0x0, -1, 1),
     AFFINEANIMCMD_LOOP(8),
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd sAffineAnim_KyogreGroudon_DipWest[] =
+static const union AffineAnimCmd sAffineAnim_CMikoMiko_DipWest[] =
 {
     AFFINEANIMCMD_FRAME(0x0, 0x0, 1, 1),
     AFFINEANIMCMD_LOOP(8),
     AFFINEANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_HoOhFlapWings[] =
+static const union AnimCmd sAnim_AKomachiFlapWings[] =
 {
     ANIMCMD_FRAME(3, 8),
     ANIMCMD_FRAME(4, 8),
@@ -789,7 +789,7 @@ static const union AnimCmd sAnim_HoOhFlapWings[] =
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd sAnim_HoOhStayStill[] =
+static const union AnimCmd sAnim_AKomachiStayStill[] =
 {
     ANIMCMD_FRAME(3, 16),
     ANIMCMD_JUMP(0),
@@ -845,13 +845,13 @@ static const union AnimCmd *const sAnimTable_Standard[] = {
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
 };
 
-static const union AnimCmd *const sAnimTable_HoOh[] = {
+static const union AnimCmd *const sAnimTable_AKomachi[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
     [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
     [ANIM_STD_FACE_EAST] = sAnim_FaceEast,
-    [ANIM_STD_GO_SOUTH] = sAnim_HoOhFlapWings,
-    [ANIM_STD_GO_NORTH] = sAnim_HoOhStayStill,
+    [ANIM_STD_GO_SOUTH] = sAnim_AKomachiFlapWings,
+    [ANIM_STD_GO_NORTH] = sAnim_AKomachiStayStill,
     [ANIM_STD_GO_WEST] = sAnim_GoWest,
     [ANIM_STD_GO_EAST] = sAnim_GoEast,
     [ANIM_STD_GO_FAST_SOUTH] = sAnim_GoFastSouth,
@@ -869,7 +869,7 @@ static const union AnimCmd *const sAnimTable_HoOh[] = {
 };
 
 // The movements for going up use the animations for going right instead.
-static const union AnimCmd *const sAnimTable_GroudonSide[] = {
+static const union AnimCmd *const sAnimTable_MikoSide[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
     [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
@@ -892,88 +892,88 @@ static const union AnimCmd *const sAnimTable_GroudonSide[] = {
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
 };
 
-static const union AnimCmd sAnim_RayquazaCoiledAwake[] =
+static const union AnimCmd sAnim_CMamizouCoiledAwake[] =
 {
     ANIMCMD_FRAME(1, 1),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd sAnim_RayquazaFlyUp[] =
+static const union AnimCmd sAnim_CMamizouFlyUp[] =
 {
     ANIMCMD_FRAME(4, 1),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd sAnim_RayquazaCoiledAsleep[] =
+static const union AnimCmd sAnim_CMamizouCoiledAsleep[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd sAnim_RayquazaCoiledMouthOpen[] =
+static const union AnimCmd sAnim_CMamizouCoiledMouthOpen[] =
 {
     ANIMCMD_FRAME(2, 1),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd sAnim_RayquazaNormal[] =
+static const union AnimCmd sAnim_CMamizouNormal[] =
 {
     ANIMCMD_FRAME(3, 1),
     ANIMCMD_JUMP(0),
 };
 
-// Identical to sAnim_RayquazaCoiledAsleep
-static const union AnimCmd sAnim_RayquazaFaceSouth[] =
+// Identical to sAnim_CMamizouCoiledAsleep
+static const union AnimCmd sAnim_CMamizouFaceSouth[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_JUMP(0),
 };
 
-// Identical to sAnim_RayquazaCoiledAsleep
-static const union AnimCmd sAnim_RayquazaFaceNorth[] =
+// Identical to sAnim_CMamizouCoiledAsleep
+static const union AnimCmd sAnim_CMamizouFaceNorth[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_JUMP(0),
 };
 
-// Identical to sAnim_RayquazaCoiledAsleep
-static const union AnimCmd sAnim_RayquazaFaceWest[] =
+// Identical to sAnim_CMamizouCoiledAsleep
+static const union AnimCmd sAnim_CMamizouFaceWest[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_JUMP(0),
 };
 
-// Identical to sAnim_RayquazaNormal
-static const union AnimCmd sAnim_RayquazaFaceEast[] =
+// Identical to sAnim_CMamizouNormal
+static const union AnimCmd sAnim_CMamizouFaceEast[] =
 {
     ANIMCMD_FRAME(3, 1),
     ANIMCMD_JUMP(0),
 };
 
-// Though they correspond to facing/walking movements, Rayquaza doesn't have
+// Though they correspond to facing/walking movements, CMamizou doesn't have
 // equivalent images aside from flying up. Its other frames aside from the 'normal'
 // frame are for the sequence where it awakens on Sky Pillar.
-static const union AnimCmd *const sAnimTable_Rayquaza[] = {
-    [ANIM_STD_FACE_SOUTH] = sAnim_RayquazaFaceSouth,
-    [ANIM_STD_FACE_NORTH] = sAnim_RayquazaFaceNorth,
-    [ANIM_STD_FACE_WEST] = sAnim_RayquazaFaceWest,
-    [ANIM_STD_FACE_EAST] = sAnim_RayquazaFaceEast,
-    [ANIM_STD_GO_SOUTH] = sAnim_RayquazaCoiledAsleep,
-    [ANIM_STD_GO_NORTH] = sAnim_RayquazaFlyUp,
-    [ANIM_STD_GO_WEST] = sAnim_RayquazaCoiledMouthOpen,
-    [ANIM_STD_GO_EAST] = sAnim_RayquazaNormal,
-    [ANIM_STD_GO_FAST_SOUTH] = sAnim_RayquazaCoiledAsleep,
-    [ANIM_STD_GO_FAST_NORTH] = sAnim_RayquazaFlyUp,
-    [ANIM_STD_GO_FAST_WEST] = sAnim_RayquazaCoiledAwake,
-    [ANIM_STD_GO_FAST_EAST] = sAnim_RayquazaNormal,
-    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_RayquazaCoiledAsleep,
-    [ANIM_STD_GO_FASTER_NORTH] = sAnim_RayquazaFlyUp,
-    [ANIM_STD_GO_FASTER_WEST] = sAnim_RayquazaCoiledMouthOpen,
-    [ANIM_STD_GO_FASTER_EAST] = sAnim_RayquazaNormal,
-    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_RayquazaCoiledAsleep,
-    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_RayquazaFlyUp,
-    [ANIM_STD_GO_FASTEST_WEST] = sAnim_RayquazaCoiledMouthOpen,
-    [ANIM_STD_GO_FASTEST_EAST] = sAnim_RayquazaNormal,
+static const union AnimCmd *const sAnimTable_CMamizou[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_CMamizouFaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_CMamizouFaceNorth,
+    [ANIM_STD_FACE_WEST] = sAnim_CMamizouFaceWest,
+    [ANIM_STD_FACE_EAST] = sAnim_CMamizouFaceEast,
+    [ANIM_STD_GO_SOUTH] = sAnim_CMamizouCoiledAsleep,
+    [ANIM_STD_GO_NORTH] = sAnim_CMamizouFlyUp,
+    [ANIM_STD_GO_WEST] = sAnim_CMamizouCoiledMouthOpen,
+    [ANIM_STD_GO_EAST] = sAnim_CMamizouNormal,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_CMamizouCoiledAsleep,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_CMamizouFlyUp,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_CMamizouCoiledAwake,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_CMamizouNormal,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_CMamizouCoiledAsleep,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_CMamizouFlyUp,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_CMamizouCoiledMouthOpen,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_CMamizouNormal,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_CMamizouCoiledAsleep,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_CMamizouFlyUp,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_CMamizouCoiledMouthOpen,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_CMamizouNormal,
 };
 
 static const union AnimCmd *const sAnimTable_BrendanMayNormal[] = {
@@ -1134,13 +1134,13 @@ static const union AnimCmd *const sAnimTable_Fishing[] = {
     [ANIM_HOOKED_POKEMON_EAST] = sAnim_HookedPokemonEast,
 };
 
-static const union AffineAnimCmd *const sAffineAnimTable_KyogreGroudon[] = {
-    sAffineAnim_KyogreGroudon_GoSouthStart, // Used by Kyogre/Groudon when awakened
-    sAffineAnim_KyogreGroudon_GoSouth,      // Used by Kyogre/Groudon when awakened
-    sAffineAnim_KyogreGroudon_AttackWest,   // Used by Kyogre during Sootopolis fight
-    sAffineAnim_KyogreGroudon_AttackEast,   // Unused
-    sAffineAnim_KyogreGroudon_DipWest,      // Unused
-    sAffineAnim_KyogreGroudon_DipEast,      // Unused
+static const union AffineAnimCmd *const sAffineAnimTable_CMikoMiko[] = {
+    sAffineAnim_CMikoMiko_GoSouthStart, // Used by CMiko/Miko when awakened
+    sAffineAnim_CMikoMiko_GoSouth,      // Used by CMiko/Miko when awakened
+    sAffineAnim_CMikoMiko_AttackWest,   // Used by CMiko during Sootopolis fight
+    sAffineAnim_CMikoMiko_AttackEast,   // Unused
+    sAffineAnim_CMikoMiko_DipWest,      // Unused
+    sAffineAnim_CMikoMiko_DipEast,      // Unused
 };
 
 // For animations with alternating steps

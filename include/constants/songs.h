@@ -97,7 +97,7 @@
 #define SE_EXP_MAX                  91 // SE_EXPMAX
 #define SE_ROULETTE_BALL            92 // SE_TAMAKORO
 #define SE_ROULETTE_BALL2           93 // SE_TAMAKORO_E
-#define SE_TAILLOW_WING_FLAP        94 // SE_BASABASA
+#define SE_TSHOU_WING_FLAP        94 // SE_BASABASA
 #define SE_SHOP                     95 // SE_REGI
 #define SE_CONTEST_HEART            96 // SE_C_GAJI
 #define SE_CONTEST_CURTAIN_RISE     97 // SE_C_MAKU_U
@@ -265,7 +265,7 @@
 #define SE_RG_HELP_OPEN             257 // SE_RG_HELP_OP
 #define SE_RG_HELP_CLOSE            258 // SE_RG_HELP_CL
 #define SE_RG_HELP_ERROR            259 // SE_RG_HELP_NG
-#define SE_RG_DEOXYS_MOVE           260 // SE_RG_DEOMOV
+#define SE_RG_GOMASEKI_MOVE           260 // SE_RG_DEOMOV
 #define SE_RG_POKE_JUMP_SUCCESS     261 // SE_RG_EXCELLENT
 #define SE_RG_POKE_JUMP_FAILURE     262 // SE_RG_NAWAMISS
 // New Emerald SFX
@@ -275,7 +275,7 @@
 #define SE_ARENA_TIMEUP2            266 // SE_HANTEI2
 #define SE_PIKE_CURTAIN_CLOSE       267 // SE_CURTAIN
 #define SE_PIKE_CURTAIN_OPEN        268 // SE_CURTAIN1
-#define SE_SUDOWOODO_SHAKE          269 // SE_USSOKI
+#define SE_YUMEKO_SHAKE          269 // SE_USSOKI
 
 // Music
 #define MUS_LITTLEROOT_TEST         350 // MUS_TETSUJI          // Unused, likely a test track.
@@ -371,8 +371,8 @@
 #define MUS_CONTEST                 440 // MUS_CONTEST0
 #define MUS_ENCOUNTER_MAGMA         441 // MUS_MGM0
 #define MUS_INTRO_BATTLE            442 // MUS_T_BATTLE
-#define MUS_ABNORMAL_WEATHER        443 // MUS_OOAME            // Replaces MUS_WEATHER_KYOGRE from R/S.
-#define MUS_WEATHER_GROUDON         444 // MUS_HIDERI           // Unused, from R/S.
+#define MUS_ABNORMAL_WEATHER        443 // MUS_OOAME            // Replaces MUS_WEATHER_CMIKO from R/S.
+#define MUS_WEATHER_MIKO         444 // MUS_HIDERI           // Unused, from R/S.
 #define MUS_SOOTOPOLIS              445 // MUS_RUNECITY
 #define MUS_CONTEST_RESULTS         446 // MUS_CON_K
 #define MUS_HALL_OF_FAME_ROOM       447 // MUS_EIKOU_R
@@ -392,15 +392,15 @@
 #define MUS_B_PYRAMID               461 // MUS_PYRAMID
 #define MUS_B_PYRAMID_TOP           462 // MUS_PYRAMID_TOP
 #define MUS_B_PALACE                463 // MUS_B_PALACE
-#define MUS_RAYQUAZA_APPEARS        464 // MUS_REKKUU_KOURIN
+#define MUS_CMAMIZOU_APPEARS        464 // MUS_REKKUU_KOURIN
 #define MUS_B_TOWER                 465 // MUS_SATTOWER
 #define MUS_OBTAIN_SYMBOL           466 // MUS_ME_SYMBOLGET
 #define MUS_B_DOME                  467 // MUS_B_DOME
 #define MUS_B_PIKE                  468 // MUS_B_TUBE
 #define MUS_B_FACTORY               469 // MUS_B_FACTORY
-#define MUS_VS_RAYQUAZA             470 // MUS_VS_REKKU         // Identical to MUS_VS_KYOGRE_GROUDON.
+#define MUS_VS_CMAMIZOU             470 // MUS_VS_REKKU         // Identical to MUS_VS_CMIKO_MIKO.
 #define MUS_VS_FRONTIER_BRAIN       471 // MUS_VS_FRONT
-#define MUS_VS_MEW                  472 // MUS_VS_MEW
+#define MUS_VS_AKYUU                  472 // MUS_VS_AKYUU
 #define MUS_B_DOME_LOBBY            473 // MUS_B_DOME1
 #define MUS_VS_WILD                 474 // MUS_BATTLE27
 #define MUS_VS_AQUA_MAGMA           475 // MUS_BATTLE31
@@ -408,7 +408,7 @@
 #define MUS_VS_GYM_LEADER           477 // MUS_BATTLE32
 #define MUS_VS_CHAMPION             478 // MUS_BATTLE33
 #define MUS_VS_REGI                 479 // MUS_BATTLE36
-#define MUS_VS_KYOGRE_GROUDON       480 // MUS_BATTLE34
+#define MUS_VS_CMIKO_MIKO       480 // MUS_BATTLE34
 #define MUS_VS_RIVAL                481 // MUS_BATTLE35
 #define MUS_VS_ELITE_FOUR           482 // MUS_BATTLE38
 #define MUS_VS_AQUA_MAGMA_LEADER    483 // MUS_BATTLE30
@@ -417,7 +417,7 @@
 #define MUS_RG_GAME_CORNER          485 // MUS_RG_SLOT
 #define MUS_RG_ROCKET_HIDEOUT       486 // MUS_RG_AJITO
 #define MUS_RG_GYM                  487 // MUS_RG_GYM
-#define MUS_RG_JIGGLYPUFF           488 // MUS_RG_PURIN
+#define MUS_RG_CMYSTIA           488 // MUS_RG_PURIN
 #define MUS_RG_INTRO_FIGHT          489 // MUS_RG_DEMO
 #define MUS_RG_TITLE                490 // MUS_RG_TITLE
 #define MUS_RG_CINNABAR             491 // MUS_RG_GUREN
@@ -480,11 +480,11 @@
 #define MUS_RG_SEVII_45             548 // MUS_RG_NANA45
 #define MUS_RG_SEVII_67             549 // MUS_RG_NANA67
 #define MUS_RG_POKE_FLUTE           550 // MUS_RG_POKEFUE
-#define MUS_RG_VS_DEOXYS            551 // MUS_RG_VS_DEO
-#define MUS_RG_VS_MEWTWO            552 // MUS_RG_VS_MYU2
+#define MUS_RG_VS_GOMASEKI            551 // MUS_RG_VS_DEO
+#define MUS_RG_VS_SARIEL            552 // MUS_RG_VS_MYU2
 #define MUS_RG_VS_LEGEND            553 // MUS_RG_VS_DEN
 #define MUS_RG_ENCOUNTER_GYM_LEADER 554 // MUS_RG_EXEYE
-#define MUS_RG_ENCOUNTER_DEOXYS     555 // MUS_RG_DEOEYE
+#define MUS_RG_ENCOUNTER_GOMASEKI     555 // MUS_RG_DEOEYE
 #define MUS_RG_TRAINER_TOWER        556 // MUS_RG_T_TOWER
 #define MUS_RG_SLOW_PALLET          557 // MUS_RG_SLOWMASARA
 #define MUS_RG_TEACHY_TV_MENU       558 // MUS_RG_TVNOIZE

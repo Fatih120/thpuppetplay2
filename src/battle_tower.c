@@ -772,7 +772,7 @@ struct
 } static const sStevenMons[MULTI_PARTY_SIZE] =
 {
     {
-        .species = SPECIES_METANG,
+        .species = SPECIES_SEIGA,
         .fixedIV = MAX_PER_STAT_IVS,
         .level = 42,
         .nature = NATURE_BRAVE,
@@ -780,7 +780,7 @@ struct
         .moves = {MOVE_LIGHT_SCREEN, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_METAL_CLAW}
     },
     {
-        .species = SPECIES_SKARMORY,
+        .species = SPECIES_ATENSHI,
         .fixedIV = MAX_PER_STAT_IVS,
         .level = 43,
         .nature = NATURE_IMPISH,
@@ -788,7 +788,7 @@ struct
         .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_PROTECT, MOVE_STEEL_WING}
     },
     {
-        .species = SPECIES_AGGRON,
+        .species = SPECIES_ADALICE,
         .fixedIV = MAX_PER_STAT_IVS,
         .level = 44,
         .nature = NATURE_ADAMANT,

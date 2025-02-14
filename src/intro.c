@@ -29,9 +29,9 @@
 /*
     The intro is grouped into the following scenes
     Scene 0. Copyright screen
-    Scene 1. GF Logo, pan up over plants, Flygon silhouette goes by
+    Scene 1. GF Logo, pan up over plants, ASanae silhouette goes by
     Scene 2. Player biking on path, joined by Pokémon
-    Scene 3. A fight between Groudon/Kyogre ends with Rayquaza
+    Scene 3. A fight between Miko/CMiko ends with CMamizou
 
     After this it progresses to the title screen
 */
@@ -59,7 +59,7 @@ static void SpriteCB_WaterDrop_Ripple(struct Sprite *);
 static void SpriteCB_Sparkle(struct Sprite *sprite);
 static void SpriteCB_LogoLetter(struct Sprite *sprite);
 static void SpriteCB_GameFreakLogo(struct Sprite *sprite);
-static void SpriteCB_FlygonSilhouette(struct Sprite *sprite);
+static void SpriteCB_ASanaeSilhouette(struct Sprite *sprite);
 
 // Scene 2 main tasks
 static void Task_Scene2_Load(u8);
@@ -68,43 +68,43 @@ static void Task_Scene2_BikeRide(u8);
 static void Task_Scene2_End(u8);
 
 // Scene 2 supplemental functions
-static void SpriteCB_Torchic(struct Sprite *sprite);
-static void SpriteCB_Manectric(struct Sprite *sprite);
-static void SpriteCB_Volbeat(struct Sprite *sprite);
-static void SpriteCB_Flygon(struct Sprite *);
+static void SpriteCB_AAlice(struct Sprite *sprite);
+static void SpriteCB_TToyohime(struct Sprite *sprite);
+static void SpriteCB_Yuki(struct Sprite *sprite);
+static void SpriteCB_ASanae(struct Sprite *);
 static void SpriteCB_PlayerOnBicycle(struct Sprite *);
 
 // Scene 3 main tasks
 static void Task_Scene3_Load(u8);
 static void Task_Scene3_SpinPokeball(u8);
-static void Task_Scene3_WaitGroudon(u8);
-static void Task_Scene3_LoadGroudon(u8);
-static void Task_Scene3_InitGroudonBg(u8);
+static void Task_Scene3_WaitMiko(u8);
+static void Task_Scene3_LoadMiko(u8);
+static void Task_Scene3_InitMikoBg(u8);
 static void Task_Scene3_NarrowWindow(u8);
 static void Task_Scene3_EndNarrowWindow(u8);
-static void Task_Scene3_StartGroudon(u8);
-static void Task_Scene3_Groudon(u8);
-static void Task_Scene3_LoadKyogre(u8);
-static void Task_Scene3_Kyogre(u8);
+static void Task_Scene3_StartMiko(u8);
+static void Task_Scene3_Miko(u8);
+static void Task_Scene3_LoadCMiko(u8);
+static void Task_Scene3_CMiko(u8);
 static void Task_Scene3_LoadClouds1(u8);
 static void Task_Scene3_LoadClouds2(u8);
 static void Task_Scene3_InitClouds(u8);
 static void Task_Scene3_Clouds(u8);
 static void Task_Scene3_LoadLightning(u8);
 static void Task_Scene3_Lightning(u8);
-static void Task_Scene3_LoadRayquazaAttack(u8);
-static void Task_Scene3_Rayquaza(u8);
+static void Task_Scene3_LoadCMamizouAttack(u8);
+static void Task_Scene3_CMamizou(u8);
 static void Task_EndIntroMovie(u8);
 
 // Scene 3 supplemental functions
-static void CreateGroudonRockSprites(u8);
-static void CreateKyogreBubbleSprites_Body(u8);
-static void CreateKyogreBubbleSprites_Fins(void);
-static void Task_RayquazaAttack(u8);
-static void SpriteCB_GroudonRocks(struct Sprite *);
-static void SpriteCB_KyogreBubbles(struct Sprite *sprite);
+static void CreateMikoRockSprites(u8);
+static void CreateCMikoBubbleSprites_Body(u8);
+static void CreateCMikoBubbleSprites_Fins(void);
+static void Task_CMamizouAttack(u8);
+static void SpriteCB_MikoRocks(struct Sprite *);
+static void SpriteCB_CMikoBubbles(struct Sprite *sprite);
 static void SpriteCB_Lightning(struct Sprite *sprite);
-static void SpriteCB_RayquazaOrb(struct Sprite *sprite);
+static void SpriteCB_CMamizouOrb(struct Sprite *sprite);
 
 static void MainCB2_EndIntro(void);
 
@@ -118,9 +118,9 @@ enum {
     COPYRIGHT_START_INTRO,
 };
 
-#define TAG_VOLBEAT   1500
-#define TAG_TORCHIC   1501
-#define TAG_MANECTRIC 1502
+#define TAG_YUKI   1500
+#define TAG_AALICE   1501
+#define TAG_TTOYOHIME 1502
 #define TAG_LIGHTNING 1503
 #define TAG_BUBBLES   1504
 #define TAG_SPARKLE   1505
@@ -129,8 +129,8 @@ enum {
 #define PALTAG_DROPS      2000
 #define PALTAG_LOGO       2001
 
-#define TAG_FLYGON_SILHOUETTE 2002
-#define TAG_RAYQUAZA_ORB      2003
+#define TAG_ASANAE_SILHOUETTE 2002
+#define TAG_CMAMIZOU_ORB      2003
 
 #define COLOSSEUM_GAME_CODE 0x65366347 // "Gc6e" in ASCII
 
@@ -153,21 +153,21 @@ enum {
 #define TIMER_SMALL_DROP_1              368
 #define TIMER_SMALL_DROP_2              384
 #define TIMER_SPARKLES                  560
-#define TIMER_FLYGON_SILHOUETTE_APPEAR  832
+#define TIMER_ASANAE_SILHOUETTE_APPEAR  832
 #define TIMER_END_PAN_UP                904
 #define TIMER_END_SCENE_1              1007
 #define TIMER_START_SCENE_2            1026
-#define TIMER_MANECTRIC_ENTER          1088
+#define TIMER_TTOYOHIME_ENTER          1088
 #define TIMER_PLAYER_DRIFT_BACK        1109
-#define TIMER_MANECTRIC_RUN_CIRCULAR   1168
+#define TIMER_TTOYOHIME_RUN_CIRCULAR   1168
 #define TIMER_PLAYER_MOVE_FORWARD      1214
-#define TIMER_TORCHIC_ENTER            1224
-#define TIMER_FLYGON_ENTER             1394
+#define TIMER_AALICE_ENTER            1224
+#define TIMER_ASANAE_ENTER             1394
 #define TIMER_PLAYER_MOVE_BACKWARD     1398
 #define TIMER_PLAYER_HOLD_POSITION     1576
 #define TIMER_PLAYER_EXIT              1727
-#define TIMER_TORCHIC_SPEED_UP         1735
-#define TIMER_TORCHIC_EXIT             1856
+#define TIMER_AALICE_SPEED_UP         1735
+#define TIMER_AALICE_EXIT             1856
 #define TIMER_END_SCENE_2              1946
 #define TIMER_START_SCENE_3            2068
 // timer is reset for scene 3
@@ -176,7 +176,7 @@ enum {
 
 static EWRAM_DATA u16 sIntroCharacterGender = 0;
 static EWRAM_DATA u16 UNUSED sUnusedVar = 0;
-static EWRAM_DATA u16 sFlygonYOffset = 0;
+static EWRAM_DATA u16 sASanaeYOffset = 0;
 
 COMMON_DATA u32 gIntroFrameCounter = 0;
 COMMON_DATA struct GcmbStruct gMultibootProgramStruct = {0};
@@ -196,10 +196,10 @@ static const u32 sIntroPokeball_Gfx[]         = INCBIN_U32("graphics/intro/scene
 static const u16 sIntroStreaks_Pal[]          = INCBIN_U16("graphics/intro/scene_3/streaks.gbapal"); // Unused
 static const u32 sIntroStreaks_Gfx[]          = INCBIN_U32("graphics/intro/scene_3/streaks.4bpp.lz"); // Unused
 static const u32 sIntroStreaks_Tilemap[]      = INCBIN_U32("graphics/intro/scene_3/streaks_map.bin.lz"); // Unused
-static const u16 sIntroRayquzaOrb_Pal[]       = INCBIN_U16("graphics/intro/scene_3/rayquaza_orb.gbapal");
+static const u16 sIntroRayquzaOrb_Pal[]       = INCBIN_U16("graphics/intro/scene_3/cmamizou_orb.gbapal");
 static const u16 sIntroMisc_Pal[]             = INCBIN_U16("graphics/intro/scene_3/misc.gbapal"); // Unused
 static const u32 sIntroMisc_Gfx[]             = INCBIN_U32("graphics/intro/scene_3/misc.4bpp.lz"); // Rayquza orb, and misc unused gfx
-static const u16 sIntroFlygonSilhouette_Pal[] = INCBIN_U16("graphics/intro/scene_1/flygon.gbapal");
+static const u16 sIntroASanaeSilhouette_Pal[] = INCBIN_U16("graphics/intro/scene_1/asanae.gbapal");
 static const u32 sIntroLati_Gfx[]             = INCBIN_U32("graphics/intro/scene_1/lati.4bpp.lz"); // Unused
 static const u8 sUnusedData[] = {
     0x02, 0x03, 0x04, 0x05, 0x01, 0x01, 0x01, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x02, 0x0D,
@@ -273,19 +273,19 @@ static const u8 sSparkleCoords[][2] =
 };
 static const struct CompressedSpriteSheet sSpriteSheet_RunningPokemon[] =
 {
-    {gIntroVolbeat_Gfx, 0x400, TAG_VOLBEAT},
-    {gIntroTorchic_Gfx, 0xC00, TAG_TORCHIC},
-    {gIntroManectric_Gfx, 0x2000, TAG_MANECTRIC},
+    {gIntroYuki_Gfx, 0x400, TAG_YUKI},
+    {gIntroAAlice_Gfx, 0xC00, TAG_AALICE},
+    {gIntroTToyohime_Gfx, 0x2000, TAG_TTOYOHIME},
     {},
 };
 static const struct SpritePalette sSpritePalettes_RunningPokemon[] =
 {
-    {gIntroVolbeat_Pal, TAG_VOLBEAT},
-    {gIntroTorchic_Pal, TAG_TORCHIC},
-    {gIntroManectric_Pal, TAG_MANECTRIC},
+    {gIntroYuki_Pal, TAG_YUKI},
+    {gIntroAAlice_Pal, TAG_AALICE},
+    {gIntroTToyohime_Pal, TAG_TTOYOHIME},
     {},
 };
-static const struct OamData sOamData_Volbeat =
+static const struct OamData sOamData_Yuki =
 {
     .y = DISPLAY_HEIGHT,
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -301,27 +301,27 @@ static const struct OamData sOamData_Volbeat =
     .paletteNum = 0,
     .affineParam = 0,
 };
-static const union AnimCmd sAnim_Volbeat[] =
+static const union AnimCmd sAnim_Yuki[] =
 {
     ANIMCMD_FRAME(0, 2),
     ANIMCMD_FRAME(16, 2),
     ANIMCMD_JUMP(0),
 };
-static const union AnimCmd *const sAnims_Volbeat[] =
+static const union AnimCmd *const sAnims_Yuki[] =
 {
-    sAnim_Volbeat,
+    sAnim_Yuki,
 };
-static const struct SpriteTemplate sSpriteTemplate_Volbeat =
+static const struct SpriteTemplate sSpriteTemplate_Yuki =
 {
-    .tileTag = TAG_VOLBEAT,
-    .paletteTag = TAG_VOLBEAT,
-    .oam = &sOamData_Volbeat,
-    .anims = sAnims_Volbeat,
+    .tileTag = TAG_YUKI,
+    .paletteTag = TAG_YUKI,
+    .oam = &sOamData_Yuki,
+    .anims = sAnims_Yuki,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_Volbeat,
+    .callback = SpriteCB_Yuki,
 };
-static const struct OamData sOamData_Torchic =
+static const struct OamData sOamData_AAlice =
 {
     .y = DISPLAY_HEIGHT,
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -337,7 +337,7 @@ static const struct OamData sOamData_Torchic =
     .paletteNum = 0,
     .affineParam = 0,
 };
-static const union AnimCmd sAnim_Torchic_Walk[] =
+static const union AnimCmd sAnim_AAlice_Walk[] =
 {
     ANIMCMD_FRAME(0, 5),
     ANIMCMD_FRAME(16, 5),
@@ -345,7 +345,7 @@ static const union AnimCmd sAnim_Torchic_Walk[] =
     ANIMCMD_FRAME(16, 5),
     ANIMCMD_JUMP(0),
 };
-static const union AnimCmd sAnim_Torchic_Run[] =
+static const union AnimCmd sAnim_AAlice_Run[] =
 {
     ANIMCMD_FRAME(0, 3),
     ANIMCMD_FRAME(16, 3),
@@ -353,7 +353,7 @@ static const union AnimCmd sAnim_Torchic_Run[] =
     ANIMCMD_FRAME(16, 3),
     ANIMCMD_JUMP(0),
 };
-static const union AnimCmd sAnim_Torchic_Trip[] =
+static const union AnimCmd sAnim_AAlice_Trip[] =
 {
     ANIMCMD_FRAME(48, 4),
     ANIMCMD_FRAME(64, 6),
@@ -361,27 +361,27 @@ static const union AnimCmd sAnim_Torchic_Trip[] =
     ANIMCMD_END,
 };
 enum {
-    TORCHIC_ANIM_WALK,
-    TORCHIC_ANIM_RUN,
-    TORCHIC_ANIM_TRIP,
+    AALICE_ANIM_WALK,
+    AALICE_ANIM_RUN,
+    AALICE_ANIM_TRIP,
 };
-static const union AnimCmd *const sAnims_Torchic[] =
+static const union AnimCmd *const sAnims_AAlice[] =
 {
-    [TORCHIC_ANIM_WALK] = sAnim_Torchic_Walk,
-    [TORCHIC_ANIM_RUN]  = sAnim_Torchic_Run,
-    [TORCHIC_ANIM_TRIP] = sAnim_Torchic_Trip,
+    [AALICE_ANIM_WALK] = sAnim_AAlice_Walk,
+    [AALICE_ANIM_RUN]  = sAnim_AAlice_Run,
+    [AALICE_ANIM_TRIP] = sAnim_AAlice_Trip,
 };
-static const struct SpriteTemplate sSpriteTemplate_Torchic =
+static const struct SpriteTemplate sSpriteTemplate_AAlice =
 {
-    .tileTag = TAG_TORCHIC,
-    .paletteTag = TAG_TORCHIC,
-    .oam = &sOamData_Torchic,
-    .anims = sAnims_Torchic,
+    .tileTag = TAG_AALICE,
+    .paletteTag = TAG_AALICE,
+    .oam = &sOamData_AAlice,
+    .anims = sAnims_AAlice,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_Torchic,
+    .callback = SpriteCB_AAlice,
 };
-static const struct OamData sOamData_Manectric =
+static const struct OamData sOamData_TToyohime =
 {
     .y = DISPLAY_HEIGHT,
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -397,7 +397,7 @@ static const struct OamData sOamData_Manectric =
     .paletteNum = 0,
     .affineParam = 0,
 };
-static const union AnimCmd sAnim_Manectric[] =
+static const union AnimCmd sAnim_TToyohime[] =
 {
     ANIMCMD_FRAME(0, 4),
     ANIMCMD_FRAME(64, 4),
@@ -405,19 +405,19 @@ static const union AnimCmd sAnim_Manectric[] =
     ANIMCMD_FRAME(192, 4),
     ANIMCMD_JUMP(0),
 };
-static const union AnimCmd *const sAnims_Manectric[] =
+static const union AnimCmd *const sAnims_TToyohime[] =
 {
-    sAnim_Manectric,
+    sAnim_TToyohime,
 };
-static const struct SpriteTemplate sSpriteTemplate_Manectric =
+static const struct SpriteTemplate sSpriteTemplate_TToyohime =
 {
-    .tileTag = TAG_MANECTRIC,
-    .paletteTag = TAG_MANECTRIC,
-    .oam = &sOamData_Manectric,
-    .anims = sAnims_Manectric,
+    .tileTag = TAG_TTOYOHIME,
+    .paletteTag = TAG_TTOYOHIME,
+    .oam = &sOamData_TToyohime,
+    .anims = sAnims_TToyohime,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_Manectric,
+    .callback = SpriteCB_TToyohime,
 };
 static const struct CompressedSpriteSheet sSpriteSheet_Lightning[] =
 {
@@ -481,7 +481,7 @@ static const struct SpriteTemplate sSpriteTemplate_Lightning =
 };
 // x coord, anim number, speed
 // Smaller anim numbers are larger rocks, and are given slower speeds
-static const s16 sGroudonRockData[][3] =
+static const s16 sMikoRockData[][3] =
 {
     {104, 0, 0x0C0},
     {142, 3, 0x280},
@@ -503,16 +503,16 @@ static const struct SpritePalette sSpritePalette_Bubbles[] =
 #define NUM_BUBBLES_IN_SET 6
 // x coord, y coord, delay before animation
 // Can be produced in two different sets depending on the function called to create the sprites
-static const s16 sKyogreBubbleData[NUM_BUBBLES_IN_SET * 2][3] =
+static const s16 sCMikoBubbleData[NUM_BUBBLES_IN_SET * 2][3] =
 {
-    // Set 1, for Kyogre's body
+    // Set 1, for CMiko's body
     { 66,  64,  1},
     { 96,  96,  8},
     {128,  64,  1},
     {144,  48,  8},
     {160,  72,  1},
     {176,  96,  8},
-    // Set 2, for Kyogre's fins
+    // Set 2, for CMiko's fins
     { 96,  96,  4},
     {112, 104,  8},
     {128,  96,  4},
@@ -557,7 +557,7 @@ static const struct SpriteTemplate sSpriteTemplate_Bubbles =
     .anims = sAnims_Bubbles,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_KyogreBubbles,
+    .callback = SpriteCB_CMikoBubbles,
 };
 static const struct OamData sOamData_WaterDrop =
 {
@@ -932,7 +932,7 @@ static const u8 sGameFreakLetterStartDelays[NUM_GF_LETTERS] =
     10, // A
     10  // K
 };
-static const struct OamData sOamData_FlygonSilhouette =
+static const struct OamData sOamData_ASanaeSilhouette =
 {
     .y = DISPLAY_HEIGHT,
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -948,43 +948,43 @@ static const struct OamData sOamData_FlygonSilhouette =
     .paletteNum = 0,
     .affineParam = 0,
 };
-static const union AnimCmd sAnim_FlygonSilhouette[] =
+static const union AnimCmd sAnim_ASanaeSilhouette[] =
 {
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_JUMP(0),
 };
-static const union AnimCmd *const sAnims_FlygonSilhouette[] =
+static const union AnimCmd *const sAnims_ASanaeSilhouette[] =
 {
-    sAnim_FlygonSilhouette,
+    sAnim_ASanaeSilhouette,
 };
-static const struct SpriteTemplate sSpriteTemplate_FlygonSilhouette =
+static const struct SpriteTemplate sSpriteTemplate_ASanaeSilhouette =
 {
-    .tileTag = TAG_FLYGON_SILHOUETTE,
-    .paletteTag = TAG_FLYGON_SILHOUETTE,
-    .oam = &sOamData_FlygonSilhouette,
-    .anims = sAnims_FlygonSilhouette,
+    .tileTag = TAG_ASANAE_SILHOUETTE,
+    .paletteTag = TAG_ASANAE_SILHOUETTE,
+    .oam = &sOamData_ASanaeSilhouette,
+    .anims = sAnims_ASanaeSilhouette,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_FlygonSilhouette,
+    .callback = SpriteCB_ASanaeSilhouette,
 };
 static const struct CompressedSpriteSheet sSpriteSheet_WaterDropsAndLogo[] =
 {
     {sIntroDropsLogo_Gfx, 0x1400, GFXTAG_DROPS_LOGO},
     {},
 };
-static const struct CompressedSpriteSheet sSpriteSheet_FlygonSilhouette[] =
+static const struct CompressedSpriteSheet sSpriteSheet_ASanaeSilhouette[] =
 {
-    {gIntroFlygonSilhouette_Gfx, 0x400, TAG_FLYGON_SILHOUETTE},
+    {gIntroASanaeSilhouette_Gfx, 0x400, TAG_ASANAE_SILHOUETTE},
     {},
 };
 static const struct SpritePalette sSpritePalettes_Intro1[] =
 {
     {sIntroDrops_Pal, PALTAG_DROPS},
     {sIntroLogo_Pal, PALTAG_LOGO},
-    {sIntroFlygonSilhouette_Pal, TAG_FLYGON_SILHOUETTE},
+    {sIntroASanaeSilhouette_Pal, TAG_ASANAE_SILHOUETTE},
     {},
 };
-static const struct OamData sOamData_RayquazaOrb =
+static const struct OamData sOamData_CMamizouOrb =
 {
     .y = DISPLAY_HEIGHT,
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -1000,33 +1000,33 @@ static const struct OamData sOamData_RayquazaOrb =
     .paletteNum = 0,
     .affineParam = 0,
 };
-static const union AnimCmd sAnim_RayquazaOrb[] =
+static const union AnimCmd sAnim_CMamizouOrb[] =
 {
     ANIMCMD_FRAME(16, 8),
     ANIMCMD_END,
 };
-static const union AnimCmd *const sAnims_RayquazaOrb[] =
+static const union AnimCmd *const sAnims_CMamizouOrb[] =
 {
-    sAnim_RayquazaOrb,
+    sAnim_CMamizouOrb,
 };
-static const struct SpriteTemplate sSpriteTemplate_RayquazaOrb =
+static const struct SpriteTemplate sSpriteTemplate_CMamizouOrb =
 {
-    .tileTag = TAG_RAYQUAZA_ORB,
-    .paletteTag = TAG_RAYQUAZA_ORB,
-    .oam = &sOamData_RayquazaOrb,
-    .anims = sAnims_RayquazaOrb,
+    .tileTag = TAG_CMAMIZOU_ORB,
+    .paletteTag = TAG_CMAMIZOU_ORB,
+    .oam = &sOamData_CMamizouOrb,
+    .anims = sAnims_CMamizouOrb,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_RayquazaOrb,
+    .callback = SpriteCB_CMamizouOrb,
 };
-static const struct CompressedSpriteSheet sSpriteSheet_RayquazaOrb[] =
+static const struct CompressedSpriteSheet sSpriteSheet_CMamizouOrb[] =
 {
-    {sIntroMisc_Gfx, 0xA00, TAG_RAYQUAZA_ORB},
+    {sIntroMisc_Gfx, 0xA00, TAG_CMAMIZOU_ORB},
     {},
 };
-static const struct SpritePalette sSpritePalette_RayquazaOrb[] =
+static const struct SpritePalette sSpritePalette_CMamizouOrb[] =
 {
-    {sIntroRayquzaOrb_Pal, TAG_RAYQUAZA_ORB},
+    {sIntroRayquzaOrb_Pal, TAG_CMAMIZOU_ORB},
     {},
 };
 
@@ -1190,7 +1190,7 @@ static void Task_Scene1_Load(u8 taskId)
     SetGpuReg(REG_OFFSET_BG1CNT, BGCNT_PRIORITY(1) | BGCNT_CHARBASE(0) | BGCNT_SCREENBASE(18) | BGCNT_16COLOR | BGCNT_TXT256x512);
     SetGpuReg(REG_OFFSET_BG0CNT, BGCNT_PRIORITY(0) | BGCNT_CHARBASE(0) | BGCNT_SCREENBASE(16) | BGCNT_16COLOR | BGCNT_TXT256x512);
     LoadCompressedSpriteSheet(sSpriteSheet_WaterDropsAndLogo);
-    LoadCompressedSpriteSheet(sSpriteSheet_FlygonSilhouette);
+    LoadCompressedSpriteSheet(sSpriteSheet_ASanaeSilhouette);
     LoadSpritePalettes(sSpritePalettes_Intro1);
     LoadCompressedSpriteSheet(sSpriteSheet_Sparkle);
     LoadSpritePalettes(sSpritePalette_Sparkle);
@@ -1330,10 +1330,10 @@ static void Task_Scene1_PanUp(u8 taskId)
         gTasks[taskId].tBg3PosLo = offset;
         SetGpuReg(REG_OFFSET_BG0VOFS, gTasks[taskId].tBg3PosHi);
 
-        if (gIntroFrameCounter == TIMER_FLYGON_SILHOUETTE_APPEAR)
+        if (gIntroFrameCounter == TIMER_ASANAE_SILHOUETTE_APPEAR)
         {
-            // Show Flygon silhouette
-            u8 spriteId = CreateSprite(&sSpriteTemplate_FlygonSilhouette, 120, DISPLAY_HEIGHT, 10);
+            // Show ASanae silhouette
+            u8 spriteId = CreateSprite(&sSpriteTemplate_ASanaeSilhouette, 120, DISPLAY_HEIGHT, 10);
             gSprites[spriteId].invisible = TRUE;
         }
     }
@@ -1362,15 +1362,15 @@ static void Task_Scene2_Load(u8 taskId)
     FreeAllSpritePalettes();
     gIntroCredits_MovingSceneryVBase = 0;
     gIntroCredits_MovingSceneryVOffset = 0;
-    sFlygonYOffset = 0;
+    sASanaeYOffset = 0;
     LoadIntroPart2Graphics(1);
     gTasks[taskId].func = Task_Scene2_CreateSprites;
 }
 
 #define tBgAnimTaskId   data[0]
 #define tPlayerSpriteId data[1]
-#define tFlygonSpriteId data[2]
-#define tFlygonTimer    data[3]
+#define tASanaeSpriteId data[2]
+#define tASanaeTimer    data[3]
 
 static void Task_Scene2_CreateSprites(u8 taskId)
 {
@@ -1383,18 +1383,18 @@ static void Task_Scene2_CreateSprites(u8 taskId)
         LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
 
     LoadCompressedSpriteSheet(gSpriteSheet_IntroBicycle);
-    LoadCompressedSpriteSheet(gSpriteSheet_IntroFlygon);
+    LoadCompressedSpriteSheet(gSpriteSheet_IntroASanae);
 
     // Load sprite palettes
     for (spriteId = 0; spriteId < ARRAY_COUNT(sSpriteSheet_RunningPokemon) - 1; spriteId++)
         LoadCompressedSpriteSheet(&sSpriteSheet_RunningPokemon[spriteId]);
 
-    LoadSpritePalettes(gSpritePalettes_IntroPlayerFlygon);
+    LoadSpritePalettes(gSpritePalettes_IntroPlayerASanae);
     LoadSpritePalettes(sSpritePalettes_RunningPokemon);
 
     // Create Pokémon and player sprites
-    CreateSprite(&sSpriteTemplate_Manectric, DISPLAY_WIDTH + 32, 128, 0);
-    CreateSprite(&sSpriteTemplate_Torchic, DISPLAY_WIDTH + 48, 110, 1);
+    CreateSprite(&sSpriteTemplate_TToyohime, DISPLAY_WIDTH + 32, 128, 0);
+    CreateSprite(&sSpriteTemplate_AAlice, DISPLAY_WIDTH + 48, 110, 1);
 
     if (sIntroCharacterGender == MALE)
         spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
@@ -1404,10 +1404,10 @@ static void Task_Scene2_CreateSprites(u8 taskId)
     gSprites[spriteId].callback = SpriteCB_PlayerOnBicycle;
     gSprites[spriteId].anims = sAnims_PlayerBicycle;
     gTasks[taskId].tPlayerSpriteId = spriteId;
-    CreateSprite(&sSpriteTemplate_Volbeat, DISPLAY_WIDTH + 32, 80, 4);
-    spriteId = CreateIntroFlygonSprite(-64, 60);
-    gSprites[spriteId].callback = SpriteCB_Flygon;
-    gTasks[taskId].tFlygonSpriteId = spriteId;
+    CreateSprite(&sSpriteTemplate_Yuki, DISPLAY_WIDTH + 32, 80, 4);
+    spriteId = CreateIntroASanaeSprite(-64, 60);
+    gSprites[spriteId].callback = SpriteCB_ASanae;
+    gTasks[taskId].tASanaeSpriteId = spriteId;
 
     // Fade in and start bike ride
     BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_WHITEALPHA);
@@ -1421,9 +1421,9 @@ static void Task_Scene2_BikeRide(u8 taskId)
 {
     u16 offset;
 
-    if (gIntroFrameCounter == TIMER_TORCHIC_EXIT)
+    if (gIntroFrameCounter == TIMER_AALICE_EXIT)
     {
-        // Stop the moving scenery/backgrounds, for when the camera fixes on Torchic
+        // Stop the moving scenery/backgrounds, for when the camera fixes on AAlice
         gIntroCredits_MovingSceneryState = INTROCRED_SCENERY_FROZEN;
         DestroyTask(gTasks[taskId].tBgAnimTaskId);
     }
@@ -1435,14 +1435,14 @@ static void Task_Scene2_BikeRide(u8 taskId)
         gTasks[taskId].func = Task_Scene2_End;
     }
 
-    // Check for updates to player/flygon sprites
-    // These states are for SpriteCB_PlayerOnBicycle and SpriteCB_Flygon respectively
+    // Check for updates to player/asanae sprites
+    // These states are for SpriteCB_PlayerOnBicycle and SpriteCB_ASanae respectively
     if (gIntroFrameCounter == TIMER_PLAYER_DRIFT_BACK)
         gSprites[gTasks[taskId].tPlayerSpriteId].sState = 1;
     if (gIntroFrameCounter == TIMER_PLAYER_MOVE_FORWARD)
         gSprites[gTasks[taskId].tPlayerSpriteId].sState = 0;
-    if (gIntroFrameCounter == TIMER_FLYGON_ENTER)
-        gSprites[gTasks[taskId].tFlygonSpriteId].sState = 1;
+    if (gIntroFrameCounter == TIMER_ASANAE_ENTER)
+        gSprites[gTasks[taskId].tASanaeSpriteId].sState = 1;
     if (gIntroFrameCounter == TIMER_PLAYER_MOVE_BACKWARD)
         gSprites[gTasks[taskId].tPlayerSpriteId].sState = 2;
     if (gIntroFrameCounter == TIMER_PLAYER_HOLD_POSITION)
@@ -1450,11 +1450,11 @@ static void Task_Scene2_BikeRide(u8 taskId)
     if (gIntroFrameCounter == TIMER_PLAYER_EXIT)
         gSprites[gTasks[taskId].tPlayerSpriteId].sState = 4;
 
-    // Handle flygon's y movement
-    offset = Sin(gTasks[taskId].tFlygonTimer >> 2 & 0x7F, 48);
-    sFlygonYOffset = offset;
-    if (gTasks[taskId].tFlygonTimer < 512)
-        gTasks[taskId].tFlygonTimer++;
+    // Handle asanae's y movement
+    offset = Sin(gTasks[taskId].tASanaeTimer >> 2 & 0x7F, 48);
+    sASanaeYOffset = offset;
+    if (gTasks[taskId].tASanaeTimer < 512)
+        gTasks[taskId].tASanaeTimer++;
 
     // Alternate colors of the trees
     CycleSceneryPalette(0);
@@ -1474,73 +1474,73 @@ static void Task_Scene2_End(u8 taskId)
 #define sFig8Loops  data[6]
 
 enum {
-    VOLBEAT_WAIT_ENTER,
-    VOLBEAT_ENTER,
-    VOLBEAT_ZIP_BACKWARD,
-    VOLBEAT_ZIP_DOWN,
-    VOLBEAT_ZIP_FORWARD,
-    VOLBEAT_INIT_FIGURE_8,
-    VOLBEAT_FIGURE_8,
-    VOLBEAT_EXIT,
-    VOLBEAT_WAIT_STATE
+    YUKI_WAIT_ENTER,
+    YUKI_ENTER,
+    YUKI_ZIP_BACKWARD,
+    YUKI_ZIP_DOWN,
+    YUKI_ZIP_FORWARD,
+    YUKI_INIT_FIGURE_8,
+    YUKI_FIGURE_8,
+    YUKI_EXIT,
+    YUKI_WAIT_STATE
 };
 
-static void SpriteCB_Volbeat(struct Sprite *sprite)
+static void SpriteCB_Yuki(struct Sprite *sprite)
 {
     sprite->sCosYIdx += 4;
     switch (sprite->sState)
     {
-    case VOLBEAT_WAIT_ENTER:
+    case YUKI_WAIT_ENTER:
         if (++sprite->sStateDelay < 180)
             break;
         sprite->sState++;
         // fallthrough
-    case VOLBEAT_ENTER:
+    case YUKI_ENTER:
         sprite->x -= 4;
         if (sprite->x == 60)
         {
-            sprite->sState = VOLBEAT_WAIT_STATE;
+            sprite->sState = YUKI_WAIT_STATE;
             sprite->sStateDelay = 20;
-            sprite->sNextState = VOLBEAT_ZIP_BACKWARD;
+            sprite->sNextState = YUKI_ZIP_BACKWARD;
         }
         break;
-    case VOLBEAT_ZIP_BACKWARD:
+    case YUKI_ZIP_BACKWARD:
         sprite->x += 8;
         sprite->y -= 2;
         if (sprite->x == 124)
         {
-            sprite->sState = VOLBEAT_WAIT_STATE;
+            sprite->sState = YUKI_WAIT_STATE;
             sprite->sStateDelay = 20;
-            sprite->sNextState = VOLBEAT_ZIP_DOWN;
+            sprite->sNextState = YUKI_ZIP_DOWN;
         }
         break;
-    case VOLBEAT_ZIP_DOWN:
+    case YUKI_ZIP_DOWN:
         sprite->y += 4;
         if (sprite->y == 80)
         {
-            sprite->sState = VOLBEAT_WAIT_STATE;
+            sprite->sState = YUKI_WAIT_STATE;
             sprite->sStateDelay = 10;
-            sprite->sNextState = VOLBEAT_ZIP_FORWARD;
+            sprite->sNextState = YUKI_ZIP_FORWARD;
         }
         break;
-    case VOLBEAT_ZIP_FORWARD:
+    case YUKI_ZIP_FORWARD:
         sprite->x -= 8;
         sprite->y -= 2;
         if (sprite->x == 60)
         {
-            sprite->sState = VOLBEAT_WAIT_STATE;
+            sprite->sState = YUKI_WAIT_STATE;
             sprite->sStateDelay = 10;
-            sprite->sNextState = VOLBEAT_INIT_FIGURE_8;
+            sprite->sNextState = YUKI_INIT_FIGURE_8;
         }
         break;
-    case VOLBEAT_INIT_FIGURE_8:
+    case YUKI_INIT_FIGURE_8:
         sprite->x += 60;
         sprite->sSinXIdx = 0xC0;
         sprite->sSinYIdx = 0x80;
         sprite->sFig8Loops = 3;
         sprite->sState++;
         // fallthrough
-    case VOLBEAT_FIGURE_8:
+    case YUKI_FIGURE_8:
         sprite->x2 = Sin((u8)sprite->sSinXIdx, 0x3C);
         sprite->y2 = Sin((u8)sprite->sSinYIdx, 0x14);
         sprite->sSinXIdx += 2;
@@ -1556,14 +1556,14 @@ static void SpriteCB_Volbeat(struct Sprite *sprite)
             }
         }
         break;
-    case VOLBEAT_EXIT:
+    case YUKI_EXIT:
         sprite->x -= 2;
         sprite->y2 = Sin((u8)sprite->sSinYIdx, 0x14);
         sprite->sSinYIdx += 4;
         if (sprite->x < -16)
             DestroySprite(sprite);
         break;
-    case VOLBEAT_WAIT_STATE:
+    case YUKI_WAIT_STATE:
         // Wait for state progression, fly idly until then
         sprite->y2 = Cos((u8)sprite->sCosYIdx, 2);
         if (!--sprite->sStateDelay)
@@ -1582,21 +1582,21 @@ static void SpriteCB_Volbeat(struct Sprite *sprite)
 #define sMoveTimer data[1]
 #define sDelay     data[2]
 
-static void SpriteCB_Torchic(struct Sprite *sprite)
+static void SpriteCB_AAlice(struct Sprite *sprite)
 {
     switch (sprite->sState)
     {
     case 0:
-        if (gIntroFrameCounter == TIMER_TORCHIC_ENTER)
+        if (gIntroFrameCounter == TIMER_AALICE_ENTER)
         {
-            StartSpriteAnim(sprite, TORCHIC_ANIM_RUN);
+            StartSpriteAnim(sprite, AALICE_ANIM_RUN);
             sprite->sState++;
         }
         break;
     case 1:
         if (gIntroFrameCounter == TIMER_PLAYER_HOLD_POSITION)
         {
-            StartSpriteAnim(sprite, TORCHIC_ANIM_WALK);
+            StartSpriteAnim(sprite, AALICE_ANIM_WALK);
             sprite->sState++;
         }
         else
@@ -1610,7 +1610,7 @@ static void SpriteCB_Torchic(struct Sprite *sprite)
         }
         break;
     case 2:
-        if (gIntroFrameCounter != TIMER_TORCHIC_SPEED_UP)
+        if (gIntroFrameCounter != TIMER_AALICE_SPEED_UP)
         {
             sprite->sMoveTimer += 32;
             if (sprite->sMoveTimer & 0xFF00)
@@ -1621,7 +1621,7 @@ static void SpriteCB_Torchic(struct Sprite *sprite)
         }
         else
         {
-            StartSpriteAnim(sprite, TORCHIC_ANIM_RUN);
+            StartSpriteAnim(sprite, AALICE_ANIM_RUN);
             sprite->sState++;
             sprite->sDelay = 80;
         }
@@ -1638,7 +1638,7 @@ static void SpriteCB_Torchic(struct Sprite *sprite)
         }
         else
         {
-            StartSpriteAnim(sprite, TORCHIC_ANIM_TRIP);
+            StartSpriteAnim(sprite, AALICE_ANIM_TRIP);
             sprite->sState++;
         }
         break;
@@ -1648,12 +1648,12 @@ static void SpriteCB_Torchic(struct Sprite *sprite)
 
         if (sprite->x > 336)
         {
-            StartSpriteAnim(sprite, TORCHIC_ANIM_RUN);
+            StartSpriteAnim(sprite, AALICE_ANIM_RUN);
             sprite->sState++;
         }
         break;
     case 5:
-        if (gIntroFrameCounter >= TIMER_TORCHIC_EXIT)
+        if (gIntroFrameCounter >= TIMER_AALICE_EXIT)
             sprite->x -= 2;
         break;
     }
@@ -1665,17 +1665,17 @@ static void SpriteCB_Torchic(struct Sprite *sprite)
 #define sSinIdx data[1]
 #define sCosIdx data[2]
 
-static void SpriteCB_Manectric(struct Sprite *sprite)
+static void SpriteCB_TToyohime(struct Sprite *sprite)
 {
     switch (sprite->sState)
     {
     case 0:
-        if (gIntroFrameCounter == TIMER_MANECTRIC_ENTER)
+        if (gIntroFrameCounter == TIMER_TTOYOHIME_ENTER)
             sprite->sState++;
         break;
     case 1:
         sprite->x -= 2;
-        if (gIntroFrameCounter != TIMER_MANECTRIC_RUN_CIRCULAR)
+        if (gIntroFrameCounter != TIMER_TTOYOHIME_RUN_CIRCULAR)
             break;
 
         // Initialize circular pattern running
@@ -1687,7 +1687,7 @@ static void SpriteCB_Manectric(struct Sprite *sprite)
     case 2:
         if (sprite->x + sprite->x2 <= -32)
         {
-            // Manectric is offscreen now, destroy it
+            // TToyohime is offscreen now, destroy it
             DestroySprite(sprite);
         }
         else
@@ -1749,7 +1749,7 @@ static void Task_Scene3_SpinPokeball(u8 taskId)
     }
     else
     {
-        gTasks[taskId].func = Task_Scene3_WaitGroudon;
+        gTasks[taskId].func = Task_Scene3_WaitMiko;
     }
 
     PanFadeAndZoomScreen(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, SAFE_DIV(0x10000, gTasks[taskId].tZoomDiv), gTasks[taskId].tAlpha);
@@ -1762,13 +1762,13 @@ static void Task_Scene3_SpinPokeball(u8 taskId)
 #undef tZoomDiv
 #undef tZoomDivSpeed
 
-static void Task_Scene3_WaitGroudon(u8 taskId)
+static void Task_Scene3_WaitMiko(u8 taskId)
 {
     if (gIntroFrameCounter > TIMER_START_LEGENDARIES)
-        gTasks[taskId].func = Task_Scene3_LoadGroudon;
+        gTasks[taskId].func = Task_Scene3_LoadMiko;
 }
 
-static void Task_Scene3_LoadGroudon(u8 taskId)
+static void Task_Scene3_LoadMiko(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
@@ -1776,14 +1776,14 @@ static void Task_Scene3_LoadGroudon(u8 taskId)
         ResetSpriteData();
         FreeAllSpritePalettes();
         gReservedSpritePaletteCount = 8;
-        LZDecompressVram(gIntroGroudon_Gfx, (void *)VRAM);
-        LZDecompressVram(gIntroGroudon_Tilemap, (void *)(BG_CHAR_ADDR(3)));
+        LZDecompressVram(gIntroMiko_Gfx, (void *)VRAM);
+        LZDecompressVram(gIntroMiko_Tilemap, (void *)(BG_CHAR_ADDR(3)));
         LZDecompressVram(gIntroLegendBg_Gfx, (void *)(BG_CHAR_ADDR(1)));
-        LZDecompressVram(gIntroGroudonBg_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
+        LZDecompressVram(gIntroMikoBg_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
         LoadCompressedSpriteSheetUsingHeap(&gBattleAnimPicTable[GET_TRUE_SPRITE_INDEX(ANIM_TAG_ROCKS)]);
         LoadCompressedSpritePaletteUsingHeap(&gBattleAnimPaletteTable[GET_TRUE_SPRITE_INDEX(ANIM_TAG_ROCKS)]);
         CpuCopy16(gIntro3Bg_Pal, gPlttBufferUnfaded, sizeof(gIntro3Bg_Pal));
-        gTasks[taskId].func = Task_Scene3_InitGroudonBg;
+        gTasks[taskId].func = Task_Scene3_InitMikoBg;
     }
 }
 
@@ -1792,7 +1792,7 @@ static void Task_Scene3_LoadGroudon(u8 taskId)
 #define tScreenY data[2]
 #define tZoom    data[3]
 
-static void Task_Scene3_InitGroudonBg(u8 taskId)
+static void Task_Scene3_InitMikoBg(u8 taskId)
 {
     SetGpuReg(REG_OFFSET_WIN0H, DISPLAY_WIDTH);
     SetGpuReg(REG_OFFSET_WIN0V, DISPLAY_HEIGHT);
@@ -1824,7 +1824,7 @@ static void Task_Scene3_InitGroudonBg(u8 taskId)
     gTasks[taskId].func = Task_Scene3_NarrowWindow;
 }
 
-// Before the Groudon scene starts, the black top/bottom edges of the screen
+// Before the Miko scene starts, the black top/bottom edges of the screen
 // come inward for a more 'cinematic' look
 #define NARROW_HEIGHT 32
 static void Task_Scene3_NarrowWindow(u8 taskId)
@@ -1847,13 +1847,13 @@ static void Task_Scene3_NarrowWindow(u8 taskId)
 
 static void Task_Scene3_EndNarrowWindow(u8 taskId)
 {
-    gTasks[taskId].func = Task_Scene3_StartGroudon;
+    gTasks[taskId].func = Task_Scene3_StartMiko;
 }
 
-static void Task_Scene3_StartGroudon(u8 taskId)
+static void Task_Scene3_StartMiko(u8 taskId)
 {
     gTasks[taskId].tState = 0;
-    gTasks[taskId].func = Task_Scene3_Groudon;
+    gTasks[taskId].func = Task_Scene3_Miko;
     ScanlineEffect_InitWave(0, DISPLAY_HEIGHT, 4, 4, 1, SCANLINE_EFFECT_REG_BG1HOFS, FALSE);
 }
 
@@ -1866,7 +1866,7 @@ static void Task_Scene3_StartGroudon(u8 taskId)
 #define tTrigIdx data[6] // Re-used
 #define tPalIdx  data[7]
 
-static void Task_Scene3_Groudon(u8 taskId)
+static void Task_Scene3_Miko(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
@@ -1883,7 +1883,7 @@ static void Task_Scene3_Groudon(u8 taskId)
             tState++;
             tDelay = 2;
             tPalIdx = 0x1E2;
-            CreateGroudonRockSprites(taskId);
+            CreateMikoRockSprites(taskId);
         }
         break;
     case 1:
@@ -1931,7 +1931,7 @@ static void Task_Scene3_Groudon(u8 taskId)
             tScreenX = 80;
             tScreenY = 41;
             tDelay = 16;
-            PlayCryInternal(SPECIES_GROUDON, 0, 100, CRY_PRIORITY_NORMAL, CRY_MODE_NORMAL);
+            PlayCryInternal(SPECIES_MIKO, 0, 100, CRY_PRIORITY_NORMAL, CRY_MODE_NORMAL);
             tState++;
         }
         break;
@@ -1965,7 +1965,7 @@ static void Task_Scene3_Groudon(u8 taskId)
     case 9:
         if (!gPaletteFade.active)
         {
-            gTasks[taskId].func = Task_Scene3_LoadKyogre;
+            gTasks[taskId].func = Task_Scene3_LoadCMiko;
             gScanlineEffect.state = 3;
         }
         break;
@@ -1986,23 +1986,23 @@ static void Task_Scene3_Groudon(u8 taskId)
 #define sTimer  data[3]
 #define sTaskId data[4]
 
-static void CreateGroudonRockSprites(u8 taskId)
+static void CreateMikoRockSprites(u8 taskId)
 {
     int i;
     u8 spriteId;
 
-    for (i = 0; i < (int)ARRAY_COUNT(sGroudonRockData); i++)
+    for (i = 0; i < (int)ARRAY_COUNT(sMikoRockData); i++)
     {
-        spriteId = CreateSprite(&gAncientPowerRockSpriteTemplate, sGroudonRockData[i][0], DISPLAY_HEIGHT, i);
-        gSprites[spriteId].callback = SpriteCB_GroudonRocks;
+        spriteId = CreateSprite(&gAncientPowerRockSpriteTemplate, sMikoRockData[i][0], DISPLAY_HEIGHT, i);
+        gSprites[spriteId].callback = SpriteCB_MikoRocks;
         gSprites[spriteId].oam.priority = 0;
         gSprites[spriteId].sRockId = i;
         gSprites[spriteId].sTaskId = taskId;
-        StartSpriteAnim(&gSprites[spriteId], sGroudonRockData[i][1]);
+        StartSpriteAnim(&gSprites[spriteId], sMikoRockData[i][1]);
     }
 }
 
-static void SpriteCB_GroudonRocks(struct Sprite *sprite)
+static void SpriteCB_MikoRocks(struct Sprite *sprite)
 {
     // Introduce some wobble to the floating
     sprite->sTimer++;
@@ -2013,11 +2013,11 @@ static void SpriteCB_GroudonRocks(struct Sprite *sprite)
     {
     case 0:
         // Rock floats up
-        sprite->sSpeed += sGroudonRockData[sprite->sRockId][2];
+        sprite->sSpeed += sMikoRockData[sprite->sRockId][2];
         sprite->y -= (sprite->sSpeed & 0xFF00) >> 8;
         sprite->sSpeed &= 0xFF;
 
-        // Check if Groudon scene is ending
+        // Check if Miko scene is ending
         if (gTasks[sprite->sTaskId].tState > 7)
             sprite->sState++;
         break;
@@ -2048,16 +2048,16 @@ static void SpriteCB_GroudonRocks(struct Sprite *sprite)
 #define tTrigIdx data[6] // Re-used
 #define tPalIdx  data[7]
 
-static void Task_Scene3_LoadKyogre(u8 taskId)
+static void Task_Scene3_LoadCMiko(u8 taskId)
 {
     ResetSpriteData();
-    LZDecompressVram(gIntroKyogre_Gfx, (void *)VRAM);
-    LZDecompressVram(gIntroKyogre_Tilemap, (void *)(BG_CHAR_ADDR(3)));
-    LZDecompressVram(gIntroKyogreBg_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
+    LZDecompressVram(gIntroCMiko_Gfx, (void *)VRAM);
+    LZDecompressVram(gIntroCMiko_Tilemap, (void *)(BG_CHAR_ADDR(3)));
+    LZDecompressVram(gIntroCMikoBg_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
     LoadCompressedSpriteSheet(sSpriteSheet_Bubbles);
     LoadSpritePalette(sSpritePalette_Bubbles);
     BeginNormalPaletteFade(PALETTES_ALL & ~1, 0, 16, 0, RGB_WHITEALPHA);
-    gTasks[taskId].func = Task_Scene3_Kyogre;
+    gTasks[taskId].func = Task_Scene3_CMiko;
     gTasks[taskId].tState = 0;
     gTasks[taskId].tScreenX = 336;
     gTasks[taskId].tScreenY = 80;
@@ -2067,7 +2067,7 @@ static void Task_Scene3_LoadKyogre(u8 taskId)
     ScanlineEffect_InitWave(0, DISPLAY_HEIGHT, 4, 4, 1, SCANLINE_EFFECT_REG_BG1VOFS, FALSE);
 }
 
-static void Task_Scene3_Kyogre(u8 taskId)
+static void Task_Scene3_CMiko(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
@@ -2088,7 +2088,7 @@ static void Task_Scene3_Kyogre(u8 taskId)
             tDelay = 0x19;
             tPalIdx = 1;
             tState++;
-            CreateKyogreBubbleSprites_Body(0);
+            CreateCMikoBubbleSprites_Body(0);
         }
         break;
     case 2:
@@ -2098,8 +2098,8 @@ static void Task_Scene3_Kyogre(u8 taskId)
             gTasks[taskId].tScreenY -= 258;
             tDelay = 8;
             tState++;
-            CreateKyogreBubbleSprites_Body(0);
-            CreateKyogreBubbleSprites_Fins();
+            CreateCMikoBubbleSprites_Body(0);
+            CreateCMikoBubbleSprites_Fins();
         }
         break;
     case 3:
@@ -2133,7 +2133,7 @@ static void Task_Scene3_Kyogre(u8 taskId)
             {
                 tDelay = 1;
                 tState++;
-                PlayCryInternal(SPECIES_KYOGRE, 0, 120, CRY_PRIORITY_NORMAL, CRY_MODE_NORMAL);
+                PlayCryInternal(SPECIES_CMIKO, 0, 120, CRY_PRIORITY_NORMAL, CRY_MODE_NORMAL);
             }
         }
         break;
@@ -2181,7 +2181,7 @@ static void Task_Scene3_Kyogre(u8 taskId)
         {
             tTrigIdx = 0;
             tState++;
-            CreateKyogreBubbleSprites_Body(taskId);
+            CreateCMikoBubbleSprites_Body(taskId);
         }
         break;
     case 11:
@@ -2231,8 +2231,8 @@ static void Task_Scene3_Kyogre(u8 taskId)
 // The only time an actual taskId is given is when it actually needs the
 // result of reading it, to zoom in at the end of the scene.
 
-// Creates bubbles at positions spread across Kyogre's body
-static void CreateKyogreBubbleSprites_Body(u8 taskId)
+// Creates bubbles at positions spread across CMiko's body
+static void CreateCMikoBubbleSprites_Body(u8 taskId)
 {
     int i;
     u8 spriteId;
@@ -2240,18 +2240,18 @@ static void CreateKyogreBubbleSprites_Body(u8 taskId)
     for (i = 0; i < NUM_BUBBLES_IN_SET; i++)
     {
         spriteId = CreateSprite(&sSpriteTemplate_Bubbles,
-                                sKyogreBubbleData[i][0],
-                                sKyogreBubbleData[i][1],
+                                sCMikoBubbleData[i][0],
+                                sCMikoBubbleData[i][1],
                                 i);
         gSprites[spriteId].invisible = TRUE;
         gSprites[spriteId].sTaskId = taskId;
-        gSprites[spriteId].sDelay = sKyogreBubbleData[i][2];
+        gSprites[spriteId].sDelay = sCMikoBubbleData[i][2];
         gSprites[spriteId].sUnk = 64;
     }
 }
 
-// Creates bubbles at positions around Kyogre's fins, for when it's moving them
-static void CreateKyogreBubbleSprites_Fins(void)
+// Creates bubbles at positions around CMiko's fins, for when it's moving them
+static void CreateCMikoBubbleSprites_Fins(void)
 {
     int i;
     u8 spriteId;
@@ -2259,20 +2259,20 @@ static void CreateKyogreBubbleSprites_Fins(void)
     for (i = 0; i < NUM_BUBBLES_IN_SET; i++)
     {
         spriteId = CreateSprite(&sSpriteTemplate_Bubbles,
-                                sKyogreBubbleData[i + NUM_BUBBLES_IN_SET][0],
-                                sKyogreBubbleData[i + NUM_BUBBLES_IN_SET][1],
+                                sCMikoBubbleData[i + NUM_BUBBLES_IN_SET][0],
+                                sCMikoBubbleData[i + NUM_BUBBLES_IN_SET][1],
                                 i);
         gSprites[spriteId].invisible = TRUE;
 #ifdef BUGFIX
-        gSprites[spriteId].sDelay = sKyogreBubbleData[i + NUM_BUBBLES_IN_SET][2];
+        gSprites[spriteId].sDelay = sCMikoBubbleData[i + NUM_BUBBLES_IN_SET][2];
 #else
-        gSprites[spriteId].sDelay = sKyogreBubbleData[i][2]; // Using the wrong set of delays here
+        gSprites[spriteId].sDelay = sCMikoBubbleData[i][2]; // Using the wrong set of delays here
 #endif
         gSprites[spriteId].sUnk = 64;
     }
 }
 
-static void SpriteCB_KyogreBubbles(struct Sprite *sprite)
+static void SpriteCB_CMikoBubbles(struct Sprite *sprite)
 {
     switch(sprite->sState)
     {
@@ -2294,7 +2294,7 @@ static void SpriteCB_KyogreBubbles(struct Sprite *sprite)
             sprite->invisible = FALSE;
         }
 
-        // Check if Kyogre scene is ending
+        // Check if CMiko scene is ending
         // For all but the last bubbles, sTaskId isn't actually set
         if (gTasks[sprite->sTaskId].tState > 11)
             sprite->sState++;
@@ -2384,7 +2384,7 @@ static void Task_Scene3_InitClouds(u8 taskId)
     gTasks[taskId].tCloudPos = 16;
 }
 
-// Clouds coming in from the sides before Rayquaza appears
+// Clouds coming in from the sides before CMamizou appears
 static void Task_Scene3_Clouds(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -2426,10 +2426,10 @@ static void Task_Scene3_Clouds(u8 taskId)
 
 static void Task_Scene3_LoadLightning(u8 taskId)
 {
-    LZDecompressVram(gIntroRayquaza_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
-    LZDecompressVram(gIntroRayquazaClouds_Tilemap, (void *)(BG_CHAR_ADDR(3)));
-    LZDecompressVram(gIntroRayquaza_Gfx, (void *)(BG_CHAR_ADDR(1)));
-    LZDecompressVram(gIntroRayquazaClouds_Gfx, (void *)VRAM);
+    LZDecompressVram(gIntroCMamizou_Tilemap, (void *)(BG_SCREEN_ADDR(28)));
+    LZDecompressVram(gIntroCMamizouClouds_Tilemap, (void *)(BG_CHAR_ADDR(3)));
+    LZDecompressVram(gIntroCMamizou_Gfx, (void *)(BG_CHAR_ADDR(1)));
+    LZDecompressVram(gIntroCMamizouClouds_Gfx, (void *)VRAM);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0
                                 | DISPCNT_OBJ_1D_MAP
                                 | DISPCNT_BG0_ON
@@ -2479,7 +2479,7 @@ static void Task_Scene3_Lightning(u8 taskId)
         break;
     case 2:
         if (--tDelay == 0)
-            gTasks[taskId].func = Task_Scene3_LoadRayquazaAttack;
+            gTasks[taskId].func = Task_Scene3_LoadCMamizouAttack;
         break;
     }
 }
@@ -2521,32 +2521,32 @@ static void SpriteCB_Lightning(struct Sprite *sprite)
 #undef sPalIdx
 #undef sDelay
 
-#define tRayquazaTaskId data[4]
+#define tCMamizouTaskId data[4]
 
-static void Task_Scene3_LoadRayquazaAttack(u8 taskId)
+static void Task_Scene3_LoadCMamizouAttack(u8 taskId)
 {
     u8 attackTaskId;
 
-    LoadCompressedSpriteSheet(sSpriteSheet_RayquazaOrb);
-    LoadSpritePalettes(sSpritePalette_RayquazaOrb);
+    LoadCompressedSpriteSheet(sSpriteSheet_CMamizouOrb);
+    LoadSpritePalettes(sSpritePalette_CMamizouOrb);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0
                                 | DISPCNT_OBJ_1D_MAP
                                 | DISPCNT_BG0_ON
                                 | DISPCNT_BG2_ON
                                 | DISPCNT_OBJ_ON
                                 | DISPCNT_WIN0_ON);
-    gTasks[taskId].func = Task_Scene3_Rayquaza;
+    gTasks[taskId].func = Task_Scene3_CMamizou;
     BeginNormalPaletteFade(PALETTES_BG & ~(0x21), 0, 16, 0, RGB(9, 10, 10));
     gTasks[taskId].tState = 0;
     gTasks[taskId].data[1] = 0xA8;
     gTasks[taskId].data[2] = -0x10;
     gTasks[taskId].data[3] = -0x88;
     gTasks[taskId].data[4] = -0x10;
-    attackTaskId = CreateTask(Task_RayquazaAttack, 0);
-    gTasks[attackTaskId].tRayquazaTaskId = taskId;
+    attackTaskId = CreateTask(Task_CMamizouAttack, 0);
+    gTasks[attackTaskId].tCMamizouTaskId = taskId;
 }
 
-static void Task_Scene3_Rayquaza(u8 taskId)
+static void Task_Scene3_CMamizou(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
@@ -2601,7 +2601,7 @@ static void Task_EndIntroMovie(u8 taskId)
     SetMainCallback2(MainCB2_EndIntro);
 }
 
-static void Task_RayquazaAttack(u8 taskId)
+static void Task_CMamizouAttack(u8 taskId)
 {
     u8 spriteId;
     s16 *data = gTasks[taskId].data;
@@ -2651,10 +2651,10 @@ static void Task_RayquazaAttack(u8 taskId)
             }
             if (data[1] == 6)
             {
-                spriteId = CreateSprite(&sSpriteTemplate_RayquazaOrb, 120, 88, 15);
+                spriteId = CreateSprite(&sSpriteTemplate_CMamizouOrb, 120, 88, 15);
                 PlaySE(SE_INTRO_BLAST);
                 gSprites[spriteId].invisible = TRUE;
-                gSprites[spriteId].data[3] = tRayquazaTaskId;
+                gSprites[spriteId].data[3] = tCMamizouTaskId;
                 tState++;
                 data[3] = 16;
             }
@@ -3132,7 +3132,7 @@ static void SpriteCB_PlayerOnBicycle(struct Sprite *sprite)
 #define sSinIdx data[1]
 
 // Movement is started by setting state to 1 in Task_Scene2_BikeRide
-static void SpriteCB_Flygon(struct Sprite *sprite)
+static void SpriteCB_ASanae(struct Sprite *sprite)
 {
     switch (sprite->sState)
     {
@@ -3155,7 +3155,7 @@ static void SpriteCB_Flygon(struct Sprite *sprite)
             sprite->x2 -= 2;
         break;
     }
-    sprite->y2 = Sin((u8)sprite->sSinIdx, 8) - sFlygonYOffset;
+    sprite->y2 = Sin((u8)sprite->sSinIdx, 8) - sASanaeYOffset;
     sprite->sSinIdx += 4;
 }
 
@@ -3333,7 +3333,7 @@ static u8 CreateGameFreakLogoSprites(s16 x, s16 y, s16 unused)
 #define sPos     data[3]
 #define sTimer   data[7]
 
-static void SpriteCB_FlygonSilhouette(struct Sprite *sprite)
+static void SpriteCB_ASanaeSilhouette(struct Sprite *sprite)
 {
     sprite->sTimer++;
 
@@ -3399,7 +3399,7 @@ static void SpriteCB_FlygonSilhouette(struct Sprite *sprite)
 #undef sPos
 #undef sTimer
 
-static void SpriteCB_RayquazaOrb(struct Sprite *sprite)
+static void SpriteCB_CMamizouOrb(struct Sprite *sprite)
 {
     u16 foo;
     switch (sprite->sState)

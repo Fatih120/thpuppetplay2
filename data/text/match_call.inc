@@ -2306,7 +2306,7 @@ MatchCall_Text_Wallace::
 	.string "But what is a rare stone exactly?\n"
 	.string "All I can think of is a METEORITE…$"
 
-MatchCall_Text_MayRayquazaCall:
+MatchCall_Text_MayCMamizouCall:
 	.string "… … … … … …\n"
 	.string "… … … … … Beep!\p"
 	.string "MAY: Hi, {PLAYER}{KUN}!\p"
@@ -2321,7 +2321,7 @@ MatchCall_Text_MayRayquazaCall:
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
 
-MatchCall_Text_BrendanRayquazaCall:
+MatchCall_Text_BrendanCMamizouCall:
 	.string "… … … … … …\n"
 	.string "… … … … … Beep!\p"
 	.string "BRENDAN: Hey, {PLAYER}!\n"
@@ -2617,7 +2617,7 @@ MatchCall_Text_Wally4::
 
 MatchCall_Text_Wally5::
 	.string "WALLY: {PLAYER}? It's awesome!\n"
-	.string "That RALTS we caught together?\l"
+	.string "That TENMA we caught together?\l"
 	.string "It evolved, {PLAYER}!\p"
 	.string "Maybe I'm talented…\p"
 	.string "Oh, but I shouldn't get a big head\n"

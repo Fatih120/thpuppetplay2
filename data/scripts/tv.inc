@@ -40,8 +40,8 @@ EventScript_PlayersHouseMovie::
 EventScript_PlayersHouseLatiNewsFlash::
 	msgbox PlayersHouse_1F_Text_LatiEmergencyNewsFlash, MSGBOX_DEFAULT
 	special InitRoamer
-	clearflag FLAG_SYS_TV_LATIAS_LATIOS
-	setflag FLAG_LATIOS_OR_LATIAS_ROAMING
+	clearflag FLAG_SYS_TV_MAMIZOU_CKASEN
+	setflag FLAG_CKASEN_OR_MAMIZOU_ROAMING
 	special TurnOffTVScreen
 	releaseall
 	end

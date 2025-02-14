@@ -29,12 +29,12 @@ MossdeepCity_House4_EventScript_NoSecretBase::
 	release
 	end
 
-MossdeepCity_House4_EventScript_Skitty::
+MossdeepCity_House4_EventScript_ASunnyMilk::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_SKITTY, CRY_MODE_NORMAL
-	msgbox MossdeepCity_House4_Text_Skitty, MSGBOX_DEFAULT
+	playmoncry SPECIES_ASUNNYMILK, CRY_MODE_NORMAL
+	msgbox MossdeepCity_House4_Text_ASunnyMilk, MSGBOX_DEFAULT
 	waitmoncry
 	release
 	end
@@ -56,6 +56,6 @@ MossdeepCity_House4_Text_MakeSecretBase:
 	.string "You should make a SECRET BASE\n"
 	.string "somewhere. I'll go find it!$"
 
-MossdeepCity_House4_Text_Skitty:
-	.string "SKITTY: Miyaan?$"
+MossdeepCity_House4_Text_ASunnyMilk:
+	.string "ASUNNYMILK: Miyaan?$"
 

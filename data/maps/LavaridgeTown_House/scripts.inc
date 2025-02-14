@@ -5,12 +5,12 @@ LavaridgeTown_House_EventScript_OldMan::
 	msgbox LavaridgeTown_House_Text_WifeWarmingEggInHotSprings, MSGBOX_NPC
 	end
 
-LavaridgeTown_House_EventScript_Zigzagoon::
+LavaridgeTown_House_EventScript_HLunasa::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ZIGZAGOON, CRY_MODE_NORMAL
-	msgbox LavaridgeTown_House_Text_Zigzagoon, MSGBOX_DEFAULT
+	playmoncry SPECIES_HLUNASA, CRY_MODE_NORMAL
+	msgbox LavaridgeTown_House_Text_HLunasa, MSGBOX_DEFAULT
 	waitmoncry
 	release
 	end
@@ -21,6 +21,6 @@ LavaridgeTown_House_Text_WifeWarmingEggInHotSprings:
 	.string "She left two POKéMON with the DAY CARE.\n"
 	.string "And they discovered that EGG!$"
 
-LavaridgeTown_House_Text_Zigzagoon:
-	.string "ZIGZAGOON: Pshoo!$"
+LavaridgeTown_House_Text_HLunasa:
+	.string "HLUNASA: Pshoo!$"
 

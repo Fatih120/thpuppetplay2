@@ -5,17 +5,17 @@ IslandCave_MapScripts::
 	.byte 0
 
 IslandCave_OnResume:
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, IslandCave_EventScript_TryRemoveRegice
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, IslandCave_EventScript_TryRemoveCFuto
 	end
 
-IslandCave_EventScript_TryRemoveRegice::
+IslandCave_EventScript_TryRemoveCFuto::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
 	removeobject VAR_LAST_TALKED
 	return
 
 IslandCave_OnLoad:
-	call_if_unset FLAG_SYS_BRAILLE_REGICE_COMPLETED, IslandCave_EventScript_HideRegiEntrance
+	call_if_unset FLAG_SYS_BRAILLE_CFUTO_COMPLETED, IslandCave_EventScript_HideRegiEntrance
 	end
 
 IslandCave_EventScript_HideRegiEntrance::
@@ -30,11 +30,11 @@ IslandCave_EventScript_HideRegiEntrance::
 IslandCave_OnTransition:
 	setflag FLAG_LANDMARK_ISLAND_CAVE
 	call IslandCave_EventScript_ClearSteps
-	call_if_unset FLAG_DEFEATED_REGICE, IslandCave_EventScript_ShowRegice
+	call_if_unset FLAG_DEFEATED_CFUTO, IslandCave_EventScript_ShowCFuto
 	end
 
-IslandCave_EventScript_ShowRegice::
-	clearflag FLAG_HIDE_REGICE
+IslandCave_EventScript_ShowCFuto::
+	clearflag FLAG_HIDE_CFUTO
 	return
 
 IslandCave_EventScript_OpenRegiEntrance::
@@ -46,16 +46,16 @@ IslandCave_EventScript_OpenRegiEntrance::
 	setmetatile 9, 20, METATILE_Cave_SealedChamberEntrance_BottomRight, TRUE
 	special DrawWholeMapView
 	playse SE_BANG
-	setflag FLAG_SYS_BRAILLE_REGICE_COMPLETED
+	setflag FLAG_SYS_BRAILLE_CFUTO_COMPLETED
 	end
 
 IslandCave_EventScript_CaveEntranceMiddle::
 	lockall
-	call_if_set FLAG_TEMP_REGICE_PUZZLE_FAILED, IslandCave_EventScript_ClearSteps
-	goto_if_set FLAG_SYS_BRAILLE_REGICE_COMPLETED, IslandCave_EventScript_BigHoleInWall
+	call_if_set FLAG_TEMP_CFUTO_PUZZLE_FAILED, IslandCave_EventScript_ClearSteps
+	goto_if_set FLAG_SYS_BRAILLE_CFUTO_COMPLETED, IslandCave_EventScript_BigHoleInWall
 	braillemessage IslandCave_Braille_RunLapAroundWall
-	setflag FLAG_TEMP_REGICE_PUZZLE_STARTED
-	special ShouldDoBrailleRegicePuzzle
+	setflag FLAG_TEMP_CFUTO_PUZZLE_STARTED
+	special ShouldDoBrailleCFutoPuzzle
 	goto IslandCave_EventScript_CloseBrailleMsg
 	end
 
@@ -66,11 +66,11 @@ IslandCave_EventScript_BigHoleInWall::
 
 IslandCave_EventScript_CaveEntranceSide::
 	lockall
-	call_if_set FLAG_TEMP_REGICE_PUZZLE_FAILED, IslandCave_EventScript_ClearSteps
+	call_if_set FLAG_TEMP_CFUTO_PUZZLE_FAILED, IslandCave_EventScript_ClearSteps
 	braillemessage IslandCave_Braille_RunLapAroundWall
-	goto_if_set FLAG_SYS_BRAILLE_REGICE_COMPLETED, IslandCave_EventScript_CloseBrailleMsg
-	setflag FLAG_TEMP_REGICE_PUZZLE_STARTED
-	special ShouldDoBrailleRegicePuzzle
+	goto_if_set FLAG_SYS_BRAILLE_CFUTO_COMPLETED, IslandCave_EventScript_CloseBrailleMsg
+	setflag FLAG_TEMP_CFUTO_PUZZLE_STARTED
+	special ShouldDoBrailleCFutoPuzzle
 	goto IslandCave_EventScript_CloseBrailleMsg
 	end
 
@@ -81,38 +81,38 @@ IslandCave_EventScript_CloseBrailleMsg::
 	end
 
 IslandCave_EventScript_ClearSteps::
-	setvar VAR_REGICE_STEPS_1, 0
-	setvar VAR_REGICE_STEPS_2, 0
-	setvar VAR_REGICE_STEPS_3, 0
-	clearflag FLAG_TEMP_REGICE_PUZZLE_FAILED
+	setvar VAR_CFUTO_STEPS_1, 0
+	setvar VAR_CFUTO_STEPS_2, 0
+	setvar VAR_CFUTO_STEPS_3, 0
+	clearflag FLAG_TEMP_CFUTO_PUZZLE_FAILED
 	return
 
-IslandCave_EventScript_Regice::
+IslandCave_EventScript_CFuto::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_REGICE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_CFUTO, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_REGICE, 40
+	setwildbattle SPECIES_CFUTO, 40
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special StartRegiBattle
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, IslandCave_EventScript_DefeatedRegice
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, IslandCave_EventScript_RanFromRegice
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, IslandCave_EventScript_RanFromRegice
-	setflag FLAG_DEFEATED_REGICE
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, IslandCave_EventScript_DefeatedCFuto
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, IslandCave_EventScript_RanFromCFuto
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, IslandCave_EventScript_RanFromCFuto
+	setflag FLAG_DEFEATED_CFUTO
 	release
 	end
 
-IslandCave_EventScript_DefeatedRegice::
-	setflag FLAG_DEFEATED_REGICE
+IslandCave_EventScript_DefeatedCFuto::
+	setflag FLAG_DEFEATED_CFUTO
 	goto Common_EventScript_RemoveStaticPokemon
 	end
 
-IslandCave_EventScript_RanFromRegice::
-	setvar VAR_0x8004, SPECIES_REGICE
+IslandCave_EventScript_RanFromCFuto::
+	setvar VAR_0x8004, SPECIES_CFUTO
 	goto Common_EventScript_LegendaryFlewAway
 	end

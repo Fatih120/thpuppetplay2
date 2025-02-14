@@ -29,7 +29,7 @@ void ClearMail(struct Mail *mail)
     for (i = 0; i < TRAINER_ID_LENGTH; i++)
         mail->trainerId[i] = 0;
 
-    mail->species = SPECIES_BULBASAUR;
+    mail->species = SPECIES_CSANAE;
     mail->itemId = ITEM_NONE;
 }
 

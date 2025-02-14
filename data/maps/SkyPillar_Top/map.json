@@ -15,7 +15,7 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_RAYQUAZA",
+      "graphics_id": "OBJ_EVENT_GFX_CMAMIZOU",
       "x": 14,
       "y": 7,
       "elevation": 3,
@@ -25,10 +25,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_CMAMIZOU"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_RAYQUAZA_STILL",
+      "graphics_id": "OBJ_EVENT_GFX_CMAMIZOU_STILL",
       "x": 14,
       "y": 6,
       "elevation": 3,
@@ -37,8 +37,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SkyPillar_Top_EventScript_Rayquaza",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
+      "script": "SkyPillar_Top_EventScript_CMamizou",
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_CMAMIZOU_STILL"
     }
   ],
   "warp_events": [
@@ -56,9 +56,9 @@
       "x": 14,
       "y": 9,
       "elevation": 3,
-      "var": "VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE",
+      "var": "VAR_SKY_PILLAR_CMAMIZOU_CRY_DONE",
       "var_value": "0",
-      "script": "SkyPillar_Top_EventScript_AwakenRayquaza"
+      "script": "SkyPillar_Top_EventScript_AwakenCMamizou"
     }
   ],
   "bg_events": []

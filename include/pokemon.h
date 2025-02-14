@@ -168,7 +168,7 @@ struct PokemonSubstruct3
 
  // The functionality of this bit changed in FRLG:
  // In RS, this bit does nothing, is never set, & is accidentally unset when hatching Eggs.
- // In FRLG & Emerald, this controls Mew & Deoxys obedience and whether they can be traded.
+ // In FRLG & Emerald, this controls Akyuu & Gomaseki obedience and whether they can be traded.
  // If set, a Pokémon is a fateful encounter in FRLG's summary screen if hatched & for all Pokémon in Gen 4+ summary screens.
  // Set for in-game event island legendaries, events distributed after a certain date, & Pokémon from XD: Gale of Darkness.
  // Not to be confused with METLOC_FATEFUL_ENCOUNTER.
@@ -337,13 +337,13 @@ struct BattleMove
     u8 flags;
 };
 
-#define SPINDA_SPOT_WIDTH 16
-#define SPINDA_SPOT_HEIGHT 16
+#define SKOGASA_SPOT_WIDTH 16
+#define SKOGASA_SPOT_HEIGHT 16
 
-struct SpindaSpot
+struct SKogasaSpot
 {
     u8 x, y;
-    u16 image[SPINDA_SPOT_HEIGHT];
+    u16 image[SKOGASA_SPOT_HEIGHT];
 };
 
 struct __attribute__((packed)) LevelUpMove
@@ -408,8 +408,8 @@ void CreateBattleTowerMon_HandleLevel(struct Pokemon *mon, struct BattleTowerPok
 void CreateApprenticeMon(struct Pokemon *mon, const struct Apprentice *src, u8 monId);
 void CreateMonWithEVSpreadNatureOTID(struct Pokemon *mon, u16 species, u8 level, u8 nature, u8 fixedIV, u8 evSpread, u32 otId);
 void ConvertPokemonToBattleTowerPokemon(struct Pokemon *mon, struct BattleTowerPokemon *dest);
-bool8 ShouldIgnoreDeoxysForm(u8 caseId, u8 battlerId);
-void SetDeoxysStats(void);
+bool8 ShouldIgnoreGomasekiForm(u8 caseId, u8 battlerId);
+void SetGomasekiStats(void);
 u16 GetUnionRoomTrainerPic(void);
 u16 GetUnionRoomTrainerClass(void);
 void CreateEnemyEventMon(void);
@@ -483,7 +483,7 @@ u16 SpeciesToNationalPokedexNum(u16 species);
 u16 SpeciesToHoennPokedexNum(u16 species);
 u16 HoennToNationalOrder(u16 hoennNum);
 u16 SpeciesToCryId(u16 species);
-void DrawSpindaSpots(u16 species, u32 personality, u8 *dest, bool8 isFrontPic);
+void DrawSKogasaSpots(u16 species, u32 personality, u8 *dest, bool8 isFrontPic);
 void EvolutionRenameMon(struct Pokemon *mon, u16 oldSpecies, u16 newSpecies);
 u8 GetPlayerFlankId(void);
 u16 GetLinkTrainerFlankId(u8 id);

@@ -435,26 +435,26 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_QUINTY_PLUMP            0x110B
 #define OBJ_EVENT_PAL_TAG_QUINTY_PLUMP_REFLECTION 0x110C
 #define OBJ_EVENT_PAL_TAG_TRUCK                   0x110D
-#define OBJ_EVENT_PAL_TAG_VIGOROTH                0x110E
-#define OBJ_EVENT_PAL_TAG_ZIGZAGOON               0x110F
+#define OBJ_EVENT_PAL_TAG_ALILYWHITE                0x110E
+#define OBJ_EVENT_PAL_TAG_HLUNASA               0x110F
 #define OBJ_EVENT_PAL_TAG_MAY                     0x1110
 #define OBJ_EVENT_PAL_TAG_MAY_REFLECTION          0x1111
 #define OBJ_EVENT_PAL_TAG_MOVING_BOX              0x1112
 #define OBJ_EVENT_PAL_TAG_CABLE_CAR               0x1113
 #define OBJ_EVENT_PAL_TAG_SSTIDAL                 0x1114
 #define OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER       0x1115
-#define OBJ_EVENT_PAL_TAG_KYOGRE                  0x1116
-#define OBJ_EVENT_PAL_TAG_KYOGRE_REFLECTION       0x1117
-#define OBJ_EVENT_PAL_TAG_GROUDON                 0x1118
-#define OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION      0x1119
+#define OBJ_EVENT_PAL_TAG_CMIKO                  0x1116
+#define OBJ_EVENT_PAL_TAG_CMIKO_REFLECTION       0x1117
+#define OBJ_EVENT_PAL_TAG_MIKO                 0x1118
+#define OBJ_EVENT_PAL_TAG_MIKO_REFLECTION      0x1119
 #define OBJ_EVENT_PAL_TAG_UNUSED                  0x111A
 #define OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW        0x111B
-#define OBJ_EVENT_PAL_TAG_POOCHYENA               0x111C
+#define OBJ_EVENT_PAL_TAG_DYUYUKO               0x111C
 #define OBJ_EVENT_PAL_TAG_RED_LEAF                0x111D
-#define OBJ_EVENT_PAL_TAG_DEOXYS                  0x111E
+#define OBJ_EVENT_PAL_TAG_GOMASEKI                  0x111E
 #define OBJ_EVENT_PAL_TAG_BIRTH_ISLAND_STONE      0x111F
-#define OBJ_EVENT_PAL_TAG_HO_OH                   0x1120
-#define OBJ_EVENT_PAL_TAG_LUGIA                   0x1121
+#define OBJ_EVENT_PAL_TAG_AKOMACHI                   0x1120
+#define OBJ_EVENT_PAL_TAG_SKOMACHI                   0x1121
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
@@ -483,24 +483,24 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_QuintyPlump,           OBJ_EVENT_PAL_TAG_QUINTY_PLUMP},
     {gObjectEventPal_QuintyPlumpReflection, OBJ_EVENT_PAL_TAG_QUINTY_PLUMP_REFLECTION},
     {gObjectEventPal_Truck,                 OBJ_EVENT_PAL_TAG_TRUCK},
-    {gObjectEventPal_Vigoroth,              OBJ_EVENT_PAL_TAG_VIGOROTH},
-    {gObjectEventPal_EnemyZigzagoon,        OBJ_EVENT_PAL_TAG_ZIGZAGOON},
+    {gObjectEventPal_ALilyWhite,              OBJ_EVENT_PAL_TAG_ALILYWHITE},
+    {gObjectEventPal_EnemyHLunasa,        OBJ_EVENT_PAL_TAG_HLUNASA},
     {gObjectEventPal_May,                   OBJ_EVENT_PAL_TAG_MAY},
     {gObjectEventPal_MayReflection,         OBJ_EVENT_PAL_TAG_MAY_REFLECTION},
     {gObjectEventPal_MovingBox,             OBJ_EVENT_PAL_TAG_MOVING_BOX},
     {gObjectEventPal_CableCar,              OBJ_EVENT_PAL_TAG_CABLE_CAR},
     {gObjectEventPal_SSTidal,               OBJ_EVENT_PAL_TAG_SSTIDAL},
-    {gObjectEventPal_Kyogre,                OBJ_EVENT_PAL_TAG_KYOGRE},
-    {gObjectEventPal_KyogreReflection,      OBJ_EVENT_PAL_TAG_KYOGRE_REFLECTION},
-    {gObjectEventPal_Groudon,               OBJ_EVENT_PAL_TAG_GROUDON},
-    {gObjectEventPal_GroudonReflection,     OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION},
+    {gObjectEventPal_CMiko,                OBJ_EVENT_PAL_TAG_CMIKO},
+    {gObjectEventPal_CMikoReflection,      OBJ_EVENT_PAL_TAG_CMIKO_REFLECTION},
+    {gObjectEventPal_Miko,               OBJ_EVENT_PAL_TAG_MIKO},
+    {gObjectEventPal_MikoReflection,     OBJ_EVENT_PAL_TAG_MIKO_REFLECTION},
     {gObjectEventPal_SubmarineShadow,       OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW},
-    {gObjectEventPal_Poochyena,             OBJ_EVENT_PAL_TAG_POOCHYENA},
+    {gObjectEventPal_DYuyuko,             OBJ_EVENT_PAL_TAG_DYUYUKO},
     {gObjectEventPal_RedLeaf,               OBJ_EVENT_PAL_TAG_RED_LEAF},
-    {gObjectEventPal_Deoxys,                OBJ_EVENT_PAL_TAG_DEOXYS},
+    {gObjectEventPal_Gomaseki,                OBJ_EVENT_PAL_TAG_GOMASEKI},
     {gObjectEventPal_BirthIslandStone,      OBJ_EVENT_PAL_TAG_BIRTH_ISLAND_STONE},
-    {gObjectEventPal_HoOh,                  OBJ_EVENT_PAL_TAG_HO_OH},
-    {gObjectEventPal_Lugia,                 OBJ_EVENT_PAL_TAG_LUGIA},
+    {gObjectEventPal_AKomachi,                  OBJ_EVENT_PAL_TAG_AKOMACHI},
+    {gObjectEventPal_SKomachi,                 OBJ_EVENT_PAL_TAG_SKOMACHI},
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
 #ifdef BUGFIX
@@ -553,11 +553,11 @@ static const u16 sReflectionPaletteTags_Truck[] = {
     OBJ_EVENT_PAL_TAG_TRUCK,
 };
 
-static const u16 sReflectionPaletteTags_VigorothMover[] = {
-    OBJ_EVENT_PAL_TAG_VIGOROTH,
-    OBJ_EVENT_PAL_TAG_VIGOROTH,
-    OBJ_EVENT_PAL_TAG_VIGOROTH,
-    OBJ_EVENT_PAL_TAG_VIGOROTH,
+static const u16 sReflectionPaletteTags_ALilyWhiteMover[] = {
+    OBJ_EVENT_PAL_TAG_ALILYWHITE,
+    OBJ_EVENT_PAL_TAG_ALILYWHITE,
+    OBJ_EVENT_PAL_TAG_ALILYWHITE,
+    OBJ_EVENT_PAL_TAG_ALILYWHITE,
 };
 
 static const u16 sReflectionPaletteTags_MovingBox[] = {
@@ -588,21 +588,21 @@ static const u16 sReflectionPaletteTags_SubmarineShadow[] = {
     OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW,
 };
 
-static const u16 sReflectionPaletteTags_Kyogre[] = {
-    OBJ_EVENT_PAL_TAG_KYOGRE_REFLECTION,
-    OBJ_EVENT_PAL_TAG_KYOGRE_REFLECTION,
-    OBJ_EVENT_PAL_TAG_KYOGRE_REFLECTION,
-    OBJ_EVENT_PAL_TAG_KYOGRE_REFLECTION,
+static const u16 sReflectionPaletteTags_CMiko[] = {
+    OBJ_EVENT_PAL_TAG_CMIKO_REFLECTION,
+    OBJ_EVENT_PAL_TAG_CMIKO_REFLECTION,
+    OBJ_EVENT_PAL_TAG_CMIKO_REFLECTION,
+    OBJ_EVENT_PAL_TAG_CMIKO_REFLECTION,
 };
 
-static const u16 sReflectionPaletteTags_Groudon[] = {
-    OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION,
-    OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION,
-    OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION,
-    OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION,
+static const u16 sReflectionPaletteTags_Miko[] = {
+    OBJ_EVENT_PAL_TAG_MIKO_REFLECTION,
+    OBJ_EVENT_PAL_TAG_MIKO_REFLECTION,
+    OBJ_EVENT_PAL_TAG_MIKO_REFLECTION,
+    OBJ_EVENT_PAL_TAG_MIKO_REFLECTION,
 };
 
-static const u16 sReflectionPaletteTags_Npc3[] = { // Only used by the Route 120 bridge Kecleon
+static const u16 sReflectionPaletteTags_Npc3[] = { // Only used by the Route 120 bridge SWriggle
     OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
     OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
     OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
@@ -621,12 +621,12 @@ static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_MAY,              sReflectionPaletteTags_May},
     {OBJ_EVENT_PAL_TAG_QUINTY_PLUMP,     sReflectionPaletteTags_QuintyPlump},
     {OBJ_EVENT_PAL_TAG_TRUCK,            sReflectionPaletteTags_Truck},
-    {OBJ_EVENT_PAL_TAG_VIGOROTH,         sReflectionPaletteTags_VigorothMover},
+    {OBJ_EVENT_PAL_TAG_ALILYWHITE,         sReflectionPaletteTags_ALilyWhiteMover},
     {OBJ_EVENT_PAL_TAG_MOVING_BOX,       sReflectionPaletteTags_MovingBox},
     {OBJ_EVENT_PAL_TAG_CABLE_CAR,        sReflectionPaletteTags_CableCar},
     {OBJ_EVENT_PAL_TAG_SSTIDAL,          sReflectionPaletteTags_SSTidal},
-    {OBJ_EVENT_PAL_TAG_KYOGRE,           sReflectionPaletteTags_Kyogre},
-    {OBJ_EVENT_PAL_TAG_GROUDON,          sReflectionPaletteTags_Groudon},
+    {OBJ_EVENT_PAL_TAG_CMIKO,           sReflectionPaletteTags_CMiko},
+    {OBJ_EVENT_PAL_TAG_MIKO,          sReflectionPaletteTags_Miko},
     {OBJ_EVENT_PAL_TAG_NPC_3,            sReflectionPaletteTags_Npc3},
     {OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW, sReflectionPaletteTags_SubmarineShadow},
     {OBJ_EVENT_PAL_TAG_RED_LEAF,         sReflectionPaletteTags_RedLeaf},
@@ -4192,9 +4192,9 @@ bool8 CopyablePlayerMovement_WalkNormal(struct ObjectEvent *objectEvent, struct 
     s16 y;
 
     direction = playerDirection;
-    if (ObjectEventIsFarawayIslandMew(objectEvent))
+    if (ObjectEventIsFarawayIslandAkyuu(objectEvent))
     {
-        direction = GetMewMoveDirection();
+        direction = GetAkyuuMoveDirection();
         if (direction == DIR_NONE)
         {
             direction = playerDirection;
@@ -8036,7 +8036,7 @@ static void DoFlaggedGroundEffects(struct ObjectEvent *objEvent, struct Sprite *
 {
     u8 i;
 
-    if (ObjectEventIsFarawayIslandMew(objEvent) == TRUE && !ShouldMewShakeGrass(objEvent))
+    if (ObjectEventIsFarawayIslandAkyuu(objEvent) == TRUE && !ShouldAkyuuShakeGrass(objEvent))
         return;
 
     for (i = 0; i < ARRAY_COUNT(sGroundEffectFuncs); i++, flags >>= 1)

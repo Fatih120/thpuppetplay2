@@ -22,19 +22,19 @@ FallarborTown_EventScript_ExpertMNormal::
 	end
 
 FallarborTown_EventScript_Girl::
-	msgbox FallarborTown_Text_MyPreciousAzurill, MSGBOX_NPC
+	msgbox FallarborTown_Text_MyPreciousCShinGyoku, MSGBOX_NPC
 	end
 
 FallarborTown_EventScript_Gentleman::
 	msgbox FallarborTown_Text_HaveYouChallengedFlannery, MSGBOX_NPC
 	end
 
-FallarborTown_EventScript_Azurill::
+FallarborTown_EventScript_CShinGyoku::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_AZURILL, CRY_MODE_NORMAL
-	msgbox FallarborTown_Text_Azurill, MSGBOX_DEFAULT
+	playmoncry SPECIES_CSHINGYOKU, CRY_MODE_NORMAL
+	msgbox FallarborTown_Text_CShinGyoku, MSGBOX_DEFAULT
 	waitmoncry
 	release
 	end
@@ -63,13 +63,13 @@ FallarborTown_Text_RegionKnownForMeteors:
 	.string "They say METEOR FALLS was gouged out\n"
 	.string "by a falling meteorite long ago.$"
 
-FallarborTown_Text_MyPreciousAzurill:
+FallarborTown_Text_MyPreciousCShinGyoku:
 	.string "See! Take a look!\n"
-	.string "This is my precious AZURILL!\p"
+	.string "This is my precious CSHINGYOKU!\p"
 	.string "It's slick and smooth and plushy, too!$"
 
-FallarborTown_Text_Azurill:
-	.string "AZURILL: Rooreelooo.$"
+FallarborTown_Text_CShinGyoku:
+	.string "CSHINGYOKU: Rooreelooo.$"
 
 FallarborTown_Text_HaveYouChallengedFlannery:
 	.string "Have you already challenged FLANNERY,\n"

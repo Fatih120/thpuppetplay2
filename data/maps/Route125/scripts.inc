@@ -7,8 +7,8 @@ Route125_MapScripts::
 Route125_OnTransition:
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_WEST, AbnormalWeather_StartKyogreWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_EAST, AbnormalWeather_StartKyogreWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_WEST, AbnormalWeather_StartCMikoWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_EAST, AbnormalWeather_StartCMikoWeather
 	end
 
 Route125_OnLoad:
@@ -35,9 +35,9 @@ Route125_EventScript_Tanya::
 	msgbox Route125_Text_TanyaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route125_EventScript_Sharon::
-	trainerbattle_single TRAINER_SHARON, Route125_Text_SharonIntro, Route125_Text_SharonDefeat
-	msgbox Route125_Text_SharonPostBattle, MSGBOX_AUTOCLOSE
+Route125_EventScript_Shadtewi::
+	trainerbattle_single TRAINER_SHADTEWI, Route125_Text_ShadtewiIntro, Route125_Text_ShadtewiDefeat
+	msgbox Route125_Text_ShadtewiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route125_EventScript_Ernest::

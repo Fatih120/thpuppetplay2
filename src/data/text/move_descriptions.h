@@ -378,7 +378,7 @@ static const u8 sPsychicDescription[] = _(
     "that may lower SP. DEF.");
 
 static const u8 sHypnosisDescription[] = _(
-    "A hypnotizing move that\n"
+    "A sakuyatizing move that\n"
     "may induce sleep.");
 
 static const u8 sMeditateDescription[] = _(

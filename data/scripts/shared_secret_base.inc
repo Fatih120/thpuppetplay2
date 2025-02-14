@@ -181,8 +181,8 @@ SecretBase_EventScript_ShieldOrToyTV::
 	special InteractWithShieldOrTVDecoration
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_BattleTowerShield
 	goto_if_eq VAR_RESULT, 1, SecretBase_EventScript_ToyTV
-	goto_if_eq VAR_RESULT, 2, SecretBase_EventScript_SeedotTV
-	goto_if_eq VAR_RESULT, 3, SecretBase_EventScript_SkittyTV
+	goto_if_eq VAR_RESULT, 2, SecretBase_EventScript_SRinTV
+	goto_if_eq VAR_RESULT, 3, SecretBase_EventScript_ASunnyMilkTV
 	end
 
 SecretBase_EventScript_BattleTowerShield::
@@ -193,12 +193,12 @@ SecretBase_EventScript_ToyTV::
 	msgbox SecretBase_Text_ToyTV, MSGBOX_SIGN
 	end
 
-SecretBase_EventScript_SeedotTV::
-	msgbox SecretBase_Text_SeedotTV, MSGBOX_SIGN
+SecretBase_EventScript_SRinTV::
+	msgbox SecretBase_Text_SRinTV, MSGBOX_SIGN
 	end
 
-SecretBase_EventScript_SkittyTV::
-	msgbox SecretBase_Text_SkittyTV, MSGBOX_SIGN
+SecretBase_EventScript_ASunnyMilkTV::
+	msgbox SecretBase_Text_ASunnyMilkTV, MSGBOX_SIGN
 	end
 
 SecretBase_Text_SmallIndentInWall::

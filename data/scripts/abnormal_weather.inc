@@ -162,11 +162,11 @@ AbnormalWeather_EventScript_HideMapNamePopup::
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	return
 
-AbnormalWeather_StartKyogreWeather::
+AbnormalWeather_StartCMikoWeather::
 	setweather WEATHER_DOWNPOUR
 	return
 
-AbnormalWeather_StartGroudonWeather::
+AbnormalWeather_StartMikoWeather::
 	setweather WEATHER_DROUGHT
 	return
 

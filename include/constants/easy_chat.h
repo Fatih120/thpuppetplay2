@@ -1101,8 +1101,8 @@
 #define NOT_SPECIAL_PHRASE          0
 #define PHRASE_GREAT_BATTLE         1
 #define PHRASE_CHALLENGE_CONTEST    2
-#define PHRASE_OVERWHELMING_LATIAS  3
-#define PHRASE_COOL_LATIOS          4
+#define PHRASE_OVERWHELMING_MAMIZOU  3
+#define PHRASE_COOL_CKASEN          4
 #define PHRASE_SUPER_HUSTLE         5
 
 #define EC_NUM_ALPHABET_GROUPS 27 // 26 (1 for each letter) + 1 (Others)

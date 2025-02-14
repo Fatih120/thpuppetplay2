@@ -114,12 +114,12 @@ static void Task_Drake(u8);
 static void Task_Champion(u8);
 static void Task_Aqua(u8);
 static void Task_Magma(u8);
-static void Task_Regice(u8);
-static void Task_Registeel(u8);
-static void Task_Regirock(u8);
-static void Task_Kyogre(u8);
-static void Task_Groudon(u8);
-static void Task_Rayquaza(u8);
+static void Task_CFuto(u8);
+static void Task_Futo(u8);
+static void Task_Tojiko(u8);
+static void Task_CMiko(u8);
+static void Task_Miko(u8);
+static void Task_CMamizou(u8);
 static void Task_ShredSplit(u8);
 static void Task_Blackhole(u8);
 static void Task_BlackholePulsate(u8);
@@ -148,7 +148,7 @@ static void VBlankCB_WhiteBarsFade(void);
 static void VBlankCB_WhiteBarsFade_Blend(void);
 static void HBlankCB_WhiteBarsFade(void);
 static void VBlankCB_AngledWipes(void);
-static void VBlankCB_Rayquaza(void);
+static void VBlankCB_CMamizou(void);
 static bool8 Blur_Init(struct Task *);
 static bool8 Blur_Main(struct Task *);
 static bool8 Blur_End(struct Task *);
@@ -162,17 +162,17 @@ static bool8 Magma_Init(struct Task *);
 static bool8 Magma_SetGfx(struct Task *);
 static bool8 FramesCountdown(struct Task *);
 static bool8 Regi_Init(struct Task *);
-static bool8 Regice_SetGfx(struct Task *);
-static bool8 Registeel_SetGfx(struct Task *);
-static bool8 Regirock_SetGfx(struct Task *);
+static bool8 CFuto_SetGfx(struct Task *);
+static bool8 Futo_SetGfx(struct Task *);
+static bool8 Tojiko_SetGfx(struct Task *);
 static bool8 WeatherTrio_BgFadeBlack(struct Task *);
 static bool8 WeatherTrio_WaitFade(struct Task *);
-static bool8 Kyogre_Init(struct Task *);
-static bool8 Kyogre_PaletteFlash(struct Task *);
-static bool8 Kyogre_PaletteBrighten(struct Task *);
-static bool8 Groudon_Init(struct Task *);
-static bool8 Groudon_PaletteFlash(struct Task *);
-static bool8 Groudon_PaletteBrighten(struct Task *);
+static bool8 CMiko_Init(struct Task *);
+static bool8 CMiko_PaletteFlash(struct Task *);
+static bool8 CMiko_PaletteBrighten(struct Task *);
+static bool8 Miko_Init(struct Task *);
+static bool8 Miko_PaletteFlash(struct Task *);
+static bool8 Miko_PaletteBrighten(struct Task *);
 static bool8 WeatherDuo_FadeOut(struct Task *);
 static bool8 WeatherDuo_End(struct Task *);
 static bool8 BigPokeball_Init(struct Task *);
@@ -229,13 +229,13 @@ static bool8 FrontierLogoWave_Init(struct Task *);
 static bool8 FrontierLogoWave_SetGfx(struct Task *);
 static bool8 FrontierLogoWave_InitScanline(struct Task *);
 static bool8 FrontierLogoWave_Main(struct Task *);
-static bool8 Rayquaza_Init(struct Task *);
-static bool8 Rayquaza_SetGfx(struct Task *);
-static bool8 Rayquaza_PaletteFlash(struct Task *);
-static bool8 Rayquaza_FadeToBlack(struct Task *);
-static bool8 Rayquaza_WaitFade(struct Task *);
-static bool8 Rayquaza_SetBlack(struct Task *);
-static bool8 Rayquaza_TriRing(struct Task *);
+static bool8 CMamizou_Init(struct Task *);
+static bool8 CMamizou_SetGfx(struct Task *);
+static bool8 CMamizou_PaletteFlash(struct Task *);
+static bool8 CMamizou_FadeToBlack(struct Task *);
+static bool8 CMamizou_WaitFade(struct Task *);
+static bool8 CMamizou_SetBlack(struct Task *);
+static bool8 CMamizou_TriRing(struct Task *);
 static bool8 FrontierSquares_Init(struct Task *);
 static bool8 FrontierSquares_Draw(struct Task *);
 static bool8 FrontierSquares_Shrink(struct Task *);
@@ -308,24 +308,24 @@ static const u32 sTeamAqua_Tilemap[] = INCBIN_U32("graphics/battle_transitions/t
 static const u32 sTeamMagma_Tileset[] = INCBIN_U32("graphics/battle_transitions/team_magma.4bpp.lz");
 static const u32 sTeamMagma_Tilemap[] = INCBIN_U32("graphics/battle_transitions/team_magma.bin.lz");
 static const u32 sRegis_Tileset[] = INCBIN_U32("graphics/battle_transitions/regis.4bpp");
-static const u16 sRegice_Palette[] = INCBIN_U16("graphics/battle_transitions/regice.gbapal");
-static const u16 sRegisteel_Palette[] = INCBIN_U16("graphics/battle_transitions/registeel.gbapal");
-static const u16 sRegirock_Palette[] = INCBIN_U16("graphics/battle_transitions/regirock.gbapal");
-static const u32 sRegice_Tilemap[] = INCBIN_U32("graphics/battle_transitions/regice.bin");
-static const u32 sRegisteel_Tilemap[] = INCBIN_U32("graphics/battle_transitions/registeel.bin");
-static const u32 sRegirock_Tilemap[] = INCBIN_U32("graphics/battle_transitions/regirock.bin");
+static const u16 sCFuto_Palette[] = INCBIN_U16("graphics/battle_transitions/cfuto.gbapal");
+static const u16 sFuto_Palette[] = INCBIN_U16("graphics/battle_transitions/futo.gbapal");
+static const u16 sTojiko_Palette[] = INCBIN_U16("graphics/battle_transitions/tojiko.gbapal");
+static const u32 sCFuto_Tilemap[] = INCBIN_U32("graphics/battle_transitions/cfuto.bin");
+static const u32 sFuto_Tilemap[] = INCBIN_U32("graphics/battle_transitions/futo.bin");
+static const u32 sTojiko_Tilemap[] = INCBIN_U32("graphics/battle_transitions/tojiko.bin");
 static const u16 sUnused_Palette[] = INCBIN_U16("graphics/battle_transitions/unused.gbapal");
-static const u32 sKyogre_Tileset[] = INCBIN_U32("graphics/battle_transitions/kyogre.4bpp.lz");
-static const u32 sKyogre_Tilemap[] = INCBIN_U32("graphics/battle_transitions/kyogre.bin.lz");
-static const u32 sGroudon_Tileset[] = INCBIN_U32("graphics/battle_transitions/groudon.4bpp.lz");
-static const u32 sGroudon_Tilemap[] = INCBIN_U32("graphics/battle_transitions/groudon.bin.lz");
-static const u16 sKyogre1_Palette[] = INCBIN_U16("graphics/battle_transitions/kyogre_pt1.gbapal");
-static const u16 sKyogre2_Palette[] = INCBIN_U16("graphics/battle_transitions/kyogre_pt2.gbapal");
-static const u16 sGroudon1_Palette[] = INCBIN_U16("graphics/battle_transitions/groudon_pt1.gbapal");
-static const u16 sGroudon2_Palette[] = INCBIN_U16("graphics/battle_transitions/groudon_pt2.gbapal");
-static const u16 sRayquaza_Palette[] = INCBIN_U16("graphics/battle_transitions/rayquaza.gbapal");
-static const u32 sRayquaza_Tileset[] = INCBIN_U32("graphics/battle_transitions/rayquaza.4bpp");
-static const u32 sRayquaza_Tilemap[] = INCBIN_U32("graphics/battle_transitions/rayquaza.bin");
+static const u32 sCMiko_Tileset[] = INCBIN_U32("graphics/battle_transitions/cmiko.4bpp.lz");
+static const u32 sCMiko_Tilemap[] = INCBIN_U32("graphics/battle_transitions/cmiko.bin.lz");
+static const u32 sMiko_Tileset[] = INCBIN_U32("graphics/battle_transitions/miko.4bpp.lz");
+static const u32 sMiko_Tilemap[] = INCBIN_U32("graphics/battle_transitions/miko.bin.lz");
+static const u16 sCMiko1_Palette[] = INCBIN_U16("graphics/battle_transitions/cmiko_pt1.gbapal");
+static const u16 sCMiko2_Palette[] = INCBIN_U16("graphics/battle_transitions/cmiko_pt2.gbapal");
+static const u16 sMiko1_Palette[] = INCBIN_U16("graphics/battle_transitions/miko_pt1.gbapal");
+static const u16 sMiko2_Palette[] = INCBIN_U16("graphics/battle_transitions/miko_pt2.gbapal");
+static const u16 sCMamizou_Palette[] = INCBIN_U16("graphics/battle_transitions/cmamizou.gbapal");
+static const u32 sCMamizou_Tileset[] = INCBIN_U32("graphics/battle_transitions/cmamizou.4bpp");
+static const u32 sCMamizou_Tilemap[] = INCBIN_U32("graphics/battle_transitions/cmamizou.bin");
 static const u16 sFrontierLogo_Palette[] = INCBIN_U16("graphics/battle_transitions/frontier_logo.gbapal");
 static const u32 sFrontierLogo_Tileset[] = INCBIN_U32("graphics/battle_transitions/frontier_logo.4bpp.lz");
 static const u32 sFrontierLogo_Tilemap[] = INCBIN_U32("graphics/battle_transitions/frontier_logo.bin.lz");
@@ -365,12 +365,12 @@ static const TaskFunc sTasks_Main[B_TRANSITION_COUNT] =
     [B_TRANSITION_CHAMPION] = Task_Champion,
     [B_TRANSITION_AQUA] = Task_Aqua,
     [B_TRANSITION_MAGMA] = Task_Magma,
-    [B_TRANSITION_REGICE] = Task_Regice,
-    [B_TRANSITION_REGISTEEL] = Task_Registeel,
-    [B_TRANSITION_REGIROCK] = Task_Regirock,
-    [B_TRANSITION_KYOGRE] = Task_Kyogre,
-    [B_TRANSITION_GROUDON] = Task_Groudon,
-    [B_TRANSITION_RAYQUAZA] = Task_Rayquaza,
+    [B_TRANSITION_CFUTO] = Task_CFuto,
+    [B_TRANSITION_FUTO] = Task_Futo,
+    [B_TRANSITION_TOJIKO] = Task_Tojiko,
+    [B_TRANSITION_CMIKO] = Task_CMiko,
+    [B_TRANSITION_MIKO] = Task_Miko,
+    [B_TRANSITION_CMAMIZOU] = Task_CMamizou,
     [B_TRANSITION_SHRED_SPLIT] = Task_ShredSplit,
     [B_TRANSITION_BLACKHOLE] = Task_Blackhole,
     [B_TRANSITION_BLACKHOLE_PULSATE] = Task_BlackholePulsate,
@@ -449,43 +449,43 @@ static const TransitionStateFunc sBigPokeball_Funcs[] =
     PatternWeave_CircularMask
 };
 
-static const TransitionStateFunc sRegice_Funcs[] =
+static const TransitionStateFunc sCFuto_Funcs[] =
 {
     Regi_Init,
-    Regice_SetGfx,
+    CFuto_SetGfx,
     PatternWeave_Blend1,
     PatternWeave_Blend2,
     PatternWeave_FinishAppear,
     PatternWeave_CircularMask
 };
 
-static const TransitionStateFunc sRegisteel_Funcs[] =
+static const TransitionStateFunc sFuto_Funcs[] =
 {
     Regi_Init,
-    Registeel_SetGfx,
+    Futo_SetGfx,
     PatternWeave_Blend1,
     PatternWeave_Blend2,
     PatternWeave_FinishAppear,
     PatternWeave_CircularMask
 };
 
-static const TransitionStateFunc sRegirock_Funcs[] =
+static const TransitionStateFunc sTojiko_Funcs[] =
 {
     Regi_Init,
-    Regirock_SetGfx,
+    Tojiko_SetGfx,
     PatternWeave_Blend1,
     PatternWeave_Blend2,
     PatternWeave_FinishAppear,
     PatternWeave_CircularMask
 };
 
-static const TransitionStateFunc sKyogre_Funcs[] =
+static const TransitionStateFunc sCMiko_Funcs[] =
 {
     WeatherTrio_BgFadeBlack,
     WeatherTrio_WaitFade,
-    Kyogre_Init,
-    Kyogre_PaletteFlash,
-    Kyogre_PaletteBrighten,
+    CMiko_Init,
+    CMiko_PaletteFlash,
+    CMiko_PaletteBrighten,
     FramesCountdown,
     WeatherDuo_FadeOut,
     WeatherDuo_End
@@ -700,29 +700,29 @@ static const s16 *const *const sRectangularSpiral_MoveDataTables[] =
     sRectangularSpiral_MoveDataTable_MinorDiagonal
 };
 
-static const TransitionStateFunc sGroudon_Funcs[] =
+static const TransitionStateFunc sMiko_Funcs[] =
 {
     WeatherTrio_BgFadeBlack,
     WeatherTrio_WaitFade,
-    Groudon_Init,
-    Groudon_PaletteFlash,
-    Groudon_PaletteBrighten,
+    Miko_Init,
+    Miko_PaletteFlash,
+    Miko_PaletteBrighten,
     FramesCountdown,
     WeatherDuo_FadeOut,
     WeatherDuo_End
 };
 
-static const TransitionStateFunc sRayquaza_Funcs[] =
+static const TransitionStateFunc sCMamizou_Funcs[] =
 {
     WeatherTrio_BgFadeBlack,
     WeatherTrio_WaitFade,
-    Rayquaza_Init,
-    Rayquaza_SetGfx,
-    Rayquaza_PaletteFlash,
-    Rayquaza_FadeToBlack,
-    Rayquaza_WaitFade,
-    Rayquaza_SetBlack,
-    Rayquaza_TriRing,
+    CMamizou_Init,
+    CMamizou_SetGfx,
+    CMamizou_PaletteFlash,
+    CMamizou_FadeToBlack,
+    CMamizou_WaitFade,
+    CMamizou_SetBlack,
+    CMamizou_TriRing,
     Blackhole_Vibrate,
     Blackhole_GrowEnd
 };
@@ -1316,12 +1316,12 @@ static void HBlankCB_Shuffle(void)
 
 //------------------------------------------------------------------------
 // B_TRANSITION_BIG_POKEBALL, B_TRANSITION_AQUA, B_TRANSITION_MAGMA,
-// B_TRANSITION_REGICE, B_TRANSITION_REGISTEEL, B_TRANSITION_REGIROCK
-// and B_TRANSITION_KYOGRE.
+// B_TRANSITION_CFUTO, B_TRANSITION_FUTO, B_TRANSITION_TOJIKO
+// and B_TRANSITION_CMIKO.
 //
-// With the exception of B_TRANSITION_KYOGRE, all of the above transitions
+// With the exception of B_TRANSITION_CMIKO, all of the above transitions
 // use the same weave effect (see the PatternWeave functions).
-// Unclear why Kyogre's was grouped here and not with Groudon/Rayquaza's.
+// Unclear why CMiko's was grouped here and not with Miko/CMamizou's.
 //------------------------------------------------------------------------
 
 #define tBlendTarget1 data[1]
@@ -1352,24 +1352,24 @@ static void Task_Magma(u8 taskId)
     while (sMagma_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
-static void Task_Regice(u8 taskId)
+static void Task_CFuto(u8 taskId)
 {
-    while (sRegice_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+    while (sCFuto_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
-static void Task_Registeel(u8 taskId)
+static void Task_Futo(u8 taskId)
 {
-    while (sRegisteel_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+    while (sFuto_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
-static void Task_Regirock(u8 taskId)
+static void Task_Tojiko(u8 taskId)
 {
-    while (sRegirock_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+    while (sTojiko_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
-static void Task_Kyogre(u8 taskId)
+static void Task_CMiko(u8 taskId)
 {
-    while (sKyogre_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+    while (sCMiko_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
 static void InitPatternWeaveTransition(struct Task *task)
@@ -1498,39 +1498,39 @@ static bool8 Magma_SetGfx(struct Task *task)
     return FALSE;
 }
 
-static bool8 Regice_SetGfx(struct Task *task)
+static bool8 CFuto_SetGfx(struct Task *task)
 {
     u16 *tilemap, *tileset;
 
     GetBg0TilesDst(&tilemap, &tileset);
-    LoadPalette(sRegice_Palette, BG_PLTT_ID(15), sizeof(sRegice_Palette));
-    CpuCopy16(sRegice_Tilemap, tilemap, 0x500);
+    LoadPalette(sCFuto_Palette, BG_PLTT_ID(15), sizeof(sCFuto_Palette));
+    CpuCopy16(sCFuto_Tilemap, tilemap, 0x500);
     SetSinWave(gScanlineEffectRegBuffers[0], 0, task->tSinIndex, 132, task->tAmplitude, DISPLAY_HEIGHT);
 
     task->tState++;
     return FALSE;
 }
 
-static bool8 Registeel_SetGfx(struct Task *task)
+static bool8 Futo_SetGfx(struct Task *task)
 {
     u16 *tilemap, *tileset;
 
     GetBg0TilesDst(&tilemap, &tileset);
-    LoadPalette(sRegisteel_Palette, BG_PLTT_ID(15), sizeof(sRegisteel_Palette));
-    CpuCopy16(sRegisteel_Tilemap, tilemap, 0x500);
+    LoadPalette(sFuto_Palette, BG_PLTT_ID(15), sizeof(sFuto_Palette));
+    CpuCopy16(sFuto_Tilemap, tilemap, 0x500);
     SetSinWave(gScanlineEffectRegBuffers[0], 0, task->tSinIndex, 132, task->tAmplitude, DISPLAY_HEIGHT);
 
     task->tState++;
     return FALSE;
 }
 
-static bool8 Regirock_SetGfx(struct Task *task)
+static bool8 Tojiko_SetGfx(struct Task *task)
 {
     u16 *tilemap, *tileset;
 
     GetBg0TilesDst(&tilemap, &tileset);
-    LoadPalette(sRegirock_Palette, BG_PLTT_ID(15), sizeof(sRegirock_Palette));
-    CpuCopy16(sRegirock_Tilemap, tilemap, 0x500);
+    LoadPalette(sTojiko_Palette, BG_PLTT_ID(15), sizeof(sTojiko_Palette));
+    CpuCopy16(sTojiko_Tilemap, tilemap, 0x500);
     SetSinWave(gScanlineEffectRegBuffers[0], 0, task->tSinIndex, 132, task->tAmplitude, DISPLAY_HEIGHT);
 
     task->tState++;
@@ -1539,26 +1539,26 @@ static bool8 Regirock_SetGfx(struct Task *task)
 
 #define tTimer data[1]
 
-static bool8 Kyogre_Init(struct Task *task)
+static bool8 CMiko_Init(struct Task *task)
 {
     u16 *tilemap, *tileset;
 
     GetBg0TilesDst(&tilemap, &tileset);
     CpuFill16(0, tilemap, BG_SCREEN_SIZE);
-    LZ77UnCompVram(sKyogre_Tileset, tileset);
-    LZ77UnCompVram(sKyogre_Tilemap, tilemap);
+    LZ77UnCompVram(sCMiko_Tileset, tileset);
+    LZ77UnCompVram(sCMiko_Tilemap, tilemap);
 
     task->tState++;
     return FALSE;
 }
 
-static bool8 Kyogre_PaletteFlash(struct Task *task)
+static bool8 CMiko_PaletteFlash(struct Task *task)
 {
     if (task->tTimer % 3 == 0)
     {
         u16 offset = task->tTimer % 30;
         offset /= 3;
-        LoadPalette(&sKyogre1_Palette[offset * 16], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
+        LoadPalette(&sCMiko1_Palette[offset * 16], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     }
     if (++task->tTimer > 58)
     {
@@ -1569,12 +1569,12 @@ static bool8 Kyogre_PaletteFlash(struct Task *task)
     return FALSE;
 }
 
-static bool8 Kyogre_PaletteBrighten(struct Task *task)
+static bool8 CMiko_PaletteBrighten(struct Task *task)
 {
     if (task->tTimer % 5 == 0)
     {
         s16 offset = task->tTimer / 5;
-        LoadPalette(&sKyogre2_Palette[offset * 16], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
+        LoadPalette(&sCMiko2_Palette[offset * 16], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     }
     if (++task->tTimer > 68)
     {
@@ -3363,36 +3363,36 @@ static bool16 UpdateRectangularSpiralLine(const s16 * const *moveDataTable, stru
 }
 
 //----------------------
-// B_TRANSITION_GROUDON
+// B_TRANSITION_MIKO
 //----------------------
 
 #define tTimer data[1]
 
-static void Task_Groudon(u8 taskId)
+static void Task_Miko(u8 taskId)
 {
-    while (sGroudon_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+    while (sMiko_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
-static bool8 Groudon_Init(struct Task *task)
+static bool8 Miko_Init(struct Task *task)
 {
     u16 *tilemap, *tileset;
 
     GetBg0TilesDst(&tilemap, &tileset);
     CpuFill16(0, tilemap, BG_SCREEN_SIZE);
-    LZ77UnCompVram(sGroudon_Tileset, tileset);
-    LZ77UnCompVram(sGroudon_Tilemap, tilemap);
+    LZ77UnCompVram(sMiko_Tileset, tileset);
+    LZ77UnCompVram(sMiko_Tilemap, tilemap);
 
     task->tState++;
     task->tTimer = 0;
     return FALSE;
 }
 
-static bool8 Groudon_PaletteFlash(struct Task *task)
+static bool8 Miko_PaletteFlash(struct Task *task)
 {
     if (task->tTimer % 3 == 0)
     {
         u16 offset = (task->tTimer % 30) / 3;
-        LoadPalette(&sGroudon1_Palette[offset * 16], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
+        LoadPalette(&sMiko1_Palette[offset * 16], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     }
     if (++task->tTimer > 58)
     {
@@ -3403,12 +3403,12 @@ static bool8 Groudon_PaletteFlash(struct Task *task)
     return FALSE;
 }
 
-static bool8 Groudon_PaletteBrighten(struct Task *task)
+static bool8 Miko_PaletteBrighten(struct Task *task)
 {
     if (task->tTimer % 5 == 0)
     {
         s16 offset = task->tTimer / 5;
-        LoadPalette(&sGroudon2_Palette[offset * 16], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
+        LoadPalette(&sMiko2_Palette[offset * 16], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     }
     if (++task->tTimer > 68)
     {
@@ -3424,19 +3424,19 @@ static bool8 Groudon_PaletteBrighten(struct Task *task)
 #undef tEndDelay
 
 //-----------------------
-// B_TRANSITION_RAYQUAZA
+// B_TRANSITION_CMAMIZOU
 //-----------------------
 
 #define tTimer     data[1]
 #define tGrowSpeed data[2] // Shared from B_TRANSITION_BLACKHOLE
 #define tFlag      data[7] // Shared from B_TRANSITION_BLACKHOLE
 
-static void Task_Rayquaza(u8 taskId)
+static void Task_CMamizou(u8 taskId)
 {
-    while (sRayquaza_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+    while (sCMamizou_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
-static bool8 Rayquaza_Init(struct Task *task)
+static bool8 CMamizou_Init(struct Task *task)
 {
     u16 *tilemap, *tileset;
     u16 i;
@@ -3447,11 +3447,11 @@ static bool8 Rayquaza_Init(struct Task *task)
     SetGpuReg(REG_OFFSET_BG0CNT, BGCNT_CHARBASE(2) | BGCNT_SCREENBASE(26) | BGCNT_TXT256x512);
     GetBg0TilesDst(&tilemap, &tileset);
     CpuFill16(0, tilemap, BG_SCREEN_SIZE);
-    CpuCopy16(sRayquaza_Tileset, tileset, 0x2000);
+    CpuCopy16(sCMamizou_Tileset, tileset, 0x2000);
 
     sTransitionData->counter = 0;
     task->tState++;
-    LoadPalette(&sRayquaza_Palette[80], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
+    LoadPalette(&sCMamizou_Palette[80], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
 
     for (i = 0; i < DISPLAY_HEIGHT; i++)
     {
@@ -3459,26 +3459,26 @@ static bool8 Rayquaza_Init(struct Task *task)
         gScanlineEffectRegBuffers[1][i] = 0x100;
     }
 
-    SetVBlankCallback(VBlankCB_Rayquaza);
+    SetVBlankCallback(VBlankCB_CMamizou);
     return FALSE;
 }
 
-static bool8 Rayquaza_SetGfx(struct Task *task)
+static bool8 CMamizou_SetGfx(struct Task *task)
 {
     u16 *tilemap, *tileset;
 
     GetBg0TilesDst(&tilemap, &tileset);
-    CpuCopy16(sRayquaza_Tilemap, tilemap, sizeof(sRayquaza_Tilemap));
+    CpuCopy16(sCMamizou_Tilemap, tilemap, sizeof(sCMamizou_Tilemap));
     task->tState++;
     return FALSE;
 }
 
-static bool8 Rayquaza_PaletteFlash(struct Task *task)
+static bool8 CMamizou_PaletteFlash(struct Task *task)
 {
     if ((task->tTimer % 4) == 0)
     {
         u16 value = task->tTimer / 4;
-        const u16 *palPtr = &sRayquaza_Palette[(value + 5) * 16];
+        const u16 *palPtr = &sCMamizou_Palette[(value + 5) * 16];
         LoadPalette(palPtr, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     }
     if (++task->tTimer > 40)
@@ -3490,7 +3490,7 @@ static bool8 Rayquaza_PaletteFlash(struct Task *task)
     return FALSE;
 }
 
-static bool8 Rayquaza_FadeToBlack(struct Task *task)
+static bool8 CMamizou_FadeToBlack(struct Task *task)
 {
     if (++task->tTimer > 20)
     {
@@ -3502,7 +3502,7 @@ static bool8 Rayquaza_FadeToBlack(struct Task *task)
     return FALSE;
 }
 
-static bool8 Rayquaza_WaitFade(struct Task *task)
+static bool8 CMamizou_WaitFade(struct Task *task)
 {
     if (!gPaletteFade.active)
     {
@@ -3512,7 +3512,7 @@ static bool8 Rayquaza_WaitFade(struct Task *task)
     return FALSE;
 }
 
-static bool8 Rayquaza_SetBlack(struct Task *task)
+static bool8 CMamizou_SetBlack(struct Task *task)
 {
     BlendPalettes(PALETTES_BG & ~(1 << 15), 8, RGB_BLACK);
     BlendPalettes(PALETTES_OBJECTS | (1 << 15), 0, RGB_BLACK);
@@ -3521,12 +3521,12 @@ static bool8 Rayquaza_SetBlack(struct Task *task)
     return FALSE;
 }
 
-static bool8 Rayquaza_TriRing(struct Task *task)
+static bool8 CMamizou_TriRing(struct Task *task)
 {
     if ((task->tTimer % 3) == 0)
     {
         u16 value = task->tTimer / 3;
-        const u16 *palPtr = &sRayquaza_Palette[(value + 0) * 16];
+        const u16 *palPtr = &sCMamizou_Palette[(value + 0) * 16];
         LoadPalette(palPtr, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     }
     if (++task->tTimer >= 40)
@@ -3551,7 +3551,7 @@ static bool8 Rayquaza_TriRing(struct Task *task)
     return FALSE;
 }
 
-static void VBlankCB_Rayquaza(void)
+static void VBlankCB_CMamizou(void)
 {
     void *dmaSrc;
 

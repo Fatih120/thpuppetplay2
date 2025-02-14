@@ -562,7 +562,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
             ScriptContext_SetupScript(AbnormalWeather_EventScript_EndEventAndCleanup_1);
             return TRUE;
         }
-        if (ShouldDoBrailleRegicePuzzle() == TRUE)
+        if (ShouldDoBrailleCFutoPuzzle() == TRUE)
         {
             ScriptContext_SetupScript(IslandCave_EventScript_OpenRegiEntrance);
             return TRUE;
@@ -587,9 +587,9 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
             ScriptContext_SetupScript(RustboroCity_Gym_EventScript_RegisterRoxanne);
             return TRUE;
         }
-        if (ShouldDoRivalRayquazaCall() == TRUE)
+        if (ShouldDoRivalCMamizouCall() == TRUE)
         {
-            ScriptContext_SetupScript(MossdeepCity_SpaceCenter_2F_EventScript_RivalRayquazaCall);
+            ScriptContext_SetupScript(MossdeepCity_SpaceCenter_2F_EventScript_RivalCMamizouCall);
             return TRUE;
         }
     }

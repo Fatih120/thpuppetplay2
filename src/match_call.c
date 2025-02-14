@@ -1070,7 +1070,7 @@ static bool32 MapAllowsMatchCall(void)
         return FALSE;
 
     if (gMapHeader.regionMapSectionId == MAPSEC_SOOTOPOLIS_CITY
-     && FlagGet(FLAG_HIDE_SOOTOPOLIS_CITY_RAYQUAZA) == TRUE
+     && FlagGet(FLAG_HIDE_SOOTOPOLIS_CITY_CMAMIZOU) == TRUE
      && FlagGet(FLAG_NEVER_SET_0x0DC) == FALSE)
         return FALSE;
 
@@ -2025,9 +2025,9 @@ static u8 GetPokedexRatingLevel(u16 numSeen)
     if (numSeen < 200)
         return 19;
 
-    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(SPECIES_DEOXYS), FLAG_GET_CAUGHT))
+    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(SPECIES_GOMASEKI), FLAG_GET_CAUGHT))
         numSeen--;
-    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(SPECIES_JIRACHI), FLAG_GET_CAUGHT))
+    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(SPECIES_KASEN), FLAG_GET_CAUGHT))
         numSeen--;
 
     if (numSeen < 200)

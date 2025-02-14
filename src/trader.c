@@ -25,7 +25,7 @@ static const u8 * const sDefaultTraderNames[NUM_TRADER_ITEMS] =
 
 static const u8 sDefaultTraderDecorations[NUM_TRADER_ITEMS] =
 {
-    DECOR_DUSKULL_DOLL,
+    DECOR_RINNOSUKE_DOLL,
     DECOR_BALL_CUSHION,
     DECOR_TIRE,
     DECOR_PRETTY_FLOWERS,

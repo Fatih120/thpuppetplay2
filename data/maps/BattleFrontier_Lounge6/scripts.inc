@@ -5,7 +5,7 @@ BattleFrontier_Lounge6_EventScript_Trader::
 	lock
 	faceplayer
 	goto_if_set FLAG_BATTLE_FRONTIER_TRADE_DONE, BattleFrontier_Lounge6_EventScript_TradeCompleted
-	setvar VAR_0x8008, INGAME_TRADE_MEOWTH
+	setvar VAR_0x8008, INGAME_TRADE_CCHEN
 	copyvar VAR_0x8004, VAR_0x8008
 	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
 	copyvar VAR_0x8009, VAR_RESULT
@@ -41,7 +41,7 @@ BattleFrontier_Lounge6_EventScript_NotRequestedMon::
 	end
 
 BattleFrontier_Lounge6_EventScript_TradeCompleted::
-	msgbox BattleFrontier_Lounge6_Text_SkittySoMuchCuterThanImagined, MSGBOX_DEFAULT
+	msgbox BattleFrontier_Lounge6_Text_ASunnyMilkSoMuchCuterThanImagined, MSGBOX_DEFAULT
 	release
 	end
 
@@ -71,7 +71,7 @@ BattleFrontier_Lounge6_Text_WellThatsFineToo:
 	.string "Well, that's fine, too.\l"
 	.string "Please come visit us again.$"
 
-BattleFrontier_Lounge6_Text_SkittySoMuchCuterThanImagined:
+BattleFrontier_Lounge6_Text_ASunnyMilkSoMuchCuterThanImagined:
 	.string "Giggle!\n"
-	.string "A SKITTY is so much cuter than I had\l"
+	.string "A ASUNNYMILK is so much cuter than I had\l"
 	.string "imagined. I'm delighted!$"

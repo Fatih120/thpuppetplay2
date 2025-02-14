@@ -2962,14 +2962,14 @@
       "blockdata_filepath": "data/layouts/RustboroCity_Flat2_3F/map.bin"
     },
     {
-      "id": "LAYOUT_SOOTOPOLIS_CITY_LOTAD_AND_SEEDOT_HOUSE",
-      "name": "SootopolisCity_LotadAndSeedotHouse_Layout",
+      "id": "LAYOUT_SOOTOPOLIS_CITY_AHINA_AND_SRIN_HOUSE",
+      "name": "SootopolisCity_AHinaAndSRinHouse_Layout",
       "width": 8,
       "height": 7,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/SootopolisCity_LotadAndSeedotHouse/border.bin",
-      "blockdata_filepath": "data/layouts/SootopolisCity_LotadAndSeedotHouse/map.bin"
+      "border_filepath": "data/layouts/SootopolisCity_AHinaAndSRinHouse/border.bin",
+      "blockdata_filepath": "data/layouts/SootopolisCity_AHinaAndSRinHouse/map.bin"
     },
     {
       "id": "LAYOUT_EVER_GRANDE_CITY_HALL_OF_FAME",

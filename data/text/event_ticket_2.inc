@@ -67,5 +67,5 @@ FarawayIsland_Entrance_Text_Sign:
 	.string "again…et it be a kindhearted pers…\l"
 	.string "…ith that hope, I depar…”$"
 
-FarawayIsland_Interior_Text_Mew:
+FarawayIsland_Interior_Text_Akyuu:
 	.string "Myuu…$"

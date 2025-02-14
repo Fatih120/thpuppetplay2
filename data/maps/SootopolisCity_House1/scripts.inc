@@ -18,12 +18,12 @@ SootopolisCity_House1_EventScript_ReceivedBrickBreak::
 	release
 	end
 
-SootopolisCity_House1_EventScript_Kecleon::
+SootopolisCity_House1_EventScript_SWriggle::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_KECLEON, CRY_MODE_NORMAL
-	msgbox SootopolisCity_House1_Text_Kecleon, MSGBOX_DEFAULT
+	playmoncry SPECIES_SWRIGGLE, CRY_MODE_NORMAL
+	msgbox SootopolisCity_House1_Text_SWriggle, MSGBOX_DEFAULT
 	waitmoncry
 	release
 	end
@@ -38,6 +38,6 @@ SootopolisCity_House1_Text_ExplainBrickBreak:
 	.string "TM31 contains BRICK BREAK! It's a move\n"
 	.string "so horrible that I can't describe it.$"
 
-SootopolisCity_House1_Text_Kecleon:
-	.string "KECLEON: Puu puhyaah.$"
+SootopolisCity_House1_Text_SWriggle:
+	.string "SWRIGGLE: Puu puhyaah.$"
 

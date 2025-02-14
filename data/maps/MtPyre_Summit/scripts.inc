@@ -133,14 +133,14 @@ MtPyre_Summit_Movement_ArchieFacePlayer2:
 MtPyre_Summit_EventScript_OldMan::
 	lock
 	faceplayer
-	goto_if_set FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE, MtPyre_Summit_EventScript_OldManAfterRayquaza
+	goto_if_set FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE, MtPyre_Summit_EventScript_OldManAfterCMamizou
 	msgbox MtPyre_Summit_Text_WillYouHearOutMyTale, MSGBOX_YESNO
 	call_if_eq VAR_RESULT, YES, MtPyre_Summit_EventScript_OldManTale
 	call_if_eq VAR_RESULT, NO, MtPyre_Summit_EventScript_DeclineOldManTale
 	release
 	end
 
-MtPyre_Summit_EventScript_OldManAfterRayquaza::
+MtPyre_Summit_EventScript_OldManAfterCMamizou::
 	msgbox MtPyre_Summit_Text_HearTheNewLegendOfHoenn, MSGBOX_YESNO
 	call_if_eq VAR_RESULT, YES, MtPyre_Summit_EventScript_OldManNewTale
 	call_if_eq VAR_RESULT, NO, MtPyre_Summit_EventScript_DeclineOldManTale
@@ -148,7 +148,7 @@ MtPyre_Summit_EventScript_OldManAfterRayquaza::
 	end
 
 MtPyre_Summit_EventScript_OldManTale::
-	msgbox MtPyre_Summit_Text_GroudonKyogreTale, MSGBOX_DEFAULT
+	msgbox MtPyre_Summit_Text_MikoCMikoTale, MSGBOX_DEFAULT
 	return
 
 MtPyre_Summit_EventScript_DeclineOldManTale::
@@ -164,7 +164,7 @@ MtPyre_Summit_EventScript_OldLady::
 	faceplayer
 	goto_if_set FLAG_RETURNED_RED_OR_BLUE_ORB, MtPyre_Summit_EventScript_OldLadyAfterOrbsReturned
 	call_if_ge VAR_MT_PYRE_STATE, 3, MtPyre_Summit_EventScript_OldLadyOrbsReturned
-	goto_if_set FLAG_KYOGRE_ESCAPED_SEAFLOOR_CAVERN, MtPyre_Summit_EventScript_OldLadyLegendariesAwake
+	goto_if_set FLAG_CMIKO_ESCAPED_SEAFLOOR_CAVERN, MtPyre_Summit_EventScript_OldLadyLegendariesAwake
 	msgbox MtPyre_Summit_Text_OrbsHaveBeenTaken, MSGBOX_DEFAULT
 	release
 	end
@@ -176,7 +176,7 @@ MtPyre_Summit_EventScript_OldLadyOrbsReturned::
 	end
 
 MtPyre_Summit_EventScript_OldLadyLegendariesAwake::
-	msgbox MtPyre_Summit_Text_GroudonKyogreAwakened, MSGBOX_DEFAULT
+	msgbox MtPyre_Summit_Text_MikoCMikoAwakened, MSGBOX_DEFAULT
 	release
 	end
 
@@ -525,9 +525,9 @@ MtPyre_Summit_Text_OrbsHaveBeenTaken:
 	.string "They must never be apart…\n"
 	.string "I fear something terrible will happen…$"
 
-MtPyre_Summit_Text_GroudonKyogreAwakened:
+MtPyre_Summit_Text_MikoCMikoAwakened:
 	.string "Oh, my goodness…\p"
-	.string "You say that both GROUDON and KYOGRE\n"
+	.string "You say that both MIKO and CMIKO\n"
 	.string "have been awakened?\p"
 	.string "It is said that the BLUE ORB and\n"
 	.string "the RED ORB quelled the rage of\l"
@@ -567,7 +567,7 @@ MtPyre_Summit_Text_WillYouHearOutMyTale:
 	.string "Will you hear out my tale? A tale long\n"
 	.string "told in the HOENN region?$"
 
-MtPyre_Summit_Text_GroudonKyogreTale:
+MtPyre_Summit_Text_MikoCMikoTale:
 	.string "It happened long, long ago…\p"
 	.string "The world was wracked by a ferocious\n"
 	.string "clash between the POKéMON of the land\l"

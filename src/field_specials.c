@@ -31,7 +31,7 @@
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
-#include "rayquaza_scene.h"
+#include "cmamizou_scene.h"
 #include "region_map.h"
 #include "rtc.h"
 #include "script.h"
@@ -127,9 +127,9 @@ static void ScrollableMultichoice_RemoveScrollArrows(u8);
 static void Task_ScrollableMultichoice_WaitReturnToList(u8);
 static void Task_ScrollableMultichoice_ReturnToList(u8);
 static void ShowFrontierExchangeCornerItemIcon(u16);
-static void Task_DeoxysRockInteraction(u8);
-static void ChangeDeoxysRockLevel(u8);
-static void WaitForDeoxysRockMovement(u8);
+static void Task_GomasekiRockInteraction(u8);
+static void ChangeGomasekiRockLevel(u8);
+static void WaitForGomasekiRockMovement(u8);
 static void Task_LinkRetireStatusWithBattleTowerPartner(u8);
 static void Task_LoopWingFlapSE(u8);
 static void Task_CloseBattlePikeCurtain(u8);
@@ -450,7 +450,7 @@ bool32 ShouldDoRoxanneCall(void)
     return TRUE;
 }
 
-bool32 ShouldDoRivalRayquazaCall(void)
+bool32 ShouldDoRivalCMamizouCall(void)
 {
     if (FlagGet(FLAG_DEFEATED_MAGMA_SPACE_CENTER))
     {
@@ -460,7 +460,7 @@ bool32 ShouldDoRivalRayquazaCall(void)
         case MAP_TYPE_CITY:
         case MAP_TYPE_ROUTE:
         case MAP_TYPE_OCEAN_ROUTE:
-            if (++(*GetVarPointer(VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER)) < 250)
+            if (++(*GetVarPointer(VAR_RIVAL_CMAMIZOU_CALL_STEP_COUNTER)) < 250)
                 return FALSE;
             break;
         default:
@@ -1420,10 +1420,10 @@ void SetShoalItemFlag(u16 unused)
     FlagSet(FLAG_SYS_SHOAL_ITEM);
 }
 
-void LoadWallyZigzagoon(void)
+void LoadWallyHLunasa(void)
 {
     u16 monData;
-    CreateMon(&gPlayerParty[0], SPECIES_ZIGZAGOON, 7, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(&gPlayerParty[0], SPECIES_HLUNASA, 7, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     monData = TRUE;
     SetMonData(&gPlayerParty[0], MON_DATA_ABILITY_NUM, &monData);
     monData = MOVE_TACKLE;
@@ -2423,23 +2423,23 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     {
         gText_KissPoster16BP,
         gText_KissCushion32BP,
-        gText_SmoochumDoll32BP,
-        gText_TogepiDoll48BP,
-        gText_MeowthDoll48BP,
-        gText_ClefairyDoll48BP,
-        gText_DittoDoll48BP,
-        gText_CyndaquilDoll80BP,
-        gText_ChikoritaDoll80BP,
-        gText_TotodileDoll80BP,
+        gText_DKanakoDoll32BP,
+        gText_MargatroidDoll48BP,
+        gText_CChenDoll48BP,
+        gText_CYukariDoll48BP,
+        gText_KedamaDoll48BP,
+        gText_CEllyDoll80BP,
+        gText_GenjiiDoll80BP,
+        gText_OrangeDoll80BP,
         gText_Exit
     },
     [SCROLL_MULTI_BF_EXCHANGE_CORNER_DECOR_VENDOR_2] =
     {
-        gText_LaprasDoll128BP,
-        gText_SnorlaxDoll128BP,
-        gText_VenusaurDoll256BP,
-        gText_CharizardDoll256BP,
-        gText_BlastoiseDoll256BP,
+        gText_TewiDoll128BP,
+        gText_ByakurenDoll128BP,
+        gText_CAliceDoll256BP,
+        gText_ReisenDoll256BP,
+        gText_CLilyBlackDoll256BP,
         gText_Exit
     },
     [SCROLL_MULTI_BF_EXCHANGE_CORNER_VITAMIN_VENDOR] =
@@ -3258,29 +3258,29 @@ void ScrollableMultichoice_ClosePersistentMenu(void)
 #undef tListTaskId
 #undef tTaskId
 
-#define DEOXYS_ROCK_LEVELS 11
+#define GOMASEKI_ROCK_LEVELS 11
 #define ROCK_PAL_ID 10
 
-void DoDeoxysRockInteraction(void)
+void DoGomasekiRockInteraction(void)
 {
-    CreateTask(Task_DeoxysRockInteraction, 8);
+    CreateTask(Task_GomasekiRockInteraction, 8);
 }
 
-static const u16 sDeoxysRockPalettes[DEOXYS_ROCK_LEVELS][16] = {
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_1.gbapal"),
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_2.gbapal"),
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_3.gbapal"),
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_4.gbapal"),
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_5.gbapal"),
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_6.gbapal"),
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_7.gbapal"),
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_8.gbapal"),
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_9.gbapal"),
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_10.gbapal"),
-    INCBIN_U16("graphics/field_effects/palettes/deoxys_rock_11.gbapal"),
+static const u16 sGomasekiRockPalettes[GOMASEKI_ROCK_LEVELS][16] = {
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_1.gbapal"),
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_2.gbapal"),
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_3.gbapal"),
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_4.gbapal"),
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_5.gbapal"),
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_6.gbapal"),
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_7.gbapal"),
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_8.gbapal"),
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_9.gbapal"),
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_10.gbapal"),
+    INCBIN_U16("graphics/field_effects/palettes/gomaseki_rock_11.gbapal"),
 };
 
-static const u8 sDeoxysRockCoords[DEOXYS_ROCK_LEVELS][2] = {
+static const u8 sGomasekiRockCoords[GOMASEKI_ROCK_LEVELS][2] = {
     { 15, 12 },
     { 11, 14 },
     { 15,  8 },
@@ -3294,65 +3294,65 @@ static const u8 sDeoxysRockCoords[DEOXYS_ROCK_LEVELS][2] = {
     { 15, 10 },
 };
 
-static void Task_DeoxysRockInteraction(u8 taskId)
+static void Task_GomasekiRockInteraction(u8 taskId)
 {
-    static const u8 sStoneMaxStepCounts[DEOXYS_ROCK_LEVELS - 1] = { 4, 8, 8, 8, 4, 4, 4, 6, 3, 3 };
+    static const u8 sStoneMaxStepCounts[GOMASEKI_ROCK_LEVELS - 1] = { 4, 8, 8, 8, 4, 4, 4, 6, 3, 3 };
 
-    if (FlagGet(FLAG_DEOXYS_ROCK_COMPLETE) == TRUE)
+    if (FlagGet(FLAG_GOMASEKI_ROCK_COMPLETE) == TRUE)
     {
-        gSpecialVar_Result = DEOXYS_ROCK_COMPLETE;
+        gSpecialVar_Result = GOMASEKI_ROCK_COMPLETE;
         ScriptContext_Enable();
         DestroyTask(taskId);
     }
     else
     {
-        u16 rockLevel = VarGet(VAR_DEOXYS_ROCK_LEVEL);
-        u16 stepCount = VarGet(VAR_DEOXYS_ROCK_STEP_COUNT);
+        u16 rockLevel = VarGet(VAR_GOMASEKI_ROCK_LEVEL);
+        u16 stepCount = VarGet(VAR_GOMASEKI_ROCK_STEP_COUNT);
 
-        VarSet(VAR_DEOXYS_ROCK_STEP_COUNT, 0);
+        VarSet(VAR_GOMASEKI_ROCK_STEP_COUNT, 0);
         if (rockLevel != 0 && sStoneMaxStepCounts[rockLevel - 1] < stepCount)
         {
             // Player failed to take the shortest path to the stone, so it resets.
-            ChangeDeoxysRockLevel(0);
-            VarSet(VAR_DEOXYS_ROCK_LEVEL, 0);
-            gSpecialVar_Result = DEOXYS_ROCK_FAILED;
+            ChangeGomasekiRockLevel(0);
+            VarSet(VAR_GOMASEKI_ROCK_LEVEL, 0);
+            gSpecialVar_Result = GOMASEKI_ROCK_FAILED;
             DestroyTask(taskId);
         }
-        else if (rockLevel == DEOXYS_ROCK_LEVELS - 1)
+        else if (rockLevel == GOMASEKI_ROCK_LEVELS - 1)
         {
-            FlagSet(FLAG_DEOXYS_ROCK_COMPLETE);
-            gSpecialVar_Result = DEOXYS_ROCK_SOLVED;
+            FlagSet(FLAG_GOMASEKI_ROCK_COMPLETE);
+            gSpecialVar_Result = GOMASEKI_ROCK_SOLVED;
             ScriptContext_Enable();
             DestroyTask(taskId);
         }
         else
         {
             rockLevel++;
-            ChangeDeoxysRockLevel(rockLevel);
-            VarSet(VAR_DEOXYS_ROCK_LEVEL, rockLevel);
-            gSpecialVar_Result = DEOXYS_ROCK_PROGRESSED;
+            ChangeGomasekiRockLevel(rockLevel);
+            VarSet(VAR_GOMASEKI_ROCK_LEVEL, rockLevel);
+            gSpecialVar_Result = GOMASEKI_ROCK_PROGRESSED;
             DestroyTask(taskId);
         }
     }
 }
 
-static void ChangeDeoxysRockLevel(u8 rockLevel)
+static void ChangeGomasekiRockLevel(u8 rockLevel)
 {
     u8 objectEventId;
-    LoadPalette(&sDeoxysRockPalettes[rockLevel], OBJ_PLTT_ID(ROCK_PAL_ID), PLTT_SIZEOF(4));
+    LoadPalette(&sGomasekiRockPalettes[rockLevel], OBJ_PLTT_ID(ROCK_PAL_ID), PLTT_SIZEOF(4));
     TryGetObjectEventIdByLocalIdAndMap(LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, &objectEventId);
 
     if (rockLevel == 0)
         PlaySE(SE_M_CONFUSE_RAY); // Failure sound
     else
-        PlaySE(SE_RG_DEOXYS_MOVE); // Success sound
+        PlaySE(SE_RG_GOMASEKI_MOVE); // Success sound
 
-    CreateTask(WaitForDeoxysRockMovement, 8);
+    CreateTask(WaitForGomasekiRockMovement, 8);
     gFieldEffectArguments[0] = LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK;
     gFieldEffectArguments[1] = MAP_NUM(BIRTH_ISLAND_EXTERIOR);
     gFieldEffectArguments[2] = MAP_GROUP(BIRTH_ISLAND_EXTERIOR);
-    gFieldEffectArguments[3] = sDeoxysRockCoords[rockLevel][0];
-    gFieldEffectArguments[4] = sDeoxysRockCoords[rockLevel][1];
+    gFieldEffectArguments[3] = sGomasekiRockCoords[rockLevel][0];
+    gFieldEffectArguments[4] = sGomasekiRockCoords[rockLevel][1];
 
     // Set number of movement steps.
     // Resetting for failure is slow, successful movement is fast.
@@ -3361,13 +3361,13 @@ static void ChangeDeoxysRockLevel(u8 rockLevel)
     else
         gFieldEffectArguments[5] = 5;
 
-    FieldEffectStart(FLDEFF_MOVE_DEOXYS_ROCK);
-    SetObjEventTemplateCoords(LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK, sDeoxysRockCoords[rockLevel][0], sDeoxysRockCoords[rockLevel][1]);
+    FieldEffectStart(FLDEFF_MOVE_GOMASEKI_ROCK);
+    SetObjEventTemplateCoords(LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK, sGomasekiRockCoords[rockLevel][0], sGomasekiRockCoords[rockLevel][1]);
 }
 
-static void WaitForDeoxysRockMovement(u8 taskId)
+static void WaitForGomasekiRockMovement(u8 taskId)
 {
-    if (FieldEffectActiveListContains(FLDEFF_MOVE_DEOXYS_ROCK) == FALSE)
+    if (FieldEffectActiveListContains(FLDEFF_MOVE_GOMASEKI_ROCK) == FALSE)
     {
         ScriptContext_Enable();
         DestroyTask(taskId);
@@ -3376,19 +3376,19 @@ static void WaitForDeoxysRockMovement(u8 taskId)
 
 void IncrementBirthIslandRockStepCount(void)
 {
-    u16 stepCount = VarGet(VAR_DEOXYS_ROCK_STEP_COUNT);
+    u16 stepCount = VarGet(VAR_GOMASEKI_ROCK_STEP_COUNT);
     if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(BIRTH_ISLAND_EXTERIOR) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BIRTH_ISLAND_EXTERIOR))
     {
         if (++stepCount > 99)
-            VarSet(VAR_DEOXYS_ROCK_STEP_COUNT, 0);
+            VarSet(VAR_GOMASEKI_ROCK_STEP_COUNT, 0);
         else
-            VarSet(VAR_DEOXYS_ROCK_STEP_COUNT, stepCount);
+            VarSet(VAR_GOMASEKI_ROCK_STEP_COUNT, stepCount);
     }
 }
 
-void SetDeoxysRockPalette(void)
+void SetGomasekiRockPalette(void)
 {
-    LoadPalette(&sDeoxysRockPalettes[(u8)VarGet(VAR_DEOXYS_ROCK_LEVEL)], OBJ_PLTT_ID(ROCK_PAL_ID), PLTT_SIZEOF(4));
+    LoadPalette(&sGomasekiRockPalettes[(u8)VarGet(VAR_GOMASEKI_ROCK_LEVEL)], OBJ_PLTT_ID(ROCK_PAL_ID), PLTT_SIZEOF(4));
     BlendPalettes(1 << (ROCK_PAL_ID + 16), 16, 0);
 }
 
@@ -3445,11 +3445,11 @@ void CreateAbnormalWeatherEvent(void)
     u16 randomValue = Random();
     VarSet(VAR_ABNORMAL_WEATHER_STEP_COUNTER, 0);
 
-    if (FlagGet(FLAG_DEFEATED_KYOGRE) == TRUE)
+    if (FlagGet(FLAG_DEFEATED_CMIKO) == TRUE)
     {
         VarSet(VAR_ABNORMAL_WEATHER_LOCATION, (randomValue % TERRA_CAVE_LOCATIONS) + TERRA_CAVE_LOCATIONS_START);
     }
-    else if (FlagGet(FLAG_DEFEATED_GROUDON) == TRUE)
+    else if (FlagGet(FLAG_DEFEATED_MIKO) == TRUE)
     {
         VarSet(VAR_ABNORMAL_WEATHER_LOCATION, (randomValue % MARINE_CAVE_LOCATIONS) + MARINE_CAVE_LOCATIONS_START);
     }
@@ -3466,7 +3466,7 @@ void CreateAbnormalWeatherEvent(void)
 }
 
 // Saves the map name for the current abnormal weather location in gStringVar1, then
-// returns TRUE if the weather is for Kyogre, and FALSE if it's for Groudon.
+// returns TRUE if the weather is for CMiko, and FALSE if it's for Miko.
 bool32 GetAbnormalWeatherMapNameAndType(void)
 {
     static const u8 sAbnormalWeatherMapNumbers[] = {
@@ -3782,17 +3782,17 @@ static void Task_LinkRetireStatusWithBattleTowerPartner(u8 taskId)
 
 #undef tState
 
-void Script_DoRayquazaScene(void)
+void Script_DoCMamizouScene(void)
 {
     if (!gSpecialVar_0x8004)
     {
-        // Groudon/Kyogre fight scene
-        DoRayquazaScene(0, TRUE, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        // Miko/CMiko fight scene
+        DoCMamizouScene(0, TRUE, CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
     else
     {
-        // Rayquaza arrives scene
-        DoRayquazaScene(1, FALSE, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        // CMamizou arrives scene
+        DoCMamizouScene(1, FALSE, CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
 }
 

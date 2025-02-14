@@ -131,7 +131,7 @@ void ClearMysteryGiftFlags(void)
 
 void ClearMysteryGiftVars(void)
 {
-    VarSet(VAR_GIFT_PICHU_SLOT, 0);
+    VarSet(VAR_GIFT_CLUIZE_SLOT, 0);
     VarSet(VAR_GIFT_UNUSED_1, 0);
     VarSet(VAR_GIFT_UNUSED_2, 0);
     VarSet(VAR_GIFT_UNUSED_3, 0);

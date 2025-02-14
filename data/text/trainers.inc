@@ -424,7 +424,7 @@ Route104_Text_DarianDefeat:
 	.string "What the…$"
 
 Route104_Text_DarianPostBattle:
-	.string "Hey, MAGIKARP, you sure don't live up\n"
+	.string "Hey, WRIGGLE, you sure don't live up\n"
 	.string "to your name, do you?$"
 
 Route105_Text_FosterIntro:
@@ -1458,7 +1458,7 @@ Route111_Text_BrandenDefeat:
 	.string "enough of a bribe…$"
 
 Route111_Text_BrandenPostBattle:
-	.string "My SANDSHREW loves eating\n"
+	.string "My CRUMIA loves eating\n"
 	.string "my sandwiches.$"
 
 Route111_Text_TyronIntro:
@@ -1639,7 +1639,7 @@ Route113_Text_DillonPostBattle:
 Route113_Text_MadelineIntro:
 	.string "I use this parasol to ward off this\n"
 	.string "filthy, yucky volcanic ash from\l"
-	.string "my dear NUMEL.$"
+	.string "my dear CKONNGARA.$"
 
 Route113_Text_MadelineDefeat:
 	.string "Huff, huff…\n"
@@ -2030,14 +2030,14 @@ Route115_Text_TimothyPostRematch:
 
 Route115_Text_KoichiIntro:
 	.string "You!\p"
-	.string "My MACHOP!\p"
+	.string "My CYUUGI!\p"
 	.string "Demand a battle!$"
 
 Route115_Text_KoichiDefeat:
 	.string "Ouch, ouch, ouch!$"
 
 Route115_Text_KoichiPostBattle:
-	.string "My MACHOP crew!\p"
+	.string "My CYUUGI crew!\p"
 	.string "So long as they seek power, I will\n"
 	.string "grow strong with them!$"
 
@@ -3800,7 +3800,7 @@ Route125_Text_StanDefeat:
 	.string "I floundered…$"
 
 Route125_Text_StanPostBattle:
-	.string "I was blown away by HORSEA's charm,\n"
+	.string "I was blown away by CLUNACHILD's charm,\n"
 	.string "so I started swimming, too.$"
 
 Route125_Text_TanyaIntro:
@@ -3814,14 +3814,14 @@ Route125_Text_TanyaPostBattle:
 	.string "Whew…\n"
 	.string "Which way is it to MOSSDEEP CITY?$"
 
-Route125_Text_SharonIntro:
+Route125_Text_ShadtewiIntro:
 	.string "How would you like to take on the\n"
 	.string "WATER-type POKéMON I raised?$"
 
-Route125_Text_SharonDefeat:
+Route125_Text_ShadtewiDefeat:
 	.string "Lost it…$"
 
-Route125_Text_SharonPostBattle:
+Route125_Text_ShadtewiPostBattle:
 	.string "Your power… You're the real deal.\n"
 	.string "I'm amazed!$"
 
@@ -4682,7 +4682,7 @@ Route134_Text_JackPostBattle:
 	.string "currents around these parts.$"
 
 Route134_Text_LaurelIntro:
-	.string "My LUVDISC are looking for a fun\n"
+	.string "My AKISISTERS are looking for a fun\n"
 	.string "match. Will you join us?$"
 
 Route134_Text_LaurelDefeat:
@@ -4690,7 +4690,7 @@ Route134_Text_LaurelDefeat:
 
 Route134_Text_LaurelPostBattle:
 	.string "There's a collector who's after\n"
-	.string "the SCALES of LUVDISC.$"
+	.string "the SCALES of AKISISTERS.$"
 
 Route134_Text_AlexIntro:
 	.string "Okeydokey! That's enough rest, gang!\n"
@@ -4715,14 +4715,14 @@ Route134_Text_HitoshiPostBattle:
 	.string "It was I who challenged you, and yet\n"
 	.string "I lost. I am deeply shamed…$"
 
-Route134_Text_AaronIntro:
+Route134_Text_AadtewiIntro:
 	.string "The savage tide in this area serves to\n"
 	.string "make us stronger than ever.$"
 
-Route134_Text_AaronDefeat:
+Route134_Text_AadtewiDefeat:
 	.string "I willingly concede defeat.$"
 
-Route134_Text_AaronPostBattle:
+Route134_Text_AadtewiPostBattle:
 	.string "We will return for more training at\n"
 	.string "METEOR FALLS.\p"
 	.string "If you'd like, you should go, too.\n"

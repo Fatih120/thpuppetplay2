@@ -3753,7 +3753,7 @@ static void Task_ChangeScreen(u8 taskId)
         mode = sStorage->summaryScreenMode;
         FreePokeStorageData();
         if (mode == SUMMARY_MODE_NORMAL && boxMons == &sSavedMovingMon.box)
-            ShowPokemonSummaryScreenHandleDeoxys(mode, boxMons, monIndex, maxMonIndex, CB2_ReturnToPokeStorage);
+            ShowPokemonSummaryScreenHandleGomaseki(mode, boxMons, monIndex, maxMonIndex, CB2_ReturnToPokeStorage);
         else
             ShowPokemonSummaryScreen(mode, boxMons, monIndex, maxMonIndex, CB2_ReturnToPokeStorage);
         break;
@@ -6935,7 +6935,7 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
     }
     else
     {
-        if (sStorage->displayMonSpecies == SPECIES_NIDORAN_F || sStorage->displayMonSpecies == SPECIES_NIDORAN_M)
+        if (sStorage->displayMonSpecies == SPECIES_SHANGHAI || sStorage->displayMonSpecies == SPECIES_HOURAI)
             gender = MON_GENDERLESS;
 
         StringCopyPadded(sStorage->displayMonNameText, sStorage->displayMonName, CHAR_SPACE, 5);

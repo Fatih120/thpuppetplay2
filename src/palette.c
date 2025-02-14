@@ -950,7 +950,7 @@ void TintPalette_CustomTone(u16 *palette, u16 count, u16 rTone, u16 gTone, u16 b
 #define tId          data[8]
 
 // Blend the selected palettes in a series of steps toward or away from the color.
-// Only used by the Groudon/Kyogre fight scene to flash the screen for lightning.
+// Only used by the Miko/CMiko fight scene to flash the screen for lightning.
 // One call is used to fade the bg from white, while another fades the duo from black
 void BlendPalettesGradually(u32 selectedPalettes, s8 delay, u8 coeff, u8 coeffTarget, u16 color, u8 priority, u8 id)
 {

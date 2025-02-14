@@ -562,8 +562,8 @@ const u32 gItemIconPalette_SSTicket[] = INCBIN_U32("graphics/items/icon_palettes
 const u32 gItemIcon_ContestPass[] = INCBIN_U32("graphics/items/icons/contest_pass.4bpp.lz");
 const u32 gItemIconPalette_ContestPass[] = INCBIN_U32("graphics/items/icon_palettes/contest_pass.gbapal.lz");
 
-const u32 gItemIcon_WailmerPail[] = INCBIN_U32("graphics/items/icons/wailmer_pail.4bpp.lz");
-const u32 gItemIconPalette_WailmerPail[] = INCBIN_U32("graphics/items/icon_palettes/wailmer_pail.gbapal.lz");
+const u32 gItemIcon_DMeilingPail[] = INCBIN_U32("graphics/items/icons/dmeiling_pail.4bpp.lz");
+const u32 gItemIconPalette_DMeilingPail[] = INCBIN_U32("graphics/items/icon_palettes/dmeiling_pail.gbapal.lz");
 
 const u32 gItemIcon_DevonGoods[] = INCBIN_U32("graphics/items/icons/devon_goods.4bpp.lz");
 const u32 gItemIconPalette_DevonGoods[] = INCBIN_U32("graphics/items/icon_palettes/devon_goods.gbapal.lz");

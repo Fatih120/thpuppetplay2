@@ -3,7 +3,7 @@ MysteryGiftScript_OldSeaMap::
 	lock
 	faceplayer
 	vgoto_if_set FLAG_RECEIVED_OLD_SEA_MAP, OldSeaMap_Obtained
-	vgoto_if_set FLAG_CAUGHT_MEW, OldSeaMap_Obtained
+	vgoto_if_set FLAG_CAUGHT_AKYUU, OldSeaMap_Obtained
 	checkitem ITEM_OLD_SEA_MAP
 	vgoto_if_eq VAR_RESULT, TRUE, OldSeaMap_Obtained
 	vmessage sText_MysteryGiftOldSeaMapForYou

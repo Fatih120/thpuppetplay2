@@ -49,7 +49,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE"
+      "flag": "FLAG_HIDE_ROUTE_101_BIRCH_HLUNASA_BATTLE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
@@ -65,7 +65,7 @@
       "flag": "FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ZIGZAGOON_1",
+      "graphics_id": "OBJ_EVENT_GFX_HLUNASA_1",
       "x": 10,
       "y": 13,
       "elevation": 0,
@@ -75,7 +75,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_ROUTE_101_ZIGZAGOON"
+      "flag": "FLAG_HIDE_ROUTE_101_HLUNASA"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",

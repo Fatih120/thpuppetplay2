@@ -145,7 +145,7 @@
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_DYUYUKO",
       "x": 23,
       "y": 19,
       "elevation": 3,
@@ -154,11 +154,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtChimney_EventScript_AquaPoochyena",
+      "script": "MtChimney_EventScript_AquaDYuyuko",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_DYUYUKO",
       "x": 23,
       "y": 18,
       "elevation": 3,
@@ -167,7 +167,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtChimney_EventScript_MagmaPoochyena",
+      "script": "MtChimney_EventScript_MagmaDYuyuko",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
     },
     {
@@ -184,7 +184,7 @@
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_DYUYUKO",
       "x": 23,
       "y": 20,
       "elevation": 3,
@@ -193,11 +193,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtChimney_EventScript_MagmaPoochyena",
+      "script": "MtChimney_EventScript_MagmaDYuyuko",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_DYUYUKO",
       "x": 22,
       "y": 19,
       "elevation": 3,
@@ -206,7 +206,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtChimney_EventScript_MagmaPoochyena",
+      "script": "MtChimney_EventScript_MagmaDYuyuko",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
     },
     {
@@ -236,7 +236,7 @@
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_DYUYUKO",
       "x": 30,
       "y": 12,
       "elevation": 3,
@@ -245,11 +245,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtChimney_EventScript_AquaPoochyena",
+      "script": "MtChimney_EventScript_AquaDYuyuko",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_DYUYUKO",
       "x": 29,
       "y": 12,
       "elevation": 3,
@@ -258,11 +258,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtChimney_EventScript_MagmaPoochyena",
+      "script": "MtChimney_EventScript_MagmaDYuyuko",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_DYUYUKO",
       "x": 30,
       "y": 5,
       "elevation": 3,
@@ -271,11 +271,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtChimney_EventScript_AquaPoochyena",
+      "script": "MtChimney_EventScript_AquaDYuyuko",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_DYUYUKO",
       "x": 31,
       "y": 5,
       "elevation": 3,
@@ -284,7 +284,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtChimney_EventScript_MagmaPoochyena",
+      "script": "MtChimney_EventScript_MagmaDYuyuko",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
     },
     {
@@ -301,7 +301,7 @@
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_DYUYUKO",
       "x": 20,
       "y": 39,
       "elevation": 3,
@@ -310,11 +310,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtChimney_EventScript_AquaPoochyena",
+      "script": "MtChimney_EventScript_AquaDYuyuko",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_DYUYUKO",
       "x": 21,
       "y": 39,
       "elevation": 3,
@@ -323,7 +323,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtChimney_EventScript_MagmaPoochyena",
+      "script": "MtChimney_EventScript_MagmaDYuyuko",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
     },
     {

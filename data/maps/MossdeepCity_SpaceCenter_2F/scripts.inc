@@ -347,23 +347,23 @@ MossdeepCity_SpaceCenter_2F_EventScript_TabithaTrainer::
 	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_TABITHA_MOSSDEEP, 0, MossdeepCity_SpaceCenter_Text_TabithaDefeat, MossdeepCity_SpaceCenter_Text_TabithaDefeat
 	end
 
-MossdeepCity_SpaceCenter_2F_EventScript_RivalRayquazaCall::
+MossdeepCity_SpaceCenter_2F_EventScript_RivalCMamizouCall::
 	lockall
 	checkplayergender
-	call_if_eq VAR_RESULT, MALE, MossdeepCity_SpaceCenter_2F_EventScript_MayRayquazaCall
-	call_if_eq VAR_RESULT, FEMALE, MossdeepCity_SpaceCenter_2F_EventScript_BrendanRayquazaCall
+	call_if_eq VAR_RESULT, MALE, MossdeepCity_SpaceCenter_2F_EventScript_MayCMamizouCall
+	call_if_eq VAR_RESULT, FEMALE, MossdeepCity_SpaceCenter_2F_EventScript_BrendanCMamizouCall
 	closemessage
 	clearflag FLAG_DEFEATED_MAGMA_SPACE_CENTER
 	releaseall
 	end
 
-MossdeepCity_SpaceCenter_2F_EventScript_MayRayquazaCall::
-	pokenavcall MatchCall_Text_MayRayquazaCall
+MossdeepCity_SpaceCenter_2F_EventScript_MayCMamizouCall::
+	pokenavcall MatchCall_Text_MayCMamizouCall
 	waitmessage
 	return
 
-MossdeepCity_SpaceCenter_2F_EventScript_BrendanRayquazaCall::
-	pokenavcall MatchCall_Text_BrendanRayquazaCall
+MossdeepCity_SpaceCenter_2F_EventScript_BrendanCMamizouCall::
+	pokenavcall MatchCall_Text_BrendanCMamizouCall
 	waitmessage
 	return
 
@@ -463,7 +463,7 @@ MossdeepCity_SpaceCenter_2F_Text_MaxieUseFuelToEruptVolcano:
 	.string "curious, you deserve an explanation.\p"
 	.string "We're going to jettison the entire\n"
 	.string "load into MT. CHIMNEY!\p"
-	.string "With GROUDON gone, we have no need\n"
+	.string "With MIKO gone, we have no need\n"
 	.string "for that slag heap of a mountain!\p"
 	.string "So we'll use the fuel's power to make\n"
 	.string "the volcano erupt!\p"
@@ -489,7 +489,7 @@ MossdeepCity_SpaceCenter_Text_TabithaDefeat:
 MossdeepCity_SpaceCenter_2F_Text_MaxieWeFailedIsAquaAlsoMisguided:
 	.string "MAXIE: We failed to make the volcano\n"
 	.string "erupt…\p"
-	.string "We failed to control GROUDON after\n"
+	.string "We failed to control MIKO after\n"
 	.string "we had awoken it…\p"
 	.string "Is our goal to expand the land\n"
 	.string "misguided?\p"

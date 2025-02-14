@@ -15,7 +15,7 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_REGISTEEL",
+      "graphics_id": "OBJ_EVENT_GFX_FUTO",
       "x": 8,
       "y": 7,
       "elevation": 3,
@@ -24,8 +24,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "AncientTomb_EventScript_Registeel",
-      "flag": "FLAG_HIDE_REGISTEEL"
+      "script": "AncientTomb_EventScript_Futo",
+      "flag": "FLAG_HIDE_FUTO"
     }
   ],
   "warp_events": [

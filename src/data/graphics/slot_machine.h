@@ -5,7 +5,7 @@ const u16 gSlotMachineMenu_Tilemap[] = INCBIN_U16("graphics/slot_machine/menu.bi
 const u16 gSlotMachineInfoBox_Tilemap[] = INCBIN_U16("graphics/slot_machine/info_box.bin");
 
 const u16 gSlotMachineReelSymbols_Pal[] = INCBIN_U16("graphics/slot_machine/reel_symbols/1.gbapal");
-const u16 gSlotMachineReelTimePikachu_Pal[] = INCBIN_U16("graphics/slot_machine/reel_time_pikachu.gbapal");
+const u16 gSlotMachineReelTimeCCirno_Pal[] = INCBIN_U16("graphics/slot_machine/reel_time_ccirno.gbapal");
 const u16 gSlotMachineReelTimeMisc_Pal[] = INCBIN_U16("graphics/slot_machine/shadow.gbapal");
 const u16 gSlotMachineReelTimeMachine_Pal[] = INCBIN_U16("graphics/slot_machine/reel_time_machine.gbapal");
 const u16 gSlotMachineMisc_Pal[] = INCBIN_U16("graphics/slot_machine/smoke.gbapal");

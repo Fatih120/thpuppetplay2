@@ -1,56 +1,56 @@
-gTrickHouse_Mechadoll_Oddish::
-	.string "ODDISH$"
+gTrickHouse_Mechadoll_CKeine::
+	.string "CKEINE$"
 
-gTrickHouse_Mechadoll_Poochyena::
-	.string "POOCHYENA$"
+gTrickHouse_Mechadoll_DYuyuko::
+	.string "DYUYUKO$"
 
-gTrickHouse_Mechadoll_Taillow::
-	.string "TAILLOW$"
+gTrickHouse_Mechadoll_TShou::
+	.string "TSHOU$"
 
-gTrickHouse_Mechadoll_Azurill::
-	.string "AZURILL$"
+gTrickHouse_Mechadoll_CShinGyoku::
+	.string "CSHINGYOKU$"
 
-gTrickHouse_Mechadoll_Lotad::
-	.string "LOTAD$"
+gTrickHouse_Mechadoll_AHina::
+	.string "AHINA$"
 
-gTrickHouse_Mechadoll_Wingull::
-	.string "WINGULL$"
+gTrickHouse_Mechadoll_TKogasa::
+	.string "TKOGASA$"
 
-gTrickHouse_Mechadoll_Dustox::
-	.string "DUSTOX$"
+gTrickHouse_Mechadoll_TMedicine::
+	.string "TMEDICINE$"
 
-gTrickHouse_Mechadoll_Zubat::
-	.string "ZUBAT$"
+gTrickHouse_Mechadoll_CMinoriko::
+	.string "CMINORIKO$"
 
-gTrickHouse_Mechadoll_Nincada::
-	.string "NINCADA$"
+gTrickHouse_Mechadoll_HShizuha::
+	.string "HSHIZUHA$"
 
-gTrickHouse_Mechadoll_Ralts::
-	.string "RALTS$"
+gTrickHouse_Mechadoll_Tenma::
+	.string "TENMA$"
 
-gTrickHouse_Mechadoll_Zigzagoon::
-	.string "ZIGZAGOON$"
+gTrickHouse_Mechadoll_HLunasa::
+	.string "HLUNASA$"
 
-gTrickHouse_Mechadoll_Slakoth::
-	.string "SLAKOTH$"
+gTrickHouse_Mechadoll_SSariel::
+	.string "SSARIEL$"
 
-gTrickHouse_Mechadoll_Poochyena2::
-	.string "POOCHYENA$"
+gTrickHouse_Mechadoll_DYuyuko2::
+	.string "DYUYUKO$"
 
-gTrickHouse_Mechadoll_Shroomish::
-	.string "SHROOMISH$"
+gTrickHouse_Mechadoll_DSuwako::
+	.string "DSUWAKO$"
 
-gTrickHouse_Mechadoll_Zigzagoon2::
-	.string "ZIGZAGOON$"
+gTrickHouse_Mechadoll_HLunasa2::
+	.string "HLUNASA$"
 
-gTrickHouse_Mechadoll_Poochyena3::
-	.string "POOCHYENA$"
+gTrickHouse_Mechadoll_DYuyuko3::
+	.string "DYUYUKO$"
 
-gTrickHouse_Mechadoll_Zubat2::
-	.string "ZUBAT$"
+gTrickHouse_Mechadoll_CMinoriko2::
+	.string "CMINORIKO$"
 
-gTrickHouse_Mechadoll_Carvanha::
-	.string "CARVANHA$"
+gTrickHouse_Mechadoll_ATewi::
+	.string "ATEWI$"
 
 gTrickHouse_Mechadoll_BurnHeal::
 	.string "BURN HEAL$"

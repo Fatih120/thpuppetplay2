@@ -253,7 +253,7 @@ LilycoveCity_ContestHall_EventScript_CuteContestJudge::
 LilycoveCity_ContestHall_EventScript_CuteContestant1::
 	lock
 	faceplayer
-	msgbox LilycoveCity_ContestHall_Text_MyAzurillWasDistracted, MSGBOX_DEFAULT
+	msgbox LilycoveCity_ContestHall_Text_MyCShinGyokuWasDistracted, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_CUTE_CONTESTANT_1, Common_Movement_FaceOriginalDirection
 	waitmovement 0
@@ -395,7 +395,7 @@ LilycoveCity_ContestHall_Text_IfMonPullsSmartMoveNext:
 
 LilycoveCity_ContestHall_Text_DontAppreciateCuteLeechLife:
 	.string "Oh, dear, no!\p"
-	.string "My darling ZUBAT's LEECH LIFE is so\n"
+	.string "My darling CMINORIKO's LEECH LIFE is so\n"
 	.string "cute I kept using it over and over!\p"
 	.string "But these mean people don't appreciate\n"
 	.string "it at all!$"
@@ -485,8 +485,8 @@ LilycoveCity_ContestHall_Text_SuchCharmingCuteAppeals:
 	.string "Oh, my goodness! What a perfectly\n"
 	.string "adorable WATER SPORT appeal!$"
 
-LilycoveCity_ContestHall_Text_MyAzurillWasDistracted:
-	.string "Oh, no… My sweet AZURILL was\n"
+LilycoveCity_ContestHall_Text_MyCShinGyokuWasDistracted:
+	.string "Oh, no… My sweet CSHINGYOKU was\n"
 	.string "distracted by another POKéMON.$"
 
 LilycoveCity_ContestHall_Text_NeverWonBattleButContest:

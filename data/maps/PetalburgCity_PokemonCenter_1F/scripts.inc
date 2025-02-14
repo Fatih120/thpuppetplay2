@@ -36,22 +36,22 @@ PetalburgCity_PokemonCenter_1F_EventScript_Woman::
 	end
 
 PetalburgCity_PokemonCenter_1F_EventScript_SayStarterTypeInfo::
-	call_if_eq VAR_STARTER_MON, 0, PetalburgCity_PokemonCenter_1F_EventScript_SayTreeckoType
-	call_if_eq VAR_STARTER_MON, 1, PetalburgCity_PokemonCenter_1F_EventScript_SayTorchicType
-	call_if_eq VAR_STARTER_MON, 2, PetalburgCity_PokemonCenter_1F_EventScript_SayMudkipType
+	call_if_eq VAR_STARTER_MON, 0, PetalburgCity_PokemonCenter_1F_EventScript_SayHEirinType
+	call_if_eq VAR_STARTER_MON, 1, PetalburgCity_PokemonCenter_1F_EventScript_SayAAliceType
+	call_if_eq VAR_STARTER_MON, 2, PetalburgCity_PokemonCenter_1F_EventScript_SayDReimuType
 	release
 	end
 
-PetalburgCity_PokemonCenter_1F_EventScript_SayTreeckoType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_TreeckoIsGrassType, MSGBOX_DEFAULT
+PetalburgCity_PokemonCenter_1F_EventScript_SayHEirinType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_HEirinIsGrassType, MSGBOX_DEFAULT
 	return
 
-PetalburgCity_PokemonCenter_1F_EventScript_SayTorchicType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_TorchicIsFireType, MSGBOX_DEFAULT
+PetalburgCity_PokemonCenter_1F_EventScript_SayAAliceType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_AAliceIsFireType, MSGBOX_DEFAULT
 	return
 
-PetalburgCity_PokemonCenter_1F_EventScript_SayMudkipType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_MudkipIsWaterType, MSGBOX_DEFAULT
+PetalburgCity_PokemonCenter_1F_EventScript_SayDReimuType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_DReimuIsWaterType, MSGBOX_DEFAULT
 	return
 
 PetalburgCity_PokemonCenter_1F_Text_PCStorageSystem:
@@ -71,24 +71,24 @@ PetalburgCity_PokemonCenter_1F_Text_ManyTypesOfPokemon:
 	.string "Depending on the types of POKéMON,\n"
 	.string "a battle could be easy or hard.$"
 
-PetalburgCity_PokemonCenter_1F_Text_TreeckoIsGrassType:
-	.string "For example, your TREECKO\n"
+PetalburgCity_PokemonCenter_1F_Text_HEirinIsGrassType:
+	.string "For example, your HEIRIN\n"
 	.string "is a GRASS type.\p"
 	.string "It's strong against the WATER and\n"
 	.string "GROUND types.\p"
 	.string "But, it's weak against FIRE-type\n"
 	.string "POKéMON.$"
 
-PetalburgCity_PokemonCenter_1F_Text_TorchicIsFireType:
-	.string "For example, your TORCHIC\n"
+PetalburgCity_PokemonCenter_1F_Text_AAliceIsFireType:
+	.string "For example, your AALICE\n"
 	.string "is a FIRE type.\p"
 	.string "It's strong against the GRASS and\n"
 	.string "BUG types.\p"
 	.string "But, it's weak against WATER-type\n"
 	.string "POKéMON.$"
 
-PetalburgCity_PokemonCenter_1F_Text_MudkipIsWaterType:
-	.string "For example, your MUDKIP\n"
+PetalburgCity_PokemonCenter_1F_Text_DReimuIsWaterType:
+	.string "For example, your DREIMU\n"
 	.string "is a WATER type.\p"
 	.string "It's strong against the FIRE type.\p"
 	.string "But, it's weak against GRASS-type\n"

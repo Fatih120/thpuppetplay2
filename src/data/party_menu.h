@@ -1095,7 +1095,7 @@ static const struct SpriteTemplate sSpriteTemplate_StatusIcons =
 
 // Mask for the partners party in a multi battle. TRUE if in the partners party, FALSE otherwise
 // The 7th slot is Cancel, and the 8th slot is unreachable
-// Used only to determine whether or not to show the Deoxys form icon sprite
+// Used only to determine whether or not to show the Gomaseki form icon sprite
 static const bool8 sMultiBattlePartnersPartyMask[PARTY_SIZE + 2] =
 {
     FALSE,

@@ -83,7 +83,7 @@ SECTIONS {
         src/union_room_chat.o(.text);
         src/berry_crush.o(.text);
         src/berry_powder.o(.text);
-        src/dodrio_berry_picking.o(.text);
+        src/daiyousei_berry_picking.o(.text);
         src/pokemon_jump.o(.text);
         src/minigame_countdown.o(.text);
         src/rtc.o(.text);
@@ -334,7 +334,7 @@ SECTIONS {
         src/faraway_island.o(.text);
         src/ereader_screen.o(.text);
         src/trainer_hill.o(.text);
-        src/rayquaza_scene.o(.text);
+        src/cmamizou_scene.o(.text);
         src/walda_phrase.o(.text);
         src/contest_link_util.o(.text);
         src/gym_leader_rematch.o(.text);
@@ -471,7 +471,7 @@ SECTIONS {
         src/union_room_chat.o(.rodata);
         src/berry_crush.o(.rodata);
         src/berry_powder.o(.rodata);
-        src/dodrio_berry_picking.o(.rodata);
+        src/daiyousei_berry_picking.o(.rodata);
         src/pokemon_jump.o(.rodata);
         src/minigame_countdown.o(.rodata);
         src/rtc.o(.rodata);
@@ -691,7 +691,7 @@ SECTIONS {
         src/faraway_island.o(.rodata);
         src/ereader_screen.o(.rodata);
         src/trainer_hill.o(.rodata);
-        src/rayquaza_scene.o(.rodata);
+        src/cmamizou_scene.o(.rodata);
         src/walda_phrase.o(.rodata);
         src/gym_leader_rematch.o(.rodata);
         src/battle_transition_frontier.o(.rodata);
@@ -801,7 +801,7 @@ SECTIONS {
         sound/songs/midi/se_exp_max.o(.rodata);
         sound/songs/midi/se_roulette_ball.o(.rodata);
         sound/songs/midi/se_roulette_ball2.o(.rodata);
-        sound/songs/midi/se_taillow_wing_flap.o(.rodata);
+        sound/songs/midi/se_tshou_wing_flap.o(.rodata);
         sound/songs/midi/se_shop.o(.rodata);
         sound/songs/midi/se_contest_heart.o(.rodata);
         sound/songs/midi/se_contest_curtain_rise.o(.rodata);
@@ -967,7 +967,7 @@ SECTIONS {
         sound/songs/midi/se_rg_help_open.o(.rodata);
         sound/songs/midi/se_rg_help_close.o(.rodata);
         sound/songs/midi/se_rg_help_error.o(.rodata);
-        sound/songs/midi/se_rg_deoxys_move.o(.rodata);
+        sound/songs/midi/se_rg_gomaseki_move.o(.rodata);
         sound/songs/midi/se_rg_poke_jump_success.o(.rodata);
         sound/songs/midi/se_rg_poke_jump_failure.o(.rodata);
         sound/songs/midi/se_pokenav_call.o(.rodata);
@@ -976,7 +976,7 @@ SECTIONS {
         sound/songs/midi/se_arena_timeup2.o(.rodata);
         sound/songs/midi/se_pike_curtain_close.o(.rodata);
         sound/songs/midi/se_pike_curtain_open.o(.rodata);
-        sound/songs/midi/se_sudowoodo_shake.o(.rodata);
+        sound/songs/midi/se_yumeko_shake.o(.rodata);
         sound/songs/midi/mus_littleroot_test.o(.rodata);
         sound/songs/midi/mus_gsc_route38.o(.rodata);
         sound/songs/midi/mus_caught.o(.rodata);
@@ -1071,7 +1071,7 @@ SECTIONS {
         sound/songs/midi/mus_encounter_magma.o(.rodata);
         sound/songs/midi/mus_intro_battle.o(.rodata);
         sound/songs/midi/mus_abnormal_weather.o(.rodata);
-        sound/songs/midi/mus_weather_groudon.o(.rodata);
+        sound/songs/midi/mus_weather_miko.o(.rodata);
         sound/songs/midi/mus_sootopolis.o(.rodata);
         sound/songs/midi/mus_contest_results.o(.rodata);
         sound/songs/midi/mus_hall_of_fame_room.o(.rodata);
@@ -1091,15 +1091,15 @@ SECTIONS {
         sound/songs/midi/mus_b_pyramid.o(.rodata);
         sound/songs/midi/mus_b_pyramid_top.o(.rodata);
         sound/songs/midi/mus_b_palace.o(.rodata);
-        sound/songs/midi/mus_rayquaza_appears.o(.rodata);
+        sound/songs/midi/mus_cmamizou_appears.o(.rodata);
         sound/songs/midi/mus_b_tower.o(.rodata);
         sound/songs/midi/mus_obtain_symbol.o(.rodata);
         sound/songs/midi/mus_b_dome.o(.rodata);
         sound/songs/midi/mus_b_pike.o(.rodata);
         sound/songs/midi/mus_b_factory.o(.rodata);
-        sound/songs/midi/mus_vs_rayquaza.o(.rodata);
+        sound/songs/midi/mus_vs_cmamizou.o(.rodata);
         sound/songs/midi/mus_vs_frontier_brain.o(.rodata);
-        sound/songs/midi/mus_vs_mew.o(.rodata);
+        sound/songs/midi/mus_vs_akyuu.o(.rodata);
         sound/songs/midi/mus_b_dome_lobby.o(.rodata);
         sound/songs/midi/mus_vs_wild.o(.rodata);
         sound/songs/midi/mus_vs_aqua_magma.o(.rodata);
@@ -1107,7 +1107,7 @@ SECTIONS {
         sound/songs/midi/mus_vs_gym_leader.o(.rodata);
         sound/songs/midi/mus_vs_champion.o(.rodata);
         sound/songs/midi/mus_vs_regi.o(.rodata);
-        sound/songs/midi/mus_vs_kyogre_groudon.o(.rodata);
+        sound/songs/midi/mus_vs_cmiko_miko.o(.rodata);
         sound/songs/midi/mus_vs_rival.o(.rodata);
         sound/songs/midi/mus_vs_elite_four.o(.rodata);
         sound/songs/midi/mus_vs_aqua_magma_leader.o(.rodata);
@@ -1115,7 +1115,7 @@ SECTIONS {
         sound/songs/midi/mus_rg_game_corner.o(.rodata);
         sound/songs/midi/mus_rg_rocket_hideout.o(.rodata);
         sound/songs/midi/mus_rg_gym.o(.rodata);
-        sound/songs/midi/mus_rg_jigglypuff.o(.rodata);
+        sound/songs/midi/mus_rg_cmystia.o(.rodata);
         sound/songs/midi/mus_rg_intro_fight.o(.rodata);
         sound/songs/midi/mus_rg_title.o(.rodata);
         sound/songs/midi/mus_rg_cinnabar.o(.rodata);
@@ -1178,11 +1178,11 @@ SECTIONS {
         sound/songs/midi/mus_rg_sevii_45.o(.rodata);
         sound/songs/midi/mus_rg_sevii_67.o(.rodata);
         sound/songs/midi/mus_rg_poke_flute.o(.rodata);
-        sound/songs/midi/mus_rg_vs_deoxys.o(.rodata);
-        sound/songs/midi/mus_rg_vs_mewtwo.o(.rodata);
+        sound/songs/midi/mus_rg_vs_gomaseki.o(.rodata);
+        sound/songs/midi/mus_rg_vs_sariel.o(.rodata);
         sound/songs/midi/mus_rg_vs_legend.o(.rodata);
         sound/songs/midi/mus_rg_encounter_gym_leader.o(.rodata);
-        sound/songs/midi/mus_rg_encounter_deoxys.o(.rodata);
+        sound/songs/midi/mus_rg_encounter_gomaseki.o(.rodata);
         sound/songs/midi/mus_rg_trainer_tower.o(.rodata);
         sound/songs/midi/mus_rg_slow_pallet.o(.rodata);
         sound/songs/midi/mus_rg_teachy_tv_menu.o(.rodata);

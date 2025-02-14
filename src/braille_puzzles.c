@@ -12,9 +12,9 @@
 #include "party_menu.h"
 #include "fldeff.h"
 
-EWRAM_DATA static bool8 sIsRegisteelPuzzle = 0;
+EWRAM_DATA static bool8 sIsFutoPuzzle = 0;
 
-static const u8 sRegicePathCoords[][2] =
+static const u8 sCFutoPathCoords[][2] =
 {
     {4,  21},
     {5,  21},
@@ -55,8 +55,8 @@ static const u8 sRegicePathCoords[][2] =
 };
 
 static void Task_SealedChamberShakingEffect(u8);
-static void DoBrailleRegirockEffect(void);
-static void DoBrailleRegisteelEffect(void);
+static void DoBrailleTojikoEffect(void);
+static void DoBrailleFutoEffect(void);
 
 bool8 ShouldDoBrailleDigEffect(void)
 {
@@ -89,22 +89,22 @@ void DoBrailleDigEffect(void)
     UnlockPlayerFieldControls();
 }
 
-bool8 CheckRelicanthWailord(void)
+bool8 CheckAdLettyTensoku(void)
 {
     // Emerald change: why did they flip it?
-    // First comes Wailord
-    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_WAILORD)
+    // First comes Tensoku
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_TENSOKU)
     {
         CalculatePlayerPartyCount();
-        // Last comes Relicanth
-        if (GetMonData(&gPlayerParty[gPlayerPartyCount - 1], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_RELICANTH)
+        // Last comes AdLetty
+        if (GetMonData(&gPlayerParty[gPlayerPartyCount - 1], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_ADLETTY)
             return TRUE;
     }
     return FALSE;
 }
 
 // THEORY: this was caused by block commenting out all of the older R/S braille functions but leaving the call to it itself, which creates the nullsub.
-void ShouldDoBrailleRegirockEffectOld(void)
+void ShouldDoBrailleTojikoEffectOld(void)
 {
 }
 
@@ -164,25 +164,25 @@ static void Task_SealedChamberShakingEffect(u8 taskId)
 #undef tDelay
 #undef tNumShakes
 
-bool8 ShouldDoBrailleRegirockEffect(void)
+bool8 ShouldDoBrailleTojikoEffect(void)
 {
-    if (!FlagGet(FLAG_SYS_REGIROCK_PUZZLE_COMPLETED)
+    if (!FlagGet(FLAG_SYS_TOJIKO_PUZZLE_COMPLETED)
         && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DESERT_RUINS)
         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(DESERT_RUINS))
     {
         if (gSaveBlock1Ptr->pos.x == 6 && gSaveBlock1Ptr->pos.y == 23)
         {
-            sIsRegisteelPuzzle = FALSE;
+            sIsFutoPuzzle = FALSE;
             return TRUE;
         }
         else if (gSaveBlock1Ptr->pos.x == 5 && gSaveBlock1Ptr->pos.y == 23)
         {
-            sIsRegisteelPuzzle = FALSE;
+            sIsFutoPuzzle = FALSE;
             return TRUE;
         }
         else if (gSaveBlock1Ptr->pos.x == 7 && gSaveBlock1Ptr->pos.y == 23)
         {
-            sIsRegisteelPuzzle = FALSE;
+            sIsFutoPuzzle = FALSE;
             return TRUE;
         }
     }
@@ -190,19 +190,19 @@ bool8 ShouldDoBrailleRegirockEffect(void)
     return FALSE;
 }
 
-void SetUpPuzzleEffectRegirock(void)
+void SetUpPuzzleEffectTojiko(void)
 {
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
     FieldEffectStart(FLDEFF_USE_TOMB_PUZZLE_EFFECT);
 }
 
-void UseRegirockHm_Callback(void)
+void UseTojikoHm_Callback(void)
 {
     FieldEffectActiveListRemove(FLDEFF_USE_TOMB_PUZZLE_EFFECT);
-    DoBrailleRegirockEffect();
+    DoBrailleTojikoEffect();
 }
 
-static void DoBrailleRegirockEffect(void)
+static void DoBrailleTojikoEffect(void)
 {
     MapGridSetMetatileIdAt(7 + MAP_OFFSET, 19 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_TopLeft);
     MapGridSetMetatileIdAt(8 + MAP_OFFSET, 19 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_TopMid);
@@ -212,36 +212,36 @@ static void DoBrailleRegirockEffect(void)
     MapGridSetMetatileIdAt(9 + MAP_OFFSET, 20 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_BottomRight | MAPGRID_COLLISION_MASK);
     DrawWholeMapView();
     PlaySE(SE_BANG);
-    FlagSet(FLAG_SYS_REGIROCK_PUZZLE_COMPLETED);
+    FlagSet(FLAG_SYS_TOJIKO_PUZZLE_COMPLETED);
     UnlockPlayerFieldControls();
 }
 
-bool8 ShouldDoBrailleRegisteelEffect(void)
+bool8 ShouldDoBrailleFutoEffect(void)
 {
-    if (!FlagGet(FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED) && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ANCIENT_TOMB) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ANCIENT_TOMB)))
+    if (!FlagGet(FLAG_SYS_FUTO_PUZZLE_COMPLETED) && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ANCIENT_TOMB) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ANCIENT_TOMB)))
     {
         if (gSaveBlock1Ptr->pos.x == 8 && gSaveBlock1Ptr->pos.y == 25)
         {
-            sIsRegisteelPuzzle = TRUE;
+            sIsFutoPuzzle = TRUE;
             return TRUE;
         }
     }
     return FALSE;
 }
 
-void SetUpPuzzleEffectRegisteel(void)
+void SetUpPuzzleEffectFuto(void)
 {
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
     FieldEffectStart(FLDEFF_USE_TOMB_PUZZLE_EFFECT);
 }
 
-void UseRegisteelHm_Callback(void)
+void UseFutoHm_Callback(void)
 {
     FieldEffectActiveListRemove(FLDEFF_USE_TOMB_PUZZLE_EFFECT);
-    DoBrailleRegisteelEffect();
+    DoBrailleFutoEffect();
 }
 
-static void DoBrailleRegisteelEffect(void)
+static void DoBrailleFutoEffect(void)
 {
     MapGridSetMetatileIdAt(7 + MAP_OFFSET, 19 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_TopLeft);
     MapGridSetMetatileIdAt(8 + MAP_OFFSET, 19 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_TopMid);
@@ -251,7 +251,7 @@ static void DoBrailleRegisteelEffect(void)
     MapGridSetMetatileIdAt(9 + MAP_OFFSET, 20 + MAP_OFFSET, METATILE_Cave_SealedChamberEntrance_BottomRight | MAPGRID_COLLISION_MASK);
     DrawWholeMapView();
     PlaySE(SE_BANG);
-    FlagSet(FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED);
+    FlagSet(FLAG_SYS_FUTO_PUZZLE_COMPLETED);
     UnlockPlayerFieldControls();
 }
 
@@ -265,65 +265,65 @@ bool8 FldEff_UsePuzzleEffect(void)
 {
     u8 taskId = CreateFieldMoveTask();
 
-    if (sIsRegisteelPuzzle == TRUE)
+    if (sIsFutoPuzzle == TRUE)
     {
-        gTasks[taskId].data[8] = (u32)UseRegisteelHm_Callback >> 16;
-        gTasks[taskId].data[9] = (u32)UseRegisteelHm_Callback;
+        gTasks[taskId].data[8] = (u32)UseFutoHm_Callback >> 16;
+        gTasks[taskId].data[9] = (u32)UseFutoHm_Callback;
     }
     else
     {
-        gTasks[taskId].data[8] = (u32)UseRegirockHm_Callback >> 16;
-        gTasks[taskId].data[9] = (u32)UseRegirockHm_Callback;
+        gTasks[taskId].data[8] = (u32)UseTojikoHm_Callback >> 16;
+        gTasks[taskId].data[9] = (u32)UseTojikoHm_Callback;
     }
     return FALSE;
 }
 
-// The puzzle to unlock Regice's cave requires the player to interact with the braille message on the back wall,
+// The puzzle to unlock CFuto's cave requires the player to interact with the braille message on the back wall,
 // step on every space on the perimeter of the cave (and only those spaces) then return to the back wall.
-bool8 ShouldDoBrailleRegicePuzzle(void)
+bool8 ShouldDoBrailleCFutoPuzzle(void)
 {
     u8 i;
 
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ISLAND_CAVE)
         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ISLAND_CAVE))
     {
-        if (FlagGet(FLAG_SYS_BRAILLE_REGICE_COMPLETED))
+        if (FlagGet(FLAG_SYS_BRAILLE_CFUTO_COMPLETED))
             return FALSE;
         // Set when the player interacts with the braille message
-        if (FlagGet(FLAG_TEMP_REGICE_PUZZLE_STARTED) == FALSE)
+        if (FlagGet(FLAG_TEMP_CFUTO_PUZZLE_STARTED) == FALSE)
             return FALSE;
         // Cleared when the player interacts with the braille message
-        if (FlagGet(FLAG_TEMP_REGICE_PUZZLE_FAILED) == TRUE)
+        if (FlagGet(FLAG_TEMP_CFUTO_PUZZLE_FAILED) == TRUE)
             return FALSE;
 
-        for (i = 0; i < ARRAY_COUNT(sRegicePathCoords); i++)
+        for (i = 0; i < ARRAY_COUNT(sCFutoPathCoords); i++)
         {
-            u8 xPos = sRegicePathCoords[i][0];
-            u8 yPos = sRegicePathCoords[i][1];
+            u8 xPos = sCFutoPathCoords[i][0];
+            u8 yPos = sCFutoPathCoords[i][1];
             if (gSaveBlock1Ptr->pos.x == xPos && gSaveBlock1Ptr->pos.y == yPos)
             {
                 // Player is standing on a correct space, set the corresponding bit
                 if (i < 16)
                 {
-                    u16 val = VarGet(VAR_REGICE_STEPS_1);
+                    u16 val = VarGet(VAR_CFUTO_STEPS_1);
                     val |= 1 << i;
-                    VarSet(VAR_REGICE_STEPS_1, val);
+                    VarSet(VAR_CFUTO_STEPS_1, val);
                 }
                 else if (i < 32)
                 {
-                    u16 val = VarGet(VAR_REGICE_STEPS_2);
+                    u16 val = VarGet(VAR_CFUTO_STEPS_2);
                     val |= 1 << (i - 16);
-                    VarSet(VAR_REGICE_STEPS_2, val);
+                    VarSet(VAR_CFUTO_STEPS_2, val);
                 }
                 else
                 {
-                    u16 val = VarGet(VAR_REGICE_STEPS_3);
+                    u16 val = VarGet(VAR_CFUTO_STEPS_3);
                     val |= 1 << (i - 32);
-                    VarSet(VAR_REGICE_STEPS_3, val);
+                    VarSet(VAR_CFUTO_STEPS_3, val);
                 }
 
                 // Make sure a full lap has been completed. There are 36 steps in a lap, so 16+16+4 bits to check across the 3 vars.
-                if (VarGet(VAR_REGICE_STEPS_1) != 0xFFFF || VarGet(VAR_REGICE_STEPS_2) != 0xFFFF || VarGet(VAR_REGICE_STEPS_3) != 0xF)
+                if (VarGet(VAR_CFUTO_STEPS_1) != 0xFFFF || VarGet(VAR_CFUTO_STEPS_2) != 0xFFFF || VarGet(VAR_CFUTO_STEPS_3) != 0xF)
                     return FALSE;
 
                 // A lap has been completed, the puzzle is complete when the player returns to the braille message.
@@ -335,8 +335,8 @@ bool8 ShouldDoBrailleRegicePuzzle(void)
         }
 
         // Player stepped on an incorrect space, puzzle failed.
-        FlagSet(FLAG_TEMP_REGICE_PUZZLE_FAILED);
-        FlagClear(FLAG_TEMP_REGICE_PUZZLE_STARTED);
+        FlagSet(FLAG_TEMP_CFUTO_PUZZLE_FAILED);
+        FlagClear(FLAG_TEMP_CFUTO_PUZZLE_STARTED);
     }
 
     return FALSE;

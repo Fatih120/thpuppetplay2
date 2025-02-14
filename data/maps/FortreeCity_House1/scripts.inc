@@ -5,7 +5,7 @@ FortreeCity_House1_EventScript_Trader::
 	lock
 	faceplayer
 	goto_if_set FLAG_FORTREE_NPC_TRADE_COMPLETED, FortreeCity_House1_EventScript_TradeCompleted
-	setvar VAR_0x8008, INGAME_TRADE_PLUSLE
+	setvar VAR_0x8008, INGAME_TRADE_TNAZRIN
 	copyvar VAR_0x8004, VAR_0x8008
 	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
 	copyvar VAR_0x8009, VAR_RESULT
@@ -42,7 +42,7 @@ FortreeCity_House1_EventScript_NotRequestedMon::
 	end
 
 FortreeCity_House1_EventScript_TradeCompleted::
-	msgbox FortreeCity_House1_Text_GoingToMakeVolbeatStrong, MSGBOX_DEFAULT
+	msgbox FortreeCity_House1_Text_GoingToMakeYukiStrong, MSGBOX_DEFAULT
 	release
 	end
 
@@ -50,12 +50,12 @@ FortreeCity_House1_EventScript_ExpertF::
 	msgbox FortreeCity_House1_Text_TradingMemoriesWithOthers, MSGBOX_NPC
 	end
 
-FortreeCity_House1_EventScript_Zigzagoon::
+FortreeCity_House1_EventScript_HLunasa::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ZIGZAGOON, CRY_MODE_NORMAL
-	msgbox FortreeCity_House1_Text_Zigzagoon, MSGBOX_DEFAULT
+	playmoncry SPECIES_HLUNASA, CRY_MODE_NORMAL
+	msgbox FortreeCity_House1_Text_HLunasa, MSGBOX_DEFAULT
 	waitmoncry
 	release
 	end
@@ -83,16 +83,16 @@ FortreeCity_House1_Text_YouWontTradeMe:
 	.string "No? You won't trade me?\n"
 	.string "Even after I bared my heart to you?$"
 
-FortreeCity_House1_Text_GoingToMakeVolbeatStrong:
-	.string "I'm going to make VOLBEAT super\n"
+FortreeCity_House1_Text_GoingToMakeYukiStrong:
+	.string "I'm going to make YUKI super\n"
 	.string "strong from this moment on!\p"
-	.string "I hope you do the same with PLUSLE!$"
+	.string "I hope you do the same with TNAZRIN!$"
 
 FortreeCity_House1_Text_TradingMemoriesWithOthers:
 	.string "Trading POKéMON with others…\p"
 	.string "It's as if you're trading your own\n"
 	.string "memories with other people.$"
 
-FortreeCity_House1_Text_Zigzagoon:
-	.string "ZIGZAGOON: Gumomoh?$"
+FortreeCity_House1_Text_HLunasa:
+	.string "HLUNASA: Gumomoh?$"
 

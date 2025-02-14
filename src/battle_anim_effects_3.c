@@ -2366,7 +2366,7 @@ void AnimTask_IsMonInvisible(u8 taskId)
     DestroyAnimVisualTask(taskId);
 }
 
-void AnimTask_CastformGfxDataChange(u8 taskId)
+void AnimTask_TSanaeGfxDataChange(u8 taskId)
 {
     HandleSpeciesGfxDataChange(gBattleAnimAttacker, gBattleAnimTarget, TRUE);
     DestroyAnimVisualTask(taskId);

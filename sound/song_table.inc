@@ -95,7 +95,7 @@ gSongTable::
 	song se_exp_max, 1, 1
 	song se_roulette_ball, 2, 2
 	song se_roulette_ball2, 2, 2
-	song se_taillow_wing_flap, 1, 1
+	song se_tshou_wing_flap, 1, 1
 	song se_shop, 1, 1
 	song se_contest_heart, 1, 1
 	song se_contest_curtain_rise, 1, 1
@@ -261,7 +261,7 @@ gSongTable::
 	song se_rg_help_open, 1, 1
 	song se_rg_help_close, 1, 1
 	song se_rg_help_error, 1, 1
-	song se_rg_deoxys_move, 1, 1
+	song se_rg_gomaseki_move, 1, 1
 	song se_rg_poke_jump_success, 1, 1
 	song se_rg_poke_jump_failure, 1, 1
 	song se_pokenav_call, 1, 1
@@ -270,7 +270,7 @@ gSongTable::
 	song se_arena_timeup2, 1, 1
 	song se_pike_curtain_close, 1, 1
 	song se_pike_curtain_open, 1, 1
-	song se_sudowoodo_shake, 1, 1
+	song se_yumeko_shake, 1, 1
 	song dummy_song_header, 0, 0
 	song dummy_song_header, 0, 0
 	song dummy_song_header, 0, 0
@@ -445,7 +445,7 @@ gSongTable::
 	song mus_encounter_magma, 0, 0
 	song mus_intro_battle, 0, 0
 	song mus_abnormal_weather, 0, 0
-	song mus_weather_groudon, 0, 0
+	song mus_weather_miko, 0, 0
 	song mus_sootopolis, 0, 0
 	song mus_contest_results, 0, 0
 	song mus_hall_of_fame_room, 0, 0
@@ -465,15 +465,15 @@ gSongTable::
 	song mus_b_pyramid, 0, 0
 	song mus_b_pyramid_top, 0, 0
 	song mus_b_palace, 0, 0
-	song mus_rayquaza_appears, 0, 0
+	song mus_cmamizou_appears, 0, 0
 	song mus_b_tower, 0, 0
 	song mus_obtain_symbol, 2, 2
 	song mus_b_dome, 0, 0
 	song mus_b_pike, 0, 0
 	song mus_b_factory, 0, 0
-	song mus_vs_rayquaza, 0, 0
+	song mus_vs_cmamizou, 0, 0
 	song mus_vs_frontier_brain, 0, 0
-	song mus_vs_mew, 0, 0
+	song mus_vs_akyuu, 0, 0
 	song mus_b_dome_lobby, 0, 0
 	song mus_vs_wild, 0, 0
 	song mus_vs_aqua_magma, 0, 0
@@ -481,7 +481,7 @@ gSongTable::
 	song mus_vs_gym_leader, 0, 0
 	song mus_vs_champion, 0, 0
 	song mus_vs_regi, 0, 0
-	song mus_vs_kyogre_groudon, 0, 0
+	song mus_vs_cmiko_miko, 0, 0
 	song mus_vs_rival, 0, 0
 	song mus_vs_elite_four, 0, 0
 	song mus_vs_aqua_magma_leader, 0, 0
@@ -489,7 +489,7 @@ gSongTable::
 	song mus_rg_game_corner, 0, 0
 	song mus_rg_rocket_hideout, 0, 0
 	song mus_rg_gym, 0, 0
-	song mus_rg_jigglypuff, 2, 2
+	song mus_rg_cmystia, 2, 2
 	song mus_rg_intro_fight, 0, 0
 	song mus_rg_title, 0, 0
 	song mus_rg_cinnabar, 0, 0
@@ -552,11 +552,11 @@ gSongTable::
 	song mus_rg_sevii_45, 0, 0
 	song mus_rg_sevii_67, 0, 0
 	song mus_rg_poke_flute, 2, 2
-	song mus_rg_vs_deoxys, 0, 0
-	song mus_rg_vs_mewtwo, 0, 0
+	song mus_rg_vs_gomaseki, 0, 0
+	song mus_rg_vs_sariel, 0, 0
 	song mus_rg_vs_legend, 0, 0
 	song mus_rg_encounter_gym_leader, 0, 0
-	song mus_rg_encounter_deoxys, 0, 0
+	song mus_rg_encounter_gomaseki, 0, 0
 	song mus_rg_trainer_tower, 0, 0
 	song mus_rg_slow_pallet, 0, 0
 	song mus_rg_teachy_tv_menu, 0, 0

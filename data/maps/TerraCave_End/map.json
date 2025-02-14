@@ -15,7 +15,7 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_GROUDON_FRONT",
+      "graphics_id": "OBJ_EVENT_GFX_MIKO_FRONT",
       "x": 17,
       "y": 22,
       "elevation": 1,
@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_TERRA_CAVE_GROUDON"
+      "flag": "FLAG_HIDE_TERRA_CAVE_MIKO"
     }
   ],
   "warp_events": [
@@ -45,7 +45,7 @@
       "elevation": 3,
       "var": "VAR_TEMP_1",
       "var_value": "1",
-      "script": "TerraCave_End_EventScript_Groudon"
+      "script": "TerraCave_End_EventScript_Miko"
     }
   ],
   "bg_events": []

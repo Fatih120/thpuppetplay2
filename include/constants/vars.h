@@ -50,7 +50,7 @@
 #define VAR_RECYCLE_GOODS                                0x4020
 #define VAR_REPEL_STEP_COUNT                             0x4021
 #define VAR_ICE_STEP_COUNT                               0x4022
-#define VAR_STARTER_MON                                  0x4023 // 0=Treecko, 1=Torchic, 2=Mudkip
+#define VAR_STARTER_MON                                  0x4023 // 0=HEirin, 1=AAlice, 2=DReimu
 #define VAR_MIRAGE_RND_H                                 0x4024
 #define VAR_MIRAGE_RND_L                                 0x4025
 #define VAR_SECRET_BASE_MAP                              0x4026
@@ -69,16 +69,16 @@
 #define VAR_FRONTIER_GAMBLER_AMOUNT_BET                  0x4032
 #define VAR_FRONTIER_GAMBLER_STATE                       0x4033
 
-#define VAR_DEOXYS_ROCK_STEP_COUNT                       0x4034
-#define VAR_DEOXYS_ROCK_LEVEL                            0x4035
+#define VAR_GOMASEKI_ROCK_STEP_COUNT                       0x4034
+#define VAR_GOMASEKI_ROCK_LEVEL                            0x4035
 #define VAR_PC_BOX_TO_SEND_MON                           0x4036
 #define VAR_ABNORMAL_WEATHER_LOCATION                    0x4037
 #define VAR_ABNORMAL_WEATHER_STEP_COUNTER                0x4038
 #define VAR_SHOULD_END_ABNORMAL_WEATHER                  0x4039
 #define VAR_FARAWAY_ISLAND_STEP_COUNTER                  0x403A
-#define VAR_REGICE_STEPS_1                               0x403B
-#define VAR_REGICE_STEPS_2                               0x403C
-#define VAR_REGICE_STEPS_3                               0x403D
+#define VAR_CFUTO_STEPS_1                               0x403B
+#define VAR_CFUTO_STEPS_2                               0x403C
+#define VAR_CFUTO_STEPS_3                               0x403D
 #define VAR_ALTERING_CAVE_WILD_SET                       0x403E
 #define VAR_DISTRIBUTE_EON_TICKET                        0x403F // This var is read and written, but is always zero. The only way to obtain the Eon Ticket in Emerald is via Record Mixing
 #define VAR_DAYS                                         0x4040
@@ -88,7 +88,7 @@
 #define VAR_TRICK_HOUSE_LEVEL                            0x4044
 #define VAR_POKELOT_PRIZE_ITEM                           0x4045
 #define VAR_NATIONAL_DEX                                 0x4046
-#define VAR_SEEDOT_SIZE_RECORD                           0x4047
+#define VAR_SRIN_SIZE_RECORD                           0x4047
 #define VAR_ASH_GATHER_COUNT                             0x4048
 #define VAR_BIRCH_STATE                                  0x4049
 #define VAR_CRUISE_STEP_COUNT                            0x404A
@@ -96,7 +96,7 @@
 #define VAR_POKELOT_RND2                                 0x404C
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
 #define VAR_UNUSED_0x404E                                0x404E // Unused Var
-#define VAR_LOTAD_SIZE_RECORD                            0x404F
+#define VAR_AHINA_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
 #define VAR_OLDALE_TOWN_STATE                            0x4051
 #define VAR_DEWFORD_TOWN_STATE                           0x4052 // Unused Var
@@ -230,15 +230,15 @@
 #define VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE               0x40D2
 #define VAR_DEX_UPGRADE_JOHTO_STARTER_STATE              0x40D3
 #define VAR_SS_TIDAL_SCOTT_STATE                         0x40D4 // Always equal to FLAG_MET_SCOTT_ON_SS_TIDAL
-#define VAR_ROAMER_POKEMON                               0x40D5 // 0 = Latias, 1 = Latios
+#define VAR_ROAMER_POKEMON                               0x40D5 // 0 = Mamizou, 1 = CKasen
 #define VAR_TRAINER_HILL_IS_ACTIVE                       0x40D6
-#define VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE                 0x40D7
+#define VAR_SKY_PILLAR_CMAMIZOU_CRY_DONE                 0x40D7
 #define VAR_SOOTOPOLIS_WALLACE_STATE                     0x40D8
 #define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
 #define VAR_REGISTER_BIRCH_STATE                         0x40DA
 #define VAR_UNUSED_0x40DB                                0x40DB // Unused Var
 #define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
-#define VAR_GIFT_PICHU_SLOT                              0x40DD
+#define VAR_GIFT_CLUIZE_SLOT                              0x40DD
 #define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
 #define VAR_GIFT_UNUSED_2                                0x40DF // Var is written to, but never read
 #define VAR_GIFT_UNUSED_3                                0x40E0 // Var is written to, but never read
@@ -263,7 +263,7 @@
 #define VAR_SCOTT_FORTREE_CALL_STEP_COUNTER              0x40F3
 #define VAR_ROXANNE_CALL_STEP_COUNTER                    0x40F4
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER                   0x40F5
-#define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0x40F6
+#define VAR_RIVAL_CMAMIZOU_CALL_STEP_COUNTER             0x40F6
 #define VAR_UNUSED_0x40F7                                0x40F7 // Unused Var
 #define VAR_UNUSED_0x40F8                                0x40F8 // Unused Var
 #define VAR_UNUSED_0x40F9                                0x40F9 // Unused Var

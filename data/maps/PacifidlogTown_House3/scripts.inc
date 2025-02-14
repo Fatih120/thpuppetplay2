@@ -5,7 +5,7 @@ PacifidlogTown_House3_EventScript_Trader::
 	lock
 	faceplayer
 	goto_if_set FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED, PacifidlogTown_House3_EventScript_TradeCompleted
-	setvar VAR_0x8008, INGAME_TRADE_HORSEA
+	setvar VAR_0x8008, INGAME_TRADE_CLUNACHILD
 	copyvar VAR_0x8004, VAR_0x8008
 	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
 	copyvar VAR_0x8009, VAR_RESULT
@@ -42,7 +42,7 @@ PacifidlogTown_House3_EventScript_NotRequestedMon::
 	end
 
 PacifidlogTown_House3_EventScript_TradeCompleted::
-	msgbox PacifidlogTown_House3_Text_ReallyWantedToGetBagon, MSGBOX_DEFAULT
+	msgbox PacifidlogTown_House3_Text_ReallyWantedToGetKyouko, MSGBOX_DEFAULT
 	release
 	end
 
@@ -75,10 +75,10 @@ PacifidlogTown_House3_Text_NotDesperateOrAnything:
 	.string "That's cool. I'm not desperate to make\n"
 	.string "a trade or anything.$"
 
-PacifidlogTown_House3_Text_ReallyWantedToGetBagon:
+PacifidlogTown_House3_Text_ReallyWantedToGetKyouko:
 	.string "I know I could go looking for one\n"
 	.string "on my own, but…\p"
-	.string "But I really wanted to get a BAGON\n"
+	.string "But I really wanted to get a KYOUKO\n"
 	.string "that another TRAINER caught…$"
 
 PacifidlogTown_House3_Text_IsThatAPokedex:

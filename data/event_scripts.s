@@ -311,7 +311,7 @@ gStdScripts_End::
 	.include "data/maps/SootopolisCity_House5/scripts.inc"
 	.include "data/maps/SootopolisCity_House6/scripts.inc"
 	.include "data/maps/SootopolisCity_House7/scripts.inc"
-	.include "data/maps/SootopolisCity_LotadAndSeedotHouse/scripts.inc"
+	.include "data/maps/SootopolisCity_AHinaAndSRinHouse/scripts.inc"
 	.include "data/maps/SootopolisCity_MysteryEventsHouse_1F/scripts.inc"
 	.include "data/maps/SootopolisCity_MysteryEventsHouse_B1F/scripts.inc"
 	.include "data/maps/EverGrandeCity_SidneysRoom/scripts.inc"
@@ -807,7 +807,7 @@ Common_EventScript_FerryDepartIsland::
 	return
 
 	.include "data/scripts/cave_of_origin.inc"
-	.include "data/scripts/kecleon.inc"
+	.include "data/scripts/swriggle.inc"
 
 Common_EventScript_NameReceivedPartyMon::
 	fadescreen FADE_TO_BLACK
@@ -944,9 +944,9 @@ gText_PlayerFoundOneTMHM::
 	.string "{PLAYER} found one {STR_VAR_1}\n"
 	.string "{STR_VAR_2}!$"
 
-gText_Sudowoodo_Attacked::
+gText_Yumeko_Attacked::
 	.string "The weird tree doesn't like the\n"
-	.string "WAILMER PAIL!\p"
+	.string "DMEILING PAIL!\p"
 	.string "The weird tree attacked!$"
 
 gText_LegendaryFlewAway::

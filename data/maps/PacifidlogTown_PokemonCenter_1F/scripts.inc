@@ -22,7 +22,7 @@ PacifidlogTown_PokemonCenter_1F_EventScript_Girl::
 	end
 
 PacifidlogTown_PokemonCenter_1F_EventScript_Woman::
-	msgbox PacifidlogTown_PokemonCenter_1F_Text_OnColonyOfCorsola, MSGBOX_NPC
+	msgbox PacifidlogTown_PokemonCenter_1F_Text_OnColonyOfSYoumu, MSGBOX_NPC
 	end
 
 PacifidlogTown_PokemonCenter_1F_EventScript_OldMan::
@@ -33,9 +33,9 @@ PacifidlogTown_PokemonCenter_1F_Text_WhatColorTrainerCard:
 	.string "What color is your TRAINER CARD?\n"
 	.string "Mine's copper!$"
 
-PacifidlogTown_PokemonCenter_1F_Text_OnColonyOfCorsola:
+PacifidlogTown_PokemonCenter_1F_Text_OnColonyOfSYoumu:
 	.string "PACIFIDLOG TOWN floats on top of\n"
-	.string "a colony of CORSOLA.\p"
+	.string "a colony of SYOUMU.\p"
 	.string "If I told you that, would you believe\n"
 	.string "me?$"
 

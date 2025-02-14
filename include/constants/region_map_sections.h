@@ -132,7 +132,7 @@
 #define MAPSEC_S_S_ANNE                     0x80
 #define MAPSEC_UNDERGROUND_PATH             0x81
 #define MAPSEC_UNDERGROUND_PATH_2           0x82
-#define MAPSEC_DIGLETTS_CAVE                0x83
+#define MAPSEC_CYAMAMES_CAVE                0x83
 #define MAPSEC_KANTO_VICTORY_ROAD           0x84
 #define MAPSEC_ROCKET_HIDEOUT               0x85
 #define MAPSEC_SILPH_CO                     0x86

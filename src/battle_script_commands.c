@@ -306,8 +306,8 @@ static void Cmd_switchoutabilities(void);
 static void Cmd_jumpifhasnohp(void);
 static void Cmd_getsecretpowereffect(void);
 static void Cmd_pickup(void);
-static void Cmd_docastformchangeanimation(void);
-static void Cmd_trycastformdatachange(void);
+static void Cmd_dotsanaechangeanimation(void);
+static void Cmd_trytsanaedatachange(void);
 static void Cmd_settypebasedhalvers(void);
 static void Cmd_setweatherballtype(void);
 static void Cmd_tryrecycleitem(void);
@@ -558,8 +558,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_jumpifhasnohp,                           //0xE3
     Cmd_getsecretpowereffect,                    //0xE4
     Cmd_pickup,                                  //0xE5
-    Cmd_docastformchangeanimation,               //0xE6
-    Cmd_trycastformdatachange,                   //0xE7
+    Cmd_dotsanaechangeanimation,               //0xE6
+    Cmd_trytsanaedatachange,                   //0xE7
     Cmd_settypebasedhalvers,                     //0xE8
     Cmd_setweatherballtype,                      //0xE9
     Cmd_tryrecycleitem,                          //0xEA
@@ -1270,8 +1270,8 @@ static void Cmd_critcalc(void)
                 + (gBattleMoves[gCurrentMove].effect == EFFECT_BLAZE_KICK)
                 + (gBattleMoves[gCurrentMove].effect == EFFECT_POISON_TAIL)
                 + (holdEffect == HOLD_EFFECT_SCOPE_LENS)
-                + 2 * (holdEffect == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[gBattlerAttacker].species == SPECIES_CHANSEY)
-                + 2 * (holdEffect == HOLD_EFFECT_STICK && gBattleMons[gBattlerAttacker].species == SPECIES_FARFETCHD);
+                + 2 * (holdEffect == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[gBattlerAttacker].species == SPECIES_ICHIRIN)
+                + 2 * (holdEffect == HOLD_EFFECT_STICK && gBattleMons[gBattlerAttacker].species == SPECIES_RAN);
 
     if (critChance >= ARRAY_COUNT(sCriticalHitChance))
         critChance = ARRAY_COUNT(sCriticalHitChance) - 1;
@@ -9751,28 +9751,28 @@ static void Cmd_pickup(void)
     gBattlescriptCurrInstr++;
 }
 
-static void Cmd_docastformchangeanimation(void)
+static void Cmd_dotsanaechangeanimation(void)
 {
     gActiveBattler = gBattleScripting.battler;
 
     if (gBattleMons[gActiveBattler].status2 & STATUS2_SUBSTITUTE)
-        *(&gBattleStruct->formToChangeInto) |= CASTFORM_SUBSTITUTE;
+        *(&gBattleStruct->formToChangeInto) |= TSANAE_SUBSTITUTE;
 
-    BtlController_EmitBattleAnimation(BUFFER_A, B_ANIM_CASTFORM_CHANGE, gBattleStruct->formToChangeInto);
+    BtlController_EmitBattleAnimation(BUFFER_A, B_ANIM_TSANAE_CHANGE, gBattleStruct->formToChangeInto);
     MarkBattlerForControllerExec(gActiveBattler);
 
     gBattlescriptCurrInstr++;
 }
 
-static void Cmd_trycastformdatachange(void)
+static void Cmd_trytsanaedatachange(void)
 {
     u8 form;
 
     gBattlescriptCurrInstr++;
-    form = CastformDataTypeChange(gBattleScripting.battler);
+    form = TSanaeDataTypeChange(gBattleScripting.battler);
     if (form)
     {
-        BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
+        BattleScriptPushCursorAndCallback(BattleScript_TSanaeChange);
         *(&gBattleStruct->formToChangeInto) = form - 1;
     }
 }

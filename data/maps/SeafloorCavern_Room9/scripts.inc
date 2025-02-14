@@ -1,14 +1,14 @@
-.set LOCALID_KYOGRE, 1
+.set LOCALID_CMIKO, 1
 .set LOCALID_ARCHIE, 2
 .set LOCALID_MAXIE, 3
 .set LOCALID_GRUNT_1, 4
 .set LOCALID_GRUNT_2, 5
-.set LOCALID_KYOGRE_SLEEPING, 7
+.set LOCALID_CMIKO_SLEEPING, 7
 
 SeafloorCavern_Room9_MapScripts::
 	.byte 0
 
-SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
+SeafloorCavern_Room9_EventScript_ArchieAwakenCMiko::
 	lockall
 	setvar VAR_0x8004, LOCALID_ARCHIE
 	setvar VAR_0x8005, LOCALID_MAXIE
@@ -29,7 +29,7 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
 	msgbox SeafloorCavern_Room9_Text_ArchieSoItWasYou, MSGBOX_DEFAULT
 	applymovement VAR_0x8004, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
-	msgbox SeafloorCavern_Room9_Text_ArchieBeholdKyogre, MSGBOX_DEFAULT
+	msgbox SeafloorCavern_Room9_Text_ArchieBeholdCMiko, MSGBOX_DEFAULT
 	applymovement VAR_0x8004, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox SeafloorCavern_Room9_Text_ArchieYouMustDisappear, MSGBOX_DEFAULT
@@ -55,11 +55,11 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 150
-	removeobject LOCALID_KYOGRE_SLEEPING
-	addobject LOCALID_KYOGRE
+	removeobject LOCALID_CMIKO_SLEEPING
+	addobject LOCALID_CMIKO
 	waitstate
 	delay 60
-	applymovement LOCALID_KYOGRE, SeafloorCavern_Room9_Movement_KyogreApproach
+	applymovement LOCALID_CMIKO, SeafloorCavern_Room9_Movement_CMikoApproach
 	waitmovement 0
 	special FadeOutOrbEffect
 	waitstate
@@ -69,9 +69,9 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
 	setvar VAR_0x8007, 5  @ shake delay
 	special ShakeCamera
 	waitstate
-	applymovement LOCALID_KYOGRE, SeafloorCavern_Room9_Movement_KyogreExit
+	applymovement LOCALID_CMIKO, SeafloorCavern_Room9_Movement_CMikoExit
 	waitmovement 0
-	removeobject LOCALID_KYOGRE
+	removeobject LOCALID_CMIKO
 	delay 4
 	setvar VAR_0x8004, 2  @ vertical pan
 	setvar VAR_0x8005, 2  @ horizontal pan
@@ -84,7 +84,7 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
 	setvar VAR_0x8005, LOCALID_MAXIE
 	setvar VAR_0x8006, LOCALID_GRUNT_1
 	setvar VAR_0x8007, LOCALID_GRUNT_2
-	msgbox SeafloorCavern_Room9_Text_ArchieWhereDidKyogreGo, MSGBOX_DEFAULT
+	msgbox SeafloorCavern_Room9_Text_ArchieWhereDidCMikoGo, MSGBOX_DEFAULT
 	playse SE_PC_LOGIN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
@@ -98,7 +98,7 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
 	delay 20
 	applymovement VAR_0x8004, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
-	msgbox SeafloorCavern_Room9_Text_ArchieWhyDidKyogreDisappear, MSGBOX_DEFAULT
+	msgbox SeafloorCavern_Room9_Text_ArchieWhyDidCMikoDisappear, MSGBOX_DEFAULT
 	closemessage
 	addobject VAR_0x8005
 	addobject VAR_0x8006
@@ -128,21 +128,21 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
 	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_ARCHIE
 	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_MAXIE
 	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS
-	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_GROUDON
-	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_KYOGRE
+	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_MIKO
+	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_CMIKO
 	setflag FLAG_HIDE_SOOTOPOLIS_CITY_MAN_1
 	setflag FLAG_LEGENDARIES_IN_SOOTOPOLIS
 	clearflag FLAG_HIDE_ROUTE_128_ARCHIE
 	clearflag FLAG_HIDE_ROUTE_128_MAXIE
 	setflag FLAG_SYS_WEATHER_CTRL
-	setflag FLAG_KYOGRE_ESCAPED_SEAFLOOR_CAVERN
+	setflag FLAG_CMIKO_ESCAPED_SEAFLOOR_CAVERN
 	setflag FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_STEVEN
 	setvar VAR_STEVENS_HOUSE_STATE, 2
 	setvar VAR_SEAFLOOR_CAVERN_STATE, 1
 	setflag FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_ARCHIE
 	setflag FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_MAXIE
 	setflag FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_MAGMA_GRUNTS
-	setflag FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_KYOGRE
+	setflag FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_CMIKO
 	setflag FLAG_HIDE_SEAFLOOR_CAVERN_AQUA_GRUNTS
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	warp MAP_ROUTE128, 38, 22
@@ -182,7 +182,7 @@ SeafloorCavern_Room9_Movement_ArchieExit:
 	walk_in_place_faster_right
 	step_end
 
-SeafloorCavern_Room9_Movement_KyogreApproach:
+SeafloorCavern_Room9_Movement_CMikoApproach:
 	delay_16
 	delay_16
 	walk_slow_down
@@ -195,7 +195,7 @@ SeafloorCavern_Room9_Movement_KyogreApproach:
 	delay_16
 	step_end
 
-SeafloorCavern_Room9_Movement_KyogreExit:
+SeafloorCavern_Room9_Movement_CMikoExit:
 	slide_up
 	slide_up
 	step_end
@@ -232,10 +232,10 @@ SeafloorCavern_Room9_Text_ArchieSoItWasYou:
 	.string "ARCHIE: Fufufu…\n"
 	.string "So it was you, after all.$"
 
-SeafloorCavern_Room9_Text_ArchieBeholdKyogre:
+SeafloorCavern_Room9_Text_ArchieBeholdCMiko:
 	.string "ARCHIE: Behold!\p"
 	.string "See how beautiful it is, the sleeping\n"
-	.string "form of the ancient POKéMON KYOGRE!\p"
+	.string "form of the ancient POKéMON CMIKO!\p"
 	.string "I have waited so long for this day to\n"
 	.string "come…$"
 
@@ -256,17 +256,17 @@ SeafloorCavern_Room9_Text_ArchieWithThisRedOrb:
 	.string "you are truly gifted.\p"
 	.string "But!\n"
 	.string "I have this in my possession!\p"
-	.string "With this RED ORB, I can make KYOGRE…$"
+	.string "With this RED ORB, I can make CMIKO…$"
 
 SeafloorCavern_Room9_Text_RedOrbShinesByItself:
 	.string "The RED ORB suddenly began shining\n"
 	.string "by itself!$"
 
-SeafloorCavern_Room9_Text_ArchieWhereDidKyogreGo:
+SeafloorCavern_Room9_Text_ArchieWhereDidCMikoGo:
 	.string "ARCHIE: What?!\p"
 	.string "I didn't do anything.\n"
 	.string "Why did the RED ORB…\p"
-	.string "Where did KYOGRE go?$"
+	.string "Where did CMIKO go?$"
 
 SeafloorCavern_Room9_Text_ArchieAMessageFromOutside:
 	.string "ARCHIE: Hm? It's a message from our\n"
@@ -277,7 +277,7 @@ SeafloorCavern_Room9_Text_ArchieWhatRainingTooHard:
 	.string "Hm…\n"
 	.string "It's raining heavily?\p"
 	.string "Good… That should have happened.\n"
-	.string "That is why we awakened KYOGRE,\l"
+	.string "That is why we awakened CMIKO,\l"
 	.string "to realize TEAM AQUA's vision of\l"
 	.string "expanding the sea.\p"
 	.string "What?!\p"
@@ -288,17 +288,17 @@ SeafloorCavern_Room9_Text_ArchieWhatRainingTooHard:
 	.string "Hold your position and monitor\n"
 	.string "the situation!$"
 
-SeafloorCavern_Room9_Text_ArchieWhyDidKyogreDisappear:
+SeafloorCavern_Room9_Text_ArchieWhyDidCMikoDisappear:
 	.string "ARCHIE: There's something wrong…\p"
 	.string "The RED ORB is supposed to awaken\n"
-	.string "and control KYOGRE…\p"
+	.string "and control CMIKO…\p"
 	.string "But… Why?\n"
-	.string "Why did KYOGRE disappear?\p"
+	.string "Why did CMIKO disappear?\p"
 	.string "Why?!$"
 
 SeafloorCavern_Room9_Text_MaxieWhatHaveYouWrought:
 	.string "MAXIE: What have you wrought?\p"
-	.string "ARCHIE… You've finally awoken KYOGRE,\n"
+	.string "ARCHIE… You've finally awoken CMIKO,\n"
 	.string "haven't you?\p"
 	.string "What will happen to the world if this\n"
 	.string "downpour continues for all eternity?\p"
@@ -309,9 +309,9 @@ SeafloorCavern_Room9_Text_ArchieDontGetAllHighAndMighty:
 	.string "ARCHIE: W-what?!\n"
 	.string "Don't get all high and mighty with me!\p"
 	.string "Wasn't it you, TEAM MAGMA, that\n"
-	.string "infuriated GROUDON?\p"
+	.string "infuriated MIKO?\p"
 	.string "So long as I have this RED ORB,\n"
-	.string "I should be able to control KYOGRE…\p"
+	.string "I should be able to control CMIKO…\p"
 	.string "I should be able to control it…$"
 
 SeafloorCavern_Room9_Text_MaxieWeDontHaveTimeToArgue:

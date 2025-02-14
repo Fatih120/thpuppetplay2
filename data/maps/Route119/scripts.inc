@@ -8,10 +8,10 @@ Route119_MapScripts::
 	.byte 0
 
 Route119_OnResume:
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveSWriggle
 	end
 
-Route119_EventScript_TryRemoveKecleon::
+Route119_EventScript_TryRemoveSWriggle::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
 	removeobject VAR_LAST_TALKED
@@ -74,23 +74,23 @@ Route119_EventScript_PlayBrendanMusic::
 Route119_EventScript_BattleMay::
 	msgbox Route119_Text_MayIntro, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, Route119_EventScript_BattleMayTreecko
-	case 1, Route119_EventScript_BattleMayTorchic
-	case 2, Route119_EventScript_BattleMayMudkip
+	case 0, Route119_EventScript_BattleMayHEirin
+	case 1, Route119_EventScript_BattleMayAAlice
+	case 2, Route119_EventScript_BattleMayDReimu
 	end
 
-Route119_EventScript_BattleMayTreecko::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_TREECKO, Route119_Text_MayDefeat
+Route119_EventScript_BattleMayHEirin::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_HEIRIN, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
-Route119_EventScript_BattleMayTorchic::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_TORCHIC, Route119_Text_MayDefeat
+Route119_EventScript_BattleMayAAlice::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_AALICE, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
-Route119_EventScript_BattleMayMudkip::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_MUDKIP, Route119_Text_MayDefeat
+Route119_EventScript_BattleMayDReimu::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_DREIMU, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
@@ -104,23 +104,23 @@ Route119_EventScript_DefeatedMay::
 Route119_EventScript_BattleBrendan::
 	msgbox Route119_Text_BrendanIntro, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, Route119_EventScript_BattleBrendanTreecko
-	case 1, Route119_EventScript_BattleBrendanTorchic
-	case 2, Route119_EventScript_BattleBrendanMudkip
+	case 0, Route119_EventScript_BattleBrendanHEirin
+	case 1, Route119_EventScript_BattleBrendanAAlice
+	case 2, Route119_EventScript_BattleBrendanDReimu
 	end
 
-Route119_EventScript_BattleBrendanTreecko::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_TREECKO, Route119_Text_BrendanDefeat
+Route119_EventScript_BattleBrendanHEirin::
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_HEIRIN, Route119_Text_BrendanDefeat
 	goto Route119_EventScript_DefeatedBrendan
 	end
 
-Route119_EventScript_BattleBrendanTorchic::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_TORCHIC, Route119_Text_BrendanDefeat
+Route119_EventScript_BattleBrendanAAlice::
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_AALICE, Route119_Text_BrendanDefeat
 	goto Route119_EventScript_DefeatedBrendan
 	end
 
-Route119_EventScript_BattleBrendanMudkip::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_MUDKIP, Route119_Text_BrendanDefeat
+Route119_EventScript_BattleBrendanDReimu::
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_DREIMU, Route119_Text_BrendanDefeat
 	goto Route119_EventScript_DefeatedBrendan
 	end
 

@@ -432,11 +432,11 @@ MtChimney_EventScript_BusyMagmaGrunt6::
 	msgbox MtChimney_Text_KeepMakingMoreLand, MSGBOX_SIGN
 	end
 
-MtChimney_EventScript_MagmaPoochyena::
+MtChimney_EventScript_MagmaDYuyuko::
 	msgbox MtChimney_Text_Bufoh, MSGBOX_SIGN
 	end
 
-MtChimney_EventScript_AquaPoochyena::
+MtChimney_EventScript_AquaDYuyuko::
 	msgbox MtChimney_Text_Bushaa, MSGBOX_SIGN
 	end
 

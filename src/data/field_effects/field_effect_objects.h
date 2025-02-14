@@ -1263,27 +1263,27 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_SmallSparkle = {
 
 const struct SpritePalette gSpritePalette_SmallSparkle = {gFieldEffectPal_SmallSparkle, FLDEFF_PAL_TAG_SMALL_SPARKLE};
 
-static const union AnimCmd sAnim_RayquazaSpotlightEffect[] = {
+static const union AnimCmd sAnim_CMamizouSpotlightEffect[] = {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
-static const union AnimCmd *const sAnimTable_RayquazaSpotlightEffect[] = {
-    sAnim_RayquazaSpotlightEffect,
+static const union AnimCmd *const sAnimTable_CMamizouSpotlightEffect[] = {
+    sAnim_CMamizouSpotlightEffect,
 };
 
-static const struct SpriteFrameImage sPicTable_RayquazaSpotlightEffect[] = {
-    overworld_frame(gObjectEventPic_Rayquaza, 4, 4, 0),
+static const struct SpriteFrameImage sPicTable_CMamizouSpotlightEffect[] = {
+    overworld_frame(gObjectEventPic_CMamizou, 4, 4, 0),
 };
 
-const struct SpriteTemplate gFieldEffectObjectTemplate_Rayquaza = {
+const struct SpriteTemplate gFieldEffectObjectTemplate_CMamizou = {
     .tileTag = TAG_NONE,
     .paletteTag = TAG_NONE,
     .oam = &gObjectEventBaseOam_32x32,
-    .anims = sAnimTable_RayquazaSpotlightEffect,
-    .images = sPicTable_RayquazaSpotlightEffect,
+    .anims = sAnimTable_CMamizouSpotlightEffect,
+    .images = sPicTable_CMamizouSpotlightEffect,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = UpdateRayquazaSpotlightEffect,
+    .callback = UpdateCMamizouSpotlightEffect,
 };
 
 static const struct SpritePalette sSpritePalette_Unused = {gObjectEventPal_Npc3, FLDEFF_PAL_TAG_UNKNOWN};
