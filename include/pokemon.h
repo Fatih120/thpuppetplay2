@@ -320,7 +320,7 @@ struct SpeciesInfo
  /* 0x14 */ u8 eggGroups[2];
  /* 0x16 */ u8 abilities[2];
  /* 0x18 */ u8 safariZoneFleeRate;
- /* 0x19 */ u8 bodyColor : 7;
+ /* 0x19 */ u8 sourceGame : 7;
             u8 noFlip : 1;
 };
 

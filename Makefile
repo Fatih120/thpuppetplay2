@@ -1,13 +1,13 @@
 # GBA rom header
-TITLE       := POKEMON EMER
-GAME_CODE   := BPEE
+TITLE       := THPUPPETPLAY
+GAME_CODE   := CTPE
 MAKER_CODE  := 01
 REVISION    := 0
 MODERN      ?= 0
 KEEP_TEMPS  ?= 0
 
 # `File name`.gba ('_modern' will be appended to the modern builds)
-FILE_NAME := pokeemerald
+FILE_NAME := thpuppetplay2
 BUILD_DIR := build
 
 # Builds the ROM using a modern compiler

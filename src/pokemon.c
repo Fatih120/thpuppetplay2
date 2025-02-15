@@ -3423,7 +3423,7 @@ static union PokemonSubstruct *GetSubstruct(struct BoxPokemon *boxMon, u32 perso
  * safety we have a GetMonData macro (in include/pokemon.h) which
  * dispatches to either GetMonData2 or GetMonData3 based on the number
  * of arguments. */
-u32 GetMonData3(struct Pokemon *mon, s32 field, u8 *data)
+u32 GetMonData3(struct Pokemon *mon, s32 field, u8 *data) // @@@ ALIAS
 {
     u32 ret;
 
@@ -3481,13 +3481,13 @@ u32 GetMonData3(struct Pokemon *mon, s32 field, u8 *data)
     return ret;
 }
 
-u32 GetMonData2(struct Pokemon *mon, s32 field) __attribute__((alias("GetMonData3")));
+u32 GetMonData2(struct Pokemon *mon, s32 field) __attribute__((alias("GetMonData3"))); // @@@ ALIAS
 
 /* GameFreak called GetBoxMonData with either 2 or 3 arguments, for type
  * safety we have a GetBoxMonData macro (in include/pokemon.h) which
  * dispatches to either GetBoxMonData2 or GetBoxMonData3 based on the
  * number of arguments. */
-u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
+u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data) // @@@ ALIAS
 {
     s32 i;
     u32 retVal = 0;
@@ -3619,7 +3619,7 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_PP2:
     case MON_DATA_PP3:
     case MON_DATA_PP4:
-        retVal = substruct1->pp[field - MON_DATA_PP1];
+        retVal = substruct1->pp[field - MON_DATA_PP1]; // @@@ WARNING
         break;
     case MON_DATA_HP_EV:
         retVal = substruct2->hpEV;
@@ -3843,7 +3843,7 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
     return retVal;
 }
 
-u32 GetBoxMonData2(struct BoxPokemon *boxMon, s32 field) __attribute__((alias("GetBoxMonData3")));
+u32 GetBoxMonData2(struct BoxPokemon *boxMon, s32 field) __attribute__((alias("GetBoxMonData3"))); // @@@ ALIAS
 
 #define SET8(lhs) (lhs) = *data
 #define SET16(lhs) (lhs) = data[0] + (data[1] << 8)
