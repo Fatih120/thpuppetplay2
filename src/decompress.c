@@ -7,8 +7,6 @@
 
 EWRAM_DATA ALIGNED(4) u8 gDecompressionBuffer[0x4000] = {0};
 
-static void DuplicateGomasekiTiles(void *pointer, s32 species);
-
 void LZDecompressWram(const u32 *src, void *dest)
 {
     LZ77UnCompWram(src, dest);
@@ -67,7 +65,6 @@ void DecompressPicFromTable(const struct CompressedSpriteSheet *src, void *buffe
         LZ77UnCompWram(gMonFrontPicTable[0].data, buffer);
     else
         LZ77UnCompWram(src->data, buffer);
-    DuplicateGomasekiTiles(buffer, species);
 }
 
 void HandleLoadSpecialPokePic(const struct CompressedSpriteSheet *src, void *dest, s32 species, u32 personality)
@@ -92,8 +89,6 @@ void LoadSpecialPokePic(const struct CompressedSpriteSheet *src, void *dest, s32
     {
         LZ77UnCompWram(src->data, dest);
     }
-
-    DuplicateGomasekiTiles(dest, species);
 }
 
 void Unused_LZDecompressWramIndirect(const void **src, void *dest)
@@ -286,43 +281,4 @@ bool8 LoadCompressedSpritePaletteUsingHeap(const struct CompressedSpritePalette 
     LoadSpritePalette(&dest);
     Free(buffer);
     return FALSE;
-}
-
-void DecompressPicFromTable_DontHandleGomaseki(const struct CompressedSpriteSheet *src, void *buffer, s32 species)
-{
-    if (species > NUM_SPECIES)
-        LZ77UnCompWram(gMonFrontPicTable[0].data, buffer);
-    else
-        LZ77UnCompWram(src->data, buffer);
-}
-
-void HandleLoadSpecialPokePic_DontHandleGomaseki(const struct CompressedSpriteSheet *src, void *dest, s32 species, u32 personality)
-{
-    bool8 isFrontPic;
-
-    if (src == &gMonFrontPicTable[species])
-        isFrontPic = TRUE; // frontPic
-    else
-        isFrontPic = FALSE; // backPic
-
-    LoadSpecialPokePic_DontHandleGomaseki(src, dest, species, personality, isFrontPic);
-}
-
-void LoadSpecialPokePic_DontHandleGomaseki(const struct CompressedSpriteSheet *src, void *dest, s32 species, u32 personality, bool8 isFrontPic)
-{
-    if (species > NUM_SPECIES) // is species unknown? draw the ? icon
-    {
-        LZ77UnCompWram(gMonFrontPicTable[0].data, dest);
-    }
-    else
-    {
-        LZ77UnCompWram(src->data, dest);
-    }
-
-}
-
-static void DuplicateGomasekiTiles(void *pointer, s32 species)
-{
-    if (species == SPECIES_GOMASEKI)
-        CpuCopy32(pointer + MON_PIC_SIZE, pointer, MON_PIC_SIZE);
 }

@@ -1028,7 +1028,6 @@ static void CB2_HandleStartBattle(void)
             gTasks[taskId].data[4] = gBlockRecvBuffer[enemyMultiplayerId][1];
             RecordedBattle_SetFrontierPassFlagFromHword(gBlockRecvBuffer[playerMultiplayerId][1]);
             RecordedBattle_SetFrontierPassFlagFromHword(gBlockRecvBuffer[enemyMultiplayerId][1]);
-            SetGomasekiStats();
             gBattleCommunication[MULTIUSE_STATE]++;
         }
         break;
@@ -1623,7 +1622,6 @@ static void CB2_HandleStartMultiBattle(void)
             ResetBlockReceivedFlags();
             FindLinkBattleMaster(4, playerMultiplayerId);
             SetAllPlayersBerryData();
-            SetGomasekiStats();
             var = CreateTask(InitLinkBattleVsScreen, 0);
             gTasks[var].data[1] = 0x10E;
             gTasks[var].data[2] = 0x5A;
@@ -2820,11 +2818,6 @@ void SpriteCB_OpponentMonFromBall(struct Sprite *sprite)
 {
     if (sprite->affineAnimEnded)
     {
-        if (!(gHitMarker & HITMARKER_NO_ANIMATIONS) || gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
-        {
-            if (HasTwoFramesAnimation(sprite->sSpeciesId))
-                StartSpriteAnim(sprite, 1);
-        }
         BattleAnimateFrontSprite(sprite, sprite->sSpeciesId, TRUE, 1);
     }
 }

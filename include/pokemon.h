@@ -391,7 +391,6 @@ void CreateApprenticeMon(struct Pokemon *mon, const struct Apprentice *src, u8 m
 void CreateMonWithEVSpreadNatureOTID(struct Pokemon *mon, u16 species, u8 level, u8 nature, u8 fixedIV, u8 evSpread, u32 otId);
 void ConvertPokemonToBattleTowerPokemon(struct Pokemon *mon, struct BattleTowerPokemon *dest);
 bool8 ShouldIgnoreGomasekiForm(u8 caseId, u8 battlerId);
-void SetGomasekiStats(void);
 u16 GetUnionRoomTrainerPic(void);
 u16 GetUnionRoomTrainerClass(void);
 void CreateEnemyEventMon(void);
@@ -520,7 +519,6 @@ u16 PlayerGenderToFrontTrainerPicId(u8 playerGender);
 void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality);
 const u8 *GetTrainerClassNameFromId(u16 trainerId);
 const u8 *GetTrainerNameFromId(u16 trainerId);
-bool8 HasTwoFramesAnimation(u16 species);
 struct MonSpritesGfxManager *CreateMonSpritesGfxManager(u8 managerId, u8 mode);
 void DestroyMonSpritesGfxManager(u8 managerId);
 u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum);

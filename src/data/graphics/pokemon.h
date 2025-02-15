@@ -2688,14 +2688,6 @@ const u32 gMonPalette_Gomaseki[] = INCBIN_U32("graphics/pokemon/gomaseki/normal.
 const u32 gMonBackPic_Gomaseki[] = INCBIN_U32("graphics/pokemon/gomaseki/back.4bpp.lz");
 const u32 gMonShinyPalette_Gomaseki[] = INCBIN_U32("graphics/pokemon/gomaseki/shiny.gbapal.lz");
 const u8 gMonIcon_Gomaseki[] = INCBIN_U8("graphics/pokemon/gomaseki/icon.4bpp");
-const u8 gMonIcon_GomasekiSpeed[] = INCBIN_U8("graphics/pokemon/gomaseki/icon_speed.4bpp");
-const u8 gMonIcon_GomasekiSpeedWide[] = INCBIN_U8("graphics/pokemon/gomaseki/icon_speed_wide.4bpp"); // Unused
-
-// Probably the leftover space from the other Gomaseki forms
-static const u8 sEmpty[0x6800] = {0};
-
-const u16 gMonUnusedGarbage[] = INCBIN_U16("graphics/pokemon/unused_garbage.bin");
-
 const u8 gMonFootprint_Gomaseki[] = INCBIN_U8("graphics/pokemon/gomaseki/footprint.1bpp");
 
 const u32 gMonStillFrontPic_CWakasagi[] = INCBIN_U32("graphics/pokemon/cwakasagi/front.4bpp.lz");

@@ -591,7 +591,7 @@ void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
 
     otId = GetMonData(mon, MON_DATA_OT_ID);
     position = GetBattlerPosition(battlerId);
-    HandleLoadSpecialPokePic_DontHandleGomaseki(&gMonFrontPicTable[species],
+    HandleLoadSpecialPokePic(&gMonFrontPicTable[species],
                                               gMonSpritesGfxPtr->sprites.ptr[position],
                                               species, currentPersonality);
 
@@ -638,18 +638,9 @@ void BattleLoadPlayerMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
     otId = GetMonData(mon, MON_DATA_OT_ID);
     position = GetBattlerPosition(battlerId);
 
-    if (ShouldIgnoreGomasekiForm(1, battlerId) == TRUE || gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != SPECIES_NONE)
-    {
-        HandleLoadSpecialPokePic_DontHandleGomaseki(&gMonBackPicTable[species],
-                                                  gMonSpritesGfxPtr->sprites.ptr[position],
-                                                  species, currentPersonality);
-    }
-    else
-    {
-        HandleLoadSpecialPokePic(&gMonBackPicTable[species],
-                                gMonSpritesGfxPtr->sprites.ptr[position],
-                                species, currentPersonality);
-    }
+    HandleLoadSpecialPokePic(&gMonBackPicTable[species],
+                            gMonSpritesGfxPtr->sprites.ptr[position],
+                            species, currentPersonality);
 
     paletteOffset = OBJ_PLTT_ID(battlerId);
 
@@ -923,7 +914,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 notTransform
         personalityValue = gContestResources->moveAnim->personality;
         otId = gContestResources->moveAnim->otId;
 
-        HandleLoadSpecialPokePic_DontHandleGomaseki(&gMonBackPicTable[targetSpecies],
+        HandleLoadSpecialPokePic(&gMonBackPicTable[targetSpecies],
                                                   gMonSpritesGfxPtr->sprites.ptr[position],
                                                   targetSpecies,
                                                   gContestResources->moveAnim->targetPersonality);
@@ -942,7 +933,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 notTransform
             personalityValue = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_PERSONALITY);
             otId = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_OT_ID);
 
-            HandleLoadSpecialPokePic_DontHandleGomaseki(&gMonBackPicTable[targetSpecies],
+            HandleLoadSpecialPokePic(&gMonBackPicTable[targetSpecies],
                                                       gMonSpritesGfxPtr->sprites.ptr[position],
                                                       targetSpecies,
                                                       gTransformedPersonalities[battlerAtk]);
@@ -952,7 +943,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 notTransform
             personalityValue = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_PERSONALITY);
             otId = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_OT_ID);
 
-            HandleLoadSpecialPokePic_DontHandleGomaseki(&gMonFrontPicTable[targetSpecies],
+            HandleLoadSpecialPokePic(&gMonFrontPicTable[targetSpecies],
                                                       gMonSpritesGfxPtr->sprites.ptr[position],
                                                       targetSpecies,
                                                       gTransformedPersonalities[battlerAtk]);

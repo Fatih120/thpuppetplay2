@@ -569,8 +569,7 @@ static void CB2_CreateTradeMenu(void)
                                                          (sTradeMonSpriteCoords[i][0] * 8) + 14,
                                                          (sTradeMonSpriteCoords[i][1] * 8) - 12,
                                                          1,
-                                                         GetMonData(mon, MON_DATA_PERSONALITY),
-                                                         TRUE);
+                                                         GetMonData(mon, MON_DATA_PERSONALITY));
         }
 
         for (i = 0; i < sTradeMenu->partyCounts[TRADE_PARTNER]; i++)
@@ -581,8 +580,7 @@ static void CB2_CreateTradeMenu(void)
                                                          (sTradeMonSpriteCoords[i + PARTY_SIZE][0] * 8) + 14,
                                                          (sTradeMonSpriteCoords[i + PARTY_SIZE][1] * 8) - 12,
                                                          1,
-                                                         GetMonData(mon, MON_DATA_PERSONALITY),
-                                                         FALSE);
+                                                         GetMonData(mon, MON_DATA_PERSONALITY));
         }
         gMain.state++;
         break;
@@ -760,8 +758,7 @@ static void CB2_ReturnToTradeMenu(void)
                                                          (sTradeMonSpriteCoords[i][0] * 8) + 14,
                                                          (sTradeMonSpriteCoords[i][1] * 8) - 12,
                                                          1,
-                                                         GetMonData(mon, MON_DATA_PERSONALITY),
-                                                         TRUE);
+                                                         GetMonData(mon, MON_DATA_PERSONALITY));
         }
 
         for (i = 0; i < sTradeMenu->partyCounts[TRADE_PARTNER]; i++)
@@ -772,8 +769,7 @@ static void CB2_ReturnToTradeMenu(void)
                                                          (sTradeMonSpriteCoords[i + PARTY_SIZE][0] * 8) + 14,
                                                          (sTradeMonSpriteCoords[i + PARTY_SIZE][1] * 8) - 12,
                                                          1,
-                                                         GetMonData(mon, MON_DATA_PERSONALITY),
-                                                         FALSE);
+                                                         GetMonData(mon, MON_DATA_PERSONALITY));
         }
         gMain.state++;
         break;
@@ -2806,10 +2802,7 @@ static void LoadTradeMonPic(u8 whichParty, u8 state)
         species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
         personality = GetMonData(mon, MON_DATA_PERSONALITY);
 
-        if (whichParty == TRADE_PLAYER)
-            HandleLoadSpecialPokePic(&gMonFrontPicTable[species], gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
-        else
-            HandleLoadSpecialPokePic_DontHandleGomaseki(&gMonFrontPicTable[species], gMonSpritesGfxPtr->sprites.ptr[whichParty * 2 + B_POSITION_OPPONENT_LEFT], species, personality);
+        (&gMonFrontPicTable[species], gMonSpritesGfxPtr->sprites.ptr[whichParty * 2 + B_POSITION_OPPONENT_LEFT], species, personality);
 
         LoadCompressedSpritePalette(GetMonSpritePalStruct(mon));
         sTradeAnim->monSpecies[whichParty] = species;

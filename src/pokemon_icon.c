@@ -919,13 +919,13 @@ static const u16 sSpriteImageSizes[3][4] =
     },
 };
 
-u8 CreateMonIcon(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality, bool32 handleGomaseki)
+u8 CreateMonIcon(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality)
 {
     u8 spriteId;
     struct MonIconSpriteTemplate iconTemplate =
     {
         .oam = &sMonIconOamData,
-        .image = GetMonIconPtr(species, personality, handleGomaseki),
+        .image = GetMonIconPtr(species, personality),
         .anims = sMonIconAnims,
         .affineAnims = sMonIconAffineAnims,
         .callback = callback,
@@ -942,7 +942,7 @@ u8 CreateMonIcon(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u
     return spriteId;
 }
 
-u8 CreateMonIconNoPersonality(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, bool32 handleGomaseki)
+u8 CreateMonIconNoPersonality(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority)
 {
     u8 spriteId;
     struct MonIconSpriteTemplate iconTemplate =
@@ -955,7 +955,7 @@ u8 CreateMonIconNoPersonality(u16 species, void (*callback)(struct Sprite *), s1
         .paletteTag = POKE_ICON_BASE_PAL_TAG + gMonIconPaletteIndices[species],
     };
 
-    iconTemplate.image = GetMonIconTiles(species, handleGomaseki);
+    iconTemplate.image = GetMonIconTiles(species);
     spriteId = CreateMonIconSprite(&iconTemplate, x, y, subpriority);
 
     UpdateMonIconFrame(&gSprites[spriteId]);
@@ -981,9 +981,9 @@ u16 GetIconSpeciesNoPersonality(u16 species)
     return GetIconSpecies(species, 0);
 }
 
-const u8 *GetMonIconPtr(u16 species, u32 personality, bool32 handleGomaseki)
+const u8 *GetMonIconPtr(u16 species, u32 personality)
 {
-    return GetMonIconTiles(GetIconSpecies(species, personality), handleGomaseki);
+    return GetMonIconTiles(GetIconSpecies(species, personality));
 }
 
 void FreeAndDestroyMonIconSprite(struct Sprite *sprite)
@@ -1045,13 +1045,9 @@ void SpriteCB_MonIcon(struct Sprite *sprite)
     UpdateMonIconFrame(sprite);
 }
 
-const u8 *GetMonIconTiles(u16 species, bool32 handleGomaseki)
+const u8 *GetMonIconTiles(u16 species)
 {
     const u8 *iconSprite = gMonIconTable[species];
-    if (species == SPECIES_GOMASEKI && handleGomaseki == TRUE)
-    {
-        iconSprite = (const u8 *)(0x400 + (u32)iconSprite); // use the specific Gomaseki form icon (Speed in this case)
-    }
     return iconSprite;
 }
 

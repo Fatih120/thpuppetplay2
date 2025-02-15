@@ -183,7 +183,6 @@ static EWRAM_DATA struct PokemonSummaryScreenData
     u8 filler40CA;
     u8 windowIds[8];
     u8 spriteIds[SPRITE_ARR_ID_COUNT];
-    bool8 handleGomaseki;
     s16 switchCounter; // Used for various switch statement cases that decompress/load graphics or Pokémon data
     u8 unk_filler4[6];
 } *sMonSummaryScreen = NULL;
@@ -1125,12 +1124,6 @@ void ShowSelectMovePokemonSummaryScreen(struct Pokemon *mons, u8 monIndex, u8 ma
     sMonSummaryScreen->newMove = newMove;
 }
 
-void ShowPokemonSummaryScreenHandleGomaseki(u8 mode, struct BoxPokemon *mons, u8 monIndex, u8 maxMonIndex, void (*callback)(void))
-{
-    ShowPokemonSummaryScreen(mode, mons, monIndex, maxMonIndex, callback);
-    sMonSummaryScreen->handleGomaseki = TRUE;
-}
-
 static void MainCB2(void)
 {
     RunTasks();
@@ -1409,7 +1402,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->ppBonuses = GetMonData(mon, MON_DATA_PP_BONUSES);
         break;
     case 2:
-        if (sMonSummaryScreen->monList.mons == gPlayerParty || sMonSummaryScreen->mode == SUMMARY_MODE_BOX || sMonSummaryScreen->handleGomaseki == TRUE)
+        if (sMonSummaryScreen->monList.mons == gPlayerParty || sMonSummaryScreen->mode == SUMMARY_MODE_BOX )
         {
             sum->nature = GetNature(mon);
             sum->currentHP = GetMonData(mon, MON_DATA_HP);
@@ -3881,44 +3874,26 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state)
     case 0:
         if (gMain.inBattle)
         {
-            if (ShouldIgnoreGomasekiForm(3, sMonSummaryScreen->curMonIndex))
-                HandleLoadSpecialPokePic_DontHandleGomaseki(&gMonFrontPicTable[summary->species2],
-                                                          gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
-                                                          summary->species2,
-                                                          summary->pid);
-            else
-                HandleLoadSpecialPokePic(&gMonFrontPicTable[summary->species2],
-                                           gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
-                                           summary->species2,
-                                           summary->pid);
+            HandleLoadSpecialPokePic(&gMonFrontPicTable[summary->species2],
+                                       gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
+                                       summary->species2,
+                                       summary->pid);
         }
         else
         {
             if (gMonSpritesGfxPtr != NULL)
             {
-                if (sMonSummaryScreen->monList.mons == gPlayerParty || sMonSummaryScreen->mode == SUMMARY_MODE_BOX || sMonSummaryScreen->handleGomaseki == TRUE)
-                    HandleLoadSpecialPokePic(&gMonFrontPicTable[summary->species2],
-                                               gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
-                                               summary->species2,
-                                               summary->pid);
-                else
-                    HandleLoadSpecialPokePic_DontHandleGomaseki(&gMonFrontPicTable[summary->species2],
-                                                              gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
-                                                              summary->species2,
-                                                              summary->pid);
+                HandleLoadSpecialPokePic(&gMonFrontPicTable[summary->species2],
+                                                          gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
+                                                          summary->species2,
+                                                          summary->pid);
             }
             else
             {
-                if (sMonSummaryScreen->monList.mons == gPlayerParty || sMonSummaryScreen->mode == SUMMARY_MODE_BOX || sMonSummaryScreen->handleGomaseki == TRUE)
-                    HandleLoadSpecialPokePic(&gMonFrontPicTable[summary->species2],
-                                                MonSpritesGfxManager_GetSpritePtr(MON_SPR_GFX_MANAGER_A, B_POSITION_OPPONENT_LEFT),
-                                                summary->species2,
-                                                summary->pid);
-                else
-                    HandleLoadSpecialPokePic_DontHandleGomaseki(&gMonFrontPicTable[summary->species2],
-                                                              MonSpritesGfxManager_GetSpritePtr(MON_SPR_GFX_MANAGER_A, B_POSITION_OPPONENT_LEFT),
-                                                              summary->species2,
-                                                              summary->pid);
+                HandleLoadSpecialPokePic(&gMonFrontPicTable[summary->species2],
+                                                          MonSpritesGfxManager_GetSpritePtr(MON_SPR_GFX_MANAGER_A, B_POSITION_OPPONENT_LEFT),
+                                                          summary->species2,
+                                                          summary->pid);
             }
         }
         (*state)++;

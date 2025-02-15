@@ -929,7 +929,7 @@ static void Task_HofPC_DrawSpritesPrintText(u8 taskId)
             if (currMon->species == SPECIES_EGG)
                 posY += 10;
 
-            spriteId = CreateMonPicSprite_HandleGomaseki(currMon->species, currMon->tid, currMon->personality, TRUE, posX, posY, i, TAG_NONE);
+            spriteId = CreateMonPicSprite(currMon->species, currMon->tid, currMon->personality, TRUE, posX, posY, i, TAG_NONE);
             gSprites[spriteId].oam.priority = 1;
             gTasks[taskId].tMonSpriteId(i) = spriteId;
         }
