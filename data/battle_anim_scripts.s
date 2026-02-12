@@ -387,6 +387,7 @@ gBattleAnims_StatusConditions::
 
 	.align 2
 gBattleAnims_General::
+	.4byte General_TSanaeChange             @ B_ANIM_TSANAE_CHANGE
 	.4byte General_StatsChange              @ B_ANIM_STATS_CHANGE
 	.4byte General_SubstituteFade           @ B_ANIM_SUBSTITUTE_FADE
 	.4byte General_SubstituteAppear         @ B_ANIM_SUBSTITUTE_APPEAR
@@ -10295,6 +10296,13 @@ Status_Nightmare:
 	clearmonbg ANIM_DEF_PARTNER
 	end
 
+General_TSanaeChange:
+       end
+TSanaeChangeContinue:
+       end
+TSanaeChangeSkipAnim:
+       end
+	   
 General_StatsChange:
 	createvisualtask AnimTask_StatsChange, 5
 	waitforvisualfinish
